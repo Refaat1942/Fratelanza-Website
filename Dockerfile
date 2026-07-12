@@ -19,7 +19,7 @@ RUN npm run build && npm prune --omit=dev
 FROM node:22-alpine AS production
 WORKDIR /app
 
-RUN apk add --no-cache tini
+RUN apk add --no-cache tini wget
 
 COPY --from=backend-build /app/backend/package.json ./package.json
 COPY --from=backend-build /app/backend/node_modules ./node_modules

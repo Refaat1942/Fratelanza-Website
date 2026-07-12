@@ -7,21 +7,67 @@ DOMAIN="www.fratelanza.com"
 CONF_NAME="fratelanza-corporate"
 PROJECT_DIR="${PROJECT_DIR:-/opt/fratelanza-website}"
 EMAIL="${CERTBOT_EMAIL:-info@fratelanza.com}"
+HEALTH_URL="http://127.0.0.1:11000/api/health"
 
 echo "=== Fratelanza Domain Setup: $DOMAIN ==="
 
 # 1. Verify project exists
 if [ ! -f "$PROJECT_DIR/deployment/nginx/fratelanza-website.conf" ]; then
   echo "ERROR: Project not found at $PROJECT_DIR"
-  echo "Run: cd /opt && git clone https://github.com/Refaat1942/Fratelanza-Website.git fratelanza-website"
   exit 1
 fi
 
-# 2. Verify container is running
-echo "Checking container health..."
-if ! curl -sf "http://127.0.0.1:11000/api/health" > /dev/null; then
+# Helper: HTTP GET health check (curl or wget)
+check_health() {
+  if command -v curl &>/dev/null; then
+    curl -sf "$HEALTH_URL" > /dev/null 2>&1
+  elif command -v wget &>/dev/null; then
+    wget -qO- "$HEALTH_URL" > /dev/null 2>&1
+  else
+    echo "ERROR: Install curl or wget: apt install curl -y"
+    exit 1
+  fi
+}
+
+show_diagnostics() {
+  echo ""
+  echo "=== Diagnostics ==="
+  docker ps -a --filter name=fratelanza-website --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' 2>/dev/null || true
+  echo ""
+  echo "--- Last 40 log lines ---"
+  docker logs fratelanza-website --tail 40 2>&1 || true
+  echo ""
+  echo "--- Port 11000 ---"
+  ss -tlnp | grep ':11000 ' || echo "Nothing listening on 11000"
+  echo ""
+}
+
+# 2. Verify container is running (wait up to 45s — app needs time after start)
+echo "Checking container health (waiting up to 45s)..."
+HEALTH_OK=0
+for i in $(seq 1 15); do
+  if check_health; then
+    HEALTH_OK=1
+    break
+  fi
+  STATUS=$(docker inspect -f '{{.State.Status}}' fratelanza-website 2>/dev/null || echo "missing")
+  if [ "$STATUS" = "restarting" ] || [ "$STATUS" = "exited" ]; then
+    echo "Container status: $STATUS — checking logs..."
+    show_diagnostics
+    echo "ERROR: Container is not healthy. Fix the error above, then re-run this script."
+    exit 1
+  fi
+  echo "  Attempt $i/15 — not ready yet, waiting 3s..."
+  sleep 3
+done
+
+if [ "$HEALTH_OK" -eq 0 ]; then
   echo "ERROR: Website not responding on port 11000."
-  echo "Run: cd $PROJECT_DIR && docker compose up -d --build"
+  show_diagnostics
+  echo "Try manually:"
+  echo "  cd $PROJECT_DIR && docker compose up -d --build"
+  echo "  docker logs fratelanza-website --tail 50"
+  echo "  curl $HEALTH_URL"
   exit 1
 fi
 echo "Container OK"
@@ -30,7 +76,7 @@ echo "Container OK"
 RESOLVED=$(dig +short "$DOMAIN" 2>/dev/null | tail -1 || true)
 if [ -z "$RESOLVED" ]; then
   echo "WARNING: DNS for $DOMAIN not resolved yet."
-  echo "Add an A record: www -> your VPS IP (187.124.15.14) in Hostinger DNS."
+  echo "Add A record: www -> 187.124.15.14 in Cloudflare (DNS only)."
   echo "Continue anyway? (y/n)"
   read -r ans
   [ "$ans" = "y" ] || exit 1
@@ -53,19 +99,14 @@ echo "Nginx reloaded — http://$DOMAIN should work (no SSL yet)"
 if command -v certbot &>/dev/null; then
   echo "Requesting SSL certificate..."
   sudo certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos -m "$EMAIL" --redirect || {
-    echo "Certbot failed. Run manually after DNS propagates:"
+    echo "Certbot failed. Run manually:"
     echo "  sudo certbot --nginx -d $DOMAIN"
   }
 else
-  echo "Certbot not installed. Install SSL manually:"
-  echo "  sudo apt install certbot python3-certbot-nginx -y"
-  echo "  sudo certbot --nginx -d $DOMAIN"
+  echo "Install certbot: sudo apt install certbot python3-certbot-nginx -y"
+  echo "Then: sudo certbot --nginx -d $DOMAIN"
 fi
 
 echo ""
 echo "=== Done ==="
-echo "  HTTP:  http://$DOMAIN"
-echo "  HTTPS: https://$DOMAIN  (after certbot succeeds)"
-echo ""
-echo "NOTE: fratelanza.com (without www) still uses the OLD nginx site."
-echo "To move apex domain here too, disable /etc/nginx/sites-enabled/fratelanza first."
+echo "  https://$DOMAIN"
