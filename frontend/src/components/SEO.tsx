@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { company } from '@/data/content'
+import { company, t } from '@/data/content'
 
 type SEOProps = {
   title: string
@@ -39,8 +39,8 @@ export function OrganizationSchema() {
     '@type': 'Organization',
     name: company.name,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
-    description: company.tagline,
+    logo: `${SITE_URL}/logo.png`,
+    description: t(company.slogan, 'en'),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: company.phone,

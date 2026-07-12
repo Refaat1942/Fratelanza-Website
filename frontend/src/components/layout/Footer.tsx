@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { company, navLinks, products, overview, t } from '@/data/content'
 import { useI18n } from '@/i18n/context'
 import { Mail, Phone, MessageCircle, MapPin, Share2 } from 'lucide-react'
+import { Logo } from '@/components/ui/Logo'
 
 export function Footer() {
   const { locale } = useI18n()
@@ -12,7 +13,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
-            <img src="/logo.svg" alt={company.name} className="h-10 mb-6" />
+            <Logo size="md" className="mb-4" />
+            <p className="text-sm font-semibold tracking-wider uppercase text-cyan-300/80 mb-4">
+              {t(company.slogan, locale)}
+            </p>
             <p className="text-sm text-white/50 mb-4 leading-relaxed">
               {t(overview.mission, locale)}
             </p>

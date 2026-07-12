@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { DynamicIcon } from '@/components/ui/DynamicIcon'
+import { Logo } from '@/components/ui/Logo'
 import { company, overview, t, products, whyFratelanza } from '@/data/content'
 import { useI18n } from '@/i18n/context'
 import { SEO } from '@/components/SEO'
@@ -22,8 +23,16 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gold-600/5 rounded-full blur-3xl" />
+          <motion.div
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gold-500/10 rounded-full blur-3xl"
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#0d0e10_70%)]" />
         </div>
 
@@ -34,29 +43,52 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <img src="/logo.svg" alt={company.name} className="h-14 mx-auto mb-8 opacity-90" />
-            <p className="text-gold-400 text-sm font-semibold tracking-widest uppercase mb-4">
+            <Logo size="hero" animated showSlogan />
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className="text-gold-400 text-sm font-semibold tracking-widest uppercase mb-6 mt-8"
+            >
               {company.tagline}
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+            >
               {locale === 'en' ? (
                 <>Engineering the <span className="text-gradient-gold">Future</span> of Enterprise</>
               ) : (
                 <>نبني <span className="text-gradient-gold">مستقبل</span> المؤسسات</>
               )}
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+            >
               {t(overview.profile, locale)}
-            </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
               <Button href="/request-demo" size="lg">
                 {locale === 'en' ? 'Request a Demo' : 'اطلب عرضاً'}
                 <ArrowRight className="w-5 h-5" />
               </Button>
-              <Button href="/products" variant="outline" size="lg">
+              <Button href={`https://wa.me/${company.whatsapp}`} variant="outline" size="lg">
+                {locale === 'en' ? 'WhatsApp Us' : 'تواصل واتساب'}
+              </Button>
+              <Button href="/products" variant="secondary" size="lg">
                 {locale === 'en' ? 'Explore Products' : 'استكشف المنتجات'}
               </Button>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -155,18 +187,24 @@ export default function HomePage() {
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Card glow className="p-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {locale === 'en' ? 'Ready to Transform Your Business?' : 'مستعد لتحويل أعمالك؟'}
+            <Logo size="lg" animated className="mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">
+              {t(company.slogan, locale)}
             </h2>
-            <p className="text-white/60 mb-8 max-w-xl mx-auto">
+            <p className="text-white/60 mb-8 max-w-xl mx-auto mt-4">
               {locale === 'en'
                 ? 'Schedule a personalized demo and discover how Fratelanza can power your digital transformation.'
                 : 'احجز عرضاً مخصصاً واكتشف كيف يمكن لفراتيلانزا أن تدعم تحولك الرقمي.'}
             </p>
-            <Button href="/request-demo" size="lg">
-              {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
-              <ArrowRight className="w-5 h-5" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/request-demo" size="lg">
+                {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button href={`https://wa.me/${company.whatsapp}`} size="lg" variant="outline">
+                {company.phone}
+              </Button>
+            </div>
           </Card>
         </div>
       </section>

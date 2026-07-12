@@ -5,6 +5,7 @@ import { Menu, X, Globe, Sun, Moon } from 'lucide-react'
 import { company, navLinks, t } from '@/data/content'
 import { useI18n } from '@/i18n/context'
 import { Button } from '@/components/ui/Button'
+import { Logo } from '@/components/ui/Logo'
 import { cn } from '@/lib/utils'
 
 export function Header() {
@@ -32,7 +33,10 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src="/logo.svg" alt={company.name} className="h-8 lg:h-10" />
+            <Logo size="sm" />
+            <span className="hidden lg:block text-xs font-semibold tracking-widest uppercase text-cyan-300/80 max-w-[140px] leading-tight">
+              {t(company.slogan, locale)}
+            </span>
           </Link>
 
           <nav className="hidden xl:flex items-center gap-1">

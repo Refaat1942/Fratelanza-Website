@@ -3,6 +3,7 @@ import { Header } from './Header'
 import { Footer } from './Footer'
 import { LoadingScreen } from './LoadingScreen'
 import { OrganizationSchema } from '@/components/SEO'
+import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 
 export function Layout() {
   return (
@@ -16,6 +17,7 @@ export function Layout() {
         </main>
         <Footer />
       </div>
+      <WhatsAppButton />
       <ScrollRestoration />
     </>
   )

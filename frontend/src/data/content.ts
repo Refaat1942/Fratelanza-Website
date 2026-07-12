@@ -3,10 +3,13 @@ export type Locale = 'en' | 'ar'
 export const company = {
   name: 'Fratelanza',
   tagline: 'Technology • ERP • AI • Cloud • Digital Transformation',
-  slogan: 'Engineering the Future of Enterprise Operations',
+  slogan: {
+    en: 'Building Tomorrow Together',
+    ar: 'نبني الغد معاً',
+  },
   email: 'info@fratelanza.com',
-  phone: '+20 100 000 0000',
-  whatsapp: '+201000000000',
+  phone: '01097138338',
+  whatsapp: '201097138338',
   address: {
     en: 'Cairo, Egypt',
     ar: 'القاهرة، مصر',
