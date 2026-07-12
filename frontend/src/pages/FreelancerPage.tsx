@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { useI18n } from '@/i18n/context'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { DynamicForm } from '@/components/forms/DynamicForm'
@@ -25,7 +25,7 @@ const freelancerSchema = z.object({
 })
 
 export default function FreelancerPage() {
-  const { locale } = useI18n()
+  const { ui, locale } = useTranslation()
 
   const fields = [
     { name: 'fullName', label: locale === 'en' ? 'Full Name' : 'الاسم الكامل', required: true },
@@ -48,8 +48,8 @@ export default function FreelancerPage() {
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Freelancer Portal' : 'بوابة المستقلين'} description={locale === 'en' ? 'Join the Fratelanza freelancer network.' : 'انضم لشبكة مستقلي فراتيلانزا.'} path="/freelancer" />
-      <PageHero title={locale === 'en' ? 'Freelancer Portal' : 'بوابة المستقلين'} subtitle={locale === 'en' ? 'Partner with Fratelanza on exciting enterprise projects.' : 'شارك فراتيلانزا في مشاريع مؤسسية مثيرة.'} />
+      <SEO title={ui('freelancer', 'title')} description={ui('freelancer', 'seoDesc')} path="/freelancer" />
+      <PageHero title={ui('freelancer', 'title')} subtitle={ui('freelancer', 'subtitle')} />
       <section className="py-16 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card>
@@ -57,8 +57,8 @@ export default function FreelancerPage() {
               fields={fields}
               schema={freelancerSchema}
               endpoint="/freelancers"
-              submitLabel={locale === 'en' ? 'Submit Application' : 'إرسال الطلب'}
-              successMessage={locale === 'en' ? 'Your freelancer application has been received. We will review your profile and contact you.' : 'تم استلام طلبك. سنراجع ملفك ونتواصل معك.'}
+              submitLabel={ui('careers', 'submitApp')}
+              successMessage={ui('freelancer', 'success')}
               useFormData
             />
           </Card>

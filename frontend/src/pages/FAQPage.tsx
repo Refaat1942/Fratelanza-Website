@@ -1,20 +1,20 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import { faqItems, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { faqItems } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { PageHero } from '@/components/ui/Card'
 import { cn } from '@/lib/utils'
 
 export default function FAQPage() {
-  const { locale } = useI18n()
+  const { t, ui } = useTranslation()
   const [open, setOpen] = useState<number | null>(0)
 
   return (
     <>
-      <SEO title="FAQ" description={locale === 'en' ? 'Frequently asked questions about Fratelanza.' : 'الأسئلة الشائعة عن فراتيلانزا.'} path="/faq" />
-      <PageHero title="FAQ" subtitle={locale === 'en' ? 'Everything you need to know about Fratelanza.' : 'كل ما تحتاج معرفته عن فراتيلانزا.'} />
+      <SEO title={ui('faq', 'title')} description={ui('faq', 'seoDesc')} path="/faq" />
+      <PageHero title={ui('faq', 'title')} subtitle={ui('faq', 'subtitle')} />
 
       <section className="py-16 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
@@ -24,7 +24,7 @@ export default function FAQPage() {
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-center justify-between p-6 text-left"
               >
-                <span className="font-semibold pr-4">{t(item.question, locale)}</span>
+                <span className="font-semibold pr-4">{t(item.question)}</span>
                 <ChevronDown className={cn('w-5 h-5 text-gold-400 shrink-0 transition-transform', open === i && 'rotate-180')} />
               </button>
               <AnimatePresence>
@@ -35,7 +35,7 @@ export default function FAQPage() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="px-6 pb-6 text-sm text-white/60 leading-relaxed">{t(item.answer, locale)}</p>
+                    <p className="px-6 pb-6 text-sm text-white/60 leading-relaxed">{t(item.answer)}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

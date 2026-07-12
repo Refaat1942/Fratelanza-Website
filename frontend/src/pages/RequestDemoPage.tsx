@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { products, industries, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { products, industries } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { DynamicForm } from '@/components/forms/DynamicForm'
@@ -24,20 +24,20 @@ const demoSchema = z.object({
 })
 
 export default function RequestDemoPage() {
-  const { locale } = useI18n()
+  const { t, ui, locale } = useTranslation()
 
   const fields = [
     { name: 'companyName', label: locale === 'en' ? 'Company Name' : 'اسم الشركة', required: true },
     { name: 'contactPerson', label: locale === 'en' ? 'Contact Person' : 'الشخص المسؤول', required: true },
     { name: 'businessType', label: locale === 'en' ? 'Business Type' : 'نوع النشاط', type: 'select' as const, required: true, options: ['SME', 'Enterprise', 'Startup', 'Government', 'Non-Profit'].map((v) => ({ value: v, label: v })) },
-    { name: 'industry', label: locale === 'en' ? 'Industry' : 'القطاع', type: 'select' as const, required: true, options: industries.map((i) => ({ value: i.id, label: t(i.name, locale) })) },
+    { name: 'industry', label: locale === 'en' ? 'Industry' : 'القطاع', type: 'select' as const, required: true, options: industries.map((i) => ({ value: i.id, label: t(i.name) })) },
     { name: 'country', label: locale === 'en' ? 'Country' : 'الدولة', required: true },
     { name: 'city', label: locale === 'en' ? 'City' : 'المدينة', required: true },
     { name: 'phone', label: locale === 'en' ? 'Phone' : 'الهاتف', type: 'tel' as const, required: true },
     { name: 'whatsapp', label: 'WhatsApp', type: 'tel' as const },
     { name: 'email', label: 'Email', type: 'email' as const, required: true },
     { name: 'expectedUsers', label: locale === 'en' ? 'Expected Users' : 'عدد المستخدمين المتوقع', required: true },
-    { name: 'interestedProduct', label: locale === 'en' ? 'Interested Product' : 'المنتج المطلوب', type: 'select' as const, required: true, options: products.map((p) => ({ value: p.id, label: t(p.name, locale) })) },
+    { name: 'interestedProduct', label: locale === 'en' ? 'Interested Product' : 'المنتج المطلوب', type: 'select' as const, required: true, options: products.map((p) => ({ value: p.id, label: t(p.name) })) },
     { name: 'currentSystem', label: locale === 'en' ? 'Current System' : 'النظام الحالي' },
     { name: 'preferredContactTime', label: locale === 'en' ? 'Preferred Contact Time' : 'وقت التواصل المفضل' },
     { name: 'message', label: locale === 'en' ? 'Message' : 'الرسالة', type: 'textarea' as const, required: true, colSpan: 2 as const },
@@ -45,8 +45,8 @@ export default function RequestDemoPage() {
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'} description={locale === 'en' ? 'Schedule a personalized Fratelanza product demo.' : 'احجز عرضاً مخصصاً لمنتجات فراتيلانزا.'} path="/request-demo" />
-      <PageHero title={locale === 'en' ? 'Request a Demo' : 'اطلب عرضاً'} subtitle={locale === 'en' ? 'Tell us about your business and we will prepare a personalized demonstration.' : 'أخبرنا عن أعمالك وسنجهز عرضاً مخصصاً.'} />
+      <SEO title={ui('requestDemo', 'title')} description={ui('requestDemo', 'seoDesc')} path="/request-demo" />
+      <PageHero title={ui('requestDemo', 'pageTitle')} subtitle={ui('requestDemo', 'subtitle')} />
       <section className="py-16 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card>
@@ -54,8 +54,8 @@ export default function RequestDemoPage() {
               fields={fields}
               schema={demoSchema}
               endpoint="/leads"
-              submitLabel={locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
-              successMessage={locale === 'en' ? 'Your demo request has been received. Our team will contact you within 24 hours.' : 'تم استلام طلبك. سيتواصل فريقنا معك خلال ٢٤ ساعة.'}
+              submitLabel={ui('common', 'requestDemo')}
+              successMessage={ui('requestDemo', 'success')}
             />
           </Card>
         </div>

@@ -1,20 +1,20 @@
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
-import { pricingPlans, t, tList } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { pricingPlans, tList } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
 
 export default function PricingPage() {
-  const { locale } = useI18n()
+  const { t, ui, locale } = useTranslation()
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Pricing' : 'الأسعار'} description={locale === 'en' ? 'Flexible pricing plans — Starter, Professional, and Enterprise. Request a custom quote.' : 'خطط أسعار مرنة — البداية والاحترافي والمؤسسي. اطلب عرض سعر مخصص.'} path="/pricing" />
+      <SEO title={ui('pricing', 'title')} description={ui('pricing', 'seoDesc')} path="/pricing" />
       <PageHero
-        title={locale === 'en' ? 'Pricing Plans' : 'خطط الأسعار'}
-        subtitle={locale === 'en' ? 'Flexible packages tailored to your business size. Contact us for a custom quotation.' : 'باقات مرنة مصممة لحجم أعمالك. تواصل معنا للحصول على عرض سعر مخصص.'}
+        title={ui('pricing', 'pageTitle')}
+        subtitle={ui('pricing', 'subtitle')}
       />
       <section className="py-16 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
@@ -23,13 +23,13 @@ export default function PricingPage() {
               <Card className={`h-full flex flex-col ${plan.featured ? 'border-gold-500/40 glow-gold' : ''}`}>
                 {plan.featured && (
                   <span className="text-xs font-semibold uppercase tracking-wider text-gold-400 mb-2">
-                    {locale === 'en' ? 'Most Popular' : 'الأكثر شعبية'}
+                    {ui('common', 'mostPopular')}
                   </span>
                 )}
-                <h3 className="text-2xl font-bold">{t(plan.name, locale)}</h3>
-                <p className="text-sm text-white/50 mt-2 mb-6">{t(plan.description, locale)}</p>
+                <h3 className="text-2xl font-bold">{t(plan.name)}</h3>
+                <p className="text-sm text-white/50 mt-2 mb-6">{t(plan.description)}</p>
                 <div className="text-3xl font-bold text-gold-400 mb-6">
-                  {locale === 'en' ? 'Custom Quote' : 'عرض مخصص'}
+                  {ui('common', 'customQuote')}
                 </div>
                 <ul className="space-y-3 mb-8 flex-1">
                   {tList(plan.features, locale).map((f, j) => (
@@ -40,7 +40,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <Button href="/request-demo" variant={plan.featured ? 'primary' : 'outline'} className="w-full">
-                  {t(plan.cta, locale)}
+                  {t(plan.cta)}
                 </Button>
               </Card>
             </motion.div>

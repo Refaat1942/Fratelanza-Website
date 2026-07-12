@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { z } from 'zod'
-import { careers as jobs, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { careers as jobs } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { DynamicForm } from '@/components/forms/DynamicForm'
@@ -24,7 +24,7 @@ const careerSchema = z.object({
 })
 
 export default function CareersPage() {
-  const { locale } = useI18n()
+  const { t, ui, locale } = useTranslation()
   const [dept, setDept] = useState('all')
 
   const departments = ['all', ...new Set(jobs.map((j) => j.department.en))]
@@ -34,7 +34,7 @@ export default function CareersPage() {
     { name: 'fullName', label: locale === 'en' ? 'Full Name' : 'الاسم الكامل', required: true },
     { name: 'email', label: 'Email', type: 'email' as const, required: true },
     { name: 'phone', label: locale === 'en' ? 'Phone' : 'الهاتف', type: 'tel' as const, required: true },
-    { name: 'position', label: locale === 'en' ? 'Position' : 'الوظيفة', type: 'select' as const, required: true, options: jobs.map((j) => ({ value: j.id, label: t(j.title, locale) })) },
+    { name: 'position', label: locale === 'en' ? 'Position' : 'الوظيفة', type: 'select' as const, required: true, options: jobs.map((j) => ({ value: j.id, label: t(j.title) })) },
     { name: 'country', label: locale === 'en' ? 'Country' : 'الدولة', required: true },
     { name: 'experience', label: locale === 'en' ? 'Years of Experience' : 'سنوات الخبرة', required: true },
     { name: 'availability', label: locale === 'en' ? 'Availability' : 'التوفر', required: true },
@@ -48,27 +48,27 @@ export default function CareersPage() {
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Careers' : 'الوظائف'} description={locale === 'en' ? 'Join the Fratelanza team. View open positions and apply.' : 'انضم لفريق فراتيلانزا. اطلع على الوظائف المتاحة وقدّم.'} path="/careers" />
-      <PageHero title={locale === 'en' ? 'Careers' : 'الوظائف'} subtitle={locale === 'en' ? 'Build the future of enterprise technology with us.' : 'ابنِ مستقبل التكنولوجيا المؤسسية معنا.'} />
+      <SEO title={ui('careers', 'title')} description={ui('careers', 'seoDesc')} path="/careers" />
+      <PageHero title={ui('careers', 'title')} subtitle={ui('careers', 'subtitle')} />
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-2 mb-8">
             {departments.map((d) => (
               <button key={d} onClick={() => setDept(d)} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${dept === d ? 'bg-gold-500/20 text-gold-300 border border-gold-500/40' : 'bg-white/5 text-white/50 border border-white/10'}`}>
-                {d === 'all' ? (locale === 'en' ? 'All' : 'الكل') : d}
+                {d === 'all' ? ui('common', 'all') : d}
               </button>
             ))}
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {filtered.map((job) => (
               <Card key={job.id}>
-                <span className="text-xs text-gold-400 font-semibold">{t(job.department, locale)}</span>
-                <h3 className="text-lg font-bold mt-1">{t(job.title, locale)}</h3>
-                <p className="text-sm text-white/50 mt-2">{t(job.description, locale)}</p>
+                <span className="text-xs text-gold-400 font-semibold">{t(job.department)}</span>
+                <h3 className="text-lg font-bold mt-1">{t(job.title)}</h3>
+                <p className="text-sm text-white/50 mt-2">{t(job.description)}</p>
                 <div className="flex gap-4 mt-4 text-xs text-white/40">
-                  <span>{t(job.location, locale)}</span>
-                  <span>{t(job.type, locale)}</span>
+                  <span>{t(job.location)}</span>
+                  <span>{t(job.type)}</span>
                 </div>
               </Card>
             ))}
@@ -78,14 +78,14 @@ export default function CareersPage() {
 
       <section className="py-16 pb-24 bg-gradient-to-b from-gold-500/5 to-transparent">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-center mb-8">{locale === 'en' ? 'Apply Now' : 'قدّم الآن'}</h2>
+          <h2 className="text-2xl font-bold text-center mb-8">{ui('common', 'applyNow')}</h2>
           <Card>
             <DynamicForm
               fields={fields}
               schema={careerSchema}
               endpoint="/careers"
-              submitLabel={locale === 'en' ? 'Submit Application' : 'إرسال الطلب'}
-              successMessage={locale === 'en' ? 'Your application has been received. We will review it and get back to you soon.' : 'تم استلام طلبك. سنراجعه ونتواصل معك قريباً.'}
+              submitLabel={ui('careers', 'submitApp')}
+              successMessage={ui('careers', 'success')}
               useFormData
             />
           </Card>

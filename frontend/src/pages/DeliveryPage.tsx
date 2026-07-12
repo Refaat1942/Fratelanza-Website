@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { deliveryProcess, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { deliveryProcess } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 
 export default function DeliveryPage() {
-  const { locale } = useI18n()
+  const { t, ui } = useTranslation()
   const [active, setActive] = useState(0)
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Delivery Process' : 'عملية التسليم'} description={locale === 'en' ? 'Our 9-step delivery process from discovery to ongoing support.' : 'عملية التسليم من ٩ خطوات من الاكتشاف إلى الدعم المستمر.'} path="/delivery-process" />
-      <PageHero title={locale === 'en' ? 'Delivery Process' : 'عملية التسليم'} subtitle={locale === 'en' ? 'A proven methodology for successful project delivery.' : 'منهجية مثبتة لتسليم المشاريع بنجاح.'} />
+      <SEO title={ui('delivery', 'title')} description={ui('delivery', 'seoDesc')} path="/delivery-process" />
+      <PageHero title={ui('delivery', 'title')} subtitle={ui('delivery', 'subtitle')} />
 
       <section className="py-16 pb-24">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +27,7 @@ export default function DeliveryPage() {
                     : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
                 }`}
               >
-                {step.step}. {t(step.title, locale)}
+                {step.step}. {t(step.title)}
               </button>
             ))}
           </div>
@@ -42,8 +42,8 @@ export default function DeliveryPage() {
             >
               <Card glow className="text-center p-12">
                 <span className="text-6xl font-bold text-gold-400/30">{deliveryProcess[active].step}</span>
-                <h3 className="text-2xl font-bold mt-4 mb-4">{t(deliveryProcess[active].title, locale)}</h3>
-                <p className="text-white/60 max-w-lg mx-auto">{t(deliveryProcess[active].description, locale)}</p>
+                <h3 className="text-2xl font-bold mt-4 mb-4">{t(deliveryProcess[active].title)}</h3>
+                <p className="text-white/60 max-w-lg mx-auto">{t(deliveryProcess[active].description)}</p>
               </Card>
             </motion.div>
           </AnimatePresence>

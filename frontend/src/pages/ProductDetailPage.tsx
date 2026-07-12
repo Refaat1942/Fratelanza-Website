@@ -2,16 +2,17 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Check } from 'lucide-react'
 import { DynamicIcon } from '@/components/ui/DynamicIcon'
-import { products, productDetails, t, tList } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { products, productDetails, tList } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
+import { cn } from '@/lib/utils'
 import NotFoundPage from './NotFoundPage'
 
 export default function ProductDetailPage() {
   const { id } = useParams()
-  const { locale } = useI18n()
+  const { t, ui, locale, isAr } = useTranslation()
   const product = products.find((p) => p.id === id)
   const details = id ? productDetails[id] : null
 
@@ -20,17 +21,17 @@ export default function ProductDetailPage() {
   return (
     <>
       <SEO
-        title={t(product.name, locale)}
-        description={t(details.description, locale)}
+        title={t(product.name)}
+        description={t(details.description)}
         path={`/products/${id}`}
       />
-      <PageHero title={t(product.name, locale)} subtitle={t(details.description, locale)} />
+      <PageHero title={t(product.name)} subtitle={t(details.description)} />
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/products" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-gold-400 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            {locale === 'en' ? 'All Products' : 'جميع المنتجات'}
+            <ArrowLeft className={cn('w-4 h-4', isAr && 'rotate-180')} />
+            {ui('common', 'allProducts')}
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -43,7 +44,7 @@ export default function ProductDetailPage() {
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
               <Card>
                 <h3 className="text-lg font-semibold text-gold-400 mb-4">
-                  {locale === 'en' ? 'Key Features' : 'الميزات الرئيسية'}
+                  {ui('products', 'features')}
                 </h3>
                 <ul className="space-y-3">
                   {tList(details.features, locale).map((f, i) => (
@@ -57,7 +58,7 @@ export default function ProductDetailPage() {
 
               <Card>
                 <h3 className="text-lg font-semibold text-gold-400 mb-4">
-                  {locale === 'en' ? 'Benefits' : 'الفوائد'}
+                  {ui('products', 'benefits')}
                 </h3>
                 <ul className="space-y-3">
                   {tList(details.benefits, locale).map((b, i) => (
@@ -70,7 +71,7 @@ export default function ProductDetailPage() {
               </Card>
 
               <Button href="/request-demo" size="lg" className="w-full">
-                {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
+                {ui('common', 'requestDemo')}
               </Button>
             </motion.div>
           </div>

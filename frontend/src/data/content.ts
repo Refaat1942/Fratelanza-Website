@@ -2,7 +2,10 @@ export type Locale = 'en' | 'ar'
 
 export const company = {
   name: 'Fratelanza',
-  tagline: 'Technology • ERP • AI • Cloud • Digital Transformation',
+  tagline: {
+    en: 'Technology • ERP • AI • Cloud • Digital Transformation',
+    ar: 'تقنية • ERP • ذكاء اصطناعي • سحابة • تحول رقمي',
+  },
   slogan: {
     en: 'Building Tomorrow Together',
     ar: 'نبني الغد معاً',

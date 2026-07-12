@@ -1,0 +1,176 @@
+import type { Locale } from '@/data/content'
+
+type T = Record<Locale, string>
+
+export const ui = {
+  common: {
+    requestDemo: { en: 'Request Demo', ar: 'اطلب عرضاً' } satisfies T,
+    requestADemo: { en: 'Request a Demo', ar: 'اطلب عرضاً تجريبياً' } satisfies T,
+    exploreProducts: { en: 'Explore Products', ar: 'استكشف المنتجات' } satisfies T,
+    learnMore: { en: 'Learn More', ar: 'اعرف المزيد' } satisfies T,
+    getInTouch: { en: 'Get in Touch', ar: 'تواصل معنا' } satisfies T,
+    contactSales: { en: 'Contact Sales', ar: 'تواصل مع المبيعات' } satisfies T,
+    all: { en: 'All', ar: 'الكل' } satisfies T,
+    details: { en: 'Details', ar: 'التفاصيل' } satisfies T,
+    demo: { en: 'Demo', ar: 'عرض' } satisfies T,
+    whatsappUs: { en: 'WhatsApp Us', ar: 'تواصل واتساب' } satisfies T,
+    sendMessage: { en: 'Send Message', ar: 'إرسال الرسالة' } satisfies T,
+    submit: { en: 'Submit', ar: 'إرسال' } satisfies T,
+    submitting: { en: 'Submitting...', ar: 'جاري الإرسال...' } satisfies T,
+    thankYou: { en: 'Thank You!', ar: 'شكراً لك!' } satisfies T,
+    submitAnother: { en: 'Submit Another', ar: 'إرسال طلب آخر' } satisfies T,
+    select: { en: 'Select...', ar: 'اختر...' } satisfies T,
+    backToHome: { en: 'Back to Home', ar: 'العودة للرئيسية' } satisfies T,
+    backToBlog: { en: 'Back to Blog', ar: 'العودة للمدونة' } satisfies T,
+    allProducts: { en: 'All Products', ar: 'جميع المنتجات' } satisfies T,
+    allRights: { en: 'All rights reserved.', ar: 'جميع الحقوق محفوظة.' } satisfies T,
+    screenshotPreview: { en: 'Screenshot Preview', ar: 'معاينة الشاشة' } satisfies T,
+    customQuote: { en: 'Custom Quote', ar: 'عرض مخصص' } satisfies T,
+    mostPopular: { en: 'Most Popular', ar: 'الأكثر شعبية' } satisfies T,
+    searchArticles: { en: 'Search articles...', ar: 'ابحث في المقالات...' } satisfies T,
+    applyNow: { en: 'Apply Now', ar: 'قدّم الآن' } satisfies T,
+    sendAMessage: { en: 'Send a Message', ar: 'أرسل رسالة' } satisfies T,
+    startJourney: { en: 'Start Your Journey', ar: 'ابدأ رحلتك' } satisfies T,
+    discussIndustry: { en: 'Discuss Your Industry', ar: 'ناقش قطاعك' } satisfies T,
+  },
+  nav: {
+    language: { en: 'Language', ar: 'اللغة' } satisfies T,
+  },
+  home: {
+    seoTitle: { en: 'Enterprise Technology Solutions', ar: 'حلول تقنية مؤسسية' } satisfies T,
+    heroTitle1: { en: 'Engineering the', ar: 'نبني' } satisfies T,
+    heroTitle2: { en: 'Future', ar: 'مستقبل' } satisfies T,
+    heroTitle3: { en: 'of Enterprise', ar: 'المؤسسات' } satisfies T,
+    ecosystem: { en: 'Our Ecosystem', ar: 'منظومتنا' } satisfies T,
+    enterpriseProducts: { en: 'Enterprise Products', ar: 'منتجات مؤسسية' } satisfies T,
+    ecosystemSub: { en: 'A unified platform spanning healthcare, retail, real estate, and beyond.', ar: 'منصة موحدة تشمل الرعاية الصحية والتجزئة والعقارات وأكثر.' } satisfies T,
+    whyBadge: { en: 'Why Fratelanza', ar: 'لماذا فراتيلانزا' } satisfies T,
+    whyTitle: { en: 'Not Just Software — A Living Platform', ar: 'ليس مجرد برنامج — منصة حية' } satisfies T,
+    ctaTitle: { en: 'Ready to Transform Your Business?', ar: 'مستعد لتحويل أعمالك؟' } satisfies T,
+    ctaSub: { en: 'Schedule a personalized demo and discover how Fratelanza can power your digital transformation.', ar: 'احجز عرضاً مخصصاً واكتشف كيف يمكن لفراتيلانزا أن تدعم تحولك الرقمي.' } satisfies T,
+  },
+  about: {
+    title: { en: 'About Us', ar: 'من نحن' } satisfies T,
+    pageTitle: { en: 'About Fratelanza', ar: 'عن فراتيلانزا' } satisfies T,
+    story: { en: 'Our Story', ar: 'قصتنا' } satisfies T,
+    profile: { en: 'Company Profile', ar: 'ملف الشركة' } satisfies T,
+    vision: { en: 'Vision', ar: 'الرؤية' } satisfies T,
+    mission: { en: 'Mission', ar: 'الرسالة' } satisfies T,
+    values: { en: 'Core Values', ar: 'قيمنا الأساسية' } satisfies T,
+    philosophy: { en: 'Business Philosophy', ar: 'فلسفة العمل' } satisfies T,
+    journey: { en: 'Our Journey', ar: 'رحلتنا' } satisfies T,
+    leadership: { en: 'Leadership', ar: 'القيادة' } satisfies T,
+  },
+  products: {
+    title: { en: 'Products', ar: 'المنتجات' } satisfies T,
+    pageTitle: { en: 'Our Products', ar: 'منتجاتنا' } satisfies T,
+    subtitle: { en: 'A comprehensive ecosystem of enterprise-grade solutions.', ar: 'منظومة شاملة من الحلول المؤسسية.' } satisfies T,
+    features: { en: 'Key Features', ar: 'الميزات الرئيسية' } satisfies T,
+    benefits: { en: 'Benefits', ar: 'الفوائد' } satisfies T,
+    seoDesc: { en: 'Explore Fratelanza enterprise products — ERP, Pharmacy, Clinic, AI, and more.', ar: 'استكشف منتجات فراتيلانزا — ERP والصيدليات والعيادات والذكاء الاصطناعي والمزيد.' } satisfies T,
+  },
+  industries: {
+    title: { en: 'Industries', ar: 'القطاعات' } satisfies T,
+    pageTitle: { en: 'Industries We Serve', ar: 'القطاعات التي نخدمها' } satisfies T,
+    subtitle: { en: 'Tailored solutions for every sector.', ar: 'حلول مخصصة لكل قطاع.' } satisfies T,
+    seoDesc: { en: 'Fratelanza serves healthcare, retail, government, education, and more.', ar: 'فراتيلانزا تخدم الرعاية الصحية والتجزئة والحكومة والتعليم والمزيد.' } satisfies T,
+  },
+  services: {
+    title: { en: 'Services', ar: 'الخدمات' } satisfies T,
+    pageTitle: { en: 'Our Services', ar: 'خدماتنا' } satisfies T,
+    subtitle: { en: 'End-to-end technology services for enterprise transformation.', ar: 'خدمات تقنية شاملة للتحول المؤسسي.' } satisfies T,
+    seoDesc: { en: 'Software development, ERP, AI, cloud, DevOps, consulting, and more.', ar: 'تطوير البرمجيات وERP والذكاء الاصطناعي والسحابة وDevOps والاستشارات والمزيد.' } satisfies T,
+  },
+  integrations: {
+    title: { en: 'Integrations', ar: 'التكاملات' } satisfies T,
+    subtitle: { en: 'Seamlessly connected with the tools and systems you rely on.', ar: 'متصل بسلاسة مع الأدوات والأنظمة التي تعتمد عليها.' } satisfies T,
+    seoDesc: { en: 'ETA, WhatsApp, payment gateways, AI, and cross-system integrations.', ar: 'ETA وواتساب وبوابات الدفع والذكاء الاصطناعي والتكاملات بين الأنظمة.' } satisfies T,
+  },
+  why: {
+    title: { en: 'Why Fratelanza', ar: 'لماذا فراتيلانزا' } satisfies T,
+    pageTitle: { en: 'Why Fratelanza?', ar: 'لماذا فراتيلانزا؟' } satisfies T,
+    subtitle: { en: 'Fratelanza is NOT just software. It is a continuously evolving platform.', ar: 'فراتيلانزا ليست مجرد برنامج. إنها منصة متطورة باستمرار.' } satisfies T,
+  },
+  delivery: {
+    title: { en: 'Delivery Process', ar: 'عملية التسليم' } satisfies T,
+    subtitle: { en: 'A proven methodology for successful project delivery.', ar: 'منهجية مثبتة لتسليم المشاريع بنجاح.' } satisfies T,
+    seoDesc: { en: 'Our 9-step delivery process from discovery to ongoing support.', ar: 'عملية التسليم من ٩ خطوات من الاكتشاف إلى الدعم المستمر.' } satisfies T,
+  },
+  pricing: {
+    title: { en: 'Pricing', ar: 'الأسعار' } satisfies T,
+    pageTitle: { en: 'Pricing Plans', ar: 'خطط الأسعار' } satisfies T,
+    subtitle: { en: 'Flexible packages tailored to your business size. Contact us for a custom quotation.', ar: 'باقات مرنة مصممة لحجم أعمالك. تواصل معنا للحصول على عرض سعر مخصص.' } satisfies T,
+    seoDesc: { en: 'Flexible pricing plans — Starter, Professional, and Enterprise. Request a custom quote.', ar: 'خطط أسعار مرنة — البداية والاحترافي والمؤسسي. اطلب عرض سعر مخصص.' } satisfies T,
+  },
+  success: {
+    title: { en: 'Success Stories', ar: 'قصص النجاح' } satisfies T,
+    subtitle: { en: 'Real results from real businesses.', ar: 'نتائج حقيقية من أعمال حقيقية.' } satisfies T,
+    seoDesc: { en: 'Case studies and testimonials from Fratelanza clients.', ar: 'دراسات حالة وشهادات من عملاء فراتيلانزا.' } satisfies T,
+    caseStudies: { en: 'Case Studies', ar: 'دراسات الحالة' } satisfies T,
+    testimonials: { en: 'Testimonials', ar: 'شهادات العملاء' } satisfies T,
+    partners: { en: 'Trusted Partners', ar: 'شركاء موثوقون' } satisfies T,
+    partnersSub: { en: 'Logos of future partners will appear here.', ar: 'شعارات الشركاء المستقبليين ستظهر هنا.' } satisfies T,
+  },
+  careers: {
+    title: { en: 'Careers', ar: 'الوظائف' } satisfies T,
+    subtitle: { en: 'Build the future of enterprise technology with us.', ar: 'ابنِ مستقبل التكنولوجيا المؤسسية معنا.' } satisfies T,
+    submitApp: { en: 'Submit Application', ar: 'إرسال الطلب' } satisfies T,
+    success: { en: 'Your application has been received. We will review it and get back to you soon.', ar: 'تم استلام طلبك. سنراجعه ونتواصل معك قريباً.' } satisfies T,
+    seoDesc: { en: 'Join the Fratelanza team. View open positions and apply.', ar: 'انضم لفريق فراتيلانزا. اطلع على الوظائف المتاحة وقدّم.' } satisfies T,
+  },
+  freelancer: {
+    title: { en: 'Freelancer Portal', ar: 'بوابة المستقلين' } satisfies T,
+    subtitle: { en: 'Partner with Fratelanza on exciting enterprise projects.', ar: 'شارك فراتيلانزا في مشاريع مؤسسية مثيرة.' } satisfies T,
+    success: { en: 'Your freelancer application has been received. We will review your profile and contact you.', ar: 'تم استلام طلبك. سنراجع ملفك ونتواصل معك.' } satisfies T,
+    seoDesc: { en: 'Join the Fratelanza freelancer network.', ar: 'انضم لشبكة مستقلي فراتيلانزا.' } satisfies T,
+  },
+  requestDemo: {
+    title: { en: 'Request Demo', ar: 'اطلب عرضاً' } satisfies T,
+    pageTitle: { en: 'Request a Demo', ar: 'اطلب عرضاً تجريبياً' } satisfies T,
+    subtitle: { en: 'Tell us about your business and we will prepare a personalized demonstration.', ar: 'أخبرنا عن أعمالك وسنجهز عرضاً مخصصاً.' } satisfies T,
+    success: { en: 'Your demo request has been received. Our team will contact you within 24 hours.', ar: 'تم استلام طلبك. سيتواصل فريقنا معك خلال ٢٤ ساعة.' } satisfies T,
+    seoDesc: { en: 'Schedule a personalized Fratelanza product demo.', ar: 'احجز عرضاً مخصصاً لمنتجات فراتيلانزا.' } satisfies T,
+  },
+  contact: {
+    title: { en: 'Contact', ar: 'تواصل' } satisfies T,
+    pageTitle: { en: 'Contact Us', ar: 'تواصل معنا' } satisfies T,
+    subtitle: { en: 'We would love to hear from you.', ar: 'يسعدنا سماعك.' } satisfies T,
+    success: { en: 'Your message has been sent. We will respond shortly.', ar: 'تم إرسال رسالتك. سنرد عليك قريباً.' } satisfies T,
+    seoDesc: { en: 'Get in touch with Fratelanza.', ar: 'تواصل مع فراتيلانزا.' } satisfies T,
+    phone: { en: 'Phone', ar: 'الهاتف' } satisfies T,
+    address: { en: 'Address', ar: 'العنوان' } satisfies T,
+    hours: { en: 'Working Hours', ar: 'ساعات العمل' } satisfies T,
+  },
+  faq: {
+    title: { en: 'FAQ', ar: 'الأسئلة الشائعة' } satisfies T,
+    subtitle: { en: 'Everything you need to know about Fratelanza.', ar: 'كل ما تحتاج معرفته عن فراتيلانزا.' } satisfies T,
+    seoDesc: { en: 'Frequently asked questions about Fratelanza.', ar: 'الأسئلة الشائعة عن فراتيلانزا.' } satisfies T,
+  },
+  blog: {
+    title: { en: 'Blog', ar: 'المدونة' } satisfies T,
+    subtitle: { en: 'Insights, guides, and industry perspectives.', ar: 'رؤى وأدلة ومنظورات صناعية.' } satisfies T,
+    comingSoon: { en: 'Full content will be available soon. Subscribe to our newsletter or request a demo to stay updated.', ar: 'المحتوى الكامل سيكون متاحاً قريباً. اشترك في نشرتنا أو اطلب عرضاً للبقاء على اطلاع.' } satisfies T,
+    seoDesc: { en: 'Fratelanza blog — insights on ERP, AI, healthcare technology, and digital transformation.', ar: 'مدونة فراتيلانزا — رؤى حول ERP والذكاء الاصطناعي وتقنية الرعاية الصحية والتحول الرقمي.' } satisfies T,
+  },
+  footer: {
+    quickLinks: { en: 'Quick Links', ar: 'روابط سريعة' } satisfies T,
+    contact: { en: 'Contact', ar: 'تواصل' } satisfies T,
+    careers: { en: 'Careers', ar: 'الوظائف' } satisfies T,
+    freelancer: { en: 'Freelancer Portal', ar: 'بوابة المستقلين' } satisfies T,
+  },
+  notFound: {
+    title: { en: 'Page Not Found', ar: 'الصفحة غير موجودة' } satisfies T,
+    message: { en: 'The page you are looking for does not exist.', ar: 'الصفحة التي تبحث عنها غير موجودة.' } satisfies T,
+  },
+} as const
+
+export type UiKey = keyof typeof ui
+
+export function getUi<K extends keyof typeof ui, S extends keyof (typeof ui)[K]>(
+  section: K,
+  key: S,
+  locale: Locale,
+): string {
+  const item = ui[section][key] as T
+  return item[locale]
+}

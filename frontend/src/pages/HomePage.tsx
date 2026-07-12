@@ -2,25 +2,25 @@ import { motion } from 'framer-motion'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { DynamicIcon } from '@/components/ui/DynamicIcon'
 import { Logo } from '@/components/ui/Logo'
-import { company, overview, t, products, whyFratelanza } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { company, overview, products, whyFratelanza } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Button } from '@/components/ui/Button'
 import { Card, SectionHeader } from '@/components/ui/Card'
 import { Link } from 'react-router-dom'
+import { cn } from '@/lib/utils'
 
 export default function HomePage() {
-  const { locale } = useI18n()
+  const { t, ui, isAr } = useTranslation()
 
   return (
     <>
       <SEO
-        title={locale === 'en' ? 'Enterprise Technology Solutions' : 'حلول تقنية مؤسسية'}
-        description={t(overview.profile, locale)}
+        title={ui('home', 'seoTitle')}
+        description={t(overview.profile)}
         path="/"
       />
 
-      {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
@@ -50,7 +50,7 @@ export default function HomePage() {
               transition={{ delay: 0.8 }}
               className="text-gold-400 text-sm font-semibold tracking-widest uppercase mb-6 mt-8"
             >
-              {company.tagline}
+              {t(company.tagline)}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -58,10 +58,10 @@ export default function HomePage() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
             >
-              {locale === 'en' ? (
-                <>Engineering the <span className="text-gradient-gold">Future</span> of Enterprise</>
+              {isAr ? (
+                <>{ui('home', 'heroTitle1')} <span className="text-gradient-gold">{ui('home', 'heroTitle2')}</span> {ui('home', 'heroTitle3')}</>
               ) : (
-                <>نبني <span className="text-gradient-gold">مستقبل</span> المؤسسات</>
+                <>{ui('home', 'heroTitle1')} <span className="text-gradient-gold">{ui('home', 'heroTitle2')}</span> {ui('home', 'heroTitle3')}</>
               )}
             </motion.h1>
             <motion.p
@@ -70,7 +70,7 @@ export default function HomePage() {
               transition={{ delay: 0.6 }}
               className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
             >
-              {t(overview.profile, locale)}
+              {t(overview.profile)}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -79,21 +79,20 @@ export default function HomePage() {
               className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Button href="/request-demo" size="lg">
-                {locale === 'en' ? 'Request a Demo' : 'اطلب عرضاً'}
-                <ArrowRight className="w-5 h-5" />
+                {ui('common', 'requestADemo')}
+                <ArrowRight className={cn('w-5 h-5', isAr && 'rotate-180')} />
               </Button>
               <Button href={`https://wa.me/${company.whatsapp}`} variant="outline" size="lg">
-                {locale === 'en' ? 'WhatsApp Us' : 'تواصل واتساب'}
+                {ui('common', 'whatsappUs')}
               </Button>
               <Button href="/products" variant="secondary" size="lg">
-                {locale === 'en' ? 'Explore Products' : 'استكشف المنتجات'}
+                {ui('common', 'exploreProducts')}
               </Button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats */}
       <section className="py-20 border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -107,99 +106,90 @@ export default function HomePage() {
                 className="text-center"
               >
                 <div className="text-3xl md:text-4xl font-bold text-gradient-gold">{stat.value}</div>
-                <div className="mt-2 text-sm text-white/50">{t(stat.label, locale)}</div>
+                <div className="mt-2 text-sm text-white/50">{t(stat.label)}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Products Preview */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge={locale === 'en' ? 'Our Ecosystem' : 'منظومتنا'}
-            title={locale === 'en' ? 'Enterprise Products' : 'منتجات مؤسسية'}
-            subtitle={locale === 'en' ? 'A unified platform spanning healthcare, retail, real estate, and beyond.' : 'منصة موحدة تشمل الرعاية الصحية والتجزئة والعقارات وأكثر.'}
+            badge={ui('home', 'ecosystem')}
+            title={ui('home', 'enterpriseProducts')}
+            subtitle={ui('home', 'ecosystemSub')}
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products.map((product, i) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <Link to={`/products/${product.id}`}>
-                    <Card className="h-full group">
-                      <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-4 group-hover:bg-gold-500/20 transition-colors">
-                        <DynamicIcon name={product.icon} className="w-6 h-6 text-gold-400" />
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2">{t(product.name, locale)}</h3>
-                      <p className="text-sm text-white/50 flex items-center gap-1 group-hover:text-gold-400 transition-colors">
-                        {locale === 'en' ? 'Learn more' : 'اعرف المزيد'}
-                        <ChevronRight className="w-4 h-4" />
-                      </p>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))}
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Link to={`/products/${product.id}`}>
+                  <Card className="h-full group">
+                    <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center mb-4 group-hover:bg-gold-500/20 transition-colors">
+                      <DynamicIcon name={product.icon} className="w-6 h-6 text-gold-400" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-2">{t(product.name)}</h3>
+                    <p className="text-sm text-white/50 flex items-center gap-1 group-hover:text-gold-400 transition-colors">
+                      {ui('common', 'learnMore')}
+                      <ChevronRight className={cn('w-4 h-4', isAr && 'rotate-180')} />
+                    </p>
+                  </Card>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why Fratelanza */}
       <section className="py-24 bg-gradient-to-b from-transparent via-gold-500/5 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
-            badge={locale === 'en' ? 'Why Fratelanza' : 'لماذا فراتيلانزا'}
-            title={locale === 'en' ? 'Not Just Software — A Living Platform' : 'ليس مجرد برنامج — منصة حية'}
-            subtitle={t(overview.philosophy, locale)}
+            badge={ui('home', 'whyBadge')}
+            title={ui('home', 'whyTitle')}
+            subtitle={t(overview.philosophy)}
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {whyFratelanza.slice(0, 6).map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                >
-                  <Card>
-                    <DynamicIcon name={item.icon} className="w-8 h-8 text-gold-400 mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">{t(item.title, locale)}</h3>
-                    <p className="text-sm text-white/50 leading-relaxed">{t(item.description, locale)}</p>
-                  </Card>
-                </motion.div>
-              ))}
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <Card>
+                  <DynamicIcon name={item.icon} className="w-8 h-8 text-gold-400 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2">{t(item.title)}</h3>
+                  <p className="text-sm text-white/50 leading-relaxed">{t(item.description)}</p>
+                </Card>
+              </motion.div>
+            ))}
           </div>
           <div className="text-center mt-10">
             <Button href="/why-fratelanza" variant="outline">
-              {locale === 'en' ? 'Learn More' : 'اعرف المزيد'}
-              <ArrowRight className="w-4 h-4" />
+              {ui('common', 'learnMore')}
+              <ArrowRight className={cn('w-4 h-4', isAr && 'rotate-180')} />
             </Button>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Card glow className="p-12">
             <Logo size="lg" animated className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">
-              {t(company.slogan, locale)}
-            </h2>
-            <p className="text-white/60 mb-8 max-w-xl mx-auto mt-4">
-              {locale === 'en'
-                ? 'Schedule a personalized demo and discover how Fratelanza can power your digital transformation.'
-                : 'احجز عرضاً مخصصاً واكتشف كيف يمكن لفراتيلانزا أن تدعم تحولك الرقمي.'}
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">{t(company.slogan)}</h2>
+            <p className="text-white/60 mb-8 max-w-xl mx-auto mt-4">{ui('home', 'ctaSub')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/request-demo" size="lg">
-                {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
-                <ArrowRight className="w-5 h-5" />
+                {ui('common', 'requestDemo')}
+                <ArrowRight className={cn('w-5 h-5', isAr && 'rotate-180')} />
               </Button>
               <Button href={`https://wa.me/${company.whatsapp}`} size="lg" variant="outline">
                 {company.phone}

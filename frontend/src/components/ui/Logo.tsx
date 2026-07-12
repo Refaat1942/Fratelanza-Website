@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
-import { company, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { company } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 
 type LogoProps = {
   size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero'
@@ -19,8 +19,8 @@ const sizes = {
 }
 
 export function Logo({ size = 'md', showSlogan = false, animated = false, className }: LogoProps) {
-  const { locale } = useI18n()
-  const slogan = t(company.slogan, locale)
+  const { t } = useTranslation()
+  const slogan = t(company.slogan)
 
   const img = (
     <img

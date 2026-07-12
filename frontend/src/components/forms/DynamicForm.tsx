@@ -6,6 +6,7 @@ import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/Button'
 import { submitForm } from '@/lib/api'
+import { useTranslation } from '@/i18n/useTranslation'
 
 type FormField = {
   name: string
@@ -38,6 +39,7 @@ export function DynamicForm({
 }: DynamicFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMsg, setErrorMsg] = useState('')
+  const { ui } = useTranslation()
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: zodResolver(schema as z.ZodObject<z.ZodRawShape>),
@@ -72,10 +74,10 @@ export function DynamicForm({
     return (
       <div className="glass rounded-2xl p-12 text-center">
         <CheckCircle2 className="w-16 h-16 text-gold-400 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
+        <h3 className="text-2xl font-bold mb-2">{ui('common', 'thankYou')}</h3>
         <p className="text-white/60">{successMessage}</p>
         <Button className="mt-6" onClick={() => setStatus('idle')}>
-          Submit Another
+          {ui('common', 'submitAnother')}
         </Button>
       </div>
     )
@@ -107,7 +109,7 @@ export function DynamicForm({
                 {...register(field.name)}
                 className="w-full px-4 py-3 rounded-xl glass bg-white/5 border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-gold-500/40"
               >
-                <option value="">Select...</option>
+                <option value="">{ui('common', 'select')}</option>
                 {field.options?.map((opt) => (
                   <option key={opt.value} value={opt.value}>{opt.label}</option>
                 ))}
@@ -148,7 +150,7 @@ export function DynamicForm({
         {status === 'loading' ? (
           <>
             <Loader2 className="w-4 h-4 animate-spin" />
-            Submitting...
+            {ui('common', 'submitting')}
           </>
         ) : (
           submitLabel

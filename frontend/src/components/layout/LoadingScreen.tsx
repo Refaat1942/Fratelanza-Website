@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { company, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { company } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { Logo } from '@/components/ui/Logo'
 
 export function LoadingScreen() {
   const [loading, setLoading] = useState(true)
-  const { locale } = useI18n()
+  const { t } = useTranslation()
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000)
@@ -42,7 +42,7 @@ export function LoadingScreen() {
               transition={{ delay: 0.6 }}
               className="mt-6 text-sm font-semibold tracking-[0.3em] uppercase text-cyan-300/90"
             >
-              {t(company.slogan, locale)}
+              {t(company.slogan)}
             </motion.p>
             <motion.div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mx-auto mt-8">
               <motion.div

@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { company, navLinks, products, overview, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { company, navLinks, products, overview } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { Mail, Phone, MessageCircle, MapPin, Share2 } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 
 export function Footer() {
-  const { locale } = useI18n()
+  const { t, ui } = useTranslation()
   const year = new Date().getFullYear()
 
   return (
@@ -15,25 +15,25 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Logo size="md" className="mb-4" />
             <p className="text-sm font-semibold tracking-wider uppercase text-cyan-300/80 mb-4">
-              {t(company.slogan, locale)}
+              {t(company.slogan)}
             </p>
             <p className="text-sm text-white/50 mb-4 leading-relaxed">
-              {t(overview.mission, locale)}
+              {t(overview.mission)}
             </p>
             <p className="text-xs text-white/40 italic">
-              {t(overview.vision, locale)}
+              {t(overview.vision)}
             </p>
           </div>
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
-              {locale === 'en' ? 'Quick Links' : 'روابط سريعة'}
+              {ui('footer', 'quickLinks')}
             </h4>
             <ul className="space-y-2">
               {navLinks.slice(0, 6).map((link) => (
                 <li key={link.path}>
                   <Link to={link.path} className="text-sm text-white/50 hover:text-gold-400 transition-colors">
-                    {t(link.label, locale)}
+                    {t(link.label)}
                   </Link>
                 </li>
               ))}
@@ -42,13 +42,13 @@ export function Footer() {
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
-              {locale === 'en' ? 'Products' : 'المنتجات'}
+              {ui('products', 'title')}
             </h4>
             <ul className="space-y-2">
               {products.slice(0, 6).map((p) => (
                 <li key={p.id}>
                   <Link to={`/products/${p.id}`} className="text-sm text-white/50 hover:text-gold-400 transition-colors">
-                    {t(p.name, locale)}
+                    {t(p.name)}
                   </Link>
                 </li>
               ))}
@@ -57,7 +57,7 @@ export function Footer() {
 
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
-              {locale === 'en' ? 'Contact' : 'تواصل'}
+              {ui('footer', 'contact')}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-sm text-white/50">
@@ -74,7 +74,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2 text-sm text-white/50">
                 <MapPin className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
-                {t(company.address, locale)}
+                {t(company.address)}
               </li>
             </ul>
 
@@ -95,16 +95,16 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/40">
-            &copy; {year} {company.name}. {locale === 'en' ? 'All rights reserved.' : 'جميع الحقوق محفوظة.'}
+            &copy; {year} {company.name}. {ui('common', 'allRights')}
           </p>
           <div className="flex items-center gap-4 text-sm text-white/40">
             <Link to="/careers" className="hover:text-gold-400 transition-colors">
-              {locale === 'en' ? 'Careers' : 'الوظائف'}
+              {ui('footer', 'careers')}
             </Link>
             <Link to="/freelancer" className="hover:text-gold-400 transition-colors">
-              {locale === 'en' ? 'Freelancer Portal' : 'بوابة المستقلين'}
+              {ui('footer', 'freelancer')}
             </Link>
-            <Link to="/faq" className="hover:text-gold-400 transition-colors">FAQ</Link>
+            <Link to="/faq" className="hover:text-gold-400 transition-colors">{ui('faq', 'title')}</Link>
           </div>
         </div>
       </div>

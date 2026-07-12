@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { company, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { company } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { DynamicForm } from '@/components/forms/DynamicForm'
@@ -16,7 +16,7 @@ const contactSchema = z.object({
 })
 
 export default function ContactPage() {
-  const { locale } = useI18n()
+  const { t, ui, locale } = useTranslation()
 
   const fields = [
     { name: 'name', label: locale === 'en' ? 'Name' : 'الاسم', required: true },
@@ -28,18 +28,18 @@ export default function ContactPage() {
 
   return (
     <>
-      <SEO title={locale === 'en' ? 'Contact' : 'تواصل'} description={locale === 'en' ? 'Get in touch with Fratelanza.' : 'تواصل مع فراتيلانزا.'} path="/contact" />
-      <PageHero title={locale === 'en' ? 'Contact Us' : 'تواصل معنا'} subtitle={locale === 'en' ? 'We would love to hear from you.' : 'يسعدنا سماعك.'} />
+      <SEO title={ui('contact', 'title')} description={ui('contact', 'seoDesc')} path="/contact" />
+      <PageHero title={ui('contact', 'pageTitle')} subtitle={ui('contact', 'subtitle')} />
 
       <section className="py-16 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12">
           <div className="space-y-6">
             {[
               { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}` },
-              { icon: Phone, label: locale === 'en' ? 'Phone' : 'الهاتف', value: company.phone, href: `tel:${company.phone}` },
+              { icon: Phone, label: ui('contact', 'phone'), value: company.phone, href: `tel:${company.phone}` },
               { icon: MessageCircle, label: 'WhatsApp', value: company.whatsapp, href: `https://wa.me/${company.whatsapp.replace(/\D/g, '')}` },
-              { icon: MapPin, label: locale === 'en' ? 'Address' : 'العنوان', value: t(company.address, locale) },
-              { icon: Clock, label: locale === 'en' ? 'Working Hours' : 'ساعات العمل', value: t(company.workingHours, locale) },
+              { icon: MapPin, label: ui('contact', 'address'), value: t(company.address) },
+              { icon: Clock, label: ui('contact', 'hours'), value: t(company.workingHours) },
             ].map((item, i) => (
               <Card key={i} className="flex items-center gap-4">
                 <item.icon className="w-6 h-6 text-gold-400 shrink-0" />
@@ -66,13 +66,13 @@ export default function ContactPage() {
           </div>
 
           <Card>
-            <h2 className="text-xl font-bold mb-6">{locale === 'en' ? 'Send a Message' : 'أرسل رسالة'}</h2>
+            <h2 className="text-xl font-bold mb-6">{ui('common', 'sendAMessage')}</h2>
             <DynamicForm
               fields={fields}
               schema={contactSchema}
               endpoint="/contact"
-              submitLabel={locale === 'en' ? 'Send Message' : 'إرسال'}
-              successMessage={locale === 'en' ? 'Your message has been sent. We will respond shortly.' : 'تم إرسال رسالتك. سنرد عليك قريباً.'}
+              submitLabel={ui('common', 'sendMessage')}
+              successMessage={ui('contact', 'success')}
             />
           </Card>
         </div>

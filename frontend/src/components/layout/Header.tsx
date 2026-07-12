@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Globe, Sun, Moon } from 'lucide-react'
-import { company, navLinks, t } from '@/data/content'
-import { useI18n } from '@/i18n/context'
+import { Menu, X } from 'lucide-react'
+import { company, navLinks } from '@/data/content'
+import { useTranslation } from '@/i18n/useTranslation'
 import { Button } from '@/components/ui/Button'
 import { Logo } from '@/components/ui/Logo'
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { cn } from '@/lib/utils'
 
 export function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [dark, setDark] = useState(true)
-  const { locale, setLocale } = useI18n()
+  const { t, ui, dir } = useTranslation()
   const location = useLocation()
 
   useEffect(() => {
@@ -29,13 +29,14 @@ export function Header() {
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
         scrolled ? 'glass-strong shadow-lg shadow-black/20' : 'bg-transparent',
       )}
+      dir={dir}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link to="/" className="flex items-center gap-3 shrink-0">
             <Logo size="sm" />
-            <span className="hidden lg:block text-xs font-semibold tracking-widest uppercase text-cyan-300/80 max-w-[140px] leading-tight">
-              {t(company.slogan, locale)}
+            <span className="hidden lg:block text-xs font-semibold tracking-widest uppercase text-cyan-300/80 max-w-[160px] leading-tight">
+              {t(company.slogan)}
             </span>
           </Link>
 
@@ -51,31 +52,16 @@ export function Header() {
                     : 'text-white/70 hover:text-white hover:bg-white/5',
                 )}
               >
-                {t(link.label, locale)}
+                {t(link.label)}
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setLocale(locale === 'en' ? 'ar' : 'en')}
-              className="p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-              aria-label="Switch language"
-            >
-              <Globe className="w-5 h-5" />
-              <span className="sr-only">{locale === 'en' ? 'AR' : 'EN'}</span>
-            </button>
-
-            <button
-              onClick={() => setDark(!dark)}
-              className="p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/5 transition-colors hidden sm:block"
-              aria-label="Toggle theme"
-            >
-              {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
+            <LanguageSwitcher />
 
             <Button href="/request-demo" size="sm" className="hidden md:inline-flex">
-              {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
+              {ui('common', 'requestDemo')}
             </Button>
 
             <button
@@ -109,12 +95,13 @@ export function Header() {
                       : 'text-white/70 hover:bg-white/5',
                   )}
                 >
-                  {t(link.label, locale)}
+                  {t(link.label)}
                 </Link>
               ))}
-              <div className="col-span-2 pt-2">
+              <div className="col-span-2 pt-2 flex flex-col gap-3">
+                <LanguageSwitcher className="w-full justify-center" />
                 <Button href="/request-demo" className="w-full">
-                  {locale === 'en' ? 'Request Demo' : 'اطلب عرضاً'}
+                  {ui('common', 'requestDemo')}
                 </Button>
               </div>
             </nav>
