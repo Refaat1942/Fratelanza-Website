@@ -45,7 +45,9 @@ export function adminLogin(req: Request, res: Response) {
   }
 
   const { password } = req.body as { password?: string }
-  if (!password || password !== ADMIN_PASSWORD) {
+  const input = (password || '').trim()
+  const expected = ADMIN_PASSWORD.trim()
+  if (!input || input !== expected) {
     res.status(401).json({ success: false, message: 'Invalid password' })
     return
   }

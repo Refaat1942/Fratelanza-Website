@@ -13,13 +13,15 @@ services:
       - "11000:11001"
     volumes:
       - fratelanza-data:/app/data
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=11001
       - DATA_DIR=/app/data
       - UPLOAD_DIR=/app/data/uploads
       - CORS_ORIGIN=*
-      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-Fratelanza@2026}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-Fratelanza2026}
     networks:
       - fratelanza-net
     healthcheck:
