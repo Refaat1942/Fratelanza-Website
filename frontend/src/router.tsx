@@ -20,6 +20,7 @@ const ContactPage = lazy(() => import('@/pages/ContactPage'))
 const FAQPage = lazy(() => import('@/pages/FAQPage'))
 const BlogPage = lazy(() => import('@/pages/BlogPage'))
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'))
+const AdminPage = lazy(() => import('@/pages/AdminPage'))
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 function PageLoader() {
@@ -39,6 +40,10 @@ function withSuspense(Component: React.ComponentType) {
 }
 
 export const router = createBrowserRouter([
+  {
+    path: '/admin',
+    element: withSuspense(AdminPage),
+  },
   {
     path: '/',
     element: <Layout />,

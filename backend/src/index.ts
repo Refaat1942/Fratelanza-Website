@@ -7,6 +7,7 @@ import fs from 'fs'
 import { fileURLToPath } from 'url'
 import './db.js'
 import { apiRouter } from './routes.js'
+import { adminRouter } from './adminRoutes.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = parseInt(process.env.PORT || '11001', 10)
@@ -29,6 +30,8 @@ app.get('/api/health', (_req, res) => {
     uptime: process.uptime(),
   })
 })
+
+app.use('/api/admin', adminRouter)
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
