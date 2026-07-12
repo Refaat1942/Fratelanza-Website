@@ -8,7 +8,7 @@ type SEOProps = {
   type?: string
 }
 
-const SITE_URL = 'https://fratelanza.com'
+const SITE_URL = 'https://www.fratelanza.com'
 
 export function SEO({ title, description, path = '', type = 'website' }: SEOProps) {
   const url = `${SITE_URL}${path}`

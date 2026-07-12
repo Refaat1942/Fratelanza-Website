@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fratelanza.com/sitemap.xml
+Sitemap: https://www.fratelanza.com/sitemap.xml

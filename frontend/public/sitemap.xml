@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fratelanza.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://fratelanza.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fratelanza.com/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://fratelanza.com/industries</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fratelanza.com/services</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fratelanza.com/integrations</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fratelanza.com/why-fratelanza</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fratelanza.com/delivery-process</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fratelanza.com/pricing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fratelanza.com/success-stories</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fratelanza.com/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://fratelanza.com/freelancer</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fratelanza.com/request-demo</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://fratelanza.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fratelanza.com/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fratelanza.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.fratelanza.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.fratelanza.com/products</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.fratelanza.com/industries</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/services</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/integrations</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/why-fratelanza</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.fratelanza.com/delivery-process</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/pricing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.fratelanza.com/success-stories</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.fratelanza.com/careers</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.fratelanza.com/freelancer</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.fratelanza.com/request-demo</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.fratelanza.com/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.fratelanza.com/faq</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://www.fratelanza.com/blog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
