@@ -3,12 +3,14 @@ import cors from 'cors'
 import helmet from 'helmet'
 import rateLimit from 'express-rate-limit'
 import path from 'path'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
 import './db.js'
 import { apiRouter } from './routes.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = parseInt(process.env.PORT || '11001', 10)
+const frontendDist = path.join(__dirname, '../frontend/dist')
 
 const app = express()
 
@@ -19,13 +21,6 @@ app.use(cors({
 }))
 app.use(express.json({ limit: '1mb' }))
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 30,
-  message: { success: false, message: 'Too many requests. Please try again later.' },
-})
-app.use('/api', limiter)
-
 app.get('/api/health', (_req, res) => {
   res.json({
     status: 'healthy',
@@ -35,14 +30,34 @@ app.get('/api/health', (_req, res) => {
   })
 })
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  message: { success: false, message: 'Too many requests. Please try again later.' },
+})
+app.use('/api', limiter)
 app.use('/api', apiRouter)
 
-const frontendDist = path.join(__dirname, '../../frontend/dist')
-app.use(express.static(frontendDist))
-app.get('/{*splat}', (_req, res) => {
-  res.sendFile(path.join(frontendDist, 'index.html'))
-})
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist))
+  app.use((_req, res) => {
+    res.sendFile(path.join(frontendDist, 'index.html'))
+  })
+} else {
+  console.warn(`Frontend dist not found at ${frontendDist}`)
+}
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Fratelanza API running on port ${PORT}`)
+  console.log(`Frontend dist: ${frontendDist}`)
+})
+
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err)
+  process.exit(1)
+})
+
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled rejection:', err)
+  process.exit(1)
 })

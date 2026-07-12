@@ -13,19 +13,16 @@ RUN apk add --no-cache python3 make g++
 COPY backend/package.json ./
 RUN npm install
 COPY backend/ ./
-RUN npm run build
+RUN npm run build && npm prune --omit=dev
 
 # Production stage
 FROM node:22-alpine AS production
 WORKDIR /app
 
 RUN apk add --no-cache tini
-RUN apk add --no-cache --virtual .build-deps python3 make g++
 
-COPY backend/package.json ./
-RUN npm install --omit=dev && npm cache clean --force
-RUN apk del .build-deps
-
+COPY --from=backend-build /app/backend/package.json ./package.json
+COPY --from=backend-build /app/backend/node_modules ./node_modules
 COPY --from=backend-build /app/backend/dist ./dist
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
@@ -38,7 +35,7 @@ ENV UPLOAD_DIR=/app/data/uploads
 
 EXPOSE 11001
 
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
   CMD wget -qO- http://localhost:11001/api/health || exit 1
 
 ENTRYPOINT ["/sbin/tini", "--"]
