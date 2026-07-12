@@ -172,6 +172,14 @@ export const ui = {
     title: { en: 'Page Not Found', ar: 'الصفحة غير موجودة' } satisfies T,
     message: { en: 'The page you are looking for does not exist.', ar: 'الصفحة التي تبحث عنها غير موجودة.' } satisfies T,
   },
+  errors: {
+    title: { en: 'Something went wrong', ar: 'حدث خطأ ما' } satisfies T,
+    message: { en: 'An unexpected error occurred. Please try again.', ar: 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.' } satisfies T,
+    updateTitle: { en: 'Site updated', ar: 'تم تحديث الموقع' } satisfies T,
+    updateMessage: { en: 'A new version is available. Reload the page to continue.', ar: 'يتوفر إصدار جديد. أعد تحميل الصفحة للمتابعة.' } satisfies T,
+    reload: { en: 'Reload page', ar: 'إعادة تحميل الصفحة' } satisfies T,
+    home: { en: 'Back to Home', ar: 'العودة للرئيسية' } satisfies T,
+  },
   admin: {
     title: { en: 'Fratelanza Admin', ar: 'لوحة إدارة فراتيلانزا' } satisfies T,
     subtitle: { en: 'View form submissions', ar: 'عرض طلبات النماذج' } satisfies T,

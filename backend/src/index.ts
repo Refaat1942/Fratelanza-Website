@@ -42,8 +42,22 @@ app.use('/api', limiter)
 app.use('/api', apiRouter)
 
 if (fs.existsSync(frontendDist)) {
-  app.use(express.static(frontendDist))
-  app.use((_req, res) => {
+  app.use(express.static(frontendDist, {
+    setHeaders(res, filePath) {
+      if (filePath.endsWith('index.html')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+      } else if (filePath.includes(`${path.sep}assets${path.sep}`)) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
+      }
+    },
+  }))
+
+  app.get(/^(?!\/api).*/, (req, res) => {
+    if (req.path.startsWith('/assets/') || path.extname(req.path)) {
+      res.status(404).end()
+      return
+    }
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
     res.sendFile(path.join(frontendDist, 'index.html'))
   })
 } else {

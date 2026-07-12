@@ -1,27 +1,29 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 import { Layout } from '@/components/layout/Layout'
+import { RouteError } from '@/components/RouteError'
+import { lazyWithRetry } from '@/lib/lazyWithRetry'
 
-const HomePage = lazy(() => import('@/pages/HomePage'))
-const AboutPage = lazy(() => import('@/pages/AboutPage'))
-const ProductsPage = lazy(() => import('@/pages/ProductsPage'))
-const ProductDetailPage = lazy(() => import('@/pages/ProductDetailPage'))
-const IndustriesPage = lazy(() => import('@/pages/IndustriesPage'))
-const ServicesPage = lazy(() => import('@/pages/ServicesPage'))
-const IntegrationsPage = lazy(() => import('@/pages/IntegrationsPage'))
-const WhyPage = lazy(() => import('@/pages/WhyPage'))
-const DeliveryPage = lazy(() => import('@/pages/DeliveryPage'))
-const PricingPage = lazy(() => import('@/pages/PricingPage'))
-const SuccessPage = lazy(() => import('@/pages/SuccessPage'))
-const CareersPage = lazy(() => import('@/pages/CareersPage'))
-const FreelancerPage = lazy(() => import('@/pages/FreelancerPage'))
-const RequestDemoPage = lazy(() => import('@/pages/RequestDemoPage'))
-const ContactPage = lazy(() => import('@/pages/ContactPage'))
-const FAQPage = lazy(() => import('@/pages/FAQPage'))
-const BlogPage = lazy(() => import('@/pages/BlogPage'))
-const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'))
-const AdminPage = lazy(() => import('@/pages/AdminPage'))
-const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
+const HomePage = lazyWithRetry(() => import('@/pages/HomePage'))
+const AboutPage = lazyWithRetry(() => import('@/pages/AboutPage'))
+const ProductsPage = lazyWithRetry(() => import('@/pages/ProductsPage'))
+const ProductDetailPage = lazyWithRetry(() => import('@/pages/ProductDetailPage'))
+const IndustriesPage = lazyWithRetry(() => import('@/pages/IndustriesPage'))
+const ServicesPage = lazyWithRetry(() => import('@/pages/ServicesPage'))
+const IntegrationsPage = lazyWithRetry(() => import('@/pages/IntegrationsPage'))
+const WhyPage = lazyWithRetry(() => import('@/pages/WhyPage'))
+const DeliveryPage = lazyWithRetry(() => import('@/pages/DeliveryPage'))
+const PricingPage = lazyWithRetry(() => import('@/pages/PricingPage'))
+const SuccessPage = lazyWithRetry(() => import('@/pages/SuccessPage'))
+const CareersPage = lazyWithRetry(() => import('@/pages/CareersPage'))
+const FreelancerPage = lazyWithRetry(() => import('@/pages/FreelancerPage'))
+const RequestDemoPage = lazyWithRetry(() => import('@/pages/RequestDemoPage'))
+const ContactPage = lazyWithRetry(() => import('@/pages/ContactPage'))
+const FAQPage = lazyWithRetry(() => import('@/pages/FAQPage'))
+const BlogPage = lazyWithRetry(() => import('@/pages/BlogPage'))
+const BlogPostPage = lazyWithRetry(() => import('@/pages/BlogPostPage'))
+const AdminPage = lazyWithRetry(() => import('@/pages/AdminPage'))
+const NotFoundPage = lazyWithRetry(() => import('@/pages/NotFoundPage'))
 
 function PageLoader() {
   return (
@@ -42,10 +44,12 @@ function withSuspense(Component: React.ComponentType) {
 export const router = createBrowserRouter([
   {
     path: '/admin',
+    errorElement: <RouteError />,
     element: withSuspense(AdminPage),
   },
   {
     path: '/',
+    errorElement: <RouteError />,
     element: <Layout />,
     children: [
       { index: true, element: withSuspense(HomePage) },
