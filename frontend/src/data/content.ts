@@ -378,16 +378,18 @@ export const integrations = [
 ]
 
 export const whyFratelanza = [
-  { icon: 'RefreshCw', title: { en: 'Continuous Updates', ar: 'تحديثات مستمرة' }, description: { en: 'Your platform evolves with regular feature releases, security patches, and performance improvements.', ar: 'منصتك تتطور بإصدارات منتظمة وتحديثات أمنية وتحسينات أداء.' } },
-  { icon: 'Cloud', title: { en: 'Cloud Infrastructure', ar: 'بنية سحابية' }, description: { en: 'Enterprise-grade cloud hosting with 99.9% uptime SLA and global CDN delivery.', ar: 'استضافة سحابية مؤسسية مع ضمان تشغيل ٩٩.٩٪ وتسليم عبر CDN عالمي.' } },
-  { icon: 'Server', title: { en: 'Own VPS Hosting', ar: 'استضافة VPS خاصة' }, description: { en: 'Dedicated infrastructure you can trust — not shared hosting on unknown servers.', ar: 'بنية تحتية مخصصة يمكنك الوثوق بها — وليست استضافة مشتركة على خوادم مجهولة.' } },
+  { icon: 'RefreshCw', title: { en: 'Continuous Updates', ar: 'تحديثات مستمرة' }, description: { en: 'Regular feature releases, security patches, and performance improvements keep your platform ahead.', ar: 'إصدارات منتظمة وتحديثات أمنية وتحسينات أداء تبقي منصتك في المقدمة.' } },
+  { icon: 'Cloud', title: { en: 'Cloud Infrastructure', ar: 'بنية سحابية' }, description: { en: 'Enterprise-grade cloud hosting with 99.9% uptime SLA and global delivery.', ar: 'استضافة سحابية مؤسسية مع ضمان تشغيل ٩٩.٩٪ وتسليم عالمي.' } },
+  { icon: 'Server', title: { en: 'Own VPS Servers', ar: 'خوادم VPS خاصة' }, description: { en: 'Dedicated servers you control — not shared hosting on unknown infrastructure.', ar: 'خوادم مخصصة تتحكم بها — وليست استضافة مشتركة على بنية مجهولة.' } },
   { icon: 'Database', title: { en: 'Daily Backups', ar: 'نسخ احتياطي يومي' }, description: { en: 'Automated daily backups with point-in-time recovery for complete peace of mind.', ar: 'نسخ احتياطي يومي آلي مع استعادة لحظية لراحة بال كاملة.' } },
-  { icon: 'Shield', title: { en: 'Enterprise Security', ar: 'أمان مؤسسي' }, description: { en: 'Multi-layer security with encryption, RBAC, audit logs, and compliance frameworks.', ar: 'أمان متعدد الطبقات مع تشفير وصلاحيات وسجلات تدقيق وأطر امتثال.' } },
-  { icon: 'TrendingUp', title: { en: 'Scalability', ar: 'قابلية التوسع' }, description: { en: 'From startup to enterprise — scale users, branches, and data without platform limits.', ar: 'من الشركات الناشئة إلى المؤسسات — توسع المستخدمين والفروع والبيانات بلا حدود.' } },
-  { icon: 'Headphones', title: { en: 'Dedicated Support', ar: 'دعم مخصص' }, description: { en: 'Responsive technical support with SLA-backed response times and dedicated account managers.', ar: 'دعم فني سريع مع أوقات استجابة مضمونة ومديري حسابات مخصصين.' } },
-  { icon: 'Bot', title: { en: 'AI Ready', ar: 'جاهز للذكاء الاصطناعي' }, description: { en: 'Built-in AI capabilities across all products for automation and intelligent insights.', ar: 'قدرات ذكاء اصطناعي مدمجة عبر جميع المنتجات للأتمتة والرؤى الذكية.' } },
-  { icon: 'Link', title: { en: 'Cross-System Integrations', ar: 'تكاملات بين الأنظمة' }, description: { en: 'Seamless data flow between all Fratelanza products and third-party systems.', ar: 'تدفق بيانات سلس بين جميع منتجات فراتيلانزا والأنظمة الخارجية.' } },
-  { icon: 'Gem', title: { en: 'Long-Term Investment', ar: 'استثمار طويل الأمد' }, description: { en: 'Not just software — a continuously evolving platform that grows with your business for years.', ar: 'ليس مجرد برنامج — منصة متطورة باستمرار تنمو مع أعمالك لسنوات.' } },
+  { icon: 'Bot', title: { en: 'AI Ready', ar: 'جاهز للذكاء الاصطناعي' }, description: { en: 'Built-in AI across all products — assistants, automation, and intelligent insights.', ar: 'ذكاء اصطناعي مدمج عبر جميع المنتجات — مساعدين وأتمتة ورؤى ذكية.' } },
+  { icon: 'Link', title: { en: 'Multi-System Integration', ar: 'تكامل متعدد الأنظمة' }, description: { en: 'Seamless data flow between all Fratelanza products and third-party systems.', ar: 'تدفق بيانات سلس بين جميع منتجات فراتيلانزا والأنظمة الخارجية.' } },
+  { icon: 'Rocket', title: { en: 'Future Expansion', ar: 'توسع مستقبلي' }, description: { en: 'New modules, products, and capabilities added continuously as your needs grow.', ar: 'وحدات ومنتجات وقدرات جديدة تُضاف باستمرار مع نمو احتياجاتك.' } },
+  { icon: 'Layers', title: { en: 'Enterprise Architecture', ar: 'بنية مؤسسية' }, description: { en: 'Modular, API-first architecture designed for complex multi-branch operations.', ar: 'بنية معيارية قائمة على API مصممة لعمليات مؤسسية متعددة الفروع.' } },
+  { icon: 'Shield', title: { en: 'Security', ar: 'الأمان' }, description: { en: 'Encryption, role-based access, audit logs, and compliance frameworks built in.', ar: 'تشفير وصلاحيات وسجلات تدقيق وأطر امتثال مدمجة.' } },
+  { icon: 'TrendingUp', title: { en: 'Scalability', ar: 'قابلية التوسع' }, description: { en: 'Scale from one branch to enterprise-wide operations without platform limits.', ar: 'توسع من فرع واحد إلى عمليات مؤسسية واسعة بلا حدود.' } },
+  { icon: 'Gem', title: { en: 'Long-Term Investment', ar: 'استثمار طويل الأمد' }, description: { en: 'A living ecosystem that evolves with your business for years — not a one-time purchase.', ar: 'منظومة حية تتطور مع أعمالك لسنوات — وليست شراء لمرة واحدة.' } },
+  { icon: 'Headphones', title: { en: 'Professional Support', ar: 'دعم احترافي' }, description: { en: 'SLA-backed support with dedicated account managers and rapid response times.', ar: 'دعم مضمون بـ SLA مع مديري حسابات مخصصين وأوقات استجابة سريعة.' } },
 ]
 
 export const deliveryProcess = [

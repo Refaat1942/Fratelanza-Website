@@ -49,6 +49,8 @@ const iconMap: Record<string, LucideIcon> = {
   Gem: Icons.Gem,
   Box: Icons.Box,
   Wrench: Icons.Wrench,
+  Layers: Icons.Layers,
+  Handshake: Icons.Handshake,
 }
 
 export function DynamicIcon({ name, className }: { name: string; className?: string }) {

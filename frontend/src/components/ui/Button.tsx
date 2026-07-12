@@ -4,17 +4,18 @@ import type { ReactNode, ButtonHTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'brand'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   children: ReactNode
 }
 
 const variants = {
-  primary: 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 hover:from-gold-400 hover:to-gold-500 shadow-lg shadow-gold-500/20',
-  secondary: 'glass text-white hover:bg-white/10',
+  primary: 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 hover:from-gold-400 hover:to-gold-500 glow-button',
+  brand: 'bg-gradient-to-r from-brand-600 via-brand-500 to-mint-500 text-white hover:from-brand-500 hover:to-mint-400 shadow-lg shadow-brand-500/25',
+  secondary: 'glass-premium text-white hover:bg-white/10 hover:border-brand-400/30',
   ghost: 'text-white/70 hover:text-white hover:bg-white/5',
-  outline: 'border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 hover:border-gold-400',
+  outline: 'border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 hover:border-gold-400 hover:shadow-lg hover:shadow-gold-500/10',
 }
 
 const sizes = {
@@ -40,7 +41,7 @@ export function Button({ variant = 'primary', size = 'md', href, className, chil
           target="_blank"
           rel="noopener noreferrer"
           className={classes}
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.03, y: -1 }}
           whileTap={{ scale: 0.98 }}
         >
           {children}
@@ -49,7 +50,7 @@ export function Button({ variant = 'primary', size = 'md', href, className, chil
     }
     return (
       <Link to={href} className={classes}>
-        <motion.span className="inline-flex items-center gap-2" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+        <motion.span className="inline-flex items-center gap-2" whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.98 }}>
           {children}
         </motion.span>
       </Link>
@@ -59,7 +60,7 @@ export function Button({ variant = 'primary', size = 'md', href, className, chil
   return (
     <motion.button
       className={classes}
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03, y: -1 }}
       whileTap={{ scale: 0.98 }}
       {...(props as object)}
     >

@@ -45,7 +45,8 @@ export const ui = {
     enterpriseProducts: { en: 'Enterprise Products', ar: 'منتجات مؤسسية' } satisfies T,
     ecosystemSub: { en: 'A unified platform spanning healthcare, retail, real estate, and beyond.', ar: 'منصة موحدة تشمل الرعاية الصحية والتجزئة والعقارات وأكثر.' } satisfies T,
     whyBadge: { en: 'Why Fratelanza', ar: 'لماذا فراتيلانزا' } satisfies T,
-    whyTitle: { en: 'Not Just Software — A Living Platform', ar: 'ليس مجرد برنامج — منصة حية' } satisfies T,
+    whyTitle: { en: 'An Evolving Technology Ecosystem', ar: 'منظومة تقنية متطورة' } satisfies T,
+    hookCta: { en: 'Learn How We Execute', ar: 'اكتشف كيف ننفذ مشاريعك' } satisfies T,
     ctaTitle: { en: 'Ready to Transform Your Business?', ar: 'مستعد لتحويل أعمالك؟' } satisfies T,
     ctaSub: { en: 'Schedule a personalized demo and discover how Fratelanza can power your digital transformation.', ar: 'احجز عرضاً مخصصاً واكتشف كيف يمكن لفراتيلانزا أن تدعم تحولك الرقمي.' } satisfies T,
   },
@@ -81,6 +82,8 @@ export const ui = {
     subtitle: { en: 'End-to-end technology services for enterprise transformation — including professional training.', ar: 'خدمات تقنية شاملة للتحول المؤسسي — بما في ذلك التدريب الاحترافي.' } satisfies T,
     seoDesc: { en: 'Software development, ERP, AI, cloud, DevOps, consulting, training, and more.', ar: 'تطوير البرمجيات وERP والذكاء الاصطناعي والسحابة وDevOps والاستشارات والتدريب والمزيد.' } satisfies T,
     trainingBadge: { en: 'Available onsite & remote', ar: 'متاح في الموقع وعن بُعد' } satisfies T,
+    offerings: { en: 'services', ar: 'خدمة' } satisfies T,
+    allCategories: { en: 'All Service Categories', ar: 'جميع فئات الخدمات' } satisfies T,
   },
   integrations: {
     title: { en: 'Integrations', ar: 'التكاملات' } satisfies T,
@@ -90,7 +93,10 @@ export const ui = {
   why: {
     title: { en: 'Why Fratelanza', ar: 'لماذا فراتيلانزا' } satisfies T,
     pageTitle: { en: 'Why Fratelanza?', ar: 'لماذا فراتيلانزا؟' } satisfies T,
-    subtitle: { en: 'Fratelanza is NOT just software. It is a continuously evolving platform.', ar: 'فراتيلانزا ليست مجرد برنامج. إنها منصة متطورة باستمرار.' } satisfies T,
+    subtitle: { en: 'Fratelanza is NOT just software — it is an evolving technology ecosystem.', ar: 'فراتيلانزا ليست مجرد برنامج — إنها منظومة تقنية متطورة.' } satisfies T,
+    ecosystemBadge: { en: 'Technology Ecosystem', ar: 'منظومة تقنية' } satisfies T,
+    ecosystemTitle: { en: 'A Platform That Grows With You', ar: 'منصة تنمو معك' } satisfies T,
+    ecosystemDesc: { en: 'Continuous updates, cloud infrastructure, AI readiness, and enterprise architecture — built for the long term.', ar: 'تحديثات مستمرة وبنية سحابية وجاهزية للذكاء الاصطناعي وبنية مؤسسية — مبنية للمدى الطويل.' } satisfies T,
   },
   delivery: {
     title: { en: 'Delivery Process', ar: 'عملية التسليم' } satisfies T,

@@ -6,7 +6,7 @@ export const honeypotSchema = z.object({
 
 export const leadSchema = honeypotSchema.extend({
   companyName: z.string().min(2),
-  contactPerson: z.string().min(2),
+  contactPerson: z.string().optional(),
   businessType: z.string().optional(),
   industry: z.string().optional(),
   country: z.string().optional(),

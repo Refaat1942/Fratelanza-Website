@@ -37,15 +37,15 @@ export function Header() {
             <Logo size="sm" showName />
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden xl:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+                  'px-2.5 py-2 text-xs font-medium rounded-lg transition-colors whitespace-nowrap',
                   location.pathname === link.path
-                    ? 'text-gold-400 bg-gold-500/10'
+                    ? 'text-brand-300 bg-brand-500/10 border border-brand-400/20'
                     : 'text-white/70 hover:text-white hover:bg-white/5',
                 )}
               >

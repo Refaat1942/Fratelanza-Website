@@ -10,12 +10,12 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/10 bg-dark-950">
+    <footer className="border-t border-brand-500/10 bg-dark-950/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div className="lg:col-span-1">
             <Logo size="md" className="mb-4" />
-            <p className="text-sm font-semibold tracking-wider uppercase text-cyan-300/80 mb-4">
+            <p className="text-sm font-semibold tracking-wider uppercase text-gradient-brand mb-4">
               {t(company.slogan)}
             </p>
             <p className="text-sm text-white/50 mb-4 leading-relaxed">
@@ -27,7 +27,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-300 mb-4">
               {ui('footer', 'quickLinks')}
             </h4>
             <ul className="space-y-2">
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-300 mb-4">
               {ui('products', 'title')}
             </h4>
             <ul className="space-y-2">
@@ -57,7 +57,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-gold-400 mb-4">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand-300 mb-4">
               {ui('footer', 'contact')}
             </h4>
             <ul className="space-y-3">

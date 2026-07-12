@@ -40,10 +40,20 @@ apiRouter.post('/leads', (req: Request, res: Response) => {
       INSERT INTO leads (company_name, contact_person, business_type, industry, country, city, phone, whatsapp, email, expected_users, interested_product, current_system, message, preferred_contact_time)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
-      sanitize(data.companyName), sanitize(data.contactPerson), data.businessType, data.industry,
-      data.country, data.city, data.phone, data.whatsapp, data.email,
-      data.expectedUsers, data.interestedProduct, data.currentSystem,
-      data.message ? sanitize(data.message) : null, data.preferredContactTime,
+      sanitize(data.companyName),
+      sanitize(data.contactPerson || data.companyName),
+      data.businessType || null,
+      data.industry || null,
+      data.country || null,
+      data.city || null,
+      data.phone || null,
+      data.whatsapp || null,
+      data.email,
+      data.expectedUsers || null,
+      data.interestedProduct || null,
+      data.currentSystem || null,
+      data.message ? sanitize(data.message) : null,
+      data.preferredContactTime || null,
     )
 
     res.json({ success: true, message: 'Demo request received successfully.' })
