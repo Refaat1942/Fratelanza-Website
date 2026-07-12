@@ -1,0 +1,57 @@
+import type { LucideIcon } from 'lucide-react'
+import * as Icons from 'lucide-react'
+
+const iconMap: Record<string, LucideIcon> = {
+  Shield: Icons.Shield,
+  Zap: Icons.Zap,
+  Users: Icons.Users,
+  Globe: Icons.Globe,
+  Heart: Icons.Heart,
+  Sparkles: Icons.Sparkles,
+  LayoutDashboard: Icons.LayoutDashboard,
+  Pill: Icons.Pill,
+  Stethoscope: Icons.Stethoscope,
+  FlaskConical: Icons.FlaskConical,
+  UserCheck: Icons.UserCheck,
+  Megaphone: Icons.Megaphone,
+  Bot: Icons.Bot,
+  ShoppingCart: Icons.ShoppingCart,
+  Building2: Icons.Building2,
+  Terminal: Icons.Terminal,
+  HeartPulse: Icons.HeartPulse,
+  Store: Icons.Store,
+  ShoppingBag: Icons.ShoppingBag,
+  Briefcase: Icons.Briefcase,
+  Building: Icons.Building,
+  Landmark: Icons.Landmark,
+  GraduationCap: Icons.GraduationCap,
+  Factory: Icons.Factory,
+  Code2: Icons.Code2,
+  Brain: Icons.Brain,
+  Cog: Icons.Cog,
+  Cloud: Icons.Cloud,
+  Smartphone: Icons.Smartphone,
+  Server: Icons.Server,
+  HardDrive: Icons.HardDrive,
+  Lightbulb: Icons.Lightbulb,
+  Headphones: Icons.Headphones,
+  BookOpen: Icons.BookOpen,
+  FileText: Icons.FileText,
+  Receipt: Icons.Receipt,
+  MessageCircle: Icons.MessageCircle,
+  CreditCard: Icons.CreditCard,
+  Plug: Icons.Plug,
+  Rocket: Icons.Rocket,
+  RefreshCw: Icons.RefreshCw,
+  Database: Icons.Database,
+  TrendingUp: Icons.TrendingUp,
+  Link: Icons.Link,
+  Gem: Icons.Gem,
+  Box: Icons.Box,
+  Wrench: Icons.Wrench,
+}
+
+export function DynamicIcon({ name, className }: { name: string; className?: string }) {
+  const Icon = iconMap[name] || Icons.Box
+  return <Icon className={className} />
+}

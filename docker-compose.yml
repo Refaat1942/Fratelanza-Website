@@ -1,0 +1,43 @@
+# Fratelanza Corporate Website — Isolated Deployment
+# This compose file is SELF-CONTAINED and does NOT modify any existing services.
+# Maps host port 11000 → container port 11001
+
+services:
+  fratelanza-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fratelanza-website
+    restart: unless-stopped
+    ports:
+      - "11000:11001"
+    volumes:
+      - fratelanza-data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=11001
+      - DATA_DIR=/app/data
+      - UPLOAD_DIR=/app/data/uploads
+      - CORS_ORIGIN=*
+    networks:
+      - fratelanza-net
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:11001/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  fratelanza-data:
+    name: fratelanza-website-data
+
+networks:
+  fratelanza-net:
+    name: fratelanza-website-net
+    driver: bridge
