@@ -14,18 +14,18 @@ export const company = {
   phone: '01097138338',
   whatsapp: '201097138338',
   address: {
-    en: 'Cairo, Egypt',
-    ar: 'القاهرة، مصر',
+    en: '6th of October, 4th District, Building 261, Flat 8, Egypt',
+    ar: '٦ أكتوبر، الحي الرابع، عمارة ٢٦١، شقة ٨، مصر',
   },
   workingHours: {
     en: 'Sunday – Thursday: 9:00 AM – 6:00 PM',
     ar: 'الأحد – الخميس: ٩:٠٠ ص – ٦:٠٠ م',
   },
   social: {
-    linkedin: 'https://linkedin.com/company/fratelanza',
-    facebook: 'https://facebook.com/fratelanza',
-    instagram: 'https://instagram.com/fratelanza',
-    github: 'https://github.com/Refaat1942',
+    linkedin: 'https://www.linkedin.com/company/fratelanza/',
+    facebook: 'https://www.facebook.com/share/1B2rJoh9uH/',
+    instagram: 'https://www.instagram.com/fratelanza2?igsh=ZDZ6NWtyMDYzdGU4',
+    tiktok: 'https://www.tiktok.com/@fratelanza1?_r=1&_t=ZS-97yDkqPQtzb',
   },
   stats: [
     { value: '12+', label: { en: 'Enterprise Products', ar: 'منتجات مؤسسية' } },
@@ -320,19 +320,49 @@ export const industries = [
 ]
 
 export const services = [
-  { id: 'dev', name: { en: 'Software Development', ar: 'تطوير البرمجيات' }, icon: 'Code2' },
-  { id: 'erp', name: { en: 'ERP Solutions', ar: 'حلول ERP' }, icon: 'LayoutDashboard' },
-  { id: 'ai', name: { en: 'AI Solutions', ar: 'حلول الذكاء الاصطناعي' }, icon: 'Brain' },
-  { id: 'automation', name: { en: 'Automation', ar: 'الأتمتة' }, icon: 'Cog' },
-  { id: 'cloud', name: { en: 'Cloud Solutions', ar: 'الحلول السحابية' }, icon: 'Cloud' },
-  { id: 'mobile', name: { en: 'Mobile Apps', ar: 'تطبيقات الجوال' }, icon: 'Smartphone' },
-  { id: 'web', name: { en: 'Web Apps', ar: 'تطبيقات الويب' }, icon: 'Globe' },
-  { id: 'devops', name: { en: 'DevOps', ar: 'DevOps' }, icon: 'Server' },
-  { id: 'hosting', name: { en: 'Hosting', ar: 'الاستضافة' }, icon: 'HardDrive' },
-  { id: 'consulting', name: { en: 'Consulting', ar: 'الاستشارات' }, icon: 'Lightbulb' },
-  { id: 'support', name: { en: 'Technical Support', ar: 'الدعم الفني' }, icon: 'Headphones' },
-  { id: 'training', name: { en: 'Training', ar: 'التدريب' }, icon: 'BookOpen' },
+  { id: 'dev', name: { en: 'Software Development', ar: 'تطوير البرمجيات' }, icon: 'Code2', description: { en: 'Custom enterprise software tailored to your business workflows.', ar: 'برمجيات مؤسسية مخصصة لسير عمل أعمالك.' } },
+  { id: 'erp', name: { en: 'ERP Solutions', ar: 'حلول ERP' }, icon: 'LayoutDashboard', description: { en: 'End-to-end ERP implementation, migration, and support.', ar: 'تنفيذ وترحيل ودعم ERP شامل.' } },
+  { id: 'ai', name: { en: 'AI Solutions', ar: 'حلول الذكاء الاصطناعي' }, icon: 'Brain', description: { en: 'Intelligent automation and AI-powered business insights.', ar: 'أتمتة ذكية ورؤى أعمال مدعومة بالذكاء الاصطناعي.' } },
+  { id: 'automation', name: { en: 'Automation', ar: 'الأتمتة' }, icon: 'Cog', description: { en: 'Streamline operations with smart workflow automation.', ar: 'تبسيط العمليات بأتمتة سير العمل الذكية.' } },
+  { id: 'cloud', name: { en: 'Cloud Solutions', ar: 'الحلول السحابية' }, icon: 'Cloud', description: { en: 'Secure cloud infrastructure, hosting, and migration.', ar: 'بنية سحابية آمنة واستضافة وترحيل.' } },
+  { id: 'mobile', name: { en: 'Mobile Apps', ar: 'تطبيقات الجوال' }, icon: 'Smartphone', description: { en: 'Native and cross-platform mobile applications.', ar: 'تطبيقات جوال أصلية ومتعددة المنصات.' } },
+  { id: 'web', name: { en: 'Web Apps', ar: 'تطبيقات الويب' }, icon: 'Globe', description: { en: 'Modern, scalable web applications and portals.', ar: 'تطبيقات ويب وبوابات حديثة وقابلة للتوسع.' } },
+  { id: 'devops', name: { en: 'DevOps', ar: 'DevOps' }, icon: 'Server', description: { en: 'CI/CD pipelines, monitoring, and deployment automation.', ar: 'خطوط CI/CD ومراقبة وأتمتة النشر.' } },
+  { id: 'hosting', name: { en: 'Hosting', ar: 'الاستضافة' }, icon: 'HardDrive', description: { en: 'Dedicated VPS hosting with daily backups and SLA.', ar: 'استضافة VPS مخصصة مع نسخ احتياطي يومي وSLA.' } },
+  { id: 'consulting', name: { en: 'Consulting', ar: 'الاستشارات' }, icon: 'Lightbulb', description: { en: 'Technology strategy and digital transformation consulting.', ar: 'استشارات استراتيجية تقنية وتحول رقمي.' } },
+  { id: 'support', name: { en: 'Technical Support', ar: 'الدعم الفني' }, icon: 'Headphones', description: { en: 'Responsive enterprise support with SLA guarantees.', ar: 'دعم مؤسسي سريع مع ضمانات SLA.' } },
+  { id: 'training', name: { en: 'Training & Workshops', ar: 'التدريب وورش العمل' }, icon: 'BookOpen', description: { en: 'Professional training programs for your team on ERP, AI, cloud systems, and digital tools — onsite or remote.', ar: 'برامج تدريب احترافية لفريقك على ERP والذكاء الاصطناعي والأنظمة السحابية والأدوات الرقمية — في الموقع أو عن بُعد.' } },
 ]
+
+export const freelancerModel = {
+  title: { en: 'We Are Not a Freelancer Broker', ar: 'لسنا وسيط فريلانس' },
+  subtitle: {
+    en: 'Fratelanza relieves you from everything when working with freelancers — selection, management, quality control, contracts, payments, and delivery.',
+    ar: 'فراتيلانزا تريحك من كل شيء في التعامل مع الفريلانس — الاختيار والإدارة ومراقبة الجودة والعقود والمدفوعات والتسليم.',
+  },
+  points: [
+    {
+      icon: 'UserCheck',
+      title: { en: 'We Handle Selection', ar: 'نختار لك الأنسب' },
+      description: { en: 'We source, vet, and assign the right talent — you never deal with freelancer hunting.', ar: 'نبحث ونقيّم ونعيّن المواهب المناسبة — دون عناء البحث عن فريلانس.' },
+    },
+    {
+      icon: 'Shield',
+      title: { en: 'We Manage Everything', ar: 'ندير كل شيء' },
+      description: { en: 'Contracts, timelines, quality reviews, and deliverables — all managed by Fratelanza on your behalf.', ar: 'العقود والجداول ومراجعة الجودة والمخرجات — كلها تُدار بواسطة فراتيلانزا نيابة عنك.' },
+    },
+    {
+      icon: 'Handshake',
+      title: { en: 'One Point of Contact', ar: 'جهة اتصال واحدة' },
+      description: { en: 'You work only with Fratelanza. We handle the freelancers behind the scenes so you focus on your business.', ar: 'تتعامل فقط مع فراتيلانزا. نحن ندير الفريلانس في الخلفية لتركز على أعمالك.' },
+    },
+    {
+      icon: 'Gem',
+      title: { en: 'Guaranteed Delivery', ar: 'تسليم مضمون' },
+      description: { en: 'We take full responsibility for project outcomes — not just connecting you to a freelancer.', ar: 'نتحمل المسؤولية الكاملة عن نتائج المشروع — وليس مجرد ربطك بفريلانس.' },
+    },
+  ],
+}
 
 export const integrations = [
   { name: { en: 'Egyptian Tax Authority', ar: 'مصلحة الضرائب المصرية' }, icon: 'Landmark' },

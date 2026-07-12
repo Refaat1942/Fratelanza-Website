@@ -48,7 +48,7 @@ export default function HomePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8 }}
-              className="text-gold-400 text-sm font-semibold tracking-widest uppercase mb-6 mt-8"
+              className="text-sm font-semibold tracking-widest uppercase mb-6 mt-8 text-gradient-brand"
             >
               {t(company.tagline)}
             </motion.p>
@@ -154,19 +154,21 @@ export default function HomePage() {
             title={ui('home', 'whyTitle')}
             subtitle={t(overview.philosophy)}
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
             {whyFratelanza.slice(0, 6).map((item, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                transition={{ delay: i * 0.06 }}
               >
-                <Card>
-                  <DynamicIcon name={item.icon} className="w-8 h-8 text-gold-400 mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">{t(item.title)}</h3>
-                  <p className="text-sm text-white/50 leading-relaxed">{t(item.description)}</p>
+                <Card className="flex items-start gap-3 h-full p-4 border-cyan-500/10 hover:border-cyan-400/25 transition-colors">
+                  <DynamicIcon name={item.icon} className="w-6 h-6 text-cyan-300 shrink-0 mt-0.5" />
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold mb-1">{t(item.title)}</h3>
+                    <p className="text-xs text-white/50 leading-relaxed">{t(item.description)}</p>
+                  </div>
                 </Card>
               </motion.div>
             ))}

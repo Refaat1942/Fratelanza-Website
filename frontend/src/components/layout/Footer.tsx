@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { company, navLinks, products, overview } from '@/data/content'
 import { useTranslation } from '@/i18n/useTranslation'
-import { Mail, Phone, MessageCircle, MapPin, Share2 } from 'lucide-react'
+import { Mail, Phone, MessageCircle, MapPin } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
+import { SocialLinks } from '@/components/ui/SocialLinks'
 
 export function Footer() {
   const { t, ui } = useTranslation()
@@ -78,18 +79,7 @@ export function Footer() {
               </li>
             </ul>
 
-            <div className="flex items-center gap-3 mt-6">
-              {[
-                { label: 'LinkedIn', href: company.social.linkedin },
-                { label: 'Facebook', href: company.social.facebook },
-                { label: 'Instagram', href: company.social.instagram },
-                { label: 'GitHub', href: company.social.github },
-              ].map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" title={social.label} className="p-2 rounded-lg glass hover:bg-white/10 text-white/50 hover:text-gold-400 transition-colors">
-                  <Share2 className="w-4 h-4" />
-                </a>
-              ))}
-            </div>
+            <SocialLinks className="mt-6" />
           </div>
         </div>
 

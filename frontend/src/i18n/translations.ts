@@ -78,8 +78,9 @@ export const ui = {
   services: {
     title: { en: 'Services', ar: 'الخدمات' } satisfies T,
     pageTitle: { en: 'Our Services', ar: 'خدماتنا' } satisfies T,
-    subtitle: { en: 'End-to-end technology services for enterprise transformation.', ar: 'خدمات تقنية شاملة للتحول المؤسسي.' } satisfies T,
-    seoDesc: { en: 'Software development, ERP, AI, cloud, DevOps, consulting, and more.', ar: 'تطوير البرمجيات وERP والذكاء الاصطناعي والسحابة وDevOps والاستشارات والمزيد.' } satisfies T,
+    subtitle: { en: 'End-to-end technology services for enterprise transformation — including professional training.', ar: 'خدمات تقنية شاملة للتحول المؤسسي — بما في ذلك التدريب الاحترافي.' } satisfies T,
+    seoDesc: { en: 'Software development, ERP, AI, cloud, DevOps, consulting, training, and more.', ar: 'تطوير البرمجيات وERP والذكاء الاصطناعي والسحابة وDevOps والاستشارات والتدريب والمزيد.' } satisfies T,
+    trainingBadge: { en: 'Available onsite & remote', ar: 'متاح في الموقع وعن بُعد' } satisfies T,
   },
   integrations: {
     title: { en: 'Integrations', ar: 'التكاملات' } satisfies T,
@@ -113,16 +114,19 @@ export const ui = {
   },
   careers: {
     title: { en: 'Careers', ar: 'الوظائف' } satisfies T,
-    subtitle: { en: 'Build the future of enterprise technology with us.', ar: 'ابنِ مستقبل التكنولوجيا المؤسسية معنا.' } satisfies T,
+    subtitle: { en: 'Interested in joining Fratelanza? Send us your CV and we will reach out when there is a match.', ar: 'مهتم بالانضمام لفراتيلانزا؟ أرسل سيرتك الذاتية وسنتواصل معك عند وجود فرصة مناسبة.' } satisfies T,
+    formIntro: { en: 'Fill in the form below and attach your CV. Our team reviews every application and will contact qualified candidates.', ar: 'املأ النموذج أدناه وأرفق سيرتك الذاتية. فريقنا يراجع كل طلب ويتواصل مع المرشحين المؤهلين.' } satisfies T,
     submitApp: { en: 'Submit Application', ar: 'إرسال الطلب' } satisfies T,
     success: { en: 'Your application has been received. We will review it and get back to you soon.', ar: 'تم استلام طلبك. سنراجعه ونتواصل معك قريباً.' } satisfies T,
-    seoDesc: { en: 'Join the Fratelanza team. View open positions and apply.', ar: 'انضم لفريق فراتيلانزا. اطلع على الوظائف المتاحة وقدّم.' } satisfies T,
+    seoDesc: { en: 'Apply to Fratelanza. Submit your CV and join our talent pool.', ar: 'قدّم على فراتيلانزا. أرسل سيرتك الذاتية وانضم لقاعدة المواهب لدينا.' } satisfies T,
   },
   freelancer: {
     title: { en: 'Freelancer Portal', ar: 'بوابة المستقلين' } satisfies T,
-    subtitle: { en: 'Partner with Fratelanza on exciting enterprise projects.', ar: 'شارك فراتيلانزا في مشاريع مؤسسية مثيرة.' } satisfies T,
+    subtitle: { en: 'Fratelanza relieves clients from everything when working with freelancers — we are not a broker.', ar: 'فراتيلانزا تريح العميل من كل شيء في التعامل مع الفريلانس — لسنا وسيطاً.' } satisfies T,
+    joinNetwork: { en: 'Join Our Talent Network', ar: 'انضم لشبكة المواهب' } satisfies T,
+    joinNetworkSub: { en: 'Are you a skilled freelancer? Register your profile to work on Fratelanza-managed projects.', ar: 'هل أنت مستقل ماهر؟ سجّل ملفك للعمل على مشاريع تديرها فراتيلانزا.' } satisfies T,
     success: { en: 'Your freelancer application has been received. We will review your profile and contact you.', ar: 'تم استلام طلبك. سنراجع ملفك ونتواصل معك.' } satisfies T,
-    seoDesc: { en: 'Join the Fratelanza freelancer network.', ar: 'انضم لشبكة مستقلي فراتيلانزا.' } satisfies T,
+    seoDesc: { en: 'Join the Fratelanza freelancer network. We manage projects — not just connect people.', ar: 'انضم لشبكة مستقلي فراتيلانزا. ندير المشاريع — لا نربط الناس فقط.' } satisfies T,
   },
   requestDemo: {
     title: { en: 'Request Demo', ar: 'اطلب عرضاً' } satisfies T,

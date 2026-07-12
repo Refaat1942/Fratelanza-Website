@@ -65,8 +65,16 @@
     @apply bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 bg-clip-text text-transparent;
   }
 
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-cyan-300 via-cyan-400 to-gold-400 bg-clip-text text-transparent;
+  }
+
   .glow-gold {
     box-shadow: 0 0 40px rgba(212, 160, 58, 0.15);
+  }
+
+  .glow-brand {
+    box-shadow: 0 0 50px rgba(34, 211, 238, 0.12), 0 0 30px rgba(212, 160, 58, 0.08);
   }
 
   .rtl-flip {

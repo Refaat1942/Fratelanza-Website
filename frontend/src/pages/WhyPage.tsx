@@ -19,20 +19,20 @@ export default function WhyPage() {
       <section className="py-16 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader subtitle={t(overview.philosophy)} title="" centered />
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {whyFratelanza.map((item, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
-                  <Card className="flex gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-gold-500/10 flex items-center justify-center shrink-0">
-                      <DynamicIcon name={item.icon} className="w-6 h-6 text-gold-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-1">{t(item.title)}</h3>
-                      <p className="text-sm text-white/50">{t(item.description)}</p>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
+              <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}>
+                <Card className="flex items-start gap-3 h-full p-4 border-cyan-500/10 hover:border-cyan-400/30 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-gold-500/10 flex items-center justify-center shrink-0">
+                    <DynamicIcon name={item.icon} className="w-5 h-5 text-cyan-300" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-sm mb-1">{t(item.title)}</h3>
+                    <p className="text-xs text-white/50 leading-relaxed">{t(item.description)}</p>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
           </div>
           <div className="text-center mt-12">
             <Button href="/request-demo" size="lg">{ui('common', 'startJourney')}</Button>
