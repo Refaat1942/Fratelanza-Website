@@ -59,7 +59,7 @@ export function CustomSelect({ id, options, value = '', onChange, placeholder = 
                   onClick={() => { onChange(opt.value); setOpen(false) }}
                   className={cn(
                     'w-full px-4 py-2.5 text-sm text-left flex items-center justify-between hover:bg-brand-500/10 transition-colors',
-                    value === opt.value ? 'text-brand-700 bg-brand-500/10' : 'text-white/80',
+                    value === opt.value ? 'text-brand-700 bg-brand-500/10' : 'text-ink-muted',
                   )}
                 >
                   <span className="truncate">{opt.label}</span>

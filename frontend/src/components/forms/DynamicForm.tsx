@@ -94,9 +94,9 @@ export function DynamicForm({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {fields.map((field) => (
           <div key={field.name} className={cn(field.colSpan === 2 && 'md:col-span-2')}>
-            <label htmlFor={field.name} className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor={field.name} className="form-label">
               {field.label}
-              {field.required && <span className="text-brand-400 ml-1">*</span>}
+              {field.required && <span className="text-brand-600 ms-1">*</span>}
             </label>
 
             {field.type === 'textarea' ? (

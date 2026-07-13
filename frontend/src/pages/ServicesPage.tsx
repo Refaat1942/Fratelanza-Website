@@ -73,7 +73,7 @@ export default function ServicesPage() {
                       className="flex items-center gap-3 px-4 py-3 rounded-xl glass-premium hover:bg-white/[0.06] transition-colors group"
                     >
                       <div className="w-2 h-2 rounded-full bg-mint-400/60 group-hover:bg-brand-400 transition-colors shrink-0" />
-                      <span className="text-sm text-white/80">{locale === 'en' ? item.en : item.ar}</span>
+                      <span className="text-sm text-ink">{locale === 'en' ? item.en : item.ar}</span>
                     </motion.div>
                   ))}
                 </div>

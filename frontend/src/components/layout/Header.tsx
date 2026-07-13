@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { navLinks } from '@/data/content'
+import { navLinks, company } from '@/data/content'
 import { useTranslation } from '@/i18n/useTranslation'
 import { Button } from '@/components/ui/Button'
 import { Logo } from '@/components/ui/Logo'
@@ -37,9 +37,10 @@ export function Header() {
         <div className="flex items-center justify-between gap-4 lg:gap-6 h-[4.25rem] lg:h-[4.75rem]">
           <Link
             to="/"
-            className="flex items-center shrink-0 pe-4 lg:pe-6 border-e border-slate-200/80 min-w-[9rem] lg:min-w-[11rem]"
+            className="flex items-center shrink-0 pe-5 lg:pe-8 me-4 lg:me-6 border-e border-slate-200/80"
+            aria-label={company.name}
           >
-            <Logo size="sm" variant="header" showName />
+            <Logo size="sm" variant="header" />
           </Link>
 
           <nav className="hidden xl:flex items-center gap-1 flex-1 justify-center px-4">

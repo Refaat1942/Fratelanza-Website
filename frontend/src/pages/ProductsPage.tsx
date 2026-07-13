@@ -54,7 +54,7 @@ export default function ProductsPage() {
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
-                          <span className="text-xs text-white/30 uppercase tracking-wider">
+                          <span className="text-xs text-body-subtle uppercase tracking-wider">
                             {ui('common', 'screenshotPreview')}
                           </span>
                         </div>

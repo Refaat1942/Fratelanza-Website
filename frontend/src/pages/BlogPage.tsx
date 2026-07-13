@@ -31,13 +31,13 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-4 mb-12">
             <div className="relative flex-1">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-body-subtle" />
               <input
                 type="search"
                 placeholder={ui('common', 'searchArticles')}
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-xl glass bg-brand-50/50 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-gold-500/40"
+              className="w-full pl-12 pr-4 py-3 rounded-xl glass text-ink placeholder:text-body-subtle focus:outline-none focus:ring-2 focus:ring-gold-500/40"
               />
             </div>
             <div className="flex flex-wrap gap-2">
@@ -56,7 +56,7 @@ export default function BlogPage() {
                   <span className="text-xs text-gold-600 font-semibold">{t(post.category)}</span>
                   <h3 className="text-xl font-bold mt-2 mb-3">{t(post.title)}</h3>
                   <p className="text-sm text-body-subtle mb-4">{t(post.excerpt)}</p>
-                  <div className="flex items-center gap-4 text-xs text-white/30">
+                  <div className="flex items-center gap-4 text-xs text-body-subtle">
                     <span>{post.date}</span>
                     <span>{post.author}</span>
                   </div>

@@ -12,20 +12,20 @@ type LogoProps = {
   className?: string
 }
 
-const iconSizes = {
-  sm: 'h-9 w-9',
-  md: 'h-12 w-12',
-  lg: 'h-16 w-16',
-  xl: 'h-24 w-24',
-  hero: 'h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48',
+const sizes = {
+  sm: 'h-11 w-11',
+  md: 'h-16 w-16',
+  lg: 'h-24 w-24',
+  xl: 'h-32 w-32',
+  hero: 'h-40 w-40 sm:h-48 sm:w-48 md:h-56 md:w-56',
 }
 
-const headerIconSizes = {
-  sm: 'h-10 w-10',
-  md: 'h-11 w-11',
-  lg: 'h-12 w-12',
-  xl: 'h-14 w-14',
-  hero: 'h-10 w-10',
+const headerSizes = {
+  sm: 'h-14 w-14',
+  md: 'h-16 w-16',
+  lg: 'h-16 w-16',
+  xl: 'h-16 w-16',
+  hero: 'h-14 w-14',
 }
 
 export function Logo({
@@ -39,57 +39,23 @@ export function Logo({
   const { t } = useTranslation()
   const slogan = t(company.slogan)
   const isHeader = variant === 'header'
+  const sizeClass = isHeader ? headerSizes[size] : sizes[size]
 
-  const framedLogo = isHeader ? (
-    <div
-      className={cn(
-        'relative shrink-0 rounded-2xl bg-white p-1 shadow-md shadow-brand-500/10 ring-1 ring-slate-200/80',
-        headerIconSizes[size],
-      )}
-    >
-      <div className="w-full h-full rounded-xl bg-gradient-to-br from-brand-50 via-white to-mint-50 flex items-center justify-center overflow-hidden">
-        <img
-          src="/logo.png"
-          alt={company.name}
-          className={cn('w-[82%] h-[82%] object-contain', className)}
-        />
-      </div>
-    </div>
-  ) : (
-    <div
-      className={cn(
-        'relative rounded-3xl bg-white p-1.5 shadow-lg shadow-brand-500/15 ring-2 ring-brand-200/60',
-        iconSizes[size],
-      )}
-    >
-      <div className="w-full h-full rounded-[1.25rem] bg-gradient-to-br from-brand-50 via-white to-gold-50 flex items-center justify-center overflow-hidden">
-        <img
-          src="/logo.png"
-          alt={company.name}
-          className={cn('w-[88%] h-[88%] object-contain', className)}
-        />
-      </div>
-    </div>
+  const logoImage = (
+    <img
+      src="/logo.png"
+      alt={company.name}
+      className={cn('object-contain shrink-0', sizeClass, className)}
+    />
   )
 
   const content = (
-    <div className={cn('flex items-center', isHeader ? 'gap-3' : 'gap-4', showName && 'flex-row')}>
-      {framedLogo}
-      {showName && (
-        <div className={cn(isHeader ? 'hidden md:block min-w-0' : 'hidden sm:block')}>
-          <p
-            className={cn(
-              'font-display font-extrabold leading-none text-ink',
-              isHeader ? 'text-lg tracking-tight' : 'text-xl sm:text-2xl tracking-tight',
-            )}
-          >
-            <span className="text-gradient-premium">{company.name}</span>
-          </p>
-          {!isHeader && (
-            <p className="text-[10px] font-semibold tracking-[0.12em] uppercase text-mint-600 mt-1 max-w-[180px] leading-snug">
-              {slogan}
-            </p>
-          )}
+    <div className={cn('flex items-center', showName ? 'gap-3' : '')}>
+      {logoImage}
+      {showName && !isHeader && (
+        <div className="hidden sm:block min-w-0">
+          <p className="font-display font-extrabold text-xl tracking-tight text-gradient-premium">{company.name}</p>
+          <p className="text-[10px] font-bold tracking-wide uppercase text-mint-600 mt-1">{slogan}</p>
         </div>
       )}
     </div>
@@ -98,7 +64,7 @@ export function Logo({
   if (!animated) {
     return (
       <div className={cn('flex flex-col', isHeader ? 'items-start' : 'items-center')}>
-        {showName || isHeader ? content : framedLogo}
+        {showName && !isHeader ? content : logoImage}
         {showSlogan && !isHeader && <Slogan text={slogan} className="mt-5" />}
       </div>
     )
@@ -106,21 +72,15 @@ export function Logo({
 
   return (
     <div className="flex flex-col items-center">
-      <div className="relative">
-        <motion.div
-          className="absolute inset-0 rounded-3xl bg-gradient-to-r from-brand-300/30 to-mint-300/25 blur-3xl"
-          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          initial={{ scale: 0.85, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.9, ease: 'easeOut' }}
-          whileHover={{ scale: 1.02 }}
-        >
-          {showName ? content : framedLogo}
-        </motion.div>
-      </div>
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        whileHover={{ scale: 1.02 }}
+        className="drop-shadow-lg drop-shadow-brand-500/15"
+      >
+        {showName ? content : logoImage}
+      </motion.div>
       {showSlogan && <Slogan text={slogan} className="mt-8" animated />}
     </div>
   )
@@ -129,7 +89,7 @@ export function Logo({
 function Slogan({ text, className, animated = false }: { text: string; className?: string; animated?: boolean }) {
   if (!animated) {
     return (
-      <p className={cn('text-sm sm:text-base font-bold tracking-wide uppercase text-brand-700', className)}>
+      <p className={cn('text-sm sm:text-base font-bold tracking-wide uppercase text-brand-700 font-display', className)}>
         {text}
       </p>
     )
@@ -138,7 +98,7 @@ function Slogan({ text, className, animated = false }: { text: string; className
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.6 }}>
       <motion.p
-        className={cn('text-sm sm:text-base md:text-lg font-bold tracking-wide uppercase text-gradient-brand', className)}
+        className={cn('text-sm sm:text-base md:text-lg font-bold tracking-wide uppercase text-gradient-brand font-display', className)}
         animate={{ opacity: [0.75, 1, 0.75] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
       >

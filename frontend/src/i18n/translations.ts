@@ -61,6 +61,8 @@ export const ui = {
     philosophy: { en: 'Business Philosophy', ar: 'فلسفة العمل' } satisfies T,
     journey: { en: 'Our Journey', ar: 'رحلتنا' } satisfies T,
     leadership: { en: 'Leadership', ar: 'القيادة' } satisfies T,
+    founded: { en: 'Founded', ar: 'تأسست' } satisfies T,
+    team: { en: 'Our Network', ar: 'شبكتنا' } satisfies T,
   },
   products: {
     title: { en: 'Products', ar: 'المنتجات' } satisfies T,

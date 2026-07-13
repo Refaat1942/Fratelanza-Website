@@ -29,10 +29,11 @@ export const company = {
   },
   stats: [
     { value: '12+', label: { en: 'Enterprise Products', ar: 'منتجات مؤسسية' } },
-    { value: '50+', label: { en: 'Integrations', ar: 'تكاملات' } },
+    { value: '400+', label: { en: 'Professional Freelancers', ar: 'محترفين مستقلين' } },
     { value: '99.9%', label: { en: 'Uptime SLA', ar: 'ضمان التشغيل' } },
     { value: '24/7', label: { en: 'Cloud Infrastructure', ar: 'بنية سحابية' } },
   ],
+  founded: 2026,
 }
 
 export const overview = {
@@ -53,8 +54,16 @@ export const overview = {
     ar: 'نؤمن أن التكنولوجيا ليست عملية شراء لمرة واحدة — بل استثمار استراتيجي طويل الأمد. فراتيلانزا تبني منصات حية تنمو مع أعمالك وتتكيف مع التغييرات التنظيمية وتتكامل بسلاسة عبر عملياتك بالكامل.',
   },
   story: {
-    en: 'Founded with a vision to bridge the gap between enterprise-grade technology and accessible innovation, Fratelanza emerged from real-world experience in pharmacy operations, healthcare management, and digital commerce. What started as purpose-built solutions for specific industries has evolved into a comprehensive technology ecosystem — unified under one platform, one infrastructure, and one commitment to excellence.',
-    ar: 'تأسست فراتيلانزا برؤية لسد الفجوة بين التكنولوجيا المؤسسية والابتكار المتاح، انطلاقاً من خبرة واقعية في عمليات الصيدليات وإدارة الرعاية الصحية والتجارة الرقمية. ما بدأ كحلول مخصصة لقطاعات محددة تطور إلى منظومة تقنية شاملة — موحدة تحت منصة واحدة وبنية تحتية واحدة والتزام بالتميز.',
+    en: 'Founded in 2026, Fratelanza was built to bridge enterprise-grade technology and real-world business execution. Born from deep experience in pharmacy operations, healthcare, digital transformation, and managed project delivery, we unite powerful software with a network of 400+ vetted professionals — so clients get one accountable partner, not just another vendor.',
+    ar: 'تأسست فراتيلانزا في ٢٠٢٦ لسد الفجوة بين التكنولوجيا المؤسسية والتنفيذ العملي للأعمال. انطلقت من خبرة عميقة في عمليات الصيدليات والرعاية الصحية والتحول الرقمي وإدارة المشاريع، وتوحّد برمجيات قوية مع شبكة من أكثر من ٤٠٠ محترف — ليحصل العملاء على شريك واحد مسؤول، وليس مجرد مورد.',
+  },
+}
+
+export const teamStrength = {
+  title: { en: '400+ Professional Freelancers', ar: 'أكثر من ٤٠٠ محترف مستقل' },
+  description: {
+    en: 'Beyond our core leadership and engineering teams, Fratelanza operates a managed network of 400+ specialists across development, design, data science, content, marketing, and industry consulting — all coordinated under one delivery framework so you never manage freelancers yourself.',
+    ar: 'إلى جانب فريق القيادة والهندسة، تشغّل فراتيلانزا شبكة مُدارة من أكثر من ٤٠٠ متخصص في التطوير والتصميم وعلوم البيانات والمحتوى والتسويق والاستشارات — كلهم منسّقون ضمن إطار تسليم واحد دون أن تدير المستقلين بنفسك.',
   },
 }
 
@@ -110,21 +119,29 @@ export const coreValues = [
 ]
 
 export const timeline = [
-  { year: '2020', title: { en: 'Foundation', ar: 'التأسيس' }, description: { en: 'Fratelanza founded with a focus on pharmacy ERP solutions.', ar: 'تأسيس فراتيلانزا مع التركيز على حلول ERP للصيدليات.' } },
-  { year: '2021', title: { en: 'Healthcare Expansion', ar: 'التوسع في الرعاية الصحية' }, description: { en: 'Launched Clinic and Laboratory Management systems.', ar: 'إطلاق أنظمة إدارة العيادات والمختبرات.' } },
-  { year: '2022', title: { en: 'Cloud Infrastructure', ar: 'البنية السحابية' }, description: { en: 'Deployed own VPS cloud hosting with daily backups.', ar: 'نشر استضافة سحابية خاصة مع نسخ احتياطي يومي.' } },
-  { year: '2023', title: { en: 'ETA Integration', ar: 'تكامل مصلحة الضرائب' }, description: { en: 'Full Egyptian Tax Authority e-invoice and e-receipt compliance.', ar: 'امتثال كامل لفواتير وإيصالات مصلحة الضرائب المصرية الإلكترونية.' } },
-  { year: '2024', title: { en: 'AI & Automation', ar: 'الذكاء الاصطناعي والأتمتة' }, description: { en: 'Introduced AI Assistant and intelligent automation modules.', ar: 'إطلاق المساعد الذكي ووحدات الأتمتة الذكية.' } },
-  { year: '2025', title: { en: 'Enterprise Ecosystem', ar: 'منظومة مؤسسية' }, description: { en: 'Unified platform spanning 12+ products across multiple industries.', ar: 'منصة موحدة تشمل أكثر من ١٢ منتجاً عبر قطاعات متعددة.' } },
+  { year: '2026', title: { en: 'Foundation', ar: 'التأسيس' }, description: { en: 'Fratelanza officially founded — uniting enterprise ERP, AI, cloud platforms, and managed delivery under one brand.', ar: 'تأسيس فراتيلانزا رسمياً — توحيد ERP المؤسسي والذكاء الاصطناعي والسحابة والتسليم المُدار تحت علامة واحدة.' } },
+  { year: '2026', title: { en: 'Leadership Team', ar: 'فريق القيادة' }, description: { en: 'Dr. Ahmed Refaat appointed CEO and Eng. Afnan Fathy appointed COO to lead strategy, operations, and innovation.', ar: 'تعيين د. أحمد رفعت رئيساً تنفيذياً وم. أفnan فathy مديراً للعمليات لقيادة الاستراتيجية والعمليات والابتكار.' } },
+  { year: '2026', title: { en: 'Product Ecosystem', ar: 'منظومة المنتجات' }, description: { en: 'Launch of 12+ integrated products spanning pharmacy ERP, labs, clinics, CRM, real estate, and AI.', ar: 'إطلاق أكثر من ١٢ منتجاً متكاملاً تشمل ERP الصيدليات والمختبرات والعيادات وCRM والعقارات والذكاء الاصطناعي.' } },
+  { year: '2026', title: { en: 'Freelancer Network', ar: 'شبكة المستقلين' }, description: { en: '400+ vetted professionals onboarded across all specializations for managed project execution.', ar: 'ضم أكثر من ٤٠٠ محترف في جميع التخصصات لتنفيذ المشاريع بإدارة كاملة.' } },
+  { year: '2026', title: { en: 'Cloud & Compliance', ar: 'السحابة والامتثال' }, description: { en: 'Own VPS infrastructure, daily backups, and full ETA e-invoice & e-receipt compliance for Egypt.', ar: 'بنية VPS خاصة ونسخ احتياطي يومي وامتثال كامل لفاتورة وإيصال ETA الإلكتروني في مصر.' } },
+  { year: '2026', title: { en: 'Corporate Website', ar: 'الموقع المؤسسي' }, description: { en: 'Global digital presence launched at www.fratelanza.com — bilingual, cloud-hosted, and enterprise-ready.', ar: 'إطلاق الحضور الرقمي العالمي على www.fratelanza.com — ثنائي اللغة ومستضاف سحابياً وجاهز للمؤسسات.' } },
 ]
 
 export const leadership = [
   {
-    name: 'Fratelanza Leadership',
-    role: { en: 'Executive Team', ar: 'الفريق التنفيذي' },
+    name: 'Dr. Ahmed Refaat',
+    role: { en: 'Chief Executive Officer (CEO)', ar: 'الرئيس التنفيذي (CEO)' },
     bio: {
-      en: 'A multidisciplinary team of engineers, designers, and industry specialists committed to delivering enterprise-grade technology with startup agility.',
-      ar: 'فريق متعدد التخصصات من المهندسين والمصممين ومتخصصي الصناعة ملتزم بتقديم تقنية مؤسسية بمرونة الشركات الناشئة.',
+      en: '17 years of experience in business development across healthcare, retail, and enterprise sectors. Over 5 years leading digital transformation and end-to-end business solutions — from ERP implementation to managed project delivery. Dr. Refaat drives Fratelanza\'s vision, client partnerships, and growth strategy.',
+      ar: '١٧ عاماً من الخبرة في تطوير الأعمال عبر قطاعات الرعاية الصحية والتجزئة والمؤسسات. أكثر من ٥ سنوات في قيادة التحول الرقمي والحلول التجارية الشاملة — من تنفيذ ERP إلى إدارة المشاريع. يقود د. رفعت رؤية فراتيلانزا وشراكات العملاء واستراتيجية النمو.',
+    },
+  },
+  {
+    name: 'Eng. Afnan Fathy',
+    role: { en: 'Chief Operating Officer (COO)', ar: 'مدير العمليات (COO)' },
+    bio: {
+      en: 'AI Ambassador at the National Telecommunication Institute (NTI), affiliated with Egypt\'s Ministry of Communications and Information Technology. Extensive experience in data science, AI training, and operational excellence. Eng. Fathy leads day-to-day operations, technical delivery, and the Fratelanza talent network.',
+      ar: 'سفير الذكاء الاصطناعي بالمعهد القومي للاتصالات (NTI) التابع لوزارة الاتصالات وتكنولوجيا المعلومات المصرية. خبرة واسعة في علوم البيانات وتدريب الذكاء الاصطناعي والتميز التشغيلي. يقود م. أفnan فathy العمليات اليومية والتسليم التقني وشبكة مواهب فراتيلانزا.',
     },
   },
 ]
