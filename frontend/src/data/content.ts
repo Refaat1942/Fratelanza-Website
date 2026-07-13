@@ -150,12 +150,12 @@ export const productDetails: Record<string, {
 }> = {
   erp: {
     description: {
-      en: 'The central nervous system of your enterprise — unifying finance, inventory, operations, and reporting in one intelligent platform.',
-      ar: 'الجهاز العصبي المركزي لمؤسستك — يوحد المالية والمخزون والعمليات والتقارير في منصة ذكية واحدة.',
+      en: 'The central nervous system of your enterprise — unified finance, multi-branch inventory, analytics, and reporting in one intelligent platform.',
+      ar: 'الجهاز العصبي المركزي لمؤسستك — مالية موحّدة ومخزون متعدد الفروع وتحليلات وتقارير في منصة ذكية واحدة.',
     },
     features: {
-      en: ['Multi-branch management', 'Real-time analytics', 'Role-based permissions', 'Custom workflows', 'API-first architecture'],
-      ar: ['إدارة متعددة الفروع', 'تحليلات فورية', 'صلاحيات قائمة على الأدوار', 'سير عمل مخصص', 'بنية API-first'],
+      en: ['Executive dashboard & KPIs', '15+ business reports', 'Multi-branch stock control', 'Role-based permissions', 'Excel export everywhere', 'API-first architecture'],
+      ar: ['لوحة تنفيذية ومؤشرات', 'أكثر من ١٥ تقريراً', 'تحكم مخزون متعدد الفروع', 'صلاحيات قائمة على الأدوار', 'تصدير Excel في كل مكان', 'بنية API-first'],
     },
     benefits: {
       en: ['Single source of truth', 'Reduced operational costs', 'Faster decision-making', 'Regulatory compliance'],
@@ -196,16 +196,34 @@ export const productDetails: Record<string, {
   },
   clinic: {
     description: {
-      en: 'Complete clinic operations — appointments, EMR, billing, and patient engagement in one seamless system.',
-      ar: 'عمليات عيادات متكاملة — مواعيد وسجلات طبية وفوترة وتفاعل مع المرضى في نظام واحد.',
+      en: 'Clinic Management with prescription portal links, appointment scheduling, EMR, billing, and seamless pharmacy & lab integration.',
+      ar: 'إدارة العيادات مع بوابة الوصفات وجدولة المواعيد والسجلات الطبية والفوترة وتكامل سلس مع الصيدلية والمختبر.',
     },
     features: {
-      en: ['Appointment scheduling', 'Electronic medical records', 'Insurance billing', 'Lab integration', 'Patient portal'],
-      ar: ['جدولة المواعيد', 'سجلات طبية إلكترونية', 'فوترة التأمين', 'تكامل المختبر', 'بوابة المريض'],
+      en: [
+        'Prescription portal to pharmacy POS',
+        'Appointment scheduling by doctor',
+        'Electronic medical records (EMR)',
+        'Insurance billing & claims',
+        'Lab orders & result integration',
+        'Patient history & vitals tracking',
+        'Multi-branch clinic support',
+        'Arabic & English interface',
+      ],
+      ar: [
+        'بوابة وصفات إلى نقطة بيع الصيدلية',
+        'جدولة مواعيد حسب الطبيب',
+        'سجلات طبية إلكترونية (EMR)',
+        'فوترة التأمين والمطالبات',
+        'طلبات مختبر وتكامل النتائج',
+        'تاريخ المريض وتتبع العلامات الحيوية',
+        'دعم عيادات متعددة الفروع',
+        'واجهة عربية وإنجليزية',
+      ],
     },
     benefits: {
-      en: ['Reduced wait times', 'Better patient care', 'Revenue optimization', 'Regulatory compliance'],
-      ar: ['تقليل أوقات الانتظار', 'رعاية أفضل', 'تحسين الإيرادات', 'امتثال تنظيمي'],
+      en: ['Zero prescription re-entry', 'Reduced wait times', 'Better patient care', 'Revenue optimization', 'Regulatory compliance'],
+      ar: ['بدون إدخال وصفات يدوي', 'تقليل أوقات الانتظار', 'رعاية أفضل', 'تحسين الإيرادات', 'امتثال تنظيمي'],
     },
   },
   laboratory: {
