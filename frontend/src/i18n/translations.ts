@@ -68,6 +68,7 @@ export const ui = {
     subtitle: { en: 'A comprehensive ecosystem of enterprise-grade solutions.', ar: 'منظومة شاملة من الحلول المؤسسية.' } satisfies T,
     features: { en: 'Key Features', ar: 'الميزات الرئيسية' } satisfies T,
     benefits: { en: 'Benefits', ar: 'الفوائد' } satisfies T,
+    screenshots: { en: 'Product Screenshots', ar: 'لقطات من النظام' } satisfies T,
     seoDesc: { en: 'Explore Fratelanza enterprise products — ERP, Pharmacy, Clinic, AI, and more.', ar: 'استكشف منتجات فراتيلانزا — ERP والصيدليات والعيادات والذكاء الاصطناعي والمزيد.' } satisfies T,
   },
   industries: {

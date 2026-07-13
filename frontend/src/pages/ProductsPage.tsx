@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DynamicIcon } from '@/components/ui/DynamicIcon'
 import { products, productDetails } from '@/data/content'
+import { getProductPreview } from '@/data/productShowcases'
 import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
@@ -26,6 +27,7 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, i) => {
               const details = productDetails[product.id]
+              const preview = getProductPreview(product.id)
               return (
                 <motion.div
                   key={product.id}
@@ -42,10 +44,21 @@ export default function ProductsPage() {
                     {details && (
                       <p className="text-sm text-white/50 mb-4 flex-1">{t(details.description)}</p>
                     )}
-                    <div className="aspect-video rounded-xl bg-white/5 border border-white/10 mb-4 flex items-center justify-center">
-                      <span className="text-xs text-white/30 uppercase tracking-wider">
-                        {ui('common', 'screenshotPreview')}
-                      </span>
+                    <div className="aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                      {preview ? (
+                        <img
+                          src={preview}
+                          alt={t(product.name)}
+                          className="w-full h-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <span className="text-xs text-white/30 uppercase tracking-wider">
+                            {ui('common', 'screenshotPreview')}
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <div className="flex gap-3">
                       <Button href={`/products/${product.id}`} variant="secondary" size="sm" className="flex-1">
