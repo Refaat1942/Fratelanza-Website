@@ -20,9 +20,9 @@ export default function SuccessPage() {
             {caseStudies.map((cs, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <Card>
-                  <span className="text-xs text-gold-400 font-semibold uppercase">{t(cs.industry)}</span>
+                  <span className="text-xs text-gold-600 font-semibold uppercase">{t(cs.industry)}</span>
                   <h3 className="text-xl font-bold mt-2 mb-3">{t(cs.title)}</h3>
-                  <p className="text-sm text-white/50">{t(cs.summary)}</p>
+                  <p className="text-sm text-body-subtle">{t(cs.summary)}</p>
                 </Card>
               </motion.div>
             ))}
@@ -37,11 +37,11 @@ export default function SuccessPage() {
             {testimonials.map((t_, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}>
                 <Card className="h-full">
-                  <Quote className="w-8 h-8 text-gold-400/50 mb-4" />
-                  <p className="text-sm text-white/70 italic mb-6">"{t(t_.quote)}"</p>
+                  <Quote className="w-8 h-8 text-gold-600/50 mb-4" />
+                  <p className="text-sm text-body-muted italic mb-6">"{t(t_.quote)}"</p>
                   <div>
                     <p className="font-semibold text-sm">{t_.author}</p>
-                    <p className="text-xs text-white/40">{t_.company}</p>
+                    <p className="text-xs text-body-subtle">{t_.company}</p>
                   </div>
                 </Card>
               </motion.div>

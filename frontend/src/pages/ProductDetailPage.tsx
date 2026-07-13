@@ -32,7 +32,7 @@ export default function ProductDetailPage() {
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/products" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-gold-400 mb-8 transition-colors">
+          <Link to="/products" className="inline-flex items-center gap-2 text-sm text-body-subtle hover:text-gold-600 mb-8 transition-colors">
             <ArrowLeft className={cn('w-4 h-4', isAr && 'rotate-180')} />
             {ui('common', 'allProducts')}
           </Link>
@@ -42,21 +42,21 @@ export default function ProductDetailPage() {
               {screenshots ? (
                 <ProductScreenshotGallery shots={screenshots} />
               ) : (
-                <div className="aspect-video rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-                  <DynamicIcon name={product.icon} className="w-24 h-24 text-gold-400/30" />
+                <div className="aspect-video rounded-2xl bg-brand-50/50 border border-slate-200/80 flex items-center justify-center">
+                  <DynamicIcon name={product.icon} className="w-24 h-24 text-gold-600/30" />
                 </div>
               )}
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
               <Card>
-                <h3 className="text-lg font-semibold text-gold-400 mb-4">
+                <h3 className="text-lg font-semibold text-gold-600 mb-4">
                   {ui('products', 'features')}
                 </h3>
                 <ul className="space-y-3">
                   {tList(details.features, locale).map((f, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <Check className="w-4 h-4 text-gold-400 shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm text-body-muted">
+                      <Check className="w-4 h-4 text-gold-600 shrink-0" />
                       {f}
                     </li>
                   ))}
@@ -64,13 +64,13 @@ export default function ProductDetailPage() {
               </Card>
 
               <Card>
-                <h3 className="text-lg font-semibold text-gold-400 mb-4">
+                <h3 className="text-lg font-semibold text-gold-600 mb-4">
                   {ui('products', 'benefits')}
                 </h3>
                 <ul className="space-y-3">
                   {tList(details.benefits, locale).map((b, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-white/70">
-                      <Check className="w-4 h-4 text-gold-400 shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm text-body-muted">
+                      <Check className="w-4 h-4 text-gold-600 shrink-0" />
                       {b}
                     </li>
                   ))}
@@ -105,8 +105,8 @@ export default function ProductDetailPage() {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-sm text-brand-300">{t(shot.title)}</h3>
-                      <p className="text-xs text-white/50 mt-1">{t(shot.description)}</p>
+                      <h3 className="font-semibold text-sm text-brand-700">{t(shot.title)}</h3>
+                      <p className="text-xs text-body-subtle mt-1">{t(shot.description)}</p>
                     </div>
                   </Card>
                 ))}

@@ -25,7 +25,7 @@ export default function FAQPage() {
                 className="w-full flex items-center justify-between p-6 text-left"
               >
                 <span className="font-semibold pr-4">{t(item.question)}</span>
-                <ChevronDown className={cn('w-5 h-5 text-gold-400 shrink-0 transition-transform', open === i && 'rotate-180')} />
+                <ChevronDown className={cn('w-5 h-5 text-gold-600 shrink-0 transition-transform', open === i && 'rotate-180')} />
               </button>
               <AnimatePresence>
                 {open === i && (
@@ -35,7 +35,7 @@ export default function FAQPage() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <p className="px-6 pb-6 text-sm text-white/60 leading-relaxed">{t(item.answer)}</p>
+                    <p className="px-6 pb-6 text-sm text-body-muted leading-relaxed">{t(item.answer)}</p>
                   </motion.div>
                 )}
               </AnimatePresence>

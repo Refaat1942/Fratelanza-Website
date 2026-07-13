@@ -25,15 +25,15 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-4 text-gold-400">
+              <h2 className="text-2xl font-bold mb-4 text-gold-600">
                 {ui('about', 'story')}
               </h2>
-              <p className="text-white/60 leading-relaxed">{t(overview.story)}</p>
+              <p className="text-body-muted leading-relaxed">{t(overview.story)}</p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <Card glow>
                 <h3 className="text-lg font-semibold mb-3">{ui('about', 'profile')}</h3>
-                <p className="text-white/60 text-sm leading-relaxed">{t(overview.profile)}</p>
+                <p className="text-body-muted text-sm leading-relaxed">{t(overview.profile)}</p>
               </Card>
             </motion.div>
           </div>
@@ -43,12 +43,12 @@ export default function AboutPage() {
       <section className="py-16 bg-gradient-to-b from-gold-500/5 to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
           <Card>
-            <h3 className="text-xl font-bold text-gold-400 mb-3">{ui('about', 'vision')}</h3>
-            <p className="text-white/60 leading-relaxed">{t(overview.vision)}</p>
+            <h3 className="text-xl font-bold text-gold-600 mb-3">{ui('about', 'vision')}</h3>
+            <p className="text-body-muted leading-relaxed">{t(overview.vision)}</p>
           </Card>
           <Card>
-            <h3 className="text-xl font-bold text-gold-400 mb-3">{ui('about', 'mission')}</h3>
-            <p className="text-white/60 leading-relaxed">{t(overview.mission)}</p>
+            <h3 className="text-xl font-bold text-gold-600 mb-3">{ui('about', 'mission')}</h3>
+            <p className="text-body-muted leading-relaxed">{t(overview.mission)}</p>
           </Card>
         </div>
       </section>
@@ -60,9 +60,9 @@ export default function AboutPage() {
             {coreValues.map((val, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
                   <Card>
-                    <DynamicIcon name={val.icon} className="w-8 h-8 text-gold-400 mb-3" />
+                    <DynamicIcon name={val.icon} className="w-8 h-8 text-gold-600 mb-3" />
                     <h3 className="font-semibold mb-2">{t(val.title)}</h3>
-                    <p className="text-sm text-white/50">{t(val.description)}</p>
+                    <p className="text-sm text-body-subtle">{t(val.description)}</p>
                   </Card>
                 </motion.div>
               ))}
@@ -95,9 +95,9 @@ export default function AboutPage() {
                 <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} hidden md:block`}>
                   {i % 2 === 0 && (
                     <Card className="inline-block text-left">
-                      <span className="text-gold-400 font-bold">{item.year}</span>
+                      <span className="text-gold-600 font-bold">{item.year}</span>
                       <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                      <p className="text-sm text-white/50 mt-1">{t(item.description)}</p>
+                      <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
                     </Card>
                   )}
                 </div>
@@ -106,17 +106,17 @@ export default function AboutPage() {
                 </div>
                 <div className="flex-1 md:hidden">
                   <Card>
-                    <span className="text-gold-400 font-bold">{item.year}</span>
+                    <span className="text-gold-600 font-bold">{item.year}</span>
                     <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                    <p className="text-sm text-white/50 mt-1">{t(item.description)}</p>
+                    <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
                   </Card>
                 </div>
                 <div className={`flex-1 ${i % 2 !== 0 ? 'md:text-left' : 'md:text-right'} hidden md:block`}>
                   {i % 2 !== 0 && (
                     <Card className="inline-block text-left">
-                      <span className="text-gold-400 font-bold">{item.year}</span>
+                      <span className="text-gold-600 font-bold">{item.year}</span>
                       <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                      <p className="text-sm text-white/50 mt-1">{t(item.description)}</p>
+                      <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
                     </Card>
                   )}
                 </div>
@@ -132,11 +132,11 @@ export default function AboutPage() {
           {leadership.map((leader, i) => (
             <Card key={i} className="max-w-2xl mx-auto text-center">
               <div className="w-20 h-20 rounded-full bg-gold-500/10 mx-auto mb-4 flex items-center justify-center">
-                <Users className="w-10 h-10 text-gold-400" />
+                <Users className="w-10 h-10 text-gold-600" />
               </div>
               <h3 className="text-xl font-bold">{leader.name}</h3>
-              <p className="text-gold-400 text-sm mt-1">{t(leader.role)}</p>
-              <p className="text-white/50 mt-4 text-sm leading-relaxed">{t(leader.bio)}</p>
+              <p className="text-gold-600 text-sm mt-1">{t(leader.role)}</p>
+              <p className="text-body-subtle mt-4 text-sm leading-relaxed">{t(leader.bio)}</p>
             </Card>
           ))}
         </div>

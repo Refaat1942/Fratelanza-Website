@@ -17,7 +17,7 @@ export default function IntegrationsPage() {
           {integrations.map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
                 <Card className="text-center py-8">
-                  <DynamicIcon name={item.icon} className="w-10 h-10 text-gold-400 mx-auto mb-3" />
+                  <DynamicIcon name={item.icon} className="w-10 h-10 text-gold-600 mx-auto mb-3" />
                   <h3 className="text-sm font-semibold">{t(item.name)}</h3>
                 </Card>
               </motion.div>

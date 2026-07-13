@@ -52,7 +52,7 @@ export function SocialLinks({ className = '' }: { className?: string }) {
           rel="noopener noreferrer"
           title={label}
           aria-label={label}
-          className="p-2.5 rounded-xl glass border border-cyan-500/20 hover:border-cyan-400/50 hover:bg-cyan-500/10 text-white/60 hover:text-cyan-300 transition-all duration-300"
+          className="p-2.5 rounded-xl glass border border-brand-200/60 hover:border-brand-400/60 hover:bg-brand-50 text-ink-subtle hover:text-brand-700 transition-all duration-300"
         >
           <Icon className="w-5 h-5" />
         </a>

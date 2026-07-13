@@ -20,12 +20,12 @@ export function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-dark-950"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-surface"
         >
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-300/30 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </div>
@@ -40,13 +40,13 @@ export function LoadingScreen() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="mt-6 text-sm font-semibold tracking-[0.3em] uppercase text-cyan-300/90"
+              className="mt-6 text-sm font-bold tracking-wide uppercase text-brand-700 font-display"
             >
               {t(company.slogan)}
             </motion.p>
-            <motion.div className="w-48 h-1 bg-white/10 rounded-full overflow-hidden mx-auto mt-8">
+            <motion.div className="w-48 h-1.5 bg-brand-100 rounded-full overflow-hidden mx-auto mt-8">
               <motion.div
-                className="h-full bg-gradient-to-r from-cyan-400 via-gold-400 to-cyan-400 rounded-full"
+                className="h-full bg-gradient-to-r from-brand-400 via-gold-400 to-mint-400 rounded-full"
                 initial={{ width: '0%' }}
                 animate={{ width: '100%' }}
                 transition={{ duration: 1.5, ease: 'easeInOut' }}

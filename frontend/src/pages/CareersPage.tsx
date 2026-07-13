@@ -50,7 +50,7 @@ export default function CareersPage() {
 
       <section className="py-16 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-white/60 mb-8 max-w-xl mx-auto">
+          <p className="text-center text-body-muted mb-8 max-w-xl mx-auto">
             {ui('careers', 'formIntro')}
           </p>
           <Card>

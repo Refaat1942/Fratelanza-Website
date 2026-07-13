@@ -11,22 +11,22 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 const variants = {
-  primary: 'bg-gradient-to-r from-gold-500 to-gold-600 text-dark-950 hover:from-gold-400 hover:to-gold-500 glow-button',
-  brand: 'bg-gradient-to-r from-brand-600 via-brand-500 to-mint-500 text-white hover:from-brand-500 hover:to-mint-400 shadow-lg shadow-brand-500/25',
-  secondary: 'glass-premium text-white hover:bg-white/10 hover:border-brand-400/30',
-  ghost: 'text-white/70 hover:text-white hover:bg-white/5',
-  outline: 'border border-gold-500/40 text-gold-300 hover:bg-gold-500/10 hover:border-gold-400 hover:shadow-lg hover:shadow-gold-500/10',
+  primary: 'bg-gradient-to-r from-gold-400 to-amber-500 text-ink hover:from-gold-300 hover:to-amber-400 glow-button font-bold',
+  brand: 'bg-gradient-to-r from-brand-500 via-brand-500 to-mint-500 text-white hover:from-brand-400 hover:to-mint-400 shadow-lg shadow-brand-500/25 font-bold',
+  secondary: 'glass-premium text-ink hover:bg-brand-50 hover:border-brand-200 font-semibold',
+  ghost: 'text-ink-muted hover:text-brand-700 hover:bg-brand-50 font-semibold',
+  outline: 'border-2 border-brand-300/60 text-brand-700 hover:bg-brand-50 hover:border-brand-400 font-semibold',
 }
 
 const sizes = {
-  sm: 'px-4 py-2 text-sm',
-  md: 'px-6 py-2.5 text-sm',
-  lg: 'px-8 py-3.5 text-base',
+  sm: 'px-4 py-2 text-sm rounded-xl',
+  md: 'px-6 py-2.5 text-sm rounded-xl',
+  lg: 'px-8 py-3.5 text-base rounded-2xl',
 }
 
 export function Button({ variant = 'primary', size = 'md', href, className, children, ...props }: ButtonProps) {
   const classes = cn(
-    'inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-300 cursor-pointer',
+    'inline-flex items-center justify-center gap-2 font-display transition-all duration-300 cursor-pointer',
     variants[variant],
     sizes[size],
     className,

@@ -35,12 +35,12 @@ export function CustomSelect({ id, options, value = '', onChange, placeholder = 
         onClick={() => setOpen(!open)}
         className={cn(
           'input-premium flex items-center justify-between text-left cursor-pointer',
-          !selected && 'text-white/40',
+          !selected && 'text-body-subtle',
           error && 'ring-2 ring-red-400/50',
         )}
       >
         <span className="truncate">{selected?.label || placeholder}</span>
-        <ChevronDown className={cn('w-4 h-4 text-white/40 shrink-0 transition-transform', open && 'rotate-180')} />
+        <ChevronDown className={cn('w-4 h-4 text-body-subtle shrink-0 transition-transform', open && 'rotate-180')} />
       </button>
 
       <AnimatePresence>
@@ -50,7 +50,7 @@ export function CustomSelect({ id, options, value = '', onChange, placeholder = 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-50 mt-2 w-full max-h-60 overflow-y-auto rounded-xl glass-premium border border-white/10 shadow-2xl shadow-black/50 py-1"
+            className="absolute z-50 mt-2 w-full max-h-60 overflow-y-auto rounded-xl glass-premium border border-slate-200/80 shadow-2xl shadow-black/50 py-1"
           >
             {options.map((opt) => (
               <li key={opt.value}>
@@ -59,7 +59,7 @@ export function CustomSelect({ id, options, value = '', onChange, placeholder = 
                   onClick={() => { onChange(opt.value); setOpen(false) }}
                   className={cn(
                     'w-full px-4 py-2.5 text-sm text-left flex items-center justify-between hover:bg-brand-500/10 transition-colors',
-                    value === opt.value ? 'text-brand-300 bg-brand-500/10' : 'text-white/80',
+                    value === opt.value ? 'text-brand-700 bg-brand-500/10' : 'text-white/80',
                   )}
                 >
                   <span className="truncate">{opt.label}</span>

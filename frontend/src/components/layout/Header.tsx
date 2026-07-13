@@ -16,7 +16,7 @@ export function Header() {
   const location = useLocation()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 12)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -27,26 +27,31 @@ export function Header() {
     <header
       className={cn(
         'fixed top-0 inset-x-0 z-50 transition-all duration-300',
-        scrolled ? 'glass-strong shadow-lg shadow-black/20' : 'bg-transparent',
+        scrolled
+          ? 'glass-strong shadow-md shadow-slate-200/80'
+          : 'bg-white/70 backdrop-blur-md border-b border-slate-200/60',
       )}
       dir={dir}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center shrink-0">
-            <Logo size="sm" showName />
+        <div className="flex items-center justify-between gap-4 lg:gap-6 h-[4.25rem] lg:h-[4.75rem]">
+          <Link
+            to="/"
+            className="flex items-center shrink-0 pe-4 lg:pe-6 border-e border-slate-200/80 min-w-[9rem] lg:min-w-[11rem]"
+          >
+            <Logo size="sm" variant="header" showName />
           </Link>
 
-          <nav className="hidden xl:flex items-center gap-0.5">
+          <nav className="hidden xl:flex items-center gap-1 flex-1 justify-center px-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={cn(
-                  'px-2.5 py-2 text-xs font-medium rounded-lg transition-colors whitespace-nowrap',
+                  'px-3 py-2 text-[13px] font-semibold rounded-xl transition-all whitespace-nowrap font-display',
                   location.pathname === link.path
-                    ? 'text-brand-300 bg-brand-500/10 border border-brand-400/20'
-                    : 'text-white/70 hover:text-white hover:bg-white/5',
+                    ? 'text-brand-700 bg-brand-50 border border-brand-200/80 shadow-sm'
+                    : 'text-ink-muted hover:text-brand-700 hover:bg-brand-50/60',
                 )}
               >
                 {t(link.label)}
@@ -54,7 +59,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <LanguageSwitcher />
 
             <Button href="/request-demo" size="sm" className="hidden md:inline-flex">
@@ -63,10 +68,10 @@ export function Header() {
 
             <button
               onClick={() => setOpen(!open)}
-              className="xl:hidden p-2 rounded-lg text-white/70 hover:text-white"
+              className="xl:hidden p-2.5 rounded-xl text-ink-muted hover:text-brand-700 hover:bg-brand-50 border border-transparent hover:border-brand-100"
               aria-label="Menu"
             >
-              {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -78,7 +83,7 @@ export function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden glass-strong border-t border-white/10"
+            className="xl:hidden glass-strong border-t border-slate-200"
           >
             <nav className="max-w-7xl mx-auto px-4 py-4 grid grid-cols-2 gap-2">
               {navLinks.map((link) => (
@@ -86,10 +91,10 @@ export function Header() {
                   key={link.path}
                   to={link.path}
                   className={cn(
-                    'px-4 py-3 text-sm font-medium rounded-xl transition-colors',
+                    'px-4 py-3 text-sm font-semibold rounded-xl transition-colors font-display',
                     location.pathname === link.path
-                      ? 'text-gold-400 bg-gold-500/10'
-                      : 'text-white/70 hover:bg-white/5',
+                      ? 'text-brand-700 bg-brand-50 border border-brand-200'
+                      : 'text-ink-muted hover:bg-slate-50',
                   )}
                 >
                   {t(link.label)}

@@ -49,17 +49,17 @@ export default function FreelancerPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 text-gradient-brand">
             {t(freelancerModel.title)}
           </h2>
-          <p className="text-center text-white/60 max-w-3xl mx-auto mb-12">{t(freelancerModel.subtitle)}</p>
+          <p className="text-center text-body-muted max-w-3xl mx-auto mb-12">{t(freelancerModel.subtitle)}</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {freelancerModel.points.map((point, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
                 <Card premium className="h-full flex items-start gap-3 p-4">
                   <div className="w-10 h-10 rounded-lg bg-brand-500/10 flex items-center justify-center shrink-0">
-                    <DynamicIcon name={point.icon} className="w-5 h-5 text-brand-300" />
+                    <DynamicIcon name={point.icon} className="w-5 h-5 text-brand-700" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-sm mb-1">{t(point.title)}</h3>
-                    <p className="text-xs text-white/50 leading-relaxed">{t(point.description)}</p>
+                    <p className="text-xs text-body-subtle leading-relaxed">{t(point.description)}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -71,7 +71,7 @@ export default function FreelancerPage() {
       <section className="py-16 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-center mb-2">{ui('freelancer', 'joinNetwork')}</h2>
-          <p className="text-center text-white/50 text-sm mb-8">{ui('freelancer', 'joinNetworkSub')}</p>
+          <p className="text-center text-body-subtle text-sm mb-8">{ui('freelancer', 'joinNetworkSub')}</p>
           <Card premium glow>
             <DynamicForm
               fields={fields}

@@ -42,11 +42,11 @@ export default function ContactPage() {
               { icon: Clock, label: ui('contact', 'hours'), value: t(company.workingHours) },
             ].map((item, i) => (
               <Card key={i} className="flex items-center gap-4">
-                <item.icon className="w-6 h-6 text-gold-400 shrink-0" />
+                <item.icon className="w-6 h-6 text-gold-600 shrink-0" />
                 <div>
-                  <p className="text-xs text-white/40 uppercase tracking-wider">{item.label}</p>
+                  <p className="text-xs text-body-subtle uppercase tracking-wider">{item.label}</p>
                   {item.href ? (
-                    <a href={item.href} className="text-sm hover:text-gold-400 transition-colors">{item.value}</a>
+                    <a href={item.href} className="text-sm hover:text-gold-600 transition-colors">{item.value}</a>
                   ) : (
                     <p className="text-sm">{item.value}</p>
                   )}

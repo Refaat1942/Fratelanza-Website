@@ -23,7 +23,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <AnimatedBackground variant="hero" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-20">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -35,7 +35,7 @@ export default function HomePage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-sm font-semibold tracking-widest uppercase mb-6 mt-8 text-gradient-brand"
+              className="text-sm font-bold tracking-wide uppercase mb-6 mt-8 text-gradient-brand font-display"
             >
               {t(company.tagline)}
             </motion.p>
@@ -43,7 +43,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] font-display text-ink"
             >
               {ui('home', 'heroTitle1')}{' '}
               <span className="text-gradient-premium">{ui('home', 'heroTitle2')}</span>{' '}
@@ -53,7 +53,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="mt-6 text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
+              className="mt-6 text-lg md:text-xl text-body-muted max-w-2xl mx-auto leading-relaxed"
             >
               {t(overview.profile)}
             </motion.p>
@@ -79,7 +79,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 border-y border-white/5 bg-gradient-to-r from-brand-500/5 via-transparent to-mint-500/5">
+      <section className="py-20 border-y border-brand-100/80 bg-brand-50/500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {company.stats.map((stat, i) => (
@@ -92,7 +92,7 @@ export default function HomePage() {
                 className="text-center glass-premium rounded-2xl p-6"
               >
                 <AnimatedCounter value={stat.value} className="text-3xl md:text-4xl font-bold text-gradient-brand block" />
-                <div className="mt-2 text-sm text-white/50">{t(stat.label)}</div>
+                <div className="mt-2 text-sm text-body-muted">{t(stat.label)}</div>
               </motion.div>
             ))}
           </div>
@@ -119,11 +119,11 @@ export default function HomePage() {
               >
                 <Card premium className="h-full flex items-start gap-3 p-5">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500/20 to-mint-500/10 flex items-center justify-center shrink-0">
-                    <DynamicIcon name={point.icon} className="w-5 h-5 text-brand-300" />
+                    <DynamicIcon name={point.icon} className="w-5 h-5 text-brand-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-sm mb-1">{t(point.title)}</h3>
-                    <p className="text-xs text-white/50 leading-relaxed">{t(point.description)}</p>
+                    <p className="text-xs text-body-subtle leading-relaxed">{t(point.description)}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -154,10 +154,10 @@ export default function HomePage() {
                 <Link to={`/products/${product.id}`}>
                   <Card premium className="h-full group">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500/15 to-gold-500/10 flex items-center justify-center mb-4 group-hover:from-brand-500/25 transition-all duration-500">
-                      <DynamicIcon name={product.icon} className="w-6 h-6 text-brand-300 group-hover:text-mint-400 transition-colors" />
+                      <DynamicIcon name={product.icon} className="w-6 h-6 text-brand-600 group-hover:text-mint-600 transition-colors" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">{t(product.name)}</h3>
-                    <p className="text-sm text-white/50 flex items-center gap-1 group-hover:text-brand-300 transition-colors">
+                    <p className="text-sm text-body-subtle flex items-center gap-1 group-hover:text-brand-700 transition-colors">
                       {ui('common', 'learnMore')}
                       <ChevronRight className={cn('w-4 h-4', isAr && 'rotate-180')} />
                     </p>
@@ -184,10 +184,10 @@ export default function HomePage() {
                 transition={{ delay: i * 0.04 }}
               >
                 <Card premium className="flex items-start gap-3 h-full p-4 hover:border-mint-400/20">
-                  <DynamicIcon name={item.icon} className="w-5 h-5 text-mint-400 shrink-0 mt-0.5" />
+                  <DynamicIcon name={item.icon} className="w-5 h-5 text-mint-600 shrink-0 mt-0.5" />
                   <div className="min-w-0">
                     <h3 className="text-sm font-semibold mb-1">{t(item.title)}</h3>
-                    <p className="text-xs text-white/50 leading-relaxed">{t(item.description)}</p>
+                    <p className="text-xs text-body-subtle leading-relaxed">{t(item.description)}</p>
                   </div>
                 </Card>
               </motion.div>
@@ -207,8 +207,8 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Card glow premium className="p-12">
             <Logo size="lg" animated className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-gradient-brand">{t(company.slogan)}</h2>
-            <p className="text-white/60 mb-8 max-w-xl mx-auto mt-4">{ui('home', 'ctaSub')}</p>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-2 text-gradient-brand font-display">{t(company.slogan)}</h2>
+            <p className="text-body-muted mb-8 max-w-xl mx-auto mt-4">{ui('home', 'ctaSub')}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/request-demo" size="lg">
                 {ui('common', 'requestDemo')}

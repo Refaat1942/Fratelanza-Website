@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
 const colorMap = {
-  brand: 'from-brand-500/20 to-brand-600/5 border-brand-400/20 text-brand-300',
+  brand: 'from-brand-500/20 to-brand-600/5 border-brand-400/20 text-brand-700',
   mint: 'from-mint-500/20 to-mint-600/5 border-mint-400/20 text-mint-300',
   gold: 'from-gold-500/20 to-gold-600/5 border-gold-400/20 text-gold-300',
 }
@@ -35,8 +35,8 @@ export default function ServicesPage() {
                 className={cn(
                   'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap',
                   active === cat.id
-                    ? 'bg-gradient-to-r from-brand-500/20 to-mint-500/10 text-brand-300 border border-brand-400/30 shadow-lg shadow-brand-500/10'
-                    : 'glass text-white/50 border border-white/10 hover:text-white/80 hover:border-white/20',
+                    ? 'bg-gradient-to-r from-brand-500/20 to-mint-500/10 text-brand-700 border border-brand-400/30 shadow-lg shadow-brand-500/10'
+                    : 'glass text-body-subtle border border-slate-200/80 hover:text-white/80 hover:border-white/20',
                 )}
               >
                 {t(cat.name)}
@@ -60,7 +60,7 @@ export default function ServicesPage() {
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold">{t(current.name)}</h2>
-                    <p className="text-sm text-white/50 mt-1">{current.items.length} {ui('services', 'offerings')}</p>
+                    <p className="text-sm text-body-subtle mt-1">{current.items.length} {ui('services', 'offerings')}</p>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -98,7 +98,7 @@ export default function ServicesPage() {
                 )}
               >
                 <DynamicIcon name={cat.icon} className={cn('w-6 h-6 mx-auto mb-2', colorMap[cat.color as keyof typeof colorMap].split(' ').pop())} />
-                <span className="text-xs font-medium text-white/70">{t(cat.name)}</span>
+                <span className="text-xs font-medium text-body-muted">{t(cat.name)}</span>
               </motion.button>
             ))}
           </div>

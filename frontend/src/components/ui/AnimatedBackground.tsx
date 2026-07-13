@@ -8,11 +8,11 @@ export function AnimatedBackground({ variant = 'hero' }: { variant?: 'hero' | 's
 
   useEffect(() => {
     setParticles(
-      Array.from({ length: variant === 'hero' ? 30 : 15 }, (_, i) => ({
+      Array.from({ length: variant === 'hero' ? 24 : 12 }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
-        size: Math.random() * 3 + 1,
+        size: Math.random() * 4 + 2,
         delay: Math.random() * 5,
       })),
     )
@@ -21,48 +21,43 @@ export function AnimatedBackground({ variant = 'hero' }: { variant?: 'hero' | 's
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
-        className="absolute top-1/4 -left-20 w-[500px] h-[500px] rounded-full bg-brand-500/10 blur-[100px]"
-        animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
+        className="absolute top-1/4 -left-20 w-[520px] h-[520px] rounded-full bg-cyan-300/25 blur-[100px]"
+        animate={{ x: [0, 40, 0], y: [0, 25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/4 -right-20 w-[400px] h-[400px] rounded-full bg-mint-500/8 blur-[90px]"
-        animate={{ x: [0, -40, 0], y: [0, -20, 0], scale: [1.1, 1, 1.1] }}
+        className="absolute bottom-1/4 -right-20 w-[420px] h-[420px] rounded-full bg-emerald-300/20 blur-[90px]"
+        animate={{ x: [0, -35, 0], y: [0, -18, 0], scale: [1.05, 1, 1.05] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold-500/5 blur-[120px]"
-        animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.5, 0.3] }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-amber-200/25 blur-[110px]"
+        animate={{ scale: [1, 1.12, 1], opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-brand-400/20"
+          className="absolute rounded-full bg-brand-400/25"
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
-          animate={{ y: [0, -20, 0], opacity: [0.2, 0.6, 0.2] }}
+          animate={{ y: [0, -18, 0], opacity: [0.25, 0.55, 0.25] }}
           transition={{ duration: 4 + p.delay, repeat: Infinity, delay: p.delay }}
         />
       ))}
 
       <motion.div
-        className="absolute top-20 right-[15%] w-16 h-16 border border-brand-400/10 rounded-lg rotate-12"
-        animate={{ rotate: [12, 24, 12], y: [0, -15, 0] }}
+        className="absolute top-24 right-[12%] w-14 h-14 border-2 border-brand-300/30 rounded-2xl rotate-12 bg-white/30"
+        animate={{ rotate: [12, 20, 12], y: [0, -12, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-32 left-[10%] w-12 h-12 border border-mint-400/10 rounded-full"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+        className="absolute bottom-28 left-[8%] w-10 h-10 border-2 border-mint-400/35 rounded-full bg-mint-100/40"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
-      <motion.div
-        className="absolute top-1/3 right-[8%] w-8 h-8 bg-gold-400/5 rounded-sm rotate-45"
-        animate={{ rotate: [45, 90, 45], y: [0, 20, 0] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
 
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_#0a0b0d_75%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(240,249,255,0.4)_100%)]" />
     </div>
   )
 }

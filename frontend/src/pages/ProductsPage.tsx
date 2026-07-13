@@ -38,13 +38,13 @@ export default function ProductsPage() {
                 >
                   <Card className="h-full flex flex-col">
                     <div className="w-14 h-14 rounded-2xl bg-gold-500/10 flex items-center justify-center mb-5">
-                      <DynamicIcon name={product.icon} className="w-7 h-7 text-gold-400" />
+                      <DynamicIcon name={product.icon} className="w-7 h-7 text-gold-600" />
                     </div>
                     <h3 className="text-xl font-bold mb-2">{t(product.name)}</h3>
                     {details && (
-                      <p className="text-sm text-white/50 mb-4 flex-1">{t(details.description)}</p>
+                      <p className="text-sm text-body-subtle mb-4 flex-1">{t(details.description)}</p>
                     )}
-                    <div className="aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 mb-4">
+                    <div className="aspect-video rounded-xl overflow-hidden bg-brand-50/50 border border-slate-200/80 mb-4">
                       {preview ? (
                         <img
                           src={preview}

@@ -17,11 +17,11 @@ export function Card({ children, className, hover = true, glow = false, premium 
       className={cn(
         premium ? 'glass-premium' : 'glass',
         'rounded-2xl p-6 card-3d transition-all duration-500',
-        hover && 'hover:bg-white/[0.06] hover:border-brand-400/20',
+        hover && 'hover:border-brand-200/80 hover:shadow-lg hover:shadow-brand-500/10',
         glow && 'glow-brand',
         className,
       )}
-      whileHover={hover ? { y: -6, scale: 1.01 } : undefined}
+      whileHover={hover ? { y: -4, scale: 1.005 } : undefined}
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
       {children}
@@ -47,7 +47,7 @@ export function SectionHeader({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-gradient-to-r from-brand-500/10 to-mint-500/10 text-brand-300 border border-brand-400/20 mb-4"
+          className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase bg-brand-50 text-brand-700 border border-brand-200/80 mb-4"
         >
           {badge}
         </motion.span>
@@ -56,7 +56,7 @@ export function SectionHeader({
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight"
+        className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink font-display"
       >
         {title}
       </motion.h2>
@@ -66,7 +66,7 @@ export function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mt-4 text-lg text-white/60 max-w-2xl mx-auto leading-relaxed"
+          className="mt-4 text-lg text-body-muted max-w-2xl mx-auto leading-relaxed"
         >
           {subtitle}
         </motion.p>
@@ -77,13 +77,13 @@ export function SectionHeader({
 
 export function PageHero({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-36 pb-20 overflow-hidden">
       <AnimatedBackground variant="subtle" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display"
         >
           <span className="text-gradient-brand">{title}</span>
         </motion.h1>
@@ -92,7 +92,7 @@ export function PageHero({ title, subtitle }: { title: string; subtitle?: string
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="mt-6 text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed"
+            className="mt-6 text-lg md:text-xl text-body-muted max-w-3xl mx-auto leading-relaxed"
           >
             {subtitle}
           </motion.p>

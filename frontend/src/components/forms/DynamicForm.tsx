@@ -79,7 +79,7 @@ export function DynamicForm({
       <div className="glass-premium rounded-2xl p-12 text-center glow-brand">
         <CheckCircle2 className="w-16 h-16 text-mint-400 mx-auto mb-4" />
         <h3 className="text-2xl font-bold mb-2">{ui('common', 'thankYou')}</h3>
-        <p className="text-white/60">{successMessage}</p>
+        <p className="text-body-muted">{successMessage}</p>
         <Button className="mt-6" onClick={() => setStatus('idle')}>
           {ui('common', 'submitAnother')}
         </Button>
@@ -128,7 +128,7 @@ export function DynamicForm({
                 type="file"
                 accept={field.accept}
                 {...register(field.name)}
-                className="input-premium file:mr-4 file:py-1.5 file:px-4 file:rounded-lg file:border-0 file:bg-brand-500/20 file:text-brand-300 file:text-sm file:font-medium"
+                className="input-premium file:mr-4 file:py-1.5 file:px-4 file:rounded-lg file:border-0 file:bg-brand-500/20 file:text-brand-700 file:text-sm file:font-medium"
               />
             ) : (
               <input

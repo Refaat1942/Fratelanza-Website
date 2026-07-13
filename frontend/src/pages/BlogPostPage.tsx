@@ -18,19 +18,19 @@ export default function BlogPostPage() {
       <SEO title={t(post.title)} description={t(post.excerpt)} path={`/blog/${id}`} type="article" />
       <article className="pt-32 pb-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-gold-400 mb-8 transition-colors">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-body-subtle hover:text-gold-600 mb-8 transition-colors">
             <ArrowLeft className={cn('w-4 h-4', isAr && 'rotate-180')} />
             {ui('common', 'backToBlog')}
           </Link>
-          <span className="text-xs text-gold-400 font-semibold uppercase tracking-wider">{t(post.category)}</span>
+          <span className="text-xs text-gold-600 font-semibold uppercase tracking-wider">{t(post.category)}</span>
           <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-6">{t(post.title)}</h1>
-          <div className="flex items-center gap-4 text-sm text-white/40 mb-12">
+          <div className="flex items-center gap-4 text-sm text-body-subtle mb-12">
             <span>{post.date}</span>
             <span>{post.author}</span>
           </div>
           <div className="prose prose-invert max-w-none">
-            <p className="text-lg text-white/70 leading-relaxed mb-6">{t(post.excerpt)}</p>
-            <p className="text-white/60 leading-relaxed">
+            <p className="text-lg text-body-muted leading-relaxed mb-6">{t(post.excerpt)}</p>
+            <p className="text-body-muted leading-relaxed">
               {ui('blog', 'comingSoon')}
             </p>
           </div>

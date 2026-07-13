@@ -19,7 +19,7 @@ export default function IndustriesPage() {
             {industries.map((ind, i) => (
                 <motion.div key={ind.id} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.04 }}>
                   <Card className="text-center">
-                    <DynamicIcon name={ind.icon} className="w-10 h-10 text-gold-400 mx-auto mb-4" />
+                    <DynamicIcon name={ind.icon} className="w-10 h-10 text-gold-600 mx-auto mb-4" />
                     <h3 className="font-semibold">{t(ind.name)}</h3>
                   </Card>
                 </motion.div>

@@ -24,7 +24,7 @@ export default function DeliveryPage() {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   active === i
                     ? 'bg-gold-500/20 text-gold-300 border border-gold-500/40'
-                    : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
+                    : 'bg-brand-50/50 text-body-subtle border border-slate-200/80 hover:bg-white/10'
                 }`}
               >
                 {step.step}. {t(step.title)}
@@ -41,9 +41,9 @@ export default function DeliveryPage() {
               transition={{ duration: 0.3 }}
             >
               <Card glow className="text-center p-12">
-                <span className="text-6xl font-bold text-gold-400/30">{deliveryProcess[active].step}</span>
+                <span className="text-6xl font-bold text-gold-600/30">{deliveryProcess[active].step}</span>
                 <h3 className="text-2xl font-bold mt-4 mb-4">{t(deliveryProcess[active].title)}</h3>
-                <p className="text-white/60 max-w-lg mx-auto">{t(deliveryProcess[active].description)}</p>
+                <p className="text-body-muted max-w-lg mx-auto">{t(deliveryProcess[active].description)}</p>
               </Card>
             </motion.div>
           </AnimatePresence>

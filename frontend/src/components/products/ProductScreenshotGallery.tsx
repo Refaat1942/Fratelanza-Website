@@ -24,7 +24,7 @@ export function ProductScreenshotGallery({ shots }: { shots: ProductScreenshot[]
           key={current.src}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="aspect-video rounded-2xl overflow-hidden border border-white/10 bg-white/5 cursor-zoom-in"
+          className="aspect-video rounded-2xl overflow-hidden border border-slate-200/80 bg-brand-50/50 cursor-zoom-in"
           onClick={() => setLightbox(true)}
         >
           <img
@@ -62,8 +62,8 @@ export function ProductScreenshotGallery({ shots }: { shots: ProductScreenshot[]
       </div>
 
       <div>
-        <h3 className="font-semibold text-brand-300">{t(current.title)}</h3>
-        <p className="text-sm text-white/50 mt-1">{t(current.description)}</p>
+        <h3 className="font-semibold text-brand-700">{t(current.title)}</h3>
+        <p className="text-sm text-body-subtle mt-1">{t(current.description)}</p>
       </div>
 
       {shots.length > 1 && (
@@ -74,7 +74,7 @@ export function ProductScreenshotGallery({ shots }: { shots: ProductScreenshot[]
               onClick={() => setActive(i)}
               className={cn(
                 'shrink-0 w-24 h-14 rounded-lg overflow-hidden border-2 transition-all',
-                i === active ? 'border-brand-400 ring-2 ring-brand-400/30' : 'border-white/10 opacity-60 hover:opacity-100',
+                i === active ? 'border-brand-400 ring-2 ring-brand-400/30' : 'border-slate-200/80 opacity-60 hover:opacity-100',
               )}
             >
               <img src={shot.src} alt={t(shot.title)} className="w-full h-full object-cover object-top" loading="lazy" />
