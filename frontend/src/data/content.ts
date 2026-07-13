@@ -120,7 +120,7 @@ export const coreValues = [
 
 export const timeline = [
   { year: '2026', title: { en: 'Foundation', ar: 'التأسيس' }, description: { en: 'Fratelanza officially founded — uniting enterprise ERP, AI, cloud platforms, and managed delivery under one brand.', ar: 'تأسيس فراتيلانزا رسمياً — توحيد ERP المؤسسي والذكاء الاصطناعي والسحابة والتسليم المُدار تحت علامة واحدة.' } },
-  { year: '2026', title: { en: 'Leadership Team', ar: 'فريق القيادة' }, description: { en: 'Dr. Ahmed Refaat appointed CEO and Eng. Afnan Fathy appointed COO to lead strategy, operations, and innovation.', ar: 'تعيين د. أحمد رفعت رئيساً تنفيذياً وم. أفnan فathy مديراً للعمليات لقيادة الاستراتيجية والعمليات والابتكار.' } },
+  { year: '2026', title: { en: 'Leadership Team', ar: 'فريق القيادة' }, description: { en: 'Dr. Ahmed Refaat appointed CEO and Eng. Afnan Fathy appointed COO to lead strategy, operations, and innovation.', ar: 'تعيين د. أحمد رفعت رئيساً تنفيذياً وم. أفنان فتحي مديراً للعمليات لقيادة الاستراتيجية والعمليات والابتكار.' } },
   { year: '2026', title: { en: 'Product Ecosystem', ar: 'منظومة المنتجات' }, description: { en: 'Launch of 12+ integrated products spanning pharmacy ERP, labs, clinics, CRM, real estate, and AI.', ar: 'إطلاق أكثر من ١٢ منتجاً متكاملاً تشمل ERP الصيدليات والمختبرات والعيادات وCRM والعقارات والذكاء الاصطناعي.' } },
   { year: '2026', title: { en: 'Freelancer Network', ar: 'شبكة المستقلين' }, description: { en: '400+ vetted professionals onboarded across all specializations for managed project execution.', ar: 'ضم أكثر من ٤٠٠ محترف في جميع التخصصات لتنفيذ المشاريع بإدارة كاملة.' } },
   { year: '2026', title: { en: 'Cloud & Compliance', ar: 'السحابة والامتثال' }, description: { en: 'Own VPS infrastructure, daily backups, and full ETA e-invoice & e-receipt compliance for Egypt.', ar: 'بنية VPS خاصة ونسخ احتياطي يومي وامتثال كامل لفاتورة وإيصال ETA الإلكتروني في مصر.' } },
@@ -141,7 +141,7 @@ export const leadership = [
     role: { en: 'Chief Operating Officer (COO)', ar: 'مدير العمليات (COO)' },
     bio: {
       en: 'AI Ambassador at the National Telecommunication Institute (NTI), affiliated with Egypt\'s Ministry of Communications and Information Technology. Extensive experience in data science, AI training, and operational excellence. Eng. Fathy leads day-to-day operations, technical delivery, and the Fratelanza talent network.',
-      ar: 'سفير الذكاء الاصطناعي بالمعهد القومي للاتصالات (NTI) التابع لوزارة الاتصالات وتكنولوجيا المعلومات المصرية. خبرة واسعة في علوم البيانات وتدريب الذكاء الاصطناعي والتميز التشغيلي. يقود م. أفnan فathy العمليات اليومية والتسليم التقني وشبكة مواهب فراتيلانزا.',
+      ar: 'سفيرة الذكاء الاصطناعي بالمعهد القومي للاتصالات (NTI) التابع لوزارة الاتصالات وتكنولوجيا المعلومات المصرية. خبرة واسعة في علوم البيانات وتدريب الذكاء الاصطناعي والتميز التشغيلي. تقود م. أفنان فتحي العمليات اليومية والتسليم التقني وشبكة مواهب فراتيلانزا.',
     },
   },
 ]
