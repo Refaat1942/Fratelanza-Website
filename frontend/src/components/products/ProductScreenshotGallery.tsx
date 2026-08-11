@@ -36,7 +36,7 @@ export function ProductScreenshotGallery({ shots }: { shots: ProductScreenshot[]
         </motion.div>
         <button
           onClick={() => setLightbox(true)}
-          className="absolute top-3 end-3 p-2 rounded-lg glass opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute top-3 end-3 p-2 rounded-lg glass text-ink opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label="Zoom"
         >
           <ZoomIn className="w-4 h-4" />
@@ -45,14 +45,14 @@ export function ProductScreenshotGallery({ shots }: { shots: ProductScreenshot[]
           <>
             <button
               onClick={prev}
-              className="absolute start-3 top-1/2 -translate-y-1/2 p-2 rounded-full glass hover:bg-white/10 transition-colors"
+              className="absolute start-3 top-1/2 -translate-y-1/2 p-2 rounded-full glass text-ink hover:bg-brand-50 transition-colors"
               aria-label="Previous"
             >
               <ChevronLeft className={cn('w-5 h-5', isAr && 'rotate-180')} />
             </button>
             <button
               onClick={next}
-              className="absolute end-3 top-1/2 -translate-y-1/2 p-2 rounded-full glass hover:bg-white/10 transition-colors"
+              className="absolute end-3 top-1/2 -translate-y-1/2 p-2 rounded-full glass text-ink hover:bg-brand-50 transition-colors"
               aria-label="Next"
             >
               <ChevronRight className={cn('w-5 h-5', isAr && 'rotate-180')} />

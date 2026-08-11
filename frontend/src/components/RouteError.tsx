@@ -24,7 +24,7 @@ export function RouteError() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={() => window.location.reload()}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-mint-500 text-white font-semibold hover:opacity-90 transition-opacity"
+            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-700 to-mint-600 text-white font-semibold hover:opacity-90 transition-opacity shadow-md"
           >
             {ui('errors', 'reload')}
           </button>

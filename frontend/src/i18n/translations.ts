@@ -204,7 +204,7 @@ export const ui = {
     colDate: { en: 'Date', ar: 'التاريخ' } satisfies T,
     colCompany: { en: 'Company', ar: 'الشركة' } satisfies T,
     colEmail: { en: 'Email', ar: 'البريد' } satisfies T,
-    colPhone: { en: 'Phone', ar: 'الهاتف' } satisfies T,
+    colPhone: { en: 'WhatsApp', ar: 'واتساب' } satisfies T,
     colIndustry: { en: 'Industry', ar: 'القطاع' } satisfies T,
     colEmployees: { en: 'Employees', ar: 'الموظفين' } satisfies T,
     colBranches: { en: 'Branches', ar: 'الفروع' } satisfies T,

@@ -28,7 +28,7 @@ export default function FreelancerPage() {
   const fields = [
     { name: 'fullName', label: locale === 'en' ? 'Full Name' : 'الاسم الكامل', required: true },
     { name: 'email', label: 'Email', type: 'email' as const, required: true },
-    { name: 'phone', label: locale === 'en' ? 'Phone' : 'الهاتف', type: 'tel' as const, required: true },
+    { name: 'phone', label: 'WhatsApp', type: 'tel' as const, required: true },
     { name: 'country', label: locale === 'en' ? 'Country' : 'الدولة', required: true },
     { name: 'linkedin', label: 'LinkedIn', type: 'url' as const },
     { name: 'github', label: 'GitHub', type: 'url' as const },

@@ -10,8 +10,8 @@ import { cn } from '@/lib/utils'
 
 const colorMap = {
   brand: 'from-brand-500/20 to-brand-600/5 border-brand-400/20 text-brand-700',
-  mint: 'from-mint-500/20 to-mint-600/5 border-mint-400/20 text-mint-300',
-  gold: 'from-gold-500/20 to-gold-600/5 border-gold-400/20 text-gold-300',
+  mint: 'from-mint-500/20 to-mint-600/5 border-mint-400/20 text-mint-700',
+  gold: 'from-gold-500/20 to-gold-600/5 border-gold-400/20 text-gold-700',
 }
 
 export default function ServicesPage() {
@@ -36,7 +36,7 @@ export default function ServicesPage() {
                   'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 whitespace-nowrap',
                   active === cat.id
                     ? 'bg-gradient-to-r from-brand-500/20 to-mint-500/10 text-brand-700 border border-brand-400/30 shadow-lg shadow-brand-500/10'
-                    : 'glass text-body-subtle border border-slate-200/80 hover:text-white/80 hover:border-white/20',
+                    : 'glass text-body-subtle border border-slate-200/80 hover:text-brand-800 hover:bg-brand-50 hover:border-brand-300',
                 )}
               >
                 {t(cat.name)}
@@ -70,7 +70,7 @@ export default function ServicesPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.03 }}
-                      className="flex items-center gap-3 px-4 py-3 rounded-xl glass-premium hover:bg-white/[0.06] transition-colors group"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl glass-premium hover:bg-brand-50 transition-colors group"
                     >
                       <div className="w-2 h-2 rounded-full bg-mint-400/60 group-hover:bg-brand-400 transition-colors shrink-0" />
                       <span className="text-sm text-ink">{locale === 'en' ? item.en : item.ar}</span>

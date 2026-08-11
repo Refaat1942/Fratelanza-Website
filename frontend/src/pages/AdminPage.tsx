@@ -46,16 +46,16 @@ function DataTable({
   locale: string
 }) {
   if (rows.length === 0) {
-    return <p className="text-white/40 text-center py-12">{emptyText}</p>
+    return <p className="text-body-subtle text-center py-12">{emptyText}</p>
   }
 
   return (
-    <div className="overflow-x-auto rounded-xl border border-white/10" dir={dir}>
+    <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white" dir={dir}>
       <table className="w-full text-sm">
         <thead>
-          <tr className="border-b border-white/10 bg-white/5">
+          <tr className="border-b border-slate-200 bg-brand-50/80">
             {columns.map((col) => (
-              <th key={col.key} className="px-4 py-3 text-start text-xs font-semibold uppercase tracking-wider text-brand-300 whitespace-nowrap">
+              <th key={col.key} className="px-4 py-3 text-start text-xs font-semibold uppercase tracking-wider text-brand-800 whitespace-nowrap">
                 {col.label}
               </th>
             ))}
@@ -63,9 +63,9 @@ function DataTable({
         </thead>
         <tbody>
           {rows.map((row, i) => (
-            <tr key={i} className="border-b border-white/5 hover:bg-white/[0.03] transition-colors">
+            <tr key={i} className="border-b border-slate-100 hover:bg-brand-50/40 transition-colors">
               {columns.map((col) => (
-                <td key={col.key} className={cn('px-4 py-3 text-white/70 text-start', col.wide && 'max-w-xs truncate')}>
+                <td key={col.key} className={cn('px-4 py-3 text-ink-muted text-start', col.wide && 'max-w-xs truncate')}>
                   {col.key === 'created_at' ? formatDate(String(row[col.key] ?? ''), locale) : String(row[col.key] ?? '—')}
                 </td>
               ))}
@@ -244,7 +244,7 @@ export default function AdminPage() {
 
   if (!authed) {
     return (
-      <div dir={dir} className="min-h-screen flex items-center justify-center bg-dark-950 px-4">
+      <div dir={dir} className="min-h-screen flex items-center justify-center bg-surface px-4">
         <SEO title={ui('admin', 'title')} description={ui('admin', 'subtitle')} path="/admin" />
         <div className="absolute top-4 end-4">
           <LanguageSwitcher />
@@ -257,11 +257,11 @@ export default function AdminPage() {
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl bg-brand-500/20 flex items-center justify-center">
-              <Lock className="w-5 h-5 text-brand-300" />
+              <Lock className="w-5 h-5 text-brand-700" />
             </div>
             <div>
-              <h1 className="text-xl font-bold">{ui('admin', 'title')}</h1>
-              <p className="text-sm text-white/50">{ui('admin', 'subtitle')}</p>
+              <h1 className="text-xl font-bold text-ink">{ui('admin', 'title')}</h1>
+              <p className="text-sm text-body-subtle">{ui('admin', 'subtitle')}</p>
             </div>
           </div>
           <input
@@ -276,7 +276,7 @@ export default function AdminPage() {
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-600 to-mint-600 font-semibold hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-700 to-mint-600 text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 shadow-md"
           >
             {loading ? ui('admin', 'signingIn') : ui('admin', 'signIn')}
           </button>
@@ -293,20 +293,20 @@ export default function AdminPage() {
   ] as const
 
   return (
-    <div dir={dir} className="min-h-screen bg-dark-950">
+    <div dir={dir} className="min-h-screen bg-surface">
       <SEO title={ui('admin', 'dashboard')} description={ui('admin', 'subtitle')} path="/admin" />
-      <header className="border-b border-white/10 glass-strong sticky top-0 z-10">
+      <header className="border-b border-slate-200 glass-strong sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <Users className="w-5 h-5 text-brand-300" />
-            <h1 className="font-bold text-lg">{ui('admin', 'dashboard')}</h1>
+            <Users className="w-5 h-5 text-brand-700" />
+            <h1 className="font-bold text-lg text-ink">{ui('admin', 'dashboard')}</h1>
           </div>
           <div className="flex items-center gap-2 flex-wrap justify-end">
             <LanguageSwitcher />
             <button
               onClick={handleExportAll}
               disabled={exporting}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg glass hover:bg-white/10 text-sm text-mint-300 hover:text-mint-200 transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-sm text-brand-800 hover:text-brand-900 transition-colors disabled:opacity-50 shadow-sm"
             >
               <FileSpreadsheet className="w-4 h-4" />
               {ui('admin', 'exportAll')}
@@ -314,7 +314,7 @@ export default function AdminPage() {
             <button
               onClick={handleExportCurrent}
               disabled={rows.length === 0}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg glass hover:bg-white/10 text-sm text-brand-300 transition-colors disabled:opacity-50"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-sm text-brand-800 transition-colors disabled:opacity-50 shadow-sm"
             >
               <FileSpreadsheet className="w-4 h-4" />
               {ui('admin', 'exportExcel')}
@@ -322,14 +322,14 @@ export default function AdminPage() {
             <button
               onClick={loadData}
               disabled={loading}
-              className="p-2 rounded-lg glass hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+              className="p-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-ink-muted hover:text-brand-800 transition-colors shadow-sm"
               title={ui('admin', 'refresh')}
             >
               <RefreshCw className={cn('w-4 h-4', loading && 'animate-spin')} />
             </button>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg glass hover:bg-white/10 text-sm text-white/70 hover:text-white transition-colors"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-200 hover:bg-red-50 text-sm text-ink-muted hover:text-red-700 transition-colors shadow-sm"
             >
               <LogOut className="w-4 h-4" />
               {ui('admin', 'logout')}
@@ -347,11 +347,11 @@ export default function AdminPage() {
                 onClick={() => setTab(id)}
                 className={cn(
                   'glass-premium rounded-xl p-4 text-start transition-all',
-                  tab === id && 'ring-2 ring-brand-400/40 bg-brand-500/10',
+                  tab === id && 'ring-2 ring-brand-400/50 bg-brand-50',
                 )}
               >
                 <div className="text-2xl font-bold text-gradient-brand">{count}</div>
-                <div className="text-xs text-white/50 mt-1">{label}</div>
+                <div className="text-xs text-body-subtle mt-1">{label}</div>
               </button>
             ))}
           </div>
@@ -365,8 +365,8 @@ export default function AdminPage() {
               className={cn(
                 'flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all',
                 tab === id
-                  ? 'bg-brand-500/20 text-brand-300 border border-brand-400/30'
-                  : 'glass text-white/50 hover:text-white/80',
+                  ? 'bg-brand-100 text-brand-800 border border-brand-400/50 shadow-sm'
+                  : 'bg-white text-body-subtle border border-slate-200 hover:bg-brand-50 hover:text-brand-800',
               )}
             >
               <Icon className="w-4 h-4" />
@@ -391,7 +391,7 @@ export default function AdminPage() {
               <button
                 key={String(r.id)}
                 onClick={() => downloadFile(tab, r.id as number, `cv-${r.full_name}.pdf`)}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg glass text-sm text-brand-300 hover:bg-brand-500/10 transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm text-brand-800 hover:bg-brand-50 transition-colors shadow-sm"
               >
                 <Download className="w-4 h-4" />
                 {ui('admin', 'downloadCv')}: {String(r.full_name)}

@@ -8,7 +8,7 @@ const careerSchema = z.object({
   website: z.string().max(0).optional(),
   fullName: z.string().min(2, 'Name is required'),
   email: z.string().email('Valid email required'),
-  phone: z.string().min(5, 'Phone is required'),
+  phone: z.string().min(5, 'WhatsApp is required'),
   position: z.string().min(2, 'Desired role is required'),
   portfolio: z.string().url().optional().or(z.literal('')),
   github: z.string().url().optional().or(z.literal('')),
@@ -30,7 +30,7 @@ export default function CareersPage() {
   const fields = [
     { name: 'fullName', label: locale === 'en' ? 'Full Name' : 'الاسم الكامل', required: true },
     { name: 'email', label: 'Email', type: 'email' as const, required: true },
-    { name: 'phone', label: locale === 'en' ? 'Phone' : 'الهاتف', type: 'tel' as const, required: true },
+    { name: 'phone', label: 'WhatsApp', type: 'tel' as const, required: true },
     { name: 'position', label: locale === 'en' ? 'Desired Role / Area of Interest' : 'الدور المطلوب / مجال الاهتمام', required: true },
     { name: 'country', label: locale === 'en' ? 'Country' : 'الدولة', required: true },
     { name: 'experience', label: locale === 'en' ? 'Years of Experience' : 'سنوات الخبرة', required: true },

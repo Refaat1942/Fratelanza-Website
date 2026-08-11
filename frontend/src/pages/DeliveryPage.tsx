@@ -23,8 +23,8 @@ export default function DeliveryPage() {
                 onClick={() => setActive(i)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   active === i
-                    ? 'bg-gold-500/20 text-gold-300 border border-gold-500/40'
-                    : 'bg-brand-50/50 text-body-subtle border border-slate-200/80 hover:bg-white/10'
+                    ? 'bg-gold-100 text-gold-800 border border-gold-500/50 shadow-sm'
+                    : 'bg-brand-50/50 text-body-subtle border border-slate-200/80 hover:bg-brand-100 hover:text-brand-800'
                 }`}
               >
                 {step.step}. {t(step.title)}
@@ -53,7 +53,7 @@ export default function DeliveryPage() {
               <div
                 key={i}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === active ? 'w-8 bg-gold-400' : 'w-1.5 bg-white/20'
+                  i === active ? 'w-8 bg-gold-500' : 'w-1.5 bg-slate-300'
                 }`}
               />
             ))}

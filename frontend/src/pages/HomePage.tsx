@@ -215,7 +215,7 @@ export default function HomePage() {
                 <ArrowRight className={cn('w-5 h-5', isAr && 'rotate-180')} />
               </Button>
               <Button href={`https://wa.me/${company.whatsapp}`} size="lg" variant="brand">
-                {company.phone}
+                {ui('common', 'whatsappUs')}
               </Button>
             </div>
           </Card>

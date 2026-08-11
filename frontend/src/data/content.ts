@@ -11,8 +11,8 @@ export const company = {
     ar: 'نبني الغد معاً',
   },
   email: 'info@fratelanza.com',
-  phone: '01097138338',
   whatsapp: '201097138338',
+  whatsappDisplay: '01097138338',
   address: {
     en: '6th of October, 4th District, Building 261, Flat 8, Egypt',
     ar: '٦ أكتوبر، الحي الرابع، عمارة ٢٦١، شقة ٨، مصر',

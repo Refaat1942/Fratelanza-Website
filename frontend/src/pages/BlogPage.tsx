@@ -42,7 +42,7 @@ export default function BlogPage() {
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
-                <button key={cat} onClick={() => setCategory(cat)} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === cat ? 'bg-gold-500/20 text-gold-300 border border-gold-500/40' : 'bg-brand-50/50 text-body-subtle border border-slate-200/80'}`}>
+                <button key={cat} onClick={() => setCategory(cat)} className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${category === cat ? 'bg-gold-100 text-gold-800 border border-gold-500/50 shadow-sm' : 'bg-brand-50/50 text-body-subtle border border-slate-200/80 hover:bg-brand-100 hover:text-brand-800'}`}>
                   {cat === 'all' ? ui('common', 'all') : cat}
                 </button>
               ))}

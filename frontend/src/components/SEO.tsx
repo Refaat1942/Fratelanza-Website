@@ -43,7 +43,7 @@ export function OrganizationSchema() {
     description: t(company.slogan, 'en'),
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: company.phone,
+      telephone: `+${company.whatsapp}`,
       contactType: 'customer service',
       email: company.email,
     },

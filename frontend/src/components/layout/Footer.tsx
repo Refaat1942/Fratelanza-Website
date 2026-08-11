@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { company, navLinks, products, overview } from '@/data/content'
 import { useTranslation } from '@/i18n/useTranslation'
-import { Mail, Phone, MessageCircle, MapPin } from 'lucide-react'
+import { Mail, MessageCircle, MapPin } from 'lucide-react'
 import { Logo } from '@/components/ui/Logo'
 import { SocialLinks } from '@/components/ui/SocialLinks'
 
@@ -66,12 +66,10 @@ export function Footer() {
                 <a href={`mailto:${company.email}`} className="hover:text-brand-700 transition-colors">{company.email}</a>
               </li>
               <li className="flex items-center gap-2 text-sm text-body-muted">
-                <Phone className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href={`tel:${company.phone}`} className="hover:text-brand-700 transition-colors">{company.phone}</a>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-body-muted">
                 <MessageCircle className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href={`https://wa.me/${company.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand-700 transition-colors">WhatsApp</a>
+                <a href={`https://wa.me/${company.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand-700 transition-colors">
+                  WhatsApp: {company.whatsappDisplay}
+                </a>
               </li>
               <li className="flex items-start gap-2 text-sm text-body-muted">
                 <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />

@@ -4,7 +4,7 @@ import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero } from '@/components/ui/Card'
 import { DynamicForm } from '@/components/forms/DynamicForm'
-import { Mail, Phone, MessageCircle, MapPin, Clock } from 'lucide-react'
+import { Mail, MessageCircle, MapPin, Clock } from 'lucide-react'
 
 const contactSchema = z.object({
   website: z.string().max(0).optional(),
@@ -21,7 +21,7 @@ export default function ContactPage() {
   const fields = [
     { name: 'name', label: locale === 'en' ? 'Name' : 'الاسم', required: true },
     { name: 'email', label: 'Email', type: 'email' as const, required: true },
-    { name: 'phone', label: locale === 'en' ? 'Phone' : 'الهاتف', type: 'tel' as const },
+    { name: 'phone', label: 'WhatsApp', type: 'tel' as const },
     { name: 'subject', label: locale === 'en' ? 'Subject' : 'الموضوع', required: true },
     { name: 'message', label: locale === 'en' ? 'Message' : 'الرسالة', type: 'textarea' as const, required: true, colSpan: 2 as const },
   ]
@@ -36,8 +36,7 @@ export default function ContactPage() {
           <div className="space-y-6">
             {[
               { icon: Mail, label: 'Email', value: company.email, href: `mailto:${company.email}` },
-              { icon: Phone, label: ui('contact', 'phone'), value: company.phone, href: `tel:${company.phone}` },
-              { icon: MessageCircle, label: 'WhatsApp', value: company.whatsapp, href: `https://wa.me/${company.whatsapp.replace(/\D/g, '')}` },
+              { icon: MessageCircle, label: 'WhatsApp', value: company.whatsappDisplay, href: `https://wa.me/${company.whatsapp.replace(/\D/g, '')}` },
               { icon: MapPin, label: ui('contact', 'address'), value: t(company.address) },
               { icon: Clock, label: ui('contact', 'hours'), value: t(company.workingHours) },
             ].map((item, i) => (
