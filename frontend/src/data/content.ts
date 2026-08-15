@@ -140,8 +140,8 @@ export const aboutInsights = {
     ar: 'لماذا فراتيلانزا',
   },
   intro: {
-    en: 'Founded in 2026 by Dr. Ahmed Refaat, Fratelanza is a founder-led technology company delivering enterprise ERP, AI, cloud platforms, and managed project execution. We combine a proven product ecosystem with deep industry experience and a network of 400+ specialists — one accountable partner for your digital transformation.',
-    ar: 'تأسست فراتيلانزا في ٢٠٢٦ على يد د. أحمد رفعت — شركة تقنية بقيادة المؤسس تقدم ERP مؤسسي وذكاء اصطناعي ومنصات سحابية وتنفيذ مشاريع مُدار. نجمع منظومة منتجات مثبتة مع خبرة صناعية عميقة وشبكة من أكثر من ٤٠٠ متخصص — شريك واحد مسؤول لتحولك الرقمي.',
+    en: 'Founded in 2026, Fratelanza is a founder-led technology company delivering enterprise ERP, AI, cloud platforms, and managed project execution. We combine a proven product ecosystem with deep industry experience and a network of 400+ specialists — one accountable partner for your digital transformation.',
+    ar: 'تأسست فراتيلانزا في ٢٠٢٦ — شركة تقنية بقيادة المؤسس تقدم ERP مؤسسي وذكاء اصطناعي ومنصات سحابية وتنفيذ مشاريع مُدار. نجمع منظومة منتجات مثبتة مع خبرة صناعية عميقة وشبكة من أكثر من ٤٠٠ متخصص — شريك واحد مسؤول لتحولك الرقمي.',
   },
   pillars: [
     {

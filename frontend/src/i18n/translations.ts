@@ -49,7 +49,7 @@ export const ui = {
     hookCta: { en: 'Learn How We Execute', ar: 'اكتشف كيف ننفذ مشاريعك' } satisfies T,
     aboutCta: { en: 'Our Story', ar: 'قصتنا' } satisfies T,
     pricingCta: { en: 'View Pricing Options', ar: 'عرض خيارات الأسعار' } satisfies T,
-    heroSub: { en: 'Founded by Dr. Ahmed Refaat — enterprise ERP, AI, and managed delivery with live demos and custom pricing for your business.', ar: 'تأسست على يد د. أحمد رفعت — ERP مؤسسي وذكاء اصطناعي وتسليم مُدار مع عروض حية وتسعير مخصص لأعمالك.' } satisfies T,
+    heroSub: { en: 'Enterprise ERP, AI, and managed delivery with live demos and custom pricing for your business.', ar: 'ERP مؤسسي وذكاء اصطناعي وتسليم مُدار مع عروض حية وتسعير مخصص لأعمالك.' } satisfies T,
     showcaseBadge: { en: 'Platform Preview', ar: 'معاينة المنصة' } satisfies T,
     showcaseTitle: { en: 'Explore Our Products', ar: 'استكشف منتجاتنا' } satisfies T,
     showcaseSub: { en: 'Interactive screenshots from the Fratelanza ecosystem — pharmacy, healthcare, CRM, real estate, and more.', ar: 'لقطات تفاعلية من منظومة فراتيلانزا — الصيدليات والرعاية الصحية وCRM والعقارات والمزيد.' } satisfies T,
