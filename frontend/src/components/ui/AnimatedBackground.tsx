@@ -21,17 +21,17 @@ export function AnimatedBackground({ variant = 'hero' }: { variant?: 'hero' | 's
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       <motion.div
-        className="absolute top-1/4 -left-20 w-[520px] h-[520px] rounded-full bg-cyan-300/25 blur-[100px]"
+        className="absolute top-1/4 -left-20 w-[520px] h-[520px] rounded-full bg-cyan-400/30 blur-[100px]"
         animate={{ x: [0, 40, 0], y: [0, 25, 0], scale: [1, 1.08, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-1/4 -right-20 w-[420px] h-[420px] rounded-full bg-emerald-300/20 blur-[90px]"
+        className="absolute bottom-1/4 -right-20 w-[420px] h-[420px] rounded-full bg-emerald-400/25 blur-[90px]"
         animate={{ x: [0, -35, 0], y: [0, -18, 0], scale: [1.05, 1, 1.05] }}
         transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-amber-200/25 blur-[110px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[560px] h-[560px] rounded-full bg-amber-300/30 blur-[110px]"
         animate={{ scale: [1, 1.12, 1], opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
       />
@@ -39,7 +39,7 @@ export function AnimatedBackground({ variant = 'hero' }: { variant?: 'hero' | 's
       {particles.map((p) => (
         <motion.div
           key={p.id}
-          className="absolute rounded-full bg-brand-400/25"
+          className="absolute rounded-full bg-brand-500/30"
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
           animate={{ y: [0, -18, 0], opacity: [0.25, 0.55, 0.25] }}
           transition={{ duration: 4 + p.delay, repeat: Infinity, delay: p.delay }}

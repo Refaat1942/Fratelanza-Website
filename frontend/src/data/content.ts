@@ -120,20 +120,136 @@ export const coreValues = [
 
 export const timeline = [
   { year: '2026', title: { en: 'Foundation', ar: 'التأسيس' }, description: { en: 'Fratelanza officially founded — uniting enterprise ERP, AI, cloud platforms, and managed delivery under one brand.', ar: 'تأسيس فراتيلانزا رسمياً — توحيد ERP المؤسسي والذكاء الاصطناعي والسحابة والتسليم المُدار تحت علامة واحدة.' } },
-  { year: '2026', title: { en: 'Leadership Team', ar: 'فريق القيادة' }, description: { en: 'Dr. Ahmed Refaat appointed CEO and Eng. Afnan Fathy appointed COO to lead strategy, operations, and innovation.', ar: 'تعيين د. أحمد رفعت رئيساً تنفيذياً وم. أفنان فتحي مديراً للعمليات لقيادة الاستراتيجية والعمليات والابتكار.' } },
+  { year: '2026', title: { en: 'Leadership Team', ar: 'فريق القيادة' }, description: { en: 'Dr. Ahmed Refaat founded Fratelanza as CEO; Eng. Afnan Fathy appointed COO to lead operations, AI innovation, and delivery.', ar: 'أسس د. أحمد رفعت فراتيلانزا كرئيس تنفيذي؛ وتعيين م. أفنان فتحي مديراً للعمليات لقيادة العمليات والابتكار والتسليم.' } },
   { year: '2026', title: { en: 'Product Ecosystem', ar: 'منظومة المنتجات' }, description: { en: 'Launch of 12+ integrated products spanning pharmacy ERP, labs, clinics, CRM, real estate, and AI.', ar: 'إطلاق أكثر من ١٢ منتجاً متكاملاً تشمل ERP الصيدليات والمختبرات والعيادات وCRM والعقارات والذكاء الاصطناعي.' } },
   { year: '2026', title: { en: 'Freelancer Network', ar: 'شبكة المستقلين' }, description: { en: '400+ vetted professionals onboarded across all specializations for managed project execution.', ar: 'ضم أكثر من ٤٠٠ محترف في جميع التخصصات لتنفيذ المشاريع بإدارة كاملة.' } },
   { year: '2026', title: { en: 'Cloud & Compliance', ar: 'السحابة والامتثال' }, description: { en: 'Own VPS infrastructure, daily backups, and full ETA e-invoice & e-receipt compliance for Egypt.', ar: 'بنية VPS خاصة ونسخ احتياطي يومي وامتثال كامل لفاتورة وإيصال ETA الإلكتروني في مصر.' } },
   { year: '2026', title: { en: 'Corporate Website', ar: 'الموقع المؤسسي' }, description: { en: 'Global digital presence launched at www.fratelanza.com — bilingual, cloud-hosted, and enterprise-ready.', ar: 'إطلاق الحضور الرقمي العالمي على www.fratelanza.com — ثنائي اللغة ومستضاف سحابياً وجاهز للمؤسسات.' } },
 ]
 
+export const marketingHooks = [
+  { icon: 'Rocket', text: { en: 'One partner from idea to go-live', ar: 'شريك واحد من الفكرة إلى الإطلاق' } },
+  { icon: 'Shield', text: { en: 'Enterprise-grade, Egypt-ready compliance', ar: 'مستوى مؤسسي مع امتثال جاهز لمصر' } },
+  { icon: 'Users', text: { en: '400+ specialists under managed delivery', ar: 'أكثر من ٤٠٠ متخصص بتسليم مُدار' } },
+  { icon: 'Sparkles', text: { en: '12+ integrated products — not scattered tools', ar: 'أكثر من ١٢ منتجاً متكاملاً — وليس أدوات متفرقة' } },
+]
+
+export const aboutInsights = {
+  headline: {
+    en: 'Who Fratelanza Is — Honestly',
+    ar: 'من هي فراتيلانزا — بصدق',
+  },
+  intro: {
+    en: 'Fratelanza is a young, founder-led technology company (est. 2026) building enterprise software and delivering projects with full accountability. We do not claim a long client portfolio yet — what we offer today is a proven product ecosystem, deep industry experience, and a managed talent network ready to execute.',
+    ar: 'فراتيلانزا شركة تقنية ناشئة بقيادة المؤسس (تأسست ٢٠٢٦) تبني برمجيات مؤسسية وتنفذ المشاريع بمسؤولية كاملة. لا ندّعي محفظة عملاء طويلة بعد — ما نقدمه اليوم هو منظومة منتجات مثبتة وخبرة صناعية عميقة وشبكة مواهب مُدارة جاهزة للتنفيذ.',
+  },
+  pillars: [
+    {
+      icon: 'LayoutDashboard',
+      title: { en: 'What We Have Built', ar: 'ما بنيناه' },
+      description: {
+        en: '12+ integrated modules — ERP, pharmacy, clinics, labs, CRM, HR, POS, real estate, AI, and admin console — with real product screenshots you can explore on this site.',
+        ar: 'أكثر من ١٢ وحدة متكاملة — ERP والصيدليات والعيادات والمختبرات وCRM وHR وPOS والعقارات والذكاء الاصطناعي ولوحة التحكم — مع لقطات حقيقية يمكنك استكشافها على الموقع.',
+      },
+    },
+    {
+      icon: 'Briefcase',
+      title: { en: 'What We Bring', ar: 'ما نقدمه' },
+      description: {
+        en: '17+ years of business development and digital transformation leadership, pharmacy and healthcare operations know-how, and AI expertise through our COO\'s role at Egypt\'s NTI.',
+        ar: 'أكثر من ١٧ عاماً في تطوير الأعمال والتحول الرقمي، ومعرفة عمليات الصيدليات والرعاية الصحية، وخبرة الذكاء الاصطناعي عبر دور مدير العمليات في NTI.',
+      },
+    },
+    {
+      icon: 'Handshake',
+      title: { en: 'How We Work With You', ar: 'كيف نعمل معك' },
+      description: {
+        en: 'Transparent discovery, custom quotes, live demos of our platforms, and managed delivery — you deal with Fratelanza directly, not a marketplace of freelancers.',
+        ar: 'اكتشاف شفاف وعروض أسعار مخصصة وعروض حية لمنصاتنا وتسليم مُدار — تتعامل مع فراتيلانزا مباشرة، وليس سوقاً للمستقلين.',
+      },
+    },
+    {
+      icon: 'Target',
+      title: { en: 'Our Promise', ar: 'وعدنا' },
+      description: {
+        en: 'No inflated claims. We show you the product, explain the roadmap, quote fairly for your size, and stand behind delivery with SLA-backed support.',
+        ar: 'لا ادعاءات مبالغ فيها. نعرض عليك المنتج ونوضح خارطة الطريق ونُسعّر بعدالة لحجمك ونضمن التسليم بدعم مضمون بـ SLA.',
+      },
+    },
+  ],
+}
+
+export const solutionShowcases = [
+  {
+    title: { en: 'Pharmacy Operations Platform', ar: 'منصة عمليات الصيدليات' },
+    industry: { en: 'Healthcare', ar: 'الرعاية الصحية' },
+    summary: {
+      en: 'POS, inventory, expiry control, insurance, clinic prescriptions, ETA e-receipt, and multi-branch management — designed from real pharmacy operations experience.',
+      ar: 'نقطة بيع ومخزون ومراقبة صلاحية وتأمين ووصفات العيادات وإيصال ETA الإلكتروني وإدارة فروع — مصممة من خبرة عمليات صيدليات حقيقية.',
+    },
+    image: '/products/pharmacy/inventory.png',
+  },
+  {
+    title: { en: 'Clinic & Lab Management', ar: 'إدارة العيادات والمختبرات' },
+    industry: { en: 'Healthcare', ar: 'الرعاية الصحية' },
+    summary: {
+      en: 'Appointments, EMR, billing, lab tests, results delivery, and accounting — connected workflows for outpatient care.',
+      ar: 'مواعيد وسجل طبي وإلكتروني وفوترة وتحاليل وتسليم نتائج ومحاسبة — سير عمل متصل للرعاية الخارجية.',
+    },
+    image: '/products/clinic/appointments.png',
+  },
+  {
+    title: { en: 'CRM & Business Suite', ar: 'CRM ومجموعة الأعمال' },
+    industry: { en: 'Business', ar: 'الأعمال' },
+    summary: {
+      en: 'Customer management, calendars, tasks, finance overview, support tickets, and marketing campaigns — one ecosystem for growing companies.',
+      ar: 'إدارة العملاء والتقويمات والمهام ونظرة مالية وتذاكر الدعم وحملات التسويق — منظومة واحدة للشركات النامية.',
+    },
+    image: '/products/crm/customers.png',
+  },
+  {
+    title: { en: 'Real Estate & ERP Core', ar: 'العقارات وERP الأساسي' },
+    industry: { en: 'Real Estate & Enterprise', ar: 'العقارات والمؤسسات' },
+    summary: {
+      en: 'Property management, contracts, finance, executive dashboards, and multi-branch reporting for operational visibility.',
+      ar: 'إدارة عقارات وعقود ومالية ولوحات تنفيذية وتقارير متعددة الفروع لرؤية تشغيلية.',
+    },
+    image: '/products/realestate/projects.png',
+  },
+]
+
+export const valuePropositions = [
+  {
+    quote: {
+      en: 'We show you live product demos — not slide decks pretending to be finished projects.',
+      ar: 'نعرض عليك عروضاً حية للمنتج — وليس عروضاً تقديمية تتظاهر بأنها مشاريع منتهية.',
+    },
+    author: { en: 'Our Approach', ar: 'نهجنا' },
+  },
+  {
+    quote: {
+      en: 'Pricing is tailored to your branches, users, and modules — every business gets a fair custom quote.',
+      ar: 'التسعير مخصص لفروعك ومستخدميك ووحداتك — كل عمل يحصل على عرض عادل.',
+    },
+    author: { en: 'Transparent Pricing', ar: 'تسعير شفاف' },
+  },
+  {
+    quote: {
+      en: 'When you need extra capacity, our 400+ specialist network executes under Fratelanza management — not yours.',
+      ar: 'عندما تحتاج طاقة إضافية، شبكة ٤٠٠+ متخصص تنفذ بإدارة فراتيلانزا — وليس بإدارتك.',
+    },
+    author: { en: 'Managed Delivery', ar: 'تسليم مُدار' },
+  },
+]
+
 export const leadership = [
   {
     name: 'Dr. Ahmed Refaat',
-    role: { en: 'Chief Executive Officer (CEO)', ar: 'الرئيس التنفيذي (CEO)' },
+    role: { en: 'Founder & Chief Executive Officer (CEO)', ar: 'المؤسس والرئيس التنفيذي (CEO)' },
+    isFounder: true,
     bio: {
-      en: '17 years of experience in business development across healthcare, retail, and enterprise sectors. Over 5 years leading digital transformation and end-to-end business solutions — from ERP implementation to managed project delivery. Dr. Refaat drives Fratelanza\'s vision, client partnerships, and growth strategy.',
-      ar: '١٧ عاماً من الخبرة في تطوير الأعمال عبر قطاعات الرعاية الصحية والتجزئة والمؤسسات. أكثر من ٥ سنوات في قيادة التحول الرقمي والحلول التجارية الشاملة — من تنفيذ ERP إلى إدارة المشاريع. يقود د. رفعت رؤية فراتيلانزا وشراكات العملاء واستراتيجية النمو.',
+      en: 'Founder of Fratelanza with 17 years of experience in business development across healthcare, retail, and enterprise sectors. Over 5 years leading digital transformation and end-to-end business solutions — from ERP implementation to managed project delivery. Dr. Refaat set the company\'s vision: one accountable technology partner that combines software, AI, and managed talent.',
+      ar: 'مؤسس فراتيلانزا مع ١٧ عاماً من الخبرة في تطوير الأعمال عبر قطاعات الرعاية الصحية والتجزئة والمؤسسات. أكثر من ٥ سنوات في قيادة التحول الرقمي والحلول التجارية الشاملة — من تنفيذ ERP إلى إدارة المشاريع. وضع د. رفعت رؤية الشركة: شريك تقني واحد مسؤول يجمع البرمجيات والذكاء الاصطناعي والمواهب المُدارة.',
     },
   },
   {
@@ -516,6 +632,7 @@ export const pricingPlans = [
     id: 'starter',
     name: { en: 'Starter', ar: 'البداية' },
     description: { en: 'Ideal for single-location businesses starting their digital transformation.', ar: 'مثالي للأعمال ذات الموقع الواحد التي تبدأ تحولها الرقمي.' },
+    priceHint: { en: 'From custom monthly plan', ar: 'من خطة شهرية مخصصة' },
     features: {
       en: ['Single branch', 'Core modules', 'Cloud hosting', 'Email support', 'Monthly updates'],
       ar: ['فرع واحد', 'الوحدات الأساسية', 'استضافة سحابية', 'دعم بالبريد', 'تحديثات شهرية'],
@@ -526,6 +643,7 @@ export const pricingPlans = [
     id: 'professional',
     name: { en: 'Professional', ar: 'احترافي' },
     description: { en: 'For growing businesses with multiple branches and advanced requirements.', ar: 'للأعمال النامية مع فروع متعددة ومتطلبات متقدمة.' },
+    priceHint: { en: 'Best value for multi-branch', ar: 'أفضل قيمة للفروع المتعددة' },
     featured: true,
     features: {
       en: ['Multi-branch', 'All modules', 'Priority support', 'ETA integration', 'AI features', 'Custom reports'],
@@ -537,6 +655,7 @@ export const pricingPlans = [
     id: 'enterprise',
     name: { en: 'Enterprise', ar: 'مؤسسي' },
     description: { en: 'Tailored solutions for large organizations with complex, multi-system needs.', ar: 'حلول مخصصة للمؤسسات الكبرى ذات الاحتياجات المعقدة متعددة الأنظمة.' },
+    priceHint: { en: 'Dedicated SLA & manager', ar: 'SLA ومدير مخصص' },
     features: {
       en: ['Unlimited branches', 'Custom development', 'Dedicated manager', 'SLA guarantee', 'On-premise option', 'API access'],
       ar: ['فروع غير محدودة', 'تطوير مخصص', 'مدير مخصص', 'ضمان SLA', 'خيار محلي', 'وصول API'],
@@ -545,51 +664,126 @@ export const pricingPlans = [
   },
 ]
 
-export const testimonials = [
+export const pricingMatrices = [
   {
-    quote: {
-      en: 'Fratelanza transformed our pharmacy operations. The ETA integration alone saved us countless hours of manual invoicing.',
-      ar: 'فراتيلانزا غيّرت عمليات صيدليتنا. تكامل ETA وحده وفّر علينا ساعات من الفوترة اليدوية.',
-    },
-    author: 'Pharmacy Chain Director',
-    company: 'Leading Pharmacy Group',
+    id: 'size',
+    name: { en: 'By Business Size', ar: 'حسب حجم العمل' },
+    description: { en: 'Choose the package that matches your branches, users, and growth stage.', ar: 'اختر الباقة التي تناسب فروعك ومستخدميك ومرحلة نموك.' },
+    plans: 'pricingPlans' as const,
   },
   {
-    quote: {
-      en: 'The platform scales beautifully. We started with one clinic and now manage five locations seamlessly.',
-      ar: 'المنصة تتوسع بسلاسة. بدأنا بعيادة واحدة والآن ندير خمسة مواقع بسلاسة.',
-    },
-    author: 'Healthcare Administrator',
-    company: 'Multi-Clinic Network',
+    id: 'industry',
+    name: { en: 'By Industry', ar: 'حسب القطاع' },
+    description: { en: 'Industry-focused bundles with the modules that matter most for your sector.', ar: 'باقات مركزة على القطاع مع الوحدات الأهم لمجالك.' },
+    plans: [
+      {
+        id: 'healthcare',
+        name: { en: 'Healthcare Pack', ar: 'باقة الرعاية الصحية' },
+        description: { en: 'Pharmacies, clinics, and laboratories.', ar: 'صيدليات وعيادات ومختبرات.' },
+        priceHint: { en: 'Modular — pay for what you use', ar: 'معياري — ادفع لما تستخدم' },
+        features: {
+          en: ['Pharmacy ERP + POS', 'Clinic management', 'Lab management', 'Insurance & ETA', 'Cross-module patient flow'],
+          ar: ['ERP صيدليات + POS', 'إدارة العيادات', 'إدارة المختبرات', 'تأمين وETA', 'تدفق مريض بين الوحدات'],
+        },
+        cta: { en: 'Discuss Healthcare', ar: 'ناقش حل الرعاية الصحية' },
+      },
+      {
+        id: 'retail',
+        name: { en: 'Retail & POS', ar: 'التجزئة وPOS' },
+        description: { en: 'Stores, chains, and point-of-sale operations.', ar: 'متاجر وسلاسل وعمليات نقطة البيع.' },
+        priceHint: { en: 'Per branch / terminal', ar: 'لكل فرع / نقطة بيع' },
+        featured: true,
+        features: {
+          en: ['POS terminal & checkout', 'Inventory & shifts', 'Promo offers', 'CRM & loyalty', 'Real-time reporting'],
+          ar: ['نقطة بيع ودفع', 'مخزون وورديات', 'عروض ترويجية', 'CRM وولاء', 'تقارير فورية'],
+        },
+        cta: { en: 'Discuss Retail', ar: 'ناقش حل التجزئة' },
+      },
+      {
+        id: 'realestate',
+        name: { en: 'Real Estate', ar: 'العقارات' },
+        description: { en: 'Developers, brokers, and property managers.', ar: 'مطورون ووسطاء ومديرو عقارات.' },
+        priceHint: { en: 'Project-based or subscription', ar: 'حسب المشروع أو اشتراك' },
+        features: {
+          en: ['Property management', 'Contracts & finance', 'Sales pipeline', 'Document tracking', 'Multi-project dashboard'],
+          ar: ['إدارة العقارات', 'عقود ومالية', 'مسار مبيعات', 'تتبع مستندات', 'لوحة متعددة المشاريع'],
+        },
+        cta: { en: 'Discuss Real Estate', ar: 'ناقش حل العقارات' },
+      },
+      {
+        id: 'enterprise-suite',
+        name: { en: 'Full Enterprise Suite', ar: 'الحزمة المؤسسية الكاملة' },
+        description: { en: 'ERP, HR, CRM, marketing, AI — everything connected.', ar: 'ERP وHR وCRM وتسويق وAI — كل شيء متصل.' },
+        priceHint: { en: 'Enterprise custom quote', ar: 'عرض مؤسسي مخصص' },
+        features: {
+          en: ['All 12+ modules', 'Custom workflows', 'Dedicated manager', 'API & integrations', 'Training included'],
+          ar: ['جميع الوحدات ١٢+', 'سير عمل مخصص', 'مدير مخصص', 'API وتكاملات', 'تدريب مشمول'],
+        },
+        cta: { en: 'Contact Sales', ar: 'تواصل مع المبيعات' },
+      },
+    ],
   },
   {
-    quote: {
-      en: 'What sets Fratelanza apart is that it is not just software — it is a partnership. They understand our industry deeply.',
-      ar: 'ما يميز فراتيلانزا أنها ليست مجرد برنامج — بل شراكة. يفهمون صناعتنا بعمق.',
-    },
-    author: 'Operations Manager',
-    company: 'Regional Enterprise',
+    id: 'engagement',
+    name: { en: 'By Engagement Model', ar: 'حسب نموذج التعاقد' },
+    description: { en: 'How you want to work with Fratelanza — subscribe, implement, or fully outsource delivery.', ar: 'كيف تريد العمل مع فراتيلانزا — اشتراك أو تنفيذ أو ت outsourcing كامل.' },
+    plans: [
+      {
+        id: 'saas',
+        name: { en: 'SaaS Subscription', ar: 'اشتراك SaaS' },
+        description: { en: 'Use Fratelanza products on our cloud with monthly or annual billing.', ar: 'استخدم منتجات فراتيلانزا على سحابتنا بفوترة شهرية أو سنوية.' },
+        priceHint: { en: 'Monthly / Annual billing', ar: 'فوترة شهرية / سنوية' },
+        features: {
+          en: ['Cloud-hosted platform', 'Automatic updates', 'Standard support', 'Daily backups', 'Scale users & branches'],
+          ar: ['منصة مستضافة سحابياً', 'تحديثات تلقائية', 'دعم قياسي', 'نسخ احتياطي يومي', 'توسع مستخدمين وفروع'],
+        },
+        cta: { en: 'Start Subscription', ar: 'ابدأ الاشتراك' },
+      },
+      {
+        id: 'implementation',
+        name: { en: 'Implementation Project', ar: 'مشروع تنفيذ' },
+        description: { en: 'One-time setup, migration, customization, and go-live.', ar: 'إعداد لمرة واحدة وترحيل وتخصيص وإطلاق.' },
+        priceHint: { en: 'Fixed project quote', ar: 'عرض مشروع ثابت' },
+        featured: true,
+        features: {
+          en: ['Discovery & planning', 'Data migration', 'Configuration & training', 'Go-live support', '30-day hypercare'],
+          ar: ['اكتشاف وتخطيط', 'ترحيل بيانات', 'إعداد وتدريب', 'دعم الإطلاق', 'رعاية مكثفة ٣٠ يوماً'],
+        },
+        cta: { en: 'Plan Implementation', ar: 'خطط للتنفيذ' },
+      },
+      {
+        id: 'managed',
+        name: { en: 'Managed Delivery', ar: 'تسليم مُدار' },
+        description: { en: 'Fratelanza runs your project end-to-end with our 400+ specialist network.', ar: 'فراتيلانزا تدير مشروعك بالكامل عبر شبكة ٤٠٠+ متخصص.' },
+        priceHint: { en: 'Milestone-based payments', ar: 'دفعات حسب المراحل' },
+        features: {
+          en: ['Dedicated project manager', 'Vetted freelancer team', 'Quality assurance', 'Single invoice to you', 'Fratelanza accountability'],
+          ar: ['مدير مشروع مخصص', 'فريق مستقلين معتمد', 'ضمان جودة', 'فاتورة واحدة لك', 'مسؤولية فراتيلانزا'],
+        },
+        cta: { en: 'Discuss Managed Delivery', ar: 'ناقش التسليم المُدار' },
+      },
+      {
+        id: 'training',
+        name: { en: 'Training & Consulting', ar: 'تدريب واستشارات' },
+        description: { en: 'Upskill your team on ERP, AI, digital transformation — onsite or remote.', ar: 'طوّر فريقك في ERP والذكاء الاصطناعي والتحول الرقمي — في الموقع أو عن بُعد.' },
+        priceHint: { en: 'Per session / program', ar: 'لكل جلسة / برنامج' },
+        features: {
+          en: ['Custom curriculum', 'Hands-on workshops', 'AI & data science tracks', 'ERP user training', 'Executive advisory'],
+          ar: ['منهج مخصص', 'ورش عملية', 'مسارات AI وعلوم البيانات', 'تدريب مستخدمي ERP', 'استشارات تنفيذية'],
+        },
+        cta: { en: 'Book Training', ar: 'احجز تدريباً' },
+      },
+    ],
   },
-]
+] as const
 
-export const caseStudies = [
-  {
-    title: { en: 'Pharmacy Chain Digital Transformation', ar: 'التحول الرقمي لسلسلة صيدليات' },
-    industry: { en: 'Healthcare / Pharmacies', ar: 'الرعاية الصحية / الصيدليات' },
-    summary: {
-      en: 'A 15-branch pharmacy chain migrated from legacy systems to Fratelanza ERP with full ETA compliance, reducing invoicing time by 80%.',
-      ar: 'سلسلة صيدليات من ١٥ فرعاً انتقلت من أنظمة قديمة إلى فراتيلانزا ERP مع امتثال ETA كامل، مما قلل وقت الفوترة بنسبة ٨٠٪.',
-    },
-  },
-  {
-    title: { en: 'Clinic Network Integration', ar: 'تكامل شبكة عيادات' },
-    industry: { en: 'Healthcare / Clinics', ar: 'الرعاية الصحية / العيادات' },
-    summary: {
-      en: 'Integrated clinic management with laboratory systems, enabling seamless patient referrals and automated result delivery.',
-      ar: 'تكامل إدارة العيادات مع أنظمة المختبرات، مما مكّن إحالات سلسة وتسليم نتائج آلي.',
-    },
-  },
-]
+export const testimonials = valuePropositions
+
+export const caseStudies = solutionShowcases.map(({ title, industry, summary }) => ({
+  title,
+  industry,
+  summary,
+}))
 
 export const careers = [
   {

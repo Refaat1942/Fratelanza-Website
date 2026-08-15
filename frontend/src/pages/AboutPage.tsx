@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion'
-import { Users, Network } from 'lucide-react'
+import { Users, Network, Crown } from 'lucide-react'
 import { DynamicIcon } from '@/components/ui/DynamicIcon'
-import { overview, coreValues, timeline, leadership, teamStrength, company } from '@/data/content'
+import { overview, coreValues, timeline, leadership, teamStrength, company, aboutInsights } from '@/data/content'
 import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
 import { Card, PageHero, SectionHeader } from '@/components/ui/Card'
+import { Button } from '@/components/ui/Button'
+import { cn } from '@/lib/utils'
 
 export default function AboutPage() {
   const { t, ui } = useTranslation()
@@ -20,6 +22,25 @@ export default function AboutPage() {
         title={ui('about', 'pageTitle')}
         subtitle={t(overview.profile)}
       />
+
+      <section className="py-16 bg-gradient-to-br from-brand-50/50 to-gold-50/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader title={t(aboutInsights.headline)} subtitle={t(aboutInsights.intro)} />
+          <div className="grid sm:grid-cols-2 gap-6">
+            {aboutInsights.pillars.map((pillar, i) => (
+              <Card key={i} premium>
+                <div className="flex items-start gap-3">
+                  <DynamicIcon name={pillar.icon} className="w-8 h-8 text-brand-600 shrink-0" />
+                  <div>
+                    <h3 className="font-bold mb-2 font-display">{t(pillar.title)}</h3>
+                    <p className="text-sm text-body-muted leading-relaxed">{t(pillar.description)}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,15 +155,25 @@ export default function AboutPage() {
           <SectionHeader title={ui('about', 'leadership')} />
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {leadership.map((leader, i) => (
-              <Card key={i} className="text-center h-full">
+              <Card key={i} className={cn('text-center h-full', 'isFounder' in leader && leader.isFounder && 'ring-2 ring-gold-400/40 glow-gold')}>
+                {'isFounder' in leader && leader.isFounder && (
+                  <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gold-700 mb-3">
+                    <Crown className="w-3.5 h-3.5" />
+                    {ui('about', 'founder')}
+                  </span>
+                )}
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-100 to-mint-100 mx-auto mb-4 flex items-center justify-center">
                   <Users className="w-10 h-10 text-brand-700" />
                 </div>
                 <h3 className="text-xl font-bold font-display">{leader.name}</h3>
-                <p className="text-gold-600 text-sm mt-1 font-semibold">{t(leader.role)}</p>
+                <p className="text-gold-700 text-sm mt-1 font-semibold">{t(leader.role)}</p>
                 <p className="text-body-subtle mt-4 text-sm leading-relaxed text-start">{t(leader.bio)}</p>
               </Card>
             ))}
+          </div>
+
+          <div className="text-center mb-8">
+            <Button href="/request-demo" size="lg">{ui('about', 'meetFounder')}</Button>
           </div>
 
           <Card premium glow className="max-w-4xl mx-auto">

@@ -191,6 +191,19 @@
     @apply block text-sm font-bold text-ink mb-2 font-display tracking-wide;
   }
 
+  .section-warm {
+    background: linear-gradient(135deg, rgba(255, 251, 235, 0.9) 0%, rgba(236, 254, 255, 0.85) 50%, rgba(209, 250, 229, 0.7) 100%);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
   .rtl-flip {
     transform: scaleX(-1);
   }

@@ -6,7 +6,7 @@ export const customerHook = {
     ar: 'فراتيلانزا تتحمل المسؤولية الكاملة عن تنفيذ مشروعك عبر شبكة قوية من مستقلين معتمدين في جميع التخصصات — لتركز على أعمالك دون إدارة المواهب.',
   },
   points: [
-    { icon: 'Users', title: { en: '500+ Specialists', ar: '٥٠٠+ متخصص' }, description: { en: 'Developers, designers, analysts, and engineers across all domains.', ar: 'مطورون ومصممون ومحللون ومهندسون في جميع المجالات.' } },
+    { icon: 'Users', title: { en: '400+ Specialists', ar: '٤٠٠+ متخصص' }, description: { en: 'Developers, designers, analysts, and engineers across all domains.', ar: 'مطورون ومصممون ومحللون ومهندسون في جميع المجالات.' } },
     { icon: 'Shield', title: { en: 'Managed Delivery', ar: 'تسليم مُدار' }, description: { en: 'We handle contracts, timelines, quality, and payments — not you.', ar: 'نحن ندير العقود والجداول والجودة والمدفوعات — وليس أنت.' } },
     { icon: 'Rocket', title: { en: 'Faster Execution', ar: 'تنفيذ أسرع' }, description: { en: 'The right talent assigned immediately — no hiring delays.', ar: 'الموهبة المناسبة تُعيَّن فوراً — بلا تأخير في التوظيف.' } },
     { icon: 'Gem', title: { en: 'Guaranteed Results', ar: 'نتائج مضمونة' }, description: { en: 'Fratelanza stands behind every deliverable with full accountability.', ar: 'فراتيلانزا تضمن كل مخرج بناءً على مسؤولية كاملة.' } },
