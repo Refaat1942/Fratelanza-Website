@@ -136,20 +136,20 @@ export const marketingHooks = [
 
 export const aboutInsights = {
   headline: {
-    en: 'Who Fratelanza Is — Honestly',
-    ar: 'من هي فراتيلانزا — بصدق',
+    en: 'Why Fratelanza',
+    ar: 'لماذا فراتيلانزا',
   },
   intro: {
-    en: 'Fratelanza is a young, founder-led technology company (est. 2026) building enterprise software and delivering projects with full accountability. We do not claim a long client portfolio yet — what we offer today is a proven product ecosystem, deep industry experience, and a managed talent network ready to execute.',
-    ar: 'فراتيلانزا شركة تقنية ناشئة بقيادة المؤسس (تأسست ٢٠٢٦) تبني برمجيات مؤسسية وتنفذ المشاريع بمسؤولية كاملة. لا ندّعي محفظة عملاء طويلة بعد — ما نقدمه اليوم هو منظومة منتجات مثبتة وخبرة صناعية عميقة وشبكة مواهب مُدارة جاهزة للتنفيذ.',
+    en: 'Founded in 2026 by Dr. Ahmed Refaat, Fratelanza is a founder-led technology company delivering enterprise ERP, AI, cloud platforms, and managed project execution. We combine a proven product ecosystem with deep industry experience and a network of 400+ specialists — one accountable partner for your digital transformation.',
+    ar: 'تأسست فراتيلانزا في ٢٠٢٦ على يد د. أحمد رفعت — شركة تقنية بقيادة المؤسس تقدم ERP مؤسسي وذكاء اصطناعي ومنصات سحابية وتنفيذ مشاريع مُدار. نجمع منظومة منتجات مثبتة مع خبرة صناعية عميقة وشبكة من أكثر من ٤٠٠ متخصص — شريك واحد مسؤول لتحولك الرقمي.',
   },
   pillars: [
     {
       icon: 'LayoutDashboard',
       title: { en: 'What We Have Built', ar: 'ما بنيناه' },
       description: {
-        en: '12+ integrated modules — ERP, pharmacy, clinics, labs, CRM, HR, POS, real estate, AI, and admin console — with real product screenshots you can explore on this site.',
-        ar: 'أكثر من ١٢ وحدة متكاملة — ERP والصيدليات والعيادات والمختبرات وCRM وHR وPOS والعقارات والذكاء الاصطناعي ولوحة التحكم — مع لقطات حقيقية يمكنك استكشافها على الموقع.',
+        en: '12+ integrated modules — ERP, pharmacy, clinics, labs, CRM, HR, POS, real estate, AI, and admin console — explore live screenshots across this site.',
+        ar: 'أكثر من ١٢ وحدة متكاملة — ERP والصيدليات والعيادات والمختبرات وCRM وHR وPOS والعقارات والذكاء الاصطناعي ولوحة التحكم — استكشف لقطات حية عبر الموقع.',
       },
     },
     {
@@ -172,8 +172,8 @@ export const aboutInsights = {
       icon: 'Target',
       title: { en: 'Our Promise', ar: 'وعدنا' },
       description: {
-        en: 'No inflated claims. We show you the product, explain the roadmap, quote fairly for your size, and stand behind delivery with SLA-backed support.',
-        ar: 'لا ادعاءات مبالغ فيها. نعرض عليك المنتج ونوضح خارطة الطريق ونُسعّر بعدالة لحجمك ونضمن التسليم بدعم مضمون بـ SLA.',
+        en: 'Live product demos, clear roadmaps, custom quotes for your size, and SLA-backed support from discovery through go-live and beyond.',
+        ar: 'عروض حية للمنتج وخرائط طريق واضحة وعروض أسعار مخصصة لحجمك ودعم مضمون بـ SLA من الاكتشاف إلى الإطلاق وما بعده.',
       },
     },
   ],
@@ -221,8 +221,8 @@ export const solutionShowcases = [
 export const valuePropositions = [
   {
     quote: {
-      en: 'We show you live product demos — not slide decks pretending to be finished projects.',
-      ar: 'نعرض عليك عروضاً حية للمنتج — وليس عروضاً تقديمية تتظاهر بأنها مشاريع منتهية.',
+      en: 'Live product demos tailored to your industry — see the platform before you commit.',
+      ar: 'عروض حية للمنتج مخصصة لقطاعك — شاهد المنصة قبل الالتزام.',
     },
     author: { en: 'Our Approach', ar: 'نهجنا' },
   },

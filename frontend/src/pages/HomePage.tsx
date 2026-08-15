@@ -120,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Who we are — honest insight */}
+      {/* Who we are */}
       <AboutInsightSection />
 
       {/* Customer Hook */}
