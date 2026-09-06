@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Lock, LogOut, Download, RefreshCw, Users, Mail, Briefcase, UserPlus, FileText, FileSpreadsheet } from 'lucide-react'
+import { Lock, LogOut, Download, RefreshCw, Users, Mail, Briefcase, UserPlus, FileText, FileSpreadsheet, Eye, BarChart3 } from 'lucide-react'
 import {
   adminLogin,
   adminLogout,
@@ -340,7 +340,56 @@ export default function AdminPage() {
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         {stats && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <>
+            <div className="mb-8">
+              <h2 className="text-sm font-bold uppercase tracking-wider text-brand-800 mb-3 flex items-center gap-2">
+                <BarChart3 className="w-4 h-4" />
+                {ui('admin', 'visitorsTitle')}
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                <div className="glass-premium rounded-xl p-4 border border-brand-200/60">
+                  <div className="flex items-center gap-2 text-brand-700 mb-1">
+                    <Eye className="w-4 h-4" />
+                    <span className="text-xs font-semibold uppercase">{ui('admin', 'todayVisitors')}</span>
+                  </div>
+                  <div className="text-3xl font-bold text-gradient-brand">{stats.todayVisitors}</div>
+                </div>
+                <div className="glass-premium rounded-xl p-4 border border-brand-200/60">
+                  <div className="text-xs font-semibold uppercase text-brand-700 mb-1">{ui('admin', 'todayPageViews')}</div>
+                  <div className="text-3xl font-bold text-gradient-brand">{stats.todayPageViews}</div>
+                </div>
+                <div className="glass-premium rounded-xl p-4 border border-brand-200/60">
+                  <div className="text-xs font-semibold uppercase text-brand-700 mb-1">{ui('admin', 'totalVisitors')}</div>
+                  <div className="text-3xl font-bold text-gradient-brand">{stats.totalVisitors}</div>
+                </div>
+              </div>
+              {stats.last7Days.length > 0 && (
+                <div className="glass-premium rounded-xl p-4 border border-slate-200 overflow-x-auto">
+                  <p className="text-xs font-semibold uppercase text-body-subtle mb-3">{ui('admin', 'last7Days')}</p>
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="text-left text-xs text-body-subtle border-b border-slate-200">
+                        <th className="pb-2 pe-4">{ui('admin', 'colDate')}</th>
+                        <th className="pb-2 pe-4">{ui('admin', 'visitors')}</th>
+                        <th className="pb-2">{ui('admin', 'pageViews')}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {stats.last7Days.map((row) => (
+                        <tr key={row.date} className="border-b border-slate-100 last:border-0">
+                          <td className="py-2 pe-4 text-ink-muted">{row.date}</td>
+                          <td className="py-2 pe-4 font-semibold text-brand-800">{row.visitors}</td>
+                          <td className="py-2 text-ink-muted">{row.page_views}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+
+            <h2 className="text-sm font-bold uppercase tracking-wider text-brand-800 mb-3">{ui('admin', 'submissionsTitle')}</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {statCards.map(([id, label, count]) => (
               <button
                 key={id}
@@ -354,7 +403,8 @@ export default function AdminPage() {
                 <div className="text-xs text-body-subtle mt-1">{label}</div>
               </button>
             ))}
-          </div>
+            </div>
+          </>
         )}
 
         <div className="flex flex-wrap gap-2 mb-6">

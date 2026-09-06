@@ -78,6 +78,17 @@ db.exec(`
     resume_path TEXT,
     created_at TEXT DEFAULT (datetime('now'))
   );
+
+  CREATE TABLE IF NOT EXISTS page_views (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    visitor_hash TEXT NOT NULL,
+    path TEXT NOT NULL,
+    visit_date TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_page_views_date ON page_views(visit_date);
+  CREATE INDEX IF NOT EXISTS idx_page_views_hash_date ON page_views(visitor_hash, visit_date);
 `)
 
 console.log(`Database initialized at ${dbPath}`)

@@ -54,6 +54,10 @@ export type AdminStats = {
   contacts: number
   careers: number
   freelancers: number
+  todayVisitors: number
+  todayPageViews: number
+  totalVisitors: number
+  last7Days: { date: string; visitors: number; page_views: number }[]
 }
 
 export async function fetchStats() {

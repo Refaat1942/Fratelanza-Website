@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import { db } from './db.js'
 import { adminLogin, adminLogout, requireAdmin } from './adminAuth.js'
+import { getVisitorMetrics } from './analytics.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 
@@ -15,6 +16,8 @@ adminRouter.get('/stats', requireAdmin, (_req, res) => {
   const count = (table: string) =>
     (db.prepare(`SELECT COUNT(*) as c FROM ${table}`).get() as { c: number }).c
 
+  const visitors = getVisitorMetrics()
+
   res.json({
     success: true,
     data: {
@@ -22,6 +25,10 @@ adminRouter.get('/stats', requireAdmin, (_req, res) => {
       contacts: count('contacts'),
       careers: count('careers'),
       freelancers: count('freelancers'),
+      todayVisitors: visitors.todayVisitors,
+      todayPageViews: visitors.todayPageViews,
+      totalVisitors: visitors.totalVisitors,
+      last7Days: visitors.last7Days,
     },
   })
 })

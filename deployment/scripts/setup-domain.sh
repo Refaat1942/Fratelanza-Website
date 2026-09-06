@@ -4,6 +4,7 @@
 set -euo pipefail
 
 DOMAIN="www.fratelanza.com"
+APEX_DOMAIN="fratelanza.com"
 CONF_NAME="fratelanza-corporate"
 PROJECT_DIR="${PROJECT_DIR:-/opt/fratelanza-website}"
 EMAIL="${CERTBOT_EMAIL:-info@fratelanza.com}"
@@ -98,9 +99,9 @@ echo "Nginx reloaded — http://$DOMAIN should work (no SSL yet)"
 # 6. SSL with certbot
 if command -v certbot &>/dev/null; then
   echo "Requesting SSL certificate..."
-  sudo certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos -m "$EMAIL" --redirect || {
+  sudo certbot --nginx -d "$APEX_DOMAIN" -d "$DOMAIN" --non-interactive --agree-tos -m "$EMAIL" --redirect || {
     echo "Certbot failed. Run manually:"
-    echo "  sudo certbot --nginx -d $DOMAIN"
+    echo "  sudo certbot --nginx -d $APEX_DOMAIN -d $DOMAIN"
   }
 else
   echo "Install certbot: sudo apt install certbot python3-certbot-nginx -y"

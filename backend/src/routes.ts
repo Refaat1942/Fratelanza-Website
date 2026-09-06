@@ -7,6 +7,7 @@ import {
   leadSchema, contactSchema, careerSchema, freelancerSchema,
   rejectHoneypot, sanitize,
 } from './validation.js'
+import { recordPageView } from './analytics.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true })
@@ -30,6 +31,20 @@ const upload = multer({
 })
 
 export const apiRouter = Router()
+
+apiRouter.post('/analytics/visit', (req: Request, res: Response) => {
+  try {
+    const path = typeof req.body?.path === 'string' ? req.body.path : '/'
+    if (path.startsWith('/admin')) {
+      res.json({ success: true })
+      return
+    }
+    recordPageView(req, path)
+    res.json({ success: true })
+  } catch {
+    res.json({ success: true })
+  }
+})
 
 apiRouter.post('/leads', (req: Request, res: Response) => {
   try {
