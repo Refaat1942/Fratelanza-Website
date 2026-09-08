@@ -91,4 +91,13 @@ db.exec(`
   CREATE INDEX IF NOT EXISTS idx_page_views_hash_date ON page_views(visitor_hash, visit_date);
 `)
 
+const pageViewColumns = ['ip_address', 'country', 'referrer', 'device', 'user_agent'] as const
+for (const col of pageViewColumns) {
+  try {
+    db.exec(`ALTER TABLE page_views ADD COLUMN ${col} TEXT`)
+  } catch {
+    // column already exists
+  }
+}
+
 console.log(`Database initialized at ${dbPath}`)

@@ -60,6 +60,43 @@ export type AdminStats = {
   last7Days: { date: string; visitors: number; page_views: number }[]
 }
 
+export type DailyAnalytics = {
+  from: string
+  to: string
+  rows: { date: string; visitors: number; page_views: number }[]
+  totals: { visitors: number; page_views: number }
+}
+
+export type VisitorLogRow = {
+  visitor_hash: string
+  ip_address: string
+  country: string
+  referrer: string
+  device: string
+  first_seen: string
+  last_seen: string
+  page_views: number
+  pages: string
+}
+
+export type VisitorLog = {
+  from: string
+  to: string
+  rows: VisitorLogRow[]
+}
+
+export async function fetchDailyAnalytics(from: string, to: string) {
+  const params = new URLSearchParams({ from, to })
+  const result = await adminFetch<{ data: DailyAnalytics }>(`/analytics/daily?${params}`)
+  return result.data
+}
+
+export async function fetchVisitorLog(from: string, to: string) {
+  const params = new URLSearchParams({ from, to })
+  const result = await adminFetch<{ data: VisitorLog }>(`/analytics/visitors?${params}`)
+  return result.data
+}
+
 export async function fetchStats() {
   const result = await adminFetch<{ data: AdminStats }>('/stats')
   return result.data

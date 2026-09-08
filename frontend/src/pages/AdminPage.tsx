@@ -18,8 +18,9 @@ import { useTranslation } from '@/i18n/useTranslation'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { SEO } from '@/components/SEO'
 import { cn } from '@/lib/utils'
+import { AdminVisitorsPanel } from '@/components/admin/AdminVisitorsPanel'
 
-type Tab = 'leads' | 'contacts' | 'careers' | 'freelancers'
+type Tab = 'leads' | 'contacts' | 'careers' | 'freelancers' | 'visitors'
 
 function formatDate(d: string, locale: string) {
   if (!d) return '—'
@@ -84,11 +85,12 @@ export default function AdminPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [exporting, setExporting] = useState(false)
-  const [tab, setTab] = useState<Tab>('leads')
+  const [tab, setTab] = useState<Tab>('visitors')
   const [stats, setStats] = useState<AdminStats | null>(null)
   const [rows, setRows] = useState<Record<string, unknown>[]>([])
 
   const tabs: { id: Tab; label: string; icon: typeof Mail }[] = useMemo(() => [
+    { id: 'visitors', label: ui('admin', 'tabVisitors'), icon: BarChart3 },
     { id: 'leads', label: ui('admin', 'tabLeads'), icon: FileText },
     { id: 'contacts', label: ui('admin', 'tabContacts'), icon: Mail },
     { id: 'careers', label: ui('admin', 'tabCareers'), icon: Briefcase },
@@ -156,6 +158,7 @@ export default function AdminPage() {
       case 'contacts': return contactColumns
       case 'careers': return careerColumns
       case 'freelancers': return freelancerColumns
+      default: return leadColumns
     }
   }
 
@@ -165,10 +168,12 @@ export default function AdminPage() {
       case 'contacts': return ui('admin', 'sheetContacts')
       case 'careers': return ui('admin', 'sheetCareers')
       case 'freelancers': return ui('admin', 'sheetFreelancers')
+      default: return ui('admin', 'sheetLeads')
     }
   }
 
   const loadData = useCallback(async () => {
+    if (tab === 'visitors') return
     setLoading(true)
     setError('')
     try {
@@ -191,9 +196,25 @@ export default function AdminPage() {
     }
   }, [tab])
 
+  const loadStats = useCallback(async () => {
+    try {
+      const s = await fetchStats()
+      setStats(s)
+    } catch (err) {
+      if (err instanceof Error && (err.message.includes('Unauthorized') || err.message.includes('expired'))) {
+        setAuthed(false)
+      }
+    }
+  }, [])
+
   useEffect(() => {
-    if (authed) loadData()
-  }, [authed, loadData])
+    if (!authed) return
+    if (tab === 'visitors') {
+      loadStats()
+      return
+    }
+    loadData()
+  }, [authed, tab, loadData, loadStats])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -311,16 +332,18 @@ export default function AdminPage() {
               <FileSpreadsheet className="w-4 h-4" />
               {ui('admin', 'exportAll')}
             </button>
+            {tab !== 'visitors' && (
+              <button
+                onClick={handleExportCurrent}
+                disabled={rows.length === 0}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-sm text-brand-800 transition-colors disabled:opacity-50 shadow-sm"
+              >
+                <FileSpreadsheet className="w-4 h-4" />
+                {ui('admin', 'exportExcel')}
+              </button>
+            )}
             <button
-              onClick={handleExportCurrent}
-              disabled={rows.length === 0}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-sm text-brand-800 transition-colors disabled:opacity-50 shadow-sm"
-            >
-              <FileSpreadsheet className="w-4 h-4" />
-              {ui('admin', 'exportExcel')}
-            </button>
-            <button
-              onClick={loadData}
+              onClick={() => (tab === 'visitors' ? loadStats() : loadData())}
               disabled={loading}
               className="p-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-ink-muted hover:text-brand-800 transition-colors shadow-sm"
               title={ui('admin', 'refresh')}
@@ -363,29 +386,6 @@ export default function AdminPage() {
                   <div className="text-3xl font-bold text-gradient-brand">{stats.totalVisitors}</div>
                 </div>
               </div>
-              {stats.last7Days.length > 0 && (
-                <div className="glass-premium rounded-xl p-4 border border-slate-200 overflow-x-auto">
-                  <p className="text-xs font-semibold uppercase text-body-subtle mb-3">{ui('admin', 'last7Days')}</p>
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-left text-xs text-body-subtle border-b border-slate-200">
-                        <th className="pb-2 pe-4">{ui('admin', 'colDate')}</th>
-                        <th className="pb-2 pe-4">{ui('admin', 'visitors')}</th>
-                        <th className="pb-2">{ui('admin', 'pageViews')}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {stats.last7Days.map((row) => (
-                        <tr key={row.date} className="border-b border-slate-100 last:border-0">
-                          <td className="py-2 pe-4 text-ink-muted">{row.date}</td>
-                          <td className="py-2 pe-4 font-semibold text-brand-800">{row.visitors}</td>
-                          <td className="py-2 text-ink-muted">{row.page_views}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              )}
             </div>
 
             <h2 className="text-sm font-bold uppercase tracking-wider text-brand-800 mb-3">{ui('admin', 'submissionsTitle')}</h2>
@@ -427,13 +427,17 @@ export default function AdminPage() {
 
         {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
 
-        <DataTable
-          rows={rows}
-          columns={getColumns(tab)}
-          emptyText={ui('admin', 'noData')}
-          dir={dir}
-          locale={locale}
-        />
+        {tab === 'visitors' ? (
+          <AdminVisitorsPanel />
+        ) : (
+          <DataTable
+            rows={rows}
+            columns={getColumns(tab)}
+            emptyText={ui('admin', 'noData')}
+            dir={dir}
+            locale={locale}
+          />
+        )}
 
         {(tab === 'careers' || tab === 'freelancers') && rows.some((r) => r.resume_path) && (
           <div className="mt-4 flex flex-wrap gap-2">

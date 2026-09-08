@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import { db } from './db.js'
 import { adminLogin, adminLogout, requireAdmin } from './adminAuth.js'
-import { getVisitorMetrics } from './analytics.js'
+import { getVisitorMetrics, getDailyReport, getVisitorLog } from './analytics.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 
@@ -31,6 +31,18 @@ adminRouter.get('/stats', requireAdmin, (_req, res) => {
       last7Days: visitors.last7Days,
     },
   })
+})
+
+adminRouter.get('/analytics/daily', requireAdmin, (req, res) => {
+  const from = req.query.from as string | undefined
+  const to = req.query.to as string | undefined
+  res.json({ success: true, data: getDailyReport(from, to) })
+})
+
+adminRouter.get('/analytics/visitors', requireAdmin, (req, res) => {
+  const from = req.query.from as string | undefined
+  const to = req.query.to as string | undefined
+  res.json({ success: true, data: getVisitorLog(from, to) })
 })
 
 adminRouter.get('/leads', requireAdmin, (_req, res) => {
