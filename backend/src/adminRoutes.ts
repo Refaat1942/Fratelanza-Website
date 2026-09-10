@@ -13,6 +13,11 @@ import { leadUpdateSchema } from './validation.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 
+function paramId(param: string | string[] | undefined): number {
+  const raw = Array.isArray(param) ? param[0] : param
+  return parseInt(raw ?? '', 10)
+}
+
 export const adminRouter = Router()
 
 adminRouter.post('/login', adminLogin)
@@ -88,7 +93,7 @@ adminRouter.get('/leads', requireAdmin, (_req, res) => {
 })
 
 adminRouter.get('/leads/:id', requireAdmin, (req, res) => {
-  const id = parseInt(req.params.id, 10)
+  const id = paramId(req.params.id)
   const lead = db.prepare('SELECT * FROM leads WHERE id = ?').get(id)
   if (!lead) {
     res.status(404).json({ success: false, message: 'Lead not found' })
@@ -101,7 +106,7 @@ adminRouter.get('/leads/:id', requireAdmin, (req, res) => {
 
 adminRouter.patch('/leads/:id', requireAdmin, (req, res) => {
   try {
-    const id = parseInt(req.params.id, 10)
+    const id = paramId(req.params.id)
     const existing = db.prepare('SELECT * FROM leads WHERE id = ?').get(id) as Record<string, unknown> | undefined
     if (!existing) {
       res.status(404).json({ success: false, message: 'Lead not found' })
@@ -153,7 +158,7 @@ adminRouter.patch('/leads/:id', requireAdmin, (req, res) => {
 })
 
 adminRouter.post('/leads/:id/activities', requireAdmin, (req, res) => {
-  const id = parseInt(req.params.id, 10)
+  const id = paramId(req.params.id)
   const { type, description } = req.body as { type?: string; description?: string }
   if (!type || !description) {
     res.status(400).json({ success: false, message: 'type and description required' })
