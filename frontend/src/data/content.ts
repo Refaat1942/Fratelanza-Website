@@ -29,7 +29,7 @@ export const company = {
   },
   stats: [
     { value: '12+', label: { en: 'Enterprise Products', ar: 'منتجات مؤسسية' } },
-    { value: '400+', label: { en: 'Professional Freelancers', ar: 'محترفين مستقلين' } },
+    { value: '400+', label: { en: 'Specialists in Network', ar: 'متخصصين في الشبكة' } },
     { value: '99.9%', label: { en: 'Uptime SLA', ar: 'ضمان التشغيل' } },
     { value: '24/7', label: { en: 'Cloud Infrastructure', ar: 'بنية سحابية' } },
   ],
@@ -908,15 +908,11 @@ export const blogPosts = [
 
 export const navLinks = [
   { path: '/', label: { en: 'Home', ar: 'الرئيسية' } },
-  { path: '/about', label: { en: 'About', ar: 'من نحن' } },
+  { path: '/services', label: { en: 'Solutions', ar: 'الحلول' } },
   { path: '/products', label: { en: 'Products', ar: 'المنتجات' } },
-  { path: '/industries', label: { en: 'Industries', ar: 'القطاعات' } },
-  { path: '/services', label: { en: 'Services', ar: 'الخدمات' } },
-  { path: '/integrations', label: { en: 'Integrations', ar: 'التكاملات' } },
-  { path: '/why-fratelanza', label: { en: 'Why Us', ar: 'لماذا نحن' } },
-  { path: '/pricing', label: { en: 'Pricing', ar: 'الأسعار' } },
-  { path: '/blog', label: { en: 'Blog', ar: 'المدونة' } },
-  { path: '/careers', label: { en: 'Careers', ar: 'الوظائف' } },
+  { path: '/case-studies', label: { en: 'Case Studies', ar: 'دراسات الحالة' } },
+  { path: '/delivery-process', label: { en: 'How We Work', ar: 'كيف نعمل' } },
+  { path: '/about', label: { en: 'About', ar: 'من نحن' } },
   { path: '/contact', label: { en: 'Contact', ar: 'تواصل' } },
 ]
 

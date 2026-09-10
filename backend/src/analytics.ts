@@ -72,6 +72,15 @@ export function recordPageView(req: Request, path: string) {
     INSERT INTO page_views (visitor_hash, path, visit_date, ip_address, country, referrer, device, user_agent)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `).run(hash, cleanPath, visitDate, ip, country, referrer, device, ua.slice(0, 300))
+
+  try {
+    db.prepare(`
+      INSERT INTO analytics_events (event_type, path, visitor_hash)
+      VALUES ('page_view', ?, ?)
+    `).run(cleanPath, hash)
+  } catch {
+    // non-blocking
+  }
 }
 
 export function getDailyReport(from?: string, to?: string) {
@@ -157,5 +166,44 @@ export function getVisitorMetrics() {
     todayPageViews: report.totals.page_views,
     totalVisitors,
     last7Days: last7.rows,
+  }
+}
+
+export function recordAnalyticsEvent(
+  req: Request,
+  eventType: string,
+  path?: string,
+  metadata?: Record<string, unknown>,
+  sessionId?: string,
+) {
+  const hash = visitorHash(req)
+  db.prepare(`
+    INSERT INTO analytics_events (event_type, path, metadata_json, visitor_hash, session_id)
+    VALUES (?, ?, ?, ?, ?)
+  `).run(
+    eventType.slice(0, 80),
+    (path || '/').slice(0, 500),
+    metadata ? JSON.stringify(metadata) : null,
+    hash,
+    sessionId?.slice(0, 64) || null,
+  )
+}
+
+export function getEventFunnel() {
+  const counts = db.prepare(`
+    SELECT event_type, COUNT(*) as count FROM analytics_events
+    GROUP BY event_type ORDER BY count DESC
+  `).all() as { event_type: string; count: number }[]
+
+  const byType: Record<string, number> = {}
+  for (const row of counts) byType[row.event_type] = row.count
+
+  return {
+    pageViews: byType.page_view || 0,
+    startProjectClick: byType.start_project_click || 0,
+    formStarted: byType.form_started || 0,
+    formCompleted: byType.form_completed || 0,
+    ctaClick: byType.cta_click || 0,
+    events: counts,
   }
 }

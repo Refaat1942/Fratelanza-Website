@@ -33,6 +33,24 @@ export function SEO({ title, description, path = '', type = 'website' }: SEOProp
   )
 }
 
+export function FAQSchema({ items }: { items: { question: string; answer: string }[] }) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  }
+
+  return (
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(schema)}</script>
+    </Helmet>
+  )
+}
+
 export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',

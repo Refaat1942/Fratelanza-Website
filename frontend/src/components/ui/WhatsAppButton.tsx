@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { company } from '@/data/content'
+import { trackEvent } from '@/lib/analytics'
 
 export function WhatsAppButton() {
   const href = `https://wa.me/${company.whatsapp.replace(/\D/g, '')}`
@@ -11,6 +12,7 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="WhatsApp"
+      onClick={() => trackEvent('whatsapp_click')}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 hover:shadow-[#25D366]/50 transition-shadow"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

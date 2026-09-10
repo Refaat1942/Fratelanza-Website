@@ -1,4 +1,6 @@
+import { useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { trackEvent } from '@/lib/analytics'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Check } from 'lucide-react'
 import { products, productDetails, tList } from '@/data/content'
@@ -18,6 +20,10 @@ export default function ProductDetailPage() {
   const product = products.find((p) => p.id === id)
   const details = id ? productDetails[id] : null
   const screenshots = id ? productShowcases[id] : undefined
+
+  useEffect(() => {
+    if (id) trackEvent('product_viewed', { productId: id })
+  }, [id])
 
   if (!product || !details) return <NotFoundPage />
 

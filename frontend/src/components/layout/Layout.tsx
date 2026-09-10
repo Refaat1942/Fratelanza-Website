@@ -8,9 +8,14 @@ import { OrganizationSchema } from '@/components/SEO'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import { PageTransition } from '@/components/ui/PageTransition'
 import { trackPageView } from '@/lib/analytics'
+import { initAttribution } from '@/lib/attribution'
 
 export function Layout() {
   const location = useLocation()
+
+  useEffect(() => {
+    initAttribution()
+  }, [])
 
   useEffect(() => {
     trackPageView(location.pathname)

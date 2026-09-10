@@ -63,8 +63,8 @@ export function Header() {
           <div className="flex items-center gap-2 shrink-0">
             <LanguageSwitcher />
 
-            <Button href="/request-demo" size="sm" className="hidden md:inline-flex">
-              {ui('common', 'requestDemo')}
+            <Button href="/start-project" size="sm" className="hidden md:inline-flex shadow-md shadow-brand-700/15">
+              {ui('common', 'startProject')}
             </Button>
 
             <button
@@ -103,8 +103,8 @@ export function Header() {
               ))}
               <div className="col-span-2 pt-2 flex flex-col gap-3">
                 <LanguageSwitcher className="w-full justify-center" />
-                <Button href="/request-demo" className="w-full">
-                  {ui('common', 'requestDemo')}
+                <Button href="/start-project" className="w-full">
+                  {ui('common', 'startProject')}
                 </Button>
               </div>
             </nav>

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Lock, LogOut, Download, RefreshCw, Users, Mail, Briefcase, UserPlus, FileText, FileSpreadsheet, Eye, BarChart3 } from 'lucide-react'
+import { Lock, LogOut, Download, RefreshCw, Users, Mail, Briefcase, UserPlus, FileText, FileSpreadsheet, Eye, BarChart3, LayoutDashboard, Kanban, Bell, PieChart } from 'lucide-react'
 import {
   adminLogin,
   adminLogout,
@@ -19,8 +19,9 @@ import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { SEO } from '@/components/SEO'
 import { cn } from '@/lib/utils'
 import { AdminVisitorsPanel } from '@/components/admin/AdminVisitorsPanel'
+import { AdminDashboard, AdminPipeline, AdminLeadsCRM, AdminFollowUps, AdminReports } from '@/components/admin/AdminCRM'
 
-type Tab = 'leads' | 'contacts' | 'careers' | 'freelancers' | 'visitors'
+type Tab = 'dashboard' | 'pipeline' | 'crm' | 'followups' | 'reports' | 'visitors' | 'leads' | 'contacts' | 'careers' | 'freelancers'
 
 function formatDate(d: string, locale: string) {
   if (!d) return '—'
@@ -85,11 +86,16 @@ export default function AdminPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [exporting, setExporting] = useState(false)
-  const [tab, setTab] = useState<Tab>('visitors')
+  const [tab, setTab] = useState<Tab>('dashboard')
   const [stats, setStats] = useState<AdminStats | null>(null)
   const [rows, setRows] = useState<Record<string, unknown>[]>([])
 
   const tabs: { id: Tab; label: string; icon: typeof Mail }[] = useMemo(() => [
+    { id: 'dashboard', label: ui('admin', 'tabDashboard'), icon: LayoutDashboard },
+    { id: 'pipeline', label: ui('admin', 'tabPipeline'), icon: Kanban },
+    { id: 'crm', label: ui('admin', 'tabCrm'), icon: FileText },
+    { id: 'followups', label: ui('admin', 'tabFollowups'), icon: Bell },
+    { id: 'reports', label: ui('admin', 'tabReports'), icon: PieChart },
     { id: 'visitors', label: ui('admin', 'tabVisitors'), icon: BarChart3 },
     { id: 'leads', label: ui('admin', 'tabLeads'), icon: FileText },
     { id: 'contacts', label: ui('admin', 'tabContacts'), icon: Mail },
@@ -109,6 +115,18 @@ export default function AdminPage() {
     { key: 'preferred_contact_time', label: ui('admin', 'colBranches') },
     { key: 'interested_product', label: ui('admin', 'colProduct') },
     { key: 'current_system', label: ui('admin', 'colCurrentSystem') },
+    { key: 'project_type', label: ui('admin', 'colProject') },
+    { key: 'project_stage', label: ui('admin', 'projectStage') },
+    { key: 'estimated_budget', label: ui('admin', 'budget') },
+    { key: 'desired_timeline', label: ui('admin', 'timeline') },
+    { key: 'status', label: ui('admin', 'status') },
+    { key: 'lead_score', label: ui('admin', 'totalLeads') },
+    { key: 'estimated_value', label: ui('admin', 'estimatedValue') },
+    { key: 'probability_pct', label: ui('admin', 'probability') },
+    { key: 'source', label: ui('admin', 'source') },
+    { key: 'first_source', label: ui('admin', 'source') },
+    { key: 'utm_source', label: ui('admin', 'landingPage') },
+    { key: 'country', label: ui('admin', 'colCountry') },
     { key: 'message', label: ui('admin', 'colMessage'), wide: true },
   ], [ui])
 
@@ -172,8 +190,14 @@ export default function AdminPage() {
     }
   }
 
+  const crmTabs: Tab[] = ['dashboard', 'pipeline', 'crm', 'followups', 'reports', 'visitors']
+
   const loadData = useCallback(async () => {
-    if (tab === 'visitors') return
+    if (crmTabs.includes(tab)) {
+      const s = await fetchStats()
+      setStats(s)
+      return
+    }
     setLoading(true)
     setError('')
     try {
@@ -209,7 +233,7 @@ export default function AdminPage() {
 
   useEffect(() => {
     if (!authed) return
-    if (tab === 'visitors') {
+    if (crmTabs.includes(tab) && tab !== 'leads') {
       loadStats()
       return
     }
@@ -332,7 +356,7 @@ export default function AdminPage() {
               <FileSpreadsheet className="w-4 h-4" />
               {ui('admin', 'exportAll')}
             </button>
-            {tab !== 'visitors' && (
+            {!crmTabs.includes(tab) && (
               <button
                 onClick={handleExportCurrent}
                 disabled={rows.length === 0}
@@ -343,7 +367,7 @@ export default function AdminPage() {
               </button>
             )}
             <button
-              onClick={() => (tab === 'visitors' ? loadStats() : loadData())}
+              onClick={() => (crmTabs.includes(tab) && tab !== 'leads' ? loadStats() : loadData())}
               disabled={loading}
               className="p-2 rounded-lg bg-white border border-slate-200 hover:bg-brand-50 text-ink-muted hover:text-brand-800 transition-colors shadow-sm"
               title={ui('admin', 'refresh')}
@@ -427,9 +451,13 @@ export default function AdminPage() {
 
         {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
 
-        {tab === 'visitors' ? (
-          <AdminVisitorsPanel />
-        ) : (
+        {tab === 'dashboard' && <AdminDashboard />}
+        {tab === 'pipeline' && <AdminPipeline />}
+        {tab === 'crm' && <AdminLeadsCRM />}
+        {tab === 'followups' && <AdminFollowUps />}
+        {tab === 'reports' && <AdminReports />}
+        {tab === 'visitors' && <AdminVisitorsPanel />}
+        {!crmTabs.includes(tab) && (
           <DataTable
             rows={rows}
             columns={getColumns(tab)}

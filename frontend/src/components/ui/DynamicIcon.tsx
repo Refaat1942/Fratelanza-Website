@@ -53,6 +53,11 @@ const iconMap: Record<string, LucideIcon> = {
   Handshake: Icons.Handshake,
   Target: Icons.Target,
   Layout: Icons.Layout,
+  Search: Icons.Search,
+  PenTool: Icons.PenTool,
+  Monitor: Icons.Monitor,
+  Package: Icons.Package,
+  ChevronRight: Icons.ChevronRight,
 }
 
 export function DynamicIcon({ name, className }: { name: string; className?: string }) {

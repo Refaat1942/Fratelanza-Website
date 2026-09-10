@@ -93,6 +93,8 @@ export function Footer() {
               {ui('footer', 'freelancer')}
             </Link>
             <Link to="/faq" className="hover:text-brand-700 transition-colors">{ui('faq', 'title')}</Link>
+            <Link to="/privacy" className="hover:text-brand-700 transition-colors">{ui('legal', 'privacyTitle')}</Link>
+            <Link to="/terms" className="hover:text-brand-700 transition-colors">{ui('legal', 'termsTitle')}</Link>
           </div>
         </div>
       </div>

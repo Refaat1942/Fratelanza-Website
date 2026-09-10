@@ -19,6 +19,49 @@ export const leadSchema = honeypotSchema.extend({
   currentSystem: z.string().optional(),
   message: z.string().optional(),
   preferredContactTime: z.string().optional(),
+  projectType: z.string().optional(),
+  projectStage: z.string().optional(),
+  estimatedBudget: z.string().optional(),
+  desiredTimeline: z.string().optional(),
+  existingWebsite: z.string().optional(),
+  existingSystem: z.string().optional(),
+  source: z.string().optional(),
+  firstSource: z.string().optional(),
+  lastSource: z.string().optional(),
+  utmSource: z.string().optional(),
+  utmMedium: z.string().optional(),
+  utmCampaign: z.string().optional(),
+  utmContent: z.string().optional(),
+  landingPage: z.string().optional(),
+  referrerUrl: z.string().optional(),
+  deviceType: z.string().optional(),
+  visitorCountry: z.string().optional(),
+  firstVisitAt: z.string().optional(),
+  conversionPage: z.string().optional(),
+})
+
+export const analyticsEventSchema = z.object({
+  eventType: z.string().min(1).max(80),
+  path: z.string().max(500).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
+  sessionId: z.string().max(64).optional(),
+})
+
+export const leadUpdateSchema = z.object({
+  status: z.string().optional(),
+  priority: z.string().optional(),
+  leadScore: z.number().int().optional(),
+  assignedTo: z.string().optional(),
+  estimatedValue: z.number().optional(),
+  probabilityPct: z.number().int().min(0).max(100).optional(),
+  wonRevenue: z.number().optional(),
+  lastContactAt: z.string().optional(),
+  nextFollowUpAt: z.string().optional(),
+  notes: z.string().optional(),
+  projectType: z.string().optional(),
+  projectStage: z.string().optional(),
+  estimatedBudget: z.string().optional(),
+  desiredTimeline: z.string().optional(),
 })
 
 export const contactSchema = honeypotSchema.extend({

@@ -34,11 +34,13 @@ export function SectionHeader({
   title,
   subtitle,
   centered = true,
+  light = false,
 }: {
   badge?: string
   title: string
   subtitle?: string
   centered?: boolean
+  light?: boolean
 }) {
   return (
     <div className={cn('mb-12', centered && 'text-center')}>
@@ -47,7 +49,10 @@ export function SectionHeader({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase bg-brand-50 text-brand-700 border border-brand-200/80 mb-4"
+          className={cn(
+            'inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase mb-4',
+            light ? 'bg-white/15 text-white border border-white/20' : 'bg-brand-50 text-brand-700 border border-brand-200/80',
+          )}
         >
           {badge}
         </motion.span>
@@ -56,7 +61,10 @@ export function SectionHeader({
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink font-display"
+        className={cn(
+          'text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight font-display',
+          light ? 'text-white' : 'text-ink',
+        )}
       >
         {title}
       </motion.h2>
@@ -66,7 +74,10 @@ export function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="mt-4 text-lg text-body-muted max-w-2xl mx-auto leading-relaxed"
+          className={cn(
+            'mt-4 text-lg max-w-2xl mx-auto leading-relaxed',
+            light ? 'text-brand-100' : 'text-body-muted',
+          )}
         >
           {subtitle}
         </motion.p>

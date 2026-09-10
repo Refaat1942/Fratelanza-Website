@@ -5,9 +5,10 @@ import fs from 'fs'
 import { db } from './db.js'
 import {
   leadSchema, contactSchema, careerSchema, freelancerSchema,
-  rejectHoneypot, sanitize,
+  analyticsEventSchema, rejectHoneypot, sanitize,
 } from './validation.js'
-import { recordPageView } from './analytics.js'
+import { recordPageView, recordAnalyticsEvent } from './analytics.js'
+import { insertLead } from './leads.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true })
@@ -46,32 +47,35 @@ apiRouter.post('/analytics/visit', (req: Request, res: Response) => {
   }
 })
 
-apiRouter.post('/leads', (req: Request, res: Response) => {
+apiRouter.post('/analytics/event', (req: Request, res: Response) => {
   try {
-    const data = leadSchema.parse(req.body)
+    const data = analyticsEventSchema.parse(req.body)
+    if (data.path?.startsWith('/admin')) {
+      res.json({ success: true })
+      return
+    }
+    recordAnalyticsEvent(req, data.eventType, data.path, data.metadata, data.sessionId)
+    res.json({ success: true })
+  } catch {
+    res.json({ success: true })
+  }
+})
+
+function leadsUpload(req: Request, res: Response, next: () => void) {
+  if (req.is('multipart/form-data')) {
+    upload.single('attachment')(req, res, next)
+  } else {
+    next()
+  }
+}
+
+apiRouter.post('/leads', leadsUpload, (req: Request, res: Response) => {
+  try {
+    const body = req.body || {}
+    const data = leadSchema.parse(body)
     rejectHoneypot(data)
-
-    db.prepare(`
-      INSERT INTO leads (company_name, contact_person, business_type, industry, country, city, phone, whatsapp, email, expected_users, interested_product, current_system, message, preferred_contact_time)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(
-      sanitize(data.companyName),
-      sanitize(data.contactPerson || data.companyName),
-      data.businessType || null,
-      data.industry || null,
-      data.country || null,
-      data.city || null,
-      data.phone || null,
-      data.whatsapp || null,
-      data.email,
-      data.expectedUsers || null,
-      data.interestedProduct || null,
-      data.currentSystem || null,
-      data.message ? sanitize(data.message) : null,
-      data.preferredContactTime || null,
-    )
-
-    res.json({ success: true, message: 'Demo request received successfully.' })
+    insertLead(data, req.file?.path || null)
+    res.json({ success: true, message: 'Project request received successfully.' })
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Validation failed'
     res.status(400).json({ success: false, message: msg })

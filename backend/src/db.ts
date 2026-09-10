@@ -100,4 +100,78 @@ for (const col of pageViewColumns) {
   }
 }
 
+const leadColumns: [string, string][] = [
+  ['project_type', 'TEXT'],
+  ['project_stage', 'TEXT'],
+  ['estimated_budget', 'TEXT'],
+  ['desired_timeline', 'TEXT'],
+  ['existing_website', 'TEXT'],
+  ['existing_system', 'TEXT'],
+  ['attachment_path', 'TEXT'],
+  ['source', 'TEXT'],
+  ['first_source', 'TEXT'],
+  ['last_source', 'TEXT'],
+  ['utm_source', 'TEXT'],
+  ['utm_medium', 'TEXT'],
+  ['utm_campaign', 'TEXT'],
+  ['utm_content', 'TEXT'],
+  ['landing_page', 'TEXT'],
+  ['referrer_url', 'TEXT'],
+  ['device_type', 'TEXT'],
+  ['visitor_country', 'TEXT'],
+  ['first_visit_at', 'TEXT'],
+  ['conversion_page', 'TEXT'],
+  ['status', "TEXT DEFAULT 'NEW'"],
+  ['priority', 'TEXT'],
+  ['lead_score', 'INTEGER'],
+  ['assigned_to', 'TEXT'],
+  ['estimated_value', 'REAL'],
+  ['probability_pct', 'INTEGER'],
+  ['won_revenue', 'REAL'],
+  ['last_contact_at', 'TEXT'],
+  ['next_follow_up_at', 'TEXT'],
+  ['notes', 'TEXT'],
+]
+for (const [col, type] of leadColumns) {
+  try {
+    db.exec(`ALTER TABLE leads ADD COLUMN ${col} ${type}`)
+  } catch {
+    // column already exists
+  }
+}
+
+db.exec(`
+  CREATE TABLE IF NOT EXISTS lead_activities (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    lead_id INTEGER NOT NULL,
+    type TEXT NOT NULL,
+    description TEXT NOT NULL,
+    metadata_json TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE TABLE IF NOT EXISTS lead_status_history (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    lead_id INTEGER NOT NULL,
+    from_status TEXT,
+    to_status TEXT NOT NULL,
+    changed_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE TABLE IF NOT EXISTS analytics_events (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_type TEXT NOT NULL,
+    path TEXT,
+    metadata_json TEXT,
+    visitor_hash TEXT,
+    session_id TEXT,
+    created_at TEXT DEFAULT (datetime('now'))
+  );
+
+  CREATE INDEX IF NOT EXISTS idx_leads_status ON leads(status);
+  CREATE INDEX IF NOT EXISTS idx_leads_follow_up ON leads(next_follow_up_at);
+  CREATE INDEX IF NOT EXISTS idx_analytics_events_type ON analytics_events(event_type);
+  CREATE INDEX IF NOT EXISTS idx_lead_activities_lead ON lead_activities(lead_id);
+`)
+
 console.log(`Database initialized at ${dbPath}`)
