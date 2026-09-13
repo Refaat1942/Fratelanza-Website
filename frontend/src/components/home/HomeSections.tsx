@@ -8,7 +8,7 @@ import { Card, SectionHeader } from '@/components/ui/Card'
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter'
 import {
   verifiedStats, solutionCards, beforeItems, afterItems, processSteps,
-  fratelanzaProducts, networkIndustries, aiCapabilities, whyPillars,
+  fratelanzaProducts, deliveryExperience, networkIndustries, aiCapabilities, whyPillars,
   audienceCards, homeFaq, homeT,
 } from '@/data/homepage'
 import { caseStudies } from '@/data/caseStudies'
@@ -123,7 +123,7 @@ export function FratelanzaProductsSection() {
     <section className="py-20 sm:py-24 bg-gradient-to-b from-brand-50/40 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader badge={ui('home', 'productsBadge')} title={ui('home', 'productsTitle')} subtitle={ui('home', 'productsSub')} />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-10">
           {fratelanzaProducts.map((p) => (
             <Link key={p.id} to={`/products/${p.id}`} className="group">
               <Card premium className="overflow-hidden h-full p-0">
@@ -139,6 +139,30 @@ export function FratelanzaProductsSection() {
             </Link>
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
+
+export function DeliveryExperienceSection() {
+  const { ui, locale } = useTranslation()
+  return (
+    <section className="py-20 sm:py-24 bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <SectionHeader light badge={ui('home', 'partnersBadge')} title={ui('home', 'partnersTitle')} subtitle={ui('home', 'partnersSub')} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+          {deliveryExperience.map((partner) => (
+            <Card key={partner.id} premium className="p-6 bg-white/5 border-white/10 backdrop-blur-sm h-full">
+              <div className="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center mb-4">
+                <DynamicIcon name={partner.icon} className="w-6 h-6 text-mint-400" />
+              </div>
+              <p className="text-xs font-bold uppercase tracking-wider text-mint-400 mb-2">{homeT(partner.sector, locale)}</p>
+              <h3 className="font-bold text-lg mb-2">{homeT(partner.name, locale)}</h3>
+              <p className="text-sm text-slate-300">{homeT(partner.desc, locale)}</p>
+            </Card>
+          ))}
+        </div>
+        <p className="text-center text-xs text-slate-400 mt-8 max-w-2xl mx-auto">{ui('home', 'partnersDisclaimer')}</p>
       </div>
     </section>
   )

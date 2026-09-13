@@ -52,7 +52,7 @@ export const heroProofPoints: { text: Bilingual; icon: string }[] = [
   { text: { en: 'Real product engineering', ar: 'هندسة منتجات حقيقية' }, icon: 'Monitor' },
 ]
 
-export const HERO_SCREENSHOT = '/products/pharmacy/inventory.png'
+export const HERO_SCREENSHOT = '/products/erp/dashboard.png'
 
 export const verifiedStats = [
   { value: '400+', label: { en: 'Specialists in Network', ar: 'متخصصين في الشبكة' } },
@@ -97,18 +97,57 @@ export const processSteps = [
 ]
 
 export const fratelanzaProducts = [
-  { id: 'pharmacy', name: { en: 'PharmaPOS', ar: 'PharmaPOS' }, desc: { en: 'Pharmacy management — inventory, multi-branch, FEFO, reporting, tax integration.', ar: 'إدارة صيدليات — مخزون وفروع وFEFO وتقارير وضرائب.' }, image: '/products/pharmacy/inventory.png' },
+  { id: 'erp', name: { en: 'Fratelanza ERP', ar: 'فراتيلانزا ERP' }, desc: { en: 'Enterprise ERP — finance, multi-branch inventory, analytics, and reporting.', ar: 'ERP مؤسسي — مالية ومخزون متعدد الفروع وتحليلات وتقارير.' }, image: '/products/erp/dashboard.png' },
   { id: 'realestate', name: { en: 'Fratelanza Real Estate', ar: 'فراتيلانزا للعقارات' }, desc: { en: 'Real estate management — projects, units, contracts, finance.', ar: 'إدارة عقارات — مشاريع ووحدات وعقود ومالية.' }, image: '/products/realestate/projects.png' },
   { id: 'laboratory', name: { en: 'LabMaster', ar: 'LabMaster' }, desc: { en: 'Laboratory ERP — tests, results, billing, accounting, CRM.', ar: 'ERP مختبرات — فحوصات ونتائج وفوترة ومحاسبة وCRM.' }, image: '/products/laboratory/dashboard.png' },
+  { id: 'pharmacy', name: { en: 'PharmaPOS', ar: 'PharmaPOS' }, desc: { en: 'Pharmacy management — inventory, multi-branch, FEFO, reporting, tax integration.', ar: 'إدارة صيدليات — مخزون وفروع وFEFO وتقارير وضرائب.' }, image: '/products/pharmacy/inventory.png' },
+]
+
+export const deliveryExperience = [
+  {
+    id: 'egyptian-armed-forces',
+    icon: 'Shield',
+    name: { en: 'Egyptian Armed Forces', ar: 'القوات المسلحة المصرية' },
+    sector: { en: 'Government & Defense', ar: 'حكومة ودفاع' },
+    desc: {
+      en: 'Custom digital systems and platforms — delivered and managed by Fratelanza.',
+      ar: 'أنظمة ومنصات رقمية مخصصة — تسليم وإدارة بواسطة فراتيلانزا.',
+    },
+  },
+  {
+    id: 'misr-station-wood',
+    icon: 'Factory',
+    name: { en: 'Misr Station Wood Factory', ar: 'مصنع أخشاب محطة مصر' },
+    sector: { en: 'Manufacturing', ar: 'تصنيع' },
+    desc: {
+      en: 'Business systems for production, inventory, and operational management.',
+      ar: 'أنظمة أعمال للإنتاج والمخزون والإدارة التشغيلية.',
+    },
+  },
+  {
+    id: 'research-projects',
+    icon: 'GraduationCap',
+    name: { en: 'Scientific Research Projects', ar: 'مشاريع البحث العلمي' },
+    sector: { en: 'Research & Academia', ar: 'بحث علمي وأكاديميا' },
+    desc: {
+      en: 'Custom software and data platforms for individual researchers and scientific initiatives.',
+      ar: 'برمجيات مخصصة ومنصات بيانات للباحثين والمبادرات العلمية.',
+    },
+  },
 ]
 
 export const networkIndustries = [
-  'Healthcare', 'Pharmacy', 'Real Estate', 'E-commerce', 'SaaS', 'Finance',
-  'Education', 'Logistics', 'AI', 'CRM', 'Automation',
-].map((en) => ({
-  en,
-  ar: en, // industry names often stay EN; can refine later
-}))
+  { en: 'Government & Defense', ar: 'حكومة ودفاع' },
+  { en: 'Manufacturing', ar: 'تصنيع' },
+  { en: 'Research & Academia', ar: 'بحث علمي' },
+  { en: 'Healthcare', ar: 'رعاية صحية' },
+  { en: 'Real Estate', ar: 'عقارات' },
+  { en: 'E-commerce', ar: 'تجارة إلكترونية' },
+  { en: 'SaaS', ar: 'SaaS' },
+  { en: 'Finance', ar: 'مالية' },
+  { en: 'Logistics', ar: 'لوجستيات' },
+  { en: 'AI & Automation', ar: 'ذكاء وأتمتة' },
+]
 
 export const aiCapabilities = [
   { icon: 'Bot', title: { en: 'AI Agents', ar: 'وكلاء ذكاء' } },

@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { DeliveryPartnerSection } from '@/components/home/DeliveryPartnerSection'
 import {
   VerifiedStatsSection, SolutionsGridSection, BeforeAfterSection,
-  ProcessTimelineSection, FratelanzaProductsSection, NetworkIndustriesSection,
+  ProcessTimelineSection, FratelanzaProductsSection, DeliveryExperienceSection, NetworkIndustriesSection,
   AISection, CaseStudiesPreview, WhyPillarsSection, AudienceCardsSection,
   HomeFAQSection, FinalCTASection,
 } from '@/components/home/HomeSections'
@@ -24,6 +24,7 @@ export default function HomePage() {
       <BeforeAfterSection />
       <ProcessTimelineSection />
       <FratelanzaProductsSection />
+      <DeliveryExperienceSection />
       <NetworkIndustriesSection />
       <AISection />
       <CaseStudiesPreview />

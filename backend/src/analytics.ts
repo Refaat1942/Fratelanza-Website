@@ -189,11 +189,23 @@ export function recordAnalyticsEvent(
   )
 }
 
-export function getEventFunnel() {
+function eventDateFilter(from?: string, to?: string): { clause: string; params: string[] } {
+  if (from && to) {
+    return {
+      clause: `WHERE date(created_at) BETWEEN ? AND ?`,
+      params: [from, to],
+    }
+  }
+  return { clause: '', params: [] }
+}
+
+export function getEventFunnel(from?: string, to?: string) {
+  const { clause, params } = eventDateFilter(from, to)
   const counts = db.prepare(`
     SELECT event_type, COUNT(*) as count FROM analytics_events
+    ${clause}
     GROUP BY event_type ORDER BY count DESC
-  `).all() as { event_type: string; count: number }[]
+  `).all(...params) as { event_type: string; count: number }[]
 
   const byType: Record<string, number> = {}
   for (const row of counts) byType[row.event_type] = row.count
@@ -206,4 +218,54 @@ export function getEventFunnel() {
     ctaClick: byType.cta_click || 0,
     events: counts,
   }
+}
+
+export function getTopPages(from: string, to: string, limit = 10) {
+  return db.prepare(`
+    SELECT path, COUNT(*) as views
+    FROM page_views
+    WHERE visit_date BETWEEN ? AND ?
+    GROUP BY path
+    ORDER BY views DESC
+    LIMIT ?
+  `).all(from, to, limit) as { path: string; views: number }[]
+}
+
+export function getTopReferrers(from: string, to: string, limit = 10) {
+  return db.prepare(`
+    SELECT COALESCE(NULLIF(referrer, ''), 'Direct') as referrer,
+           COUNT(DISTINCT visitor_hash) as visitors
+    FROM page_views
+    WHERE visit_date BETWEEN ? AND ?
+    GROUP BY referrer
+    ORDER BY visitors DESC
+    LIMIT ?
+  `).all(from, to, limit) as { referrer: string; visitors: number }[]
+}
+
+export function getDeviceBreakdown(from: string, to: string) {
+  return db.prepare(`
+    SELECT COALESCE(device, 'Unknown') as device,
+           COUNT(DISTINCT visitor_hash) as visitors,
+           COUNT(*) as page_views
+    FROM page_views
+    WHERE visit_date BETWEEN ? AND ?
+    GROUP BY device
+    ORDER BY visitors DESC
+  `).all(from, to) as { device: string; visitors: number; page_views: number }[]
+}
+
+export function getSubmissionCounts(from: string, to: string) {
+  const countTable = (table: string) =>
+    (db.prepare(`
+      SELECT COUNT(*) as c FROM ${table}
+      WHERE date(created_at) BETWEEN ? AND ?
+    `).get(from, to) as { c: number }).c
+
+  const leads = countTable('leads')
+  const contacts = countTable('contacts')
+  const careers = countTable('careers')
+  const freelancers = countTable('freelancers')
+
+  return { leads, contacts, careers, freelancers, total: leads + contacts + careers + freelancers }
 }

@@ -264,16 +264,16 @@ export const leadership = [
 
 export const products = [
   { id: 'erp', name: { en: 'Fratelanza ERP', ar: 'فراتيلانزا ERP' }, category: 'core', icon: 'LayoutDashboard' },
+  { id: 'realestate', name: { en: 'Real Estate', ar: 'العقارات' }, category: 'realestate', icon: 'Building2' },
+  { id: 'ai', name: { en: 'AI Assistant', ar: 'المساعد الذكي' }, category: 'ai', icon: 'Bot' },
+  { id: 'crm', name: { en: 'CRM', ar: 'إدارة العملاء' }, category: 'business', icon: 'Users' },
+  { id: 'console', name: { en: 'Console', ar: 'لوحة التحكم' }, category: 'core', icon: 'Terminal' },
+  { id: 'laboratory', name: { en: 'Laboratory Management', ar: 'إدارة المختبرات' }, category: 'healthcare', icon: 'FlaskConical' },
   { id: 'pharmacy', name: { en: 'Pharmacy ERP', ar: 'ERP الصيدليات' }, category: 'healthcare', icon: 'Pill' },
   { id: 'clinic', name: { en: 'Clinic Management', ar: 'إدارة العيادات' }, category: 'healthcare', icon: 'Stethoscope' },
-  { id: 'laboratory', name: { en: 'Laboratory Management', ar: 'إدارة المختبرات' }, category: 'healthcare', icon: 'FlaskConical' },
-  { id: 'crm', name: { en: 'CRM', ar: 'إدارة العملاء' }, category: 'business', icon: 'Users' },
   { id: 'hr', name: { en: 'HR', ar: 'الموارد البشرية' }, category: 'business', icon: 'UserCheck' },
   { id: 'marketing', name: { en: 'Marketing Platform', ar: 'منصة التسويق' }, category: 'business', icon: 'Megaphone' },
-  { id: 'ai', name: { en: 'AI Assistant', ar: 'المساعد الذكي' }, category: 'ai', icon: 'Bot' },
   { id: 'pos', name: { en: 'POS', ar: 'نقطة البيع' }, category: 'retail', icon: 'ShoppingCart' },
-  { id: 'realestate', name: { en: 'Real Estate', ar: 'العقارات' }, category: 'realestate', icon: 'Building2' },
-  { id: 'console', name: { en: 'Console', ar: 'لوحة التحكم' }, category: 'core', icon: 'Terminal' },
 ]
 
 export const productDetails: Record<string, {

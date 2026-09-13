@@ -15,38 +15,6 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: 'pharmapos',
-    productId: 'pharmacy',
-    title: { en: 'PharmaPOS — Pharmacy Management Platform', ar: 'PharmaPOS — منصة إدارة الصيدليات' },
-    industry: { en: 'Pharmacy & Healthcare', ar: 'الصيدلة والرعاية الصحية' },
-    problem: {
-      en: 'Pharmacy chains need centralized inventory, expiry control, insurance workflows, and multi-branch visibility.',
-      ar: 'سلاسل الصيدليات تحتاج مخزوناً مركزياً ومراقبة صلاحية وتدفقات تأمين ورؤية متعددة الفروع.',
-    },
-    challenge: {
-      en: 'Managing FEFO inventory, clinic prescriptions, tax compliance, and remote branch oversight across disconnected tools.',
-      ar: 'إدارة مخزون FEFO ووصفات العيادات والامتثال الضريبي والإشراف على الفروع عبر أدوات منفصلة.',
-    },
-    solution: {
-      en: 'Fratelanza built PharmaPOS — an integrated pharmacy ERP with POS, inventory, insurance, reporting, and remote management.',
-      ar: 'بنت فراتيلانزا PharmaPOS — ERP صيدليات متكامل مع نقاط بيع ومخزون وتأمين وتقارير وإدارة عن بُعد.',
-    },
-    technology: {
-      en: 'Modern web stack, real-time inventory, role-based access, multi-branch architecture, ETA e-receipt integration.',
-      ar: 'بنية ويب حديثة، مخزون فوري، صلاحيات أدوار، بنية متعددة الفروع، تكامل إيصال ETA.',
-    },
-    features: {
-      en: ['Multi-branch inventory', 'FEFO / expiry control', 'Insurance workflows', 'Clinic prescriptions', 'ETA e-receipt', 'Remote management', 'Business reports'],
-      ar: ['مخزون متعدد الفروع', 'FEFO / صلاحية', 'تدفقات التأمين', 'وصفات العيادات', 'إيصال ETA', 'إدارة عن بُعد', 'تقارير الأعمال'],
-    },
-    screenshots: ['/products/pharmacy/inventory.png', '/products/pharmacy/reports.png', '/products/pharmacy/insurance.png'],
-    result: {
-      en: '[TBD — Replace with verified business impact metrics when available]',
-      ar: '[TBD — استبدل بمقاييس تأثير موثقة عند توفرها]',
-    },
-    isFratelanzaProduct: true,
-  },
-  {
     id: 'fratelanza-real-estate',
     productId: 'realestate',
     title: { en: 'Fratelanza Real Estate Platform', ar: 'منصة فراتيلانزا للعقارات' },
@@ -104,6 +72,38 @@ export const caseStudies: CaseStudy[] = [
       ar: ['كتالوج الفحوصات', 'إدارة النتائج', 'الفوترة', 'المحاسبة', 'CRM', 'لوحات تحكم'],
     },
     screenshots: ['/products/laboratory/dashboard.png', '/products/laboratory/tests.png', '/products/laboratory/billing.png'],
+    result: {
+      en: '[TBD — Replace with verified business impact metrics when available]',
+      ar: '[TBD — استبدل بمقاييس تأثير موثقة عند توفرها]',
+    },
+    isFratelanzaProduct: true,
+  },
+  {
+    id: 'pharmapos',
+    productId: 'pharmacy',
+    title: { en: 'PharmaPOS — Pharmacy Management Platform', ar: 'PharmaPOS — منصة إدارة الصيدليات' },
+    industry: { en: 'Pharmacy & Healthcare', ar: 'الصيدلة والرعاية الصحية' },
+    problem: {
+      en: 'Pharmacy chains need centralized inventory, expiry control, insurance workflows, and multi-branch visibility.',
+      ar: 'سلاسل الصيدليات تحتاج مخزوناً مركزياً ومراقبة صلاحية وتدفقات تأمين ورؤية متعددة الفروع.',
+    },
+    challenge: {
+      en: 'Managing FEFO inventory, clinic prescriptions, tax compliance, and remote branch oversight across disconnected tools.',
+      ar: 'إدارة مخزون FEFO ووصفات العيادات والامتثال الضريبي والإشراف على الفروع عبر أدوات منفصلة.',
+    },
+    solution: {
+      en: 'Fratelanza built PharmaPOS — an integrated pharmacy ERP with POS, inventory, insurance, reporting, and remote management.',
+      ar: 'بنت فراتيلانزا PharmaPOS — ERP صيدليات متكامل مع نقاط بيع ومخزون وتأمين وتقارير وإدارة عن بُعد.',
+    },
+    technology: {
+      en: 'Modern web stack, real-time inventory, role-based access, multi-branch architecture, ETA e-receipt integration.',
+      ar: 'بنية ويب حديثة، مخزون فوري، صلاحيات أدوار، بنية متعددة الفروع، تكامل إيصال ETA.',
+    },
+    features: {
+      en: ['Multi-branch inventory', 'FEFO / expiry control', 'Insurance workflows', 'Clinic prescriptions', 'ETA e-receipt', 'Remote management', 'Business reports'],
+      ar: ['مخزون متعدد الفروع', 'FEFO / صلاحية', 'تدفقات التأمين', 'وصفات العيادات', 'إيصال ETA', 'إدارة عن بُعد', 'تقارير الأعمال'],
+    },
+    screenshots: ['/products/pharmacy/inventory.png', '/products/pharmacy/reports.png', '/products/pharmacy/insurance.png'],
     result: {
       en: '[TBD — Replace with verified business impact metrics when available]',
       ar: '[TBD — استبدل بمقاييس تأثير موثقة عند توفرها]',

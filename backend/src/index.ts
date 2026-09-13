@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url'
 import './db.js'
 import { apiRouter } from './routes.js'
 import { adminRouter } from './adminRoutes.js'
+import { startScheduler } from './scheduler.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const PORT = parseInt(process.env.PORT || '11001', 10)
@@ -67,6 +68,7 @@ if (fs.existsSync(frontendDist)) {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Fratelanza API running on port ${PORT}`)
   console.log(`Frontend dist: ${frontendDist}`)
+  startScheduler()
 })
 
 process.on('uncaughtException', (err) => {

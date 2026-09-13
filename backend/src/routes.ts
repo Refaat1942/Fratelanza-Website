@@ -9,6 +9,10 @@ import {
 } from './validation.js'
 import { recordPageView, recordAnalyticsEvent } from './analytics.js'
 import { insertLead } from './leads.js'
+import {
+  notifyLeadSubmission, notifyContactSubmission,
+  notifyCareerSubmission, notifyFreelancerSubmission,
+} from './email.js'
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(process.cwd(), 'data', 'uploads')
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true })
@@ -74,7 +78,8 @@ apiRouter.post('/leads', leadsUpload, (req: Request, res: Response) => {
     const body = req.body || {}
     const data = leadSchema.parse(body)
     rejectHoneypot(data)
-    insertLead(data, req.file?.path || null)
+    const leadId = insertLead(data, req.file?.path || null)
+    void notifyLeadSubmission(data as Record<string, unknown>, leadId)
     res.json({ success: true, message: 'Project request received successfully.' })
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Validation failed'
@@ -92,6 +97,7 @@ apiRouter.post('/contact', (req: Request, res: Response) => {
       VALUES (?, ?, ?, ?, ?)
     `).run(sanitize(data.name), data.email, data.phone, data.subject ? sanitize(data.subject) : null, sanitize(data.message))
 
+    void notifyContactSubmission(data as Record<string, unknown>)
     res.json({ success: true, message: 'Message sent successfully.' })
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Validation failed'
@@ -115,6 +121,7 @@ apiRouter.post('/careers', upload.single('resume'), (req: Request, res: Response
       req.file?.path || null,
     )
 
+    void notifyCareerSubmission(data as Record<string, unknown>, !!req.file)
     res.json({ success: true, message: 'Application received successfully.' })
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Validation failed'
@@ -140,6 +147,7 @@ apiRouter.post('/freelancers', upload.single('resume'), (req: Request, res: Resp
       req.file?.path || null,
     )
 
+    void notifyFreelancerSubmission(data as Record<string, unknown>, !!req.file)
     res.json({ success: true, message: 'Freelancer application received successfully.' })
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Validation failed'
