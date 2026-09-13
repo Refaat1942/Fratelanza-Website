@@ -909,6 +909,7 @@ export const blogPosts = [
 export const navLinks = [
   { path: '/', label: { en: 'Home', ar: 'الرئيسية' } },
   { path: '/services', label: { en: 'Solutions', ar: 'الحلول' } },
+  { path: '/#clients', label: { en: 'Clients', ar: 'عملاؤنا' } },
   { path: '/products', label: { en: 'Products', ar: 'المنتجات' } },
   { path: '/case-studies', label: { en: 'Case Studies', ar: 'دراسات الحالة' } },
   { path: '/delivery-process', label: { en: 'How We Work', ar: 'كيف نعمل' } },

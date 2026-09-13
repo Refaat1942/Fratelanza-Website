@@ -37,7 +37,7 @@ export function SolutionsGridSection() {
   const { ui, locale, isAr } = useTranslation()
   const reduce = useReducedMotion()
   return (
-    <section className="py-20 sm:py-24">
+    <section id="solutions" className="py-20 sm:py-24 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader badge={ui('home', 'solutionsBadge')} title={ui('home', 'solutionsTitle')} subtitle={ui('home', 'solutionsSub')} />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
@@ -120,7 +120,7 @@ export function ProcessTimelineSection() {
 export function FratelanzaProductsSection() {
   const { ui, locale, isAr } = useTranslation()
   return (
-    <section className="py-20 sm:py-24 bg-gradient-to-b from-brand-50/40 to-white">
+    <section id="products" className="py-20 sm:py-24 bg-gradient-to-b from-brand-50/40 to-white scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader badge={ui('home', 'productsBadge')} title={ui('home', 'productsTitle')} subtitle={ui('home', 'productsSub')} />
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mt-10">
@@ -147,22 +147,36 @@ export function FratelanzaProductsSection() {
 export function DeliveryExperienceSection() {
   const { ui, locale } = useTranslation()
   return (
-    <section className="py-20 sm:py-24 bg-slate-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="clients" className="relative py-20 sm:py-28 overflow-hidden scroll-mt-28">
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.12),transparent_55%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(251,191,36,0.08),transparent_45%)]" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader light badge={ui('home', 'partnersBadge')} title={ui('home', 'partnersTitle')} subtitle={ui('home', 'partnersSub')} />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          {deliveryExperience.map((partner) => (
-            <Card key={partner.id} premium className="p-6 bg-white/5 border-white/10 backdrop-blur-sm h-full">
-              <div className="w-12 h-12 rounded-xl bg-brand-500/20 flex items-center justify-center mb-4">
-                <DynamicIcon name={partner.icon} className="w-6 h-6 text-mint-400" />
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mt-10">
+          {deliveryExperience.map((partner, i) => (
+            <motion.article
+              key={partner.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+              className="group relative bg-white rounded-2xl p-6 sm:p-8 shadow-2xl shadow-black/25 border border-slate-100 h-full hover:-translate-y-1 hover:shadow-brand-900/30 transition-all duration-300"
+            >
+              <div className="absolute top-0 inset-x-0 h-1 rounded-t-2xl bg-gradient-to-r from-brand-600 via-mint-500 to-gold-400" />
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-700 to-mint-600 flex items-center justify-center mb-5 shadow-lg shadow-brand-900/20">
+                <DynamicIcon name={partner.icon} className="w-7 h-7 text-white" />
               </div>
-              <p className="text-xs font-bold uppercase tracking-wider text-mint-400 mb-2">{homeT(partner.sector, locale)}</p>
-              <h3 className="font-bold text-lg mb-2">{homeT(partner.name, locale)}</h3>
-              <p className="text-sm text-slate-300">{homeT(partner.desc, locale)}</p>
-            </Card>
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700 mb-2">{homeT(partner.sector, locale)}</p>
+              <h3 className="font-bold text-xl text-ink mb-3 font-display leading-snug">{homeT(partner.name, locale)}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{homeT(partner.desc, locale)}</p>
+            </motion.article>
           ))}
         </div>
-        <p className="text-center text-xs text-slate-400 mt-8 max-w-2xl mx-auto">{ui('home', 'partnersDisclaimer')}</p>
+
+        <p className="text-center text-sm text-brand-100/90 mt-10 max-w-2xl mx-auto leading-relaxed">{ui('home', 'partnersDisclaimer')}</p>
       </div>
     </section>
   )
@@ -187,7 +201,7 @@ export function NetworkIndustriesSection() {
 export function AISection() {
   const { ui, locale, isAr } = useTranslation()
   return (
-    <section className="py-20 sm:py-24 relative overflow-hidden">
+    <section id="ai" className="py-20 sm:py-24 relative overflow-hidden scroll-mt-28">
       <div className="absolute inset-0 bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
         <SectionHeader badge={ui('home', 'aiBadge')} title={ui('home', 'aiTitle')} subtitle={ui('home', 'aiSub')} light />
@@ -306,7 +320,7 @@ export function HomeFAQSection() {
 export function FinalCTASection() {
   const { ui, isAr } = useTranslation()
   return (
-    <section className="py-24">
+    <section id="start-project" className="py-24 scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <Card glow premium className="p-10 sm:p-14 bg-gradient-to-br from-white via-brand-50/50 to-mint-50/30">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-gradient-brand font-display mb-4">{ui('home', 'ctaTitle')}</h2>

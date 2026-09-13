@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Play } from 'lucide-react'
 import { AnimatedBackground } from '@/components/ui/AnimatedBackground'
 import { Button } from '@/components/ui/Button'
@@ -126,9 +127,9 @@ export function HeroSection() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-3 start-3 end-3 flex items-center justify-between gap-2">
-                    <span className="text-[10px] sm:text-xs font-semibold text-white/90 bg-black/30 backdrop-blur px-2 py-1 rounded-lg">
+                    <Link to="/products/erp" className="text-[10px] sm:text-xs font-semibold text-white bg-black/40 backdrop-blur px-2.5 py-1 rounded-lg hover:bg-black/55 transition-colors">
                       {ui('home', 'heroScreenshotCaption')}
-                    </span>
+                    </Link>
                     <span className="hidden sm:flex items-center gap-1 text-[10px] text-white/70">
                       <Play className="w-3 h-3" />
                       {ui('home', 'liveProductUi')}
