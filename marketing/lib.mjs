@@ -62,8 +62,9 @@ export const closeBrowser = () => browser?.close()
 
 // ---------- QR codes (vector, generated offline) ----------
 import QRCode from 'qrcode'
-export const LINKS_URL = 'https://www.fratelanza.com/links'
-export const qrUrl = (source) => (source ? `${LINKS_URL}?utm_source=qr-${source}` : LINKS_URL)
+export const SITE_URL = 'https://www.fratelanza.com/'
+export const LINKS_URL = SITE_URL // QR codes open the website home page
+export const qrUrl = (source) => (source ? `${SITE_URL}?utm_source=qr-${source}` : SITE_URL)
 
 /** Returns an inline SVG string (modules only, no quiet zone) sized 100% of its box. */
 export function qrSvg(text, { ecc = 'Q', dark = C.navy } = {}) {

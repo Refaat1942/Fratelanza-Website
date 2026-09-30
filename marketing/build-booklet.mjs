@@ -184,7 +184,7 @@ function build() {
       <div>${icon('Globe', 18, C.goldLight)}<span><small>Website · الموقع</small><span dir="ltr">${info.web}</span></span></div>
       <div>${icon('MapPin', 18, C.goldLight)}<span><small>Address · العنوان</small>${D.company.address.en}<br><span class="ar">${D.company.address.ar}</span></span></div>
     </div>
-    <div class="qrrow">${qrTile('booklet', 30, { caption: false })}<div class="t"><b>Scan to connect · امسح للتواصل</b>Website, WhatsApp, Facebook, Instagram, LinkedIn — all in one place.<br><span style="font-family:Tajawal">الموقع وواتساب وفيسبوك وإنستجرام ولينكدإن — في مكان واحد.</span></div></div>
+    <div class="qrrow">${qrTile('booklet', 30, { caption: false })}<div class="t"><b>Scan to visit our website · امسح لزيارة موقعنا</b>www.fratelanza.com<br><span style="font-family:Tajawal">تعرّف على منتجاتنا وخدماتنا وتواصل معنا.</span></div></div>
 </section>`
 
   const back = `<section class="page dark back"><img class="logo" src="${LOGO}"><div class="a">فراتيلانزا</div><div class="e">FRATELANZA</div><div class="s">Building Tomorrow Together · نبني الغد معاً</div><div class="w" dir="ltr" style="color:${C.goldLight};font-weight:700;font-size:9pt">${info.web}</div></section>`

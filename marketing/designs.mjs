@@ -126,9 +126,9 @@ const notebook = {
 
 const pen = {
   id: 'pen-wrap', group: 'gifts', name: { en: 'Metal Pen — Barrel Print', ar: 'قلم معدني — طباعة الجسم' }, trim: [140, 12],
-  spec: { en: 'Print area 140 × 12 mm (laser engraving / UV print) · gold on navy anodised barrel · QR uses the shortest link (no tracking) so it stays scannable at 9 mm — UV/laser-print and test-scan before the run', ar: 'منطقة الطباعة ١٤٠ × ١٢ مم (حفر ليزر / طباعة UV) · لون واحد: ذهبي على جسم كحلي' },
+  spec: { en: 'Print area 140 × 12 mm (laser engraving / UV print) · gold on navy anodised barrel · QR uses the plain website link (no tracking) so it stays scannable at 9 mm — UV/laser-print and test-scan before the run', ar: 'منطقة الطباعة ١٤٠ × ١٢ مم (حفر ليزر / طباعة UV) · لون واحد: ذهبي على جسم كحلي' },
   pages: () => [{ label: 'Barrel artwork', html: `<div style="${abs}inset:0;background:${C.navy}"></div><div style="${abs}inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 ${BLEED + 4}mm;color:${C.goldLight};white-space:nowrap">
-    ${logo(9)}<span style="font-weight:800;font-size:8pt;letter-spacing:.2em">FRATELANZA</span><span style="font-size:5pt;letter-spacing:.14em;color:#c5d6e8">${slogan.en.toUpperCase()}</span><span style="font-family:Tajawal;font-weight:800;font-size:8pt">فراتيلانزا</span><span style="display:inline-block;height:9mm;line-height:0">${qrTile(null, 7.2, { caption: false, ecc: 'L', border: false, text: 'https://www.fratelanza.com/links' })}</span></div>` }],
+    ${logo(9)}<span style="font-weight:800;font-size:8pt;letter-spacing:.2em">FRATELANZA</span><span style="font-size:5pt;letter-spacing:.14em;color:#c5d6e8">${slogan.en.toUpperCase()}</span><span style="font-family:Tajawal;font-weight:800;font-size:8pt">فراتيلانزا</span><span style="display:inline-block;height:9mm;line-height:0">${qrTile(null, 7.2, { caption: false, ecc: 'L', border: false, text: 'https://www.fratelanza.com/' })}</span></div>` }],
 }
 
 const mug = {

@@ -29,8 +29,8 @@ await b.close()
 
 writeFileSync(path.join(STAGE, 'README.txt'), `FRATELANZA — MARKETING PACK
 ==========================
-Every design carries a QR code that opens the Fratelanza links page:
-${LINKS_URL}   (website, WhatsApp, e-mail, Facebook, Instagram, LinkedIn, TikTok, company profile)
+Every design carries a QR code that opens the Fratelanza website:
+${LINKS_URL}
 
 01-Company-Profile-Booklet
   * ...-A5-for-email-and-screen.pdf  : 24-page bilingual booklet. Send to customers by e-mail / WhatsApp.
@@ -55,8 +55,8 @@ Each item's QR has its own tag (utm_source=qr-<item>) so scans are tracked per i
 
 -------------------------------------------------------------------------
 فراتيلانزا — الحزمة التسويقية
-كل تصميم يحتوي على كود QR يفتح صفحة روابط فراتيلانزا:
-${LINKS_URL}   (الموقع، واتساب، البريد، فيسبوك، إنستجرام، لينكدإن، تيك توك، الملف التعريفي)
+كل تصميم يحتوي على كود QR يفتح موقع فراتيلانزا:
+${LINKS_URL}
 
 01 — كتيّب الملف التعريفي (ثنائي اللغة): نسخة A5 للإرسال بالبريد وواتساب، ونسخة A4 جاهزة للطباعة على الوجهين (اقلب على الحافة القصيرة)،
    بمقياس 100% دون "ملاءمة الصفحة"، ثم رتّب الأوراق الست واطوِها من المنتصف وثبّتها بدبّوس مرتين على خط الطي.

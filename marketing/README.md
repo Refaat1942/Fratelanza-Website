@@ -1,7 +1,7 @@
 # Fratelanza marketing & print pack
 
 Generates the bilingual company-profile booklet and print-ready designs (all with a QR code to the
-`/links` page of the website) from the site's own content (`frontend/src/data`).
+website home page) from the site's own content (`frontend/src/data`).
 
 ```bash
 cd marketing && npm install && npm run build   # needs Chromium, zip, python3 + pymupdf
