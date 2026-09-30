@@ -45,7 +45,9 @@ export function Logo({
     <img
       src="/logo.png"
       alt={company.name}
-      className={cn('object-contain shrink-0', sizeClass, className)}
+      className={cn('object-cover shrink-0 rounded-full', sizeClass, className)}
+      // The source artwork is a medallion on a busy square background — crop to the coin
+      style={{ clipPath: 'circle(41.5% at 49% 48.5%)', transform: 'scale(1.16)' }}
     />
   )
 
