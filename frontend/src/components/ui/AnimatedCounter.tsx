@@ -22,6 +22,11 @@ export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
 
     const target = parseFloat(match[1])
     const suffix = match[2]
+    // Years (e.g. 2026) and reduced-motion users get the final value straight away
+    if ((target >= 1900 && target <= 2100 && !suffix) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplay(value)
+      return
+    }
     const duration = 2000
     const start = performance.now()
 

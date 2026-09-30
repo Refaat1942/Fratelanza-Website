@@ -6,7 +6,7 @@ import { Logo } from '@/components/ui/Logo'
 import { SocialLinks } from '@/components/ui/SocialLinks'
 
 export function Footer() {
-  const { t, ui } = useTranslation()
+  const { t, ui, isAr } = useTranslation()
   const year = new Date().getFullYear()
 
   return (
@@ -92,6 +92,14 @@ export function Footer() {
             <Link to="/freelancer" className="hover:text-brand-700 transition-colors">
               {ui('footer', 'freelancer')}
             </Link>
+            <a
+              href={isAr ? '/downloads/Fratelanza-Company-Profile-AR.pdf' : '/downloads/Fratelanza-Company-Profile-EN.pdf'}
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-brand-700 hover:text-brand-800 transition-colors"
+            >
+              {isAr ? 'الملف التعريفي (PDF)' : 'Company Profile (PDF)'}
+            </a>
             <Link to="/faq" className="hover:text-brand-700 transition-colors">{ui('faq', 'title')}</Link>
             <Link to="/privacy" className="hover:text-brand-700 transition-colors">{ui('legal', 'privacyTitle')}</Link>
             <Link to="/terms" className="hover:text-brand-700 transition-colors">{ui('legal', 'termsTitle')}</Link>
