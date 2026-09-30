@@ -93,7 +93,7 @@ export function Footer() {
               {ui('footer', 'freelancer')}
             </Link>
             <a
-              href={isAr ? '/downloads/Fratelanza-Company-Profile-AR.pdf' : '/downloads/Fratelanza-Company-Profile-EN.pdf'}
+              href="/downloads/Fratelanza-Company-Profile.pdf"
               target="_blank"
               rel="noopener"
               className="font-semibold text-brand-700 hover:text-brand-800 transition-colors"

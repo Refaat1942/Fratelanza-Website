@@ -24,6 +24,7 @@ const BlogPage = lazyWithRetry(() => import('@/pages/BlogPage'))
 const BlogPostPage = lazyWithRetry(() => import('@/pages/BlogPostPage'))
 const CaseStudiesPage = lazyWithRetry(() => import('@/pages/CaseStudiesPage'))
 const CaseStudyDetailPage = lazyWithRetry(() => import('@/pages/CaseStudyDetailPage'))
+const LinksPage = lazyWithRetry(() => import('@/pages/LinksPage'))
 const AdminPage = lazyWithRetry(() => import('@/pages/AdminPage'))
 const NotFoundPage = lazyWithRetry(() => import('@/pages/NotFoundPage'))
 const PrivacyPage = lazyWithRetry(() => import('@/pages/LegalPage').then((m) => ({ default: m.PrivacyPage })))
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
     path: '/admin',
     errorElement: <RouteError />,
     element: withSuspense(AdminPage),
+  },
+  {
+    path: '/links',
+    errorElement: <RouteError />,
+    element: withSuspense(LinksPage),
   },
   {
     path: '/',

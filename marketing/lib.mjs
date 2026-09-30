@@ -52,8 +52,52 @@ export async function renderPdf({ html, out, width, height, landscape, pages }) 
   await p.goto(fileUrl(tmp), { waitUntil: 'networkidle' })
   await p.evaluate(() => document.fonts.ready)
   mkdirSync(path.dirname(out), { recursive: true })
+  const overflow = await p.evaluate(() => [...document.querySelectorAll('.fill')].map((f, i) => [i + 1, f.scrollHeight - f.clientHeight]).filter((x) => x[1] > 1))
+  if (overflow.length) console.warn('OVERFLOW in', path.basename(out), JSON.stringify(overflow))
   await p.pdf({ path: out, width, height, printBackground: true, preferCSSPageSize: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } })
   await p.close()
   console.log('wrote', path.relative(ROOT, out))
 }
 export const closeBrowser = () => browser?.close()
+
+// ---------- QR codes (vector, generated offline) ----------
+import QRCode from 'qrcode'
+export const LINKS_URL = 'https://www.fratelanza.com/links'
+export const qrUrl = (source) => (source ? `${LINKS_URL}?utm_source=qr-${source}` : LINKS_URL)
+
+/** Returns an inline SVG string (modules only, no quiet zone) sized 100% of its box. */
+export function qrSvg(text, { ecc = 'Q', dark = C.navy } = {}) {
+  const qr = QRCode.create(text, { errorCorrectionLevel: ecc })
+  const n = qr.modules.size, d = qr.modules.data
+  let path = ''
+  for (let y = 0; y < n; y++) {
+    let x = 0
+    while (x < n) {
+      if (d[y * n + x]) { let w = 1; while (x + w < n && d[y * n + x + w]) w++; path += `M${x} ${y}h${w}v1h-${w}z`; x += w } else x++
+    }
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${n} ${n}" shape-rendering="crispEdges" style="display:block;width:100%;height:100%"><path fill="${dark}" d="${path}"/></svg>`
+}
+
+/**
+ * White tile with QR + quiet zone. `mm` is the size of the QR modules area; the tile adds a quiet zone of ~4 modules.
+ * caption: show "SCAN · امسح" under it.
+ */
+export function qrTile(source, mm, { caption = true, ecc = 'Q', border = true, text } = {}) {
+  const t = text || qrUrl(source)
+  const modules = QRCode.create(t, { errorCorrectionLevel: ecc }).modules.size
+  const pad = (mm / modules) * 4
+  const tile = mm + pad * 2
+  const cap = caption
+    ? `<div style="margin-top:${Math.max(1, mm * 0.06)}mm;text-align:center;color:inherit;white-space:nowrap;line-height:1.15;font-weight:800;font-size:${Math.max(4.2, mm * 0.26)}pt;letter-spacing:.08em">SCAN · <span style="font-family:Tajawal;letter-spacing:0">امسح</span></div>`
+    : ''
+  return `<div style="display:inline-flex;flex-direction:column;align-items:center"><div style="width:${tile}mm;height:${tile}mm;padding:${pad}mm;background:#fff;border-radius:${Math.max(1, tile * 0.07)}mm;${border ? `box-shadow:0 0 0 ${Math.max(.25, tile * 0.012)}mm ${C.gold}` : ''}">${qrSvg(t, { ecc })}</div>${cap}</div>`
+}
+
+/** Standalone QR files for the ZIP. */
+export function writeQrFiles(dir) {
+  mkdirSync(dir, { recursive: true })
+  const svg = qrSvg(qrUrl('print')).replace('<svg ', '<svg width="1000" height="1000" ')
+  const white = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 ${QRCode.create(qrUrl('print'), { errorCorrectionLevel: 'Q' }).modules.size + 8} ${QRCode.create(qrUrl('print'), { errorCorrectionLevel: 'Q' }).modules.size + 8}" width="1000" height="1000"><rect x="-4" y="-4" width="100%" height="100%" fill="#fff"/>${svg.replace(/^<svg[^>]*>/, '').replace('</svg>', '')}</svg>`
+  writeFileSync(path.join(dir, 'Fratelanza-Links-QR.svg'), white)
+}
