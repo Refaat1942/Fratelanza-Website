@@ -54,7 +54,8 @@ for i, s in enumerate(scenes):
     tempo = min(1.6, d / room) if d > room else 1.0       # speak a bit faster if a line is too long
     delay = int((s['start'] + 0.12) * 1000)
     parts.append(f'[{i+2}:a]atempo={tempo:.3f},adelay={delay}|{delay},volume=1.6[v{i}]'); labels.append(f'[v{i}]')
-fc = ';'.join(parts) + f';{"".join(labels)}amix=inputs={len(scenes)}:normalize=0,asplit=2[vm][vs]'
+total = scenes[-1]['start'] + scenes[-1]['dur'] + 0.1
+fc = ';'.join(parts) + f';{"".join(labels)}amix=inputs={len(scenes)}:normalize=0,apad=whole_dur={total:.2f},asplit=2[vm][vs]'
 fc += ';[1:a]volume=0.55[mu];[mu][vs]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=500[md]'
 fc += ';[md][vm]amix=inputs=2:normalize=0,alimiter=limit=0.95[out]'
 out = os.path.join(HERE, 'Fratelanza-Video-with-voice.mp4')
