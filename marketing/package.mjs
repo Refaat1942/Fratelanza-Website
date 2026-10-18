@@ -4,6 +4,8 @@ import { cpSync, mkdirSync, rmSync, writeFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { chromium } from 'playwright-core'
 import { ROOT, LINKS_URL, qrSvg, qrUrl, fileUrl } from './lib.mjs'
+import { scenes } from './video/scenes.mjs'
+import { existsSync } from 'node:fs'
 
 const STAGE = path.join(ROOT, 'build/pack/Fratelanza-Marketing-Pack')
 rmSync(path.join(ROOT, 'build/pack'), { recursive: true, force: true })
@@ -15,6 +17,19 @@ cpSync(path.join(out, 'Fratelanza-Company-Profile-PRINT-A4-booklet.pdf'), path.j
 cpSync(path.join(out, 'print'), dir('02-Print-Designs-with-QR'), { recursive: true })
 cpSync(path.join(out, 'Fratelanza-Simple-Profile-AR.pdf'), path.join(dir('05-Simple-Arabic-Profile'), 'Fratelanza-Simple-Profile-AR.pdf'))
 cpSync(path.join(out, 'Fratelanza-Print-Design-Guide.pdf'), path.join(dir('03-Design-Guide'), 'Fratelanza-Print-Design-Guide.pdf'))
+
+// Video + voice kit
+const vid = path.join(out, 'video')
+if (existsSync(path.join(vid, 'Fratelanza-Video.mp4'))) {
+  const vd = dir('06-Video')
+  cpSync(path.join(vid, 'Fratelanza-Video.mp4'), path.join(vd, 'Fratelanza-Video.mp4'))
+  const kit = path.join(vd, 'Add-Egyptian-Voice-Kit')
+  cpSync(path.join(ROOT, 'video/voice-kit'), kit, { recursive: true })
+  cpSync(path.join(vid, 'Fratelanza-Video-no-audio.mp4'), path.join(kit, 'Fratelanza-Video-no-audio.mp4'))
+  cpSync(path.join(vid, 'music.wav'), path.join(kit, 'music.wav'))
+  writeFileSync(path.join(kit, 'scenes.json'), JSON.stringify(scenes.map(({ id, start, dur, text }) => ({ id, start, dur, text })), null, 1))
+  writeFileSync(path.join(kit, 'voiceover-script.txt'), scenes.map((s, i) => `${i + 1}) [${s.start.toFixed(1)}s]  ${s.text}`).join('\n\n') + '\n')
+}
 
 // QR files (SVG + PNG) for the link page itself
 const q = dir('04-QR-Code')
@@ -44,6 +59,9 @@ ${LINKS_URL}
 02-Print-Designs-with-QR
   One PDF per item at real size with 3 mm bleed and crop marks (folder with fold ticks). See the design guide.
   Colours are RGB — the printer should convert to CMYK / Pantone and show a physical proof before the full run.
+
+06-Video
+  Fratelanza-Video.mp4 : 47-second vertical (9:16) explainer in Egyptian Arabic — animated, with captions and music. Add-Egyptian-Voice-Kit adds a natural voice-over (see README-AR.txt).
 
 05-Simple-Arabic-Profile
   2-page A4 Egyptian-Arabic flyer: custom-built systems, source code delivered, no subscriptions, 3 months free support.
