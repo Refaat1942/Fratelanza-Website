@@ -15,6 +15,7 @@ Chromium path: `CHROMIUM=/path/to/chromium` (defaults to `/opt/pw-browsers/chrom
 | `output/Fratelanza-Company-Profile.pdf` | 24-page A5 booklet: English (p3-12) + Arabic (p13-22), contact + QR — also copied to `frontend/public/downloads/` |
 | `output/Fratelanza-Company-Profile-PRINT-A4-booklet.pdf` | Same booklet imposed for duplex print, fold and staple |
 | `output/print/*.pdf` | One file per item: real size, 3 mm bleed, crop marks |
+| `output/Fratelanza-Simple-Profile-AR.pdf` | 2-page simple Arabic (Egyptian) flyer with illustrations, contacts, QR |
 | `output/Fratelanza-Print-Design-Guide.pdf` | Overview, brand colours, printer notes |
 
 Edit artwork in `designs.mjs`, booklet in `build-booklet.mjs`, QR helpers in `lib.mjs` (`LINKS_URL`).

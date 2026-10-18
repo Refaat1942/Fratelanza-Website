@@ -13,6 +13,7 @@ const out = path.join(ROOT, 'output')
 cpSync(path.join(out, 'Fratelanza-Company-Profile.pdf'), path.join(dir('01-Company-Profile-Booklet'), 'Fratelanza-Company-Profile-A5-for-email-and-screen.pdf'))
 cpSync(path.join(out, 'Fratelanza-Company-Profile-PRINT-A4-booklet.pdf'), path.join(dir('01-Company-Profile-Booklet'), 'Fratelanza-Company-Profile-PRINT-A4-duplex-fold-staple.pdf'))
 cpSync(path.join(out, 'print'), dir('02-Print-Designs-with-QR'), { recursive: true })
+cpSync(path.join(out, 'Fratelanza-Simple-Profile-AR.pdf'), path.join(dir('05-Simple-Arabic-Profile'), 'Fratelanza-Simple-Profile-AR.pdf'))
 cpSync(path.join(out, 'Fratelanza-Print-Design-Guide.pdf'), path.join(dir('03-Design-Guide'), 'Fratelanza-Print-Design-Guide.pdf'))
 
 // QR files (SVG + PNG) for the link page itself
@@ -43,6 +44,9 @@ ${LINKS_URL}
 02-Print-Designs-with-QR
   One PDF per item at real size with 3 mm bleed and crop marks (folder with fold ticks). See the design guide.
   Colours are RGB — the printer should convert to CMYK / Pantone and show a physical proof before the full run.
+
+05-Simple-Arabic-Profile
+  2-page A4 Egyptian-Arabic flyer: custom-built systems, source code delivered, no subscriptions, 3 months free support.
 
 03-Design-Guide
   Overview of all items, brand colours, fonts and printer notes (English + Arabic).
