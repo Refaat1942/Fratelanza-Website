@@ -627,156 +627,6 @@ export const deliveryProcess = [
   { step: 9, key: 'support', title: { en: 'Support', ar: 'الدعم' }, description: { en: 'Ongoing maintenance, updates, and dedicated support for long-term success.', ar: 'صيانة مستمرة وتحديثات ودعم مخصص للنجاح طويل الأمد.' } },
 ]
 
-export const pricingPlans = [
-  {
-    id: 'starter',
-    name: { en: 'Starter', ar: 'البداية' },
-    description: { en: 'Ideal for single-location businesses starting their digital transformation.', ar: 'مثالي للأعمال ذات الموقع الواحد التي تبدأ تحولها الرقمي.' },
-    priceHint: { en: 'From custom monthly plan', ar: 'من خطة شهرية مخصصة' },
-    features: {
-      en: ['Single branch', 'Core modules', 'Cloud hosting', 'Email support', 'Monthly updates'],
-      ar: ['فرع واحد', 'الوحدات الأساسية', 'استضافة سحابية', 'دعم بالبريد', 'تحديثات شهرية'],
-    },
-    cta: { en: 'Request Quote', ar: 'اطلب عرض سعر' },
-  },
-  {
-    id: 'professional',
-    name: { en: 'Professional', ar: 'احترافي' },
-    description: { en: 'For growing businesses with multiple branches and advanced requirements.', ar: 'للأعمال النامية مع فروع متعددة ومتطلبات متقدمة.' },
-    priceHint: { en: 'Best value for multi-branch', ar: 'أفضل قيمة للفروع المتعددة' },
-    featured: true,
-    features: {
-      en: ['Multi-branch', 'All modules', 'Priority support', 'ETA integration', 'AI features', 'Custom reports'],
-      ar: ['فروع متعددة', 'جميع الوحدات', 'دعم أولوية', 'تكامل ETA', 'ميزات AI', 'تقارير مخصصة'],
-    },
-    cta: { en: 'Request Quote', ar: 'اطلب عرض سعر' },
-  },
-  {
-    id: 'enterprise',
-    name: { en: 'Enterprise', ar: 'مؤسسي' },
-    description: { en: 'Tailored solutions for large organizations with complex, multi-system needs.', ar: 'حلول مخصصة للمؤسسات الكبرى ذات الاحتياجات المعقدة متعددة الأنظمة.' },
-    priceHint: { en: 'Dedicated SLA & manager', ar: 'SLA ومدير مخصص' },
-    features: {
-      en: ['Unlimited branches', 'Custom development', 'Dedicated manager', 'SLA guarantee', 'On-premise option', 'API access'],
-      ar: ['فروع غير محدودة', 'تطوير مخصص', 'مدير مخصص', 'ضمان SLA', 'خيار محلي', 'وصول API'],
-    },
-    cta: { en: 'Contact Sales', ar: 'تواصل مع المبيعات' },
-  },
-]
-
-export const pricingMatrices = [
-  {
-    id: 'size',
-    name: { en: 'By Business Size', ar: 'حسب حجم العمل' },
-    description: { en: 'Choose the package that matches your branches, users, and growth stage.', ar: 'اختر الباقة التي تناسب فروعك ومستخدميك ومرحلة نموك.' },
-    plans: 'pricingPlans' as const,
-  },
-  {
-    id: 'industry',
-    name: { en: 'By Industry', ar: 'حسب القطاع' },
-    description: { en: 'Industry-focused bundles with the modules that matter most for your sector.', ar: 'باقات مركزة على القطاع مع الوحدات الأهم لمجالك.' },
-    plans: [
-      {
-        id: 'healthcare',
-        name: { en: 'Healthcare Pack', ar: 'باقة الرعاية الصحية' },
-        description: { en: 'Pharmacies, clinics, and laboratories.', ar: 'صيدليات وعيادات ومختبرات.' },
-        priceHint: { en: 'Modular — pay for what you use', ar: 'معياري — ادفع لما تستخدم' },
-        features: {
-          en: ['Pharmacy ERP + POS', 'Clinic management', 'Lab management', 'Insurance & ETA', 'Cross-module patient flow'],
-          ar: ['ERP صيدليات + POS', 'إدارة العيادات', 'إدارة المختبرات', 'تأمين وETA', 'تدفق مريض بين الوحدات'],
-        },
-        cta: { en: 'Discuss Healthcare', ar: 'ناقش حل الرعاية الصحية' },
-      },
-      {
-        id: 'retail',
-        name: { en: 'Retail & POS', ar: 'التجزئة وPOS' },
-        description: { en: 'Stores, chains, and point-of-sale operations.', ar: 'متاجر وسلاسل وعمليات نقطة البيع.' },
-        priceHint: { en: 'Per branch / terminal', ar: 'لكل فرع / نقطة بيع' },
-        featured: true,
-        features: {
-          en: ['POS terminal & checkout', 'Inventory & shifts', 'Promo offers', 'CRM & loyalty', 'Real-time reporting'],
-          ar: ['نقطة بيع ودفع', 'مخزون وورديات', 'عروض ترويجية', 'CRM وولاء', 'تقارير فورية'],
-        },
-        cta: { en: 'Discuss Retail', ar: 'ناقش حل التجزئة' },
-      },
-      {
-        id: 'realestate',
-        name: { en: 'Real Estate', ar: 'العقارات' },
-        description: { en: 'Developers, brokers, and property managers.', ar: 'مطورون ووسطاء ومديرو عقارات.' },
-        priceHint: { en: 'Project-based or subscription', ar: 'حسب المشروع أو اشتراك' },
-        features: {
-          en: ['Property management', 'Contracts & finance', 'Sales pipeline', 'Document tracking', 'Multi-project dashboard'],
-          ar: ['إدارة العقارات', 'عقود ومالية', 'مسار مبيعات', 'تتبع مستندات', 'لوحة متعددة المشاريع'],
-        },
-        cta: { en: 'Discuss Real Estate', ar: 'ناقش حل العقارات' },
-      },
-      {
-        id: 'enterprise-suite',
-        name: { en: 'Full Enterprise Suite', ar: 'الحزمة المؤسسية الكاملة' },
-        description: { en: 'ERP, HR, CRM, marketing, AI — everything connected.', ar: 'ERP وHR وCRM وتسويق وAI — كل شيء متصل.' },
-        priceHint: { en: 'Enterprise custom quote', ar: 'عرض مؤسسي مخصص' },
-        features: {
-          en: ['All 12+ modules', 'Custom workflows', 'Dedicated manager', 'API & integrations', 'Training included'],
-          ar: ['جميع الوحدات ١٢+', 'سير عمل مخصص', 'مدير مخصص', 'API وتكاملات', 'تدريب مشمول'],
-        },
-        cta: { en: 'Contact Sales', ar: 'تواصل مع المبيعات' },
-      },
-    ],
-  },
-  {
-    id: 'engagement',
-    name: { en: 'By Engagement Model', ar: 'حسب نموذج التعاقد' },
-    description: { en: 'How you want to work with Fratelanza — subscribe, implement, or fully outsource delivery.', ar: 'كيف تريد العمل مع فراتيلانزا — اشتراك أو تنفيذ أو ت outsourcing كامل.' },
-    plans: [
-      {
-        id: 'saas',
-        name: { en: 'SaaS Subscription', ar: 'اشتراك SaaS' },
-        description: { en: 'Use Fratelanza products on our cloud with monthly or annual billing.', ar: 'استخدم منتجات فراتيلانزا على سحابتنا بفوترة شهرية أو سنوية.' },
-        priceHint: { en: 'Monthly / Annual billing', ar: 'فوترة شهرية / سنوية' },
-        features: {
-          en: ['Cloud-hosted platform', 'Automatic updates', 'Standard support', 'Daily backups', 'Scale users & branches'],
-          ar: ['منصة مستضافة سحابياً', 'تحديثات تلقائية', 'دعم قياسي', 'نسخ احتياطي يومي', 'توسع مستخدمين وفروع'],
-        },
-        cta: { en: 'Start Subscription', ar: 'ابدأ الاشتراك' },
-      },
-      {
-        id: 'implementation',
-        name: { en: 'Implementation Project', ar: 'مشروع تنفيذ' },
-        description: { en: 'One-time setup, migration, customization, and go-live.', ar: 'إعداد لمرة واحدة وترحيل وتخصيص وإطلاق.' },
-        priceHint: { en: 'Fixed project quote', ar: 'عرض مشروع ثابت' },
-        featured: true,
-        features: {
-          en: ['Discovery & planning', 'Data migration', 'Configuration & training', 'Go-live support', '30-day hypercare'],
-          ar: ['اكتشاف وتخطيط', 'ترحيل بيانات', 'إعداد وتدريب', 'دعم الإطلاق', 'رعاية مكثفة ٣٠ يوماً'],
-        },
-        cta: { en: 'Plan Implementation', ar: 'خطط للتنفيذ' },
-      },
-      {
-        id: 'managed',
-        name: { en: 'Managed Delivery', ar: 'تسليم مُدار' },
-        description: { en: 'Fratelanza runs your project end-to-end with our 400+ specialist network.', ar: 'فراتيلانزا تدير مشروعك بالكامل عبر شبكة ٤٠٠+ متخصص.' },
-        priceHint: { en: 'Milestone-based payments', ar: 'دفعات حسب المراحل' },
-        features: {
-          en: ['Dedicated project manager', 'Vetted freelancer team', 'Quality assurance', 'Single invoice to you', 'Fratelanza accountability'],
-          ar: ['مدير مشروع مخصص', 'فريق مستقلين معتمد', 'ضمان جودة', 'فاتورة واحدة لك', 'مسؤولية فراتيلانزا'],
-        },
-        cta: { en: 'Discuss Managed Delivery', ar: 'ناقش التسليم المُدار' },
-      },
-      {
-        id: 'training',
-        name: { en: 'Training & Consulting', ar: 'تدريب واستشارات' },
-        description: { en: 'Upskill your team on ERP, AI, digital transformation — onsite or remote.', ar: 'طوّر فريقك في ERP والذكاء الاصطناعي والتحول الرقمي — في الموقع أو عن بُعد.' },
-        priceHint: { en: 'Per session / program', ar: 'لكل جلسة / برنامج' },
-        features: {
-          en: ['Custom curriculum', 'Hands-on workshops', 'AI & data science tracks', 'ERP user training', 'Executive advisory'],
-          ar: ['منهج مخصص', 'ورش عملية', 'مسارات AI وعلوم البيانات', 'تدريب مستخدمي ERP', 'استشارات تنفيذية'],
-        },
-        cta: { en: 'Book Training', ar: 'احجز تدريباً' },
-      },
-    ],
-  },
-] as const
-
 export const testimonials = valuePropositions
 
 export const caseStudies = solutionShowcases.map(({ title, industry, summary }) => ({
@@ -909,12 +759,10 @@ export const blogPosts = [
 export const navLinks = [
   { path: '/', label: { en: 'Home', ar: 'الرئيسية' } },
   { path: '/services', label: { en: 'Solutions', ar: 'الحلول' } },
-  { path: '/#clients', label: { en: 'Clients', ar: 'عملاؤنا' } },
-  { path: '/products', label: { en: 'Products', ar: 'المنتجات' } },
-  { path: '/case-studies', label: { en: 'Case Studies', ar: 'دراسات الحالة' } },
-  { path: '/delivery-process', label: { en: 'How We Work', ar: 'كيف نعمل' } },
+  { path: '/case-studies', label: { en: 'Our Work', ar: 'أعمالنا' } },
+  { path: '/pricing', label: { en: 'Packages', ar: 'الباقات' } },
   { path: '/about', label: { en: 'About', ar: 'من نحن' } },
-  { path: '/contact', label: { en: 'Contact', ar: 'تواصل' } },
+  { path: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' } },
 ]
 
 export function t<T extends { en: string; ar: string }>(obj: T, locale: Locale): string {

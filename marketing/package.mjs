@@ -4,6 +4,8 @@ import { cpSync, mkdirSync, rmSync, writeFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { chromium } from 'playwright-core'
 import { ROOT, LINKS_URL, qrSvg, qrUrl, fileUrl } from './lib.mjs'
+import { scenes } from './video/scenes.mjs'
+import { existsSync } from 'node:fs'
 
 const STAGE = path.join(ROOT, 'build/pack/Fratelanza-Marketing-Pack')
 rmSync(path.join(ROOT, 'build/pack'), { recursive: true, force: true })
@@ -13,7 +15,21 @@ const out = path.join(ROOT, 'output')
 cpSync(path.join(out, 'Fratelanza-Company-Profile.pdf'), path.join(dir('01-Company-Profile-Booklet'), 'Fratelanza-Company-Profile-A5-for-email-and-screen.pdf'))
 cpSync(path.join(out, 'Fratelanza-Company-Profile-PRINT-A4-booklet.pdf'), path.join(dir('01-Company-Profile-Booklet'), 'Fratelanza-Company-Profile-PRINT-A4-duplex-fold-staple.pdf'))
 cpSync(path.join(out, 'print'), dir('02-Print-Designs-with-QR'), { recursive: true })
+cpSync(path.join(out, 'Fratelanza-Simple-Profile-AR.pdf'), path.join(dir('05-Simple-Arabic-Profile'), 'Fratelanza-Simple-Profile-AR.pdf'))
 cpSync(path.join(out, 'Fratelanza-Print-Design-Guide.pdf'), path.join(dir('03-Design-Guide'), 'Fratelanza-Print-Design-Guide.pdf'))
+
+// Video + voice kit
+const vid = path.join(out, 'video')
+if (existsSync(path.join(vid, 'Fratelanza-Video.mp4'))) {
+  const vd = dir('06-Video')
+  cpSync(path.join(vid, 'Fratelanza-Video.mp4'), path.join(vd, 'Fratelanza-Video.mp4'))
+  const kit = path.join(vd, 'Add-Egyptian-Voice-Kit')
+  cpSync(path.join(ROOT, 'video/voice-kit'), kit, { recursive: true })
+  cpSync(path.join(vid, 'Fratelanza-Video-no-audio.mp4'), path.join(kit, 'Fratelanza-Video-no-audio.mp4'))
+  cpSync(path.join(vid, 'music.wav'), path.join(kit, 'music.wav'))
+  writeFileSync(path.join(kit, 'scenes.json'), JSON.stringify(scenes.map(({ id, start, dur, text }) => ({ id, start, dur, text })), null, 1))
+  writeFileSync(path.join(kit, 'voiceover-script.txt'), scenes.map((s, i) => `${i + 1}) [${s.start.toFixed(1)}s]  ${s.text}`).join('\n\n') + '\n')
+}
 
 // QR files (SVG + PNG) for the link page itself
 const q = dir('04-QR-Code')
@@ -29,8 +45,8 @@ await b.close()
 
 writeFileSync(path.join(STAGE, 'README.txt'), `FRATELANZA — MARKETING PACK
 ==========================
-Every design carries a QR code that opens the Fratelanza links page:
-${LINKS_URL}   (website, WhatsApp, e-mail, Facebook, Instagram, LinkedIn, TikTok, company profile)
+Every design carries a QR code that opens the Fratelanza website:
+${LINKS_URL}
 
 01-Company-Profile-Booklet
   * ...-A5-for-email-and-screen.pdf  : 24-page bilingual booklet. Send to customers by e-mail / WhatsApp.
@@ -44,6 +60,12 @@ ${LINKS_URL}   (website, WhatsApp, e-mail, Facebook, Instagram, LinkedIn, TikTok
   One PDF per item at real size with 3 mm bleed and crop marks (folder with fold ticks). See the design guide.
   Colours are RGB — the printer should convert to CMYK / Pantone and show a physical proof before the full run.
 
+06-Video
+  Fratelanza-Video.mp4 : 47-second vertical (9:16) explainer in Egyptian Arabic — animated, with captions and music. Add-Egyptian-Voice-Kit adds a natural voice-over (see README-AR.txt).
+
+05-Simple-Arabic-Profile
+  2-page A4 Egyptian-Arabic flyer: custom-built systems, source code delivered, no subscriptions, 3 months free support.
+
 03-Design-Guide
   Overview of all items, brand colours, fonts and printer notes (English + Arabic).
 
@@ -55,8 +77,8 @@ Each item's QR has its own tag (utm_source=qr-<item>) so scans are tracked per i
 
 -------------------------------------------------------------------------
 فراتيلانزا — الحزمة التسويقية
-كل تصميم يحتوي على كود QR يفتح صفحة روابط فراتيلانزا:
-${LINKS_URL}   (الموقع، واتساب، البريد، فيسبوك، إنستجرام، لينكدإن، تيك توك، الملف التعريفي)
+كل تصميم يحتوي على كود QR يفتح موقع فراتيلانزا:
+${LINKS_URL}
 
 01 — كتيّب الملف التعريفي (ثنائي اللغة): نسخة A5 للإرسال بالبريد وواتساب، ونسخة A4 جاهزة للطباعة على الوجهين (اقلب على الحافة القصيرة)،
    بمقياس 100% دون "ملاءمة الصفحة"، ثم رتّب الأوراق الست واطوِها من المنتصف وثبّتها بدبّوس مرتين على خط الطي.

@@ -4,7 +4,7 @@ import type { ReactNode, ButtonHTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'brand'
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline' | 'brand' | 'navy' | 'light'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   children: ReactNode
@@ -12,14 +12,15 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variants = {
   primary:
-    'bg-gradient-to-r from-gold-500 to-amber-600 text-ink hover:from-gold-400 hover:to-amber-500 glow-button font-bold border border-amber-700/15 shadow-md shadow-amber-500/20',
-  brand:
-    'bg-gradient-to-r from-brand-700 via-brand-600 to-mint-600 text-white hover:from-brand-600 hover:to-mint-500 shadow-lg shadow-brand-700/30 font-bold border border-brand-800/20',
+    'bg-goldx-500 text-navy-950 hover:bg-goldx-400 font-bold shadow-lg shadow-goldx-500/25 border border-goldx-600/30',
+  navy: 'bg-navy-900 text-white hover:bg-navy-800 font-bold shadow-lg shadow-navy-900/20',
+  light: 'bg-white/10 text-white border border-white/25 hover:bg-white/20 font-semibold backdrop-blur',
+  brand: 'bg-navy-900 text-white hover:bg-navy-800 font-bold shadow-lg shadow-navy-900/20',
   secondary:
-    'bg-white text-brand-800 border-2 border-slate-300 hover:bg-brand-50 hover:border-brand-500 hover:text-brand-900 font-semibold shadow-sm',
-  ghost: 'text-brand-800 hover:text-brand-900 hover:bg-brand-100 font-semibold',
+    'bg-white text-navy-900 border border-slate-300 hover:border-navy-700 hover:bg-slate-50 font-semibold shadow-sm',
+  ghost: 'text-navy-800 hover:text-navy-900 hover:bg-slate-100 font-semibold',
   outline:
-    'border-2 border-brand-600 text-brand-800 bg-white hover:bg-brand-50 hover:border-brand-700 hover:text-brand-900 font-semibold shadow-sm',
+    'border-2 border-navy-800 text-navy-900 bg-white hover:bg-slate-50 font-semibold shadow-sm',
 }
 
 const sizes = {

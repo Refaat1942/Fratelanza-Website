@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "content": "node --experimental-strip-types extract-content.mjs",
-    "build": "npm run content && node build-booklet.mjs && python3 impose.py output/Fratelanza-Company-Profile.pdf output/Fratelanza-Company-Profile-PRINT-A4-booklet.pdf && node build-print.mjs && node package.mjs"
+    "build": "npm run content && node build-booklet.mjs && node build-simple-ar.mjs && python3 impose.py output/Fratelanza-Company-Profile.pdf output/Fratelanza-Company-Profile-PRINT-A4-booklet.pdf && node build-print.mjs && node package.mjs"
   },
   "dependencies": {
     "lucide-react": "^1.24.0",

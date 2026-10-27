@@ -9,3 +9,4 @@ Thumbs.db
 *.log
 uploads/
 marketing/build/
+marketing/output/parts/

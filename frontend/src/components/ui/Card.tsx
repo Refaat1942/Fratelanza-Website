@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import type { ReactNode } from 'react'
-import { AnimatedBackground } from './AnimatedBackground'
 
 type CardProps = {
   children: ReactNode
@@ -86,24 +85,29 @@ export function SectionHeader({
   )
 }
 
-export function PageHero({ title, subtitle }: { title: string; subtitle?: string }) {
+export function PageHero({ title, subtitle, eyebrow }: { title: string; subtitle?: string; eyebrow?: string }) {
   return (
-    <section className="relative pt-36 pb-20 overflow-hidden">
-      <AnimatedBackground variant="subtle" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative overflow-hidden bg-navy-hero pt-36 pb-20 text-white">
+      <div className="absolute inset-0 bg-grid-faint [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {eyebrow && (
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-bold uppercase tracking-[0.16em] text-goldx-300 rtl:tracking-normal">
+            {eyebrow}
+          </motion.p>
+        )}
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-display"
+          className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight !text-white"
         >
-          <span className="text-gradient-brand">{title}</span>
+          {title}
         </motion.h1>
         {subtitle && (
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.15 }}
-            className="mt-6 text-lg md:text-xl text-body-muted max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.12 }}
+            className="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
             {subtitle}
           </motion.p>
