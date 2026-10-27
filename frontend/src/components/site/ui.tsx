@@ -28,6 +28,18 @@ export function Section({ id, children, className, tone = 'white' }: { id?: stri
         className,
       )}
     >
+      {tone === 'soft' && (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="blob anim-drift h-72 w-72 -top-16 -start-16 bg-cyan-300/25" />
+          <div className="blob anim-drift h-80 w-80 -bottom-24 -end-16 bg-violet-300/20" style={{ animationDelay: '-9s' }} />
+        </div>
+      )}
+      {tone === 'navy' && (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="blob anim-drift h-96 w-96 -top-24 end-[10%] bg-cyan-500/20" />
+          <div className="blob anim-drift h-80 w-80 -bottom-24 start-[5%] bg-violet-500/20" style={{ animationDelay: '-8s' }} />
+        </div>
+      )}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">{children}</div>
     </section>
   )

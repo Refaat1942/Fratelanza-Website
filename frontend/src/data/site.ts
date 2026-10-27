@@ -20,7 +20,7 @@ export const hero = {
   ] as B[],
   chips: {
     code: { en: 'Source code delivered', ar: 'الكود المصدري ليك' },
-    fees: { en: '0 monthly fees', ar: '٠ رسوم شهرية' },
+    fees: { en: 'No monthly fees', ar: 'بدون رسوم شهرية' },
     support: { en: '3 months free support', ar: '٣ شهور دعم مجاني' },
   },
 }

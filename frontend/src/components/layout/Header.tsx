@@ -63,10 +63,12 @@ export function Header() {
             <LanguageSwitcher />
             <Link
               to="/register"
-              className="hidden md:inline-flex items-center gap-2 rounded-xl bg-goldx-500 px-5 py-2.5 text-sm font-extrabold text-navy-950 shadow-md shadow-goldx-500/25 transition hover:bg-goldx-400"
+              className="shine hidden md:inline-flex items-center gap-2 rounded-xl bg-goldx-500 px-5 py-2.5 text-sm font-extrabold text-navy-950 shadow-md shadow-goldx-500/25 transition hover:bg-goldx-400"
             >
-              {t(hero.ctaPrimary)}
-              <ArrowRight className={cn('w-4 h-4', isAr && 'rotate-180')} />
+              <span className="relative z-[2] inline-flex items-center gap-2">
+                {t(hero.ctaPrimary)}
+                <ArrowRight className={cn('w-4 h-4', isAr && 'rotate-180')} />
+              </span>
             </Link>
             <button
               onClick={() => setOpen(!open)}

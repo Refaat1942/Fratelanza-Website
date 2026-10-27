@@ -246,3 +246,71 @@
     }
   }
 }
+
+/* ---------- Motion & colour layer ---------- */
+@layer utilities {
+  @keyframes fl-float { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+  @keyframes fl-drift { 0%, 100% { transform: translate(0, 0) scale(1) } 33% { transform: translate(40px, -30px) scale(1.08) } 66% { transform: translate(-30px, 25px) scale(0.95) } }
+  @keyframes fl-shimmer { 0% { background-position: 0% 50% } 100% { background-position: 200% 50% } }
+  @keyframes fl-marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  @keyframes fl-spin { to { transform: rotate(360deg) } }
+  @keyframes fl-shine { 0% { transform: translateX(-120%) skewX(-20deg) } 60%, 100% { transform: translateX(260%) skewX(-20deg) } }
+  @keyframes fl-pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(212, 160, 58, 0.45) } 80%, 100% { box-shadow: 0 0 0 18px rgba(212, 160, 58, 0) } }
+
+  .anim-float { animation: fl-float 6s ease-in-out infinite; }
+  .anim-float-slow { animation: fl-float 8s ease-in-out infinite; }
+  .anim-drift { animation: fl-drift 18s ease-in-out infinite; }
+  .anim-spin-slow { animation: fl-spin 14s linear infinite; }
+  .anim-pulse-ring { animation: fl-pulse-ring 2.4s ease-out infinite; }
+
+  /* animated gold text */
+  .text-gold-shimmer {
+    background: linear-gradient(90deg, #f2d89a, #d4a03a, #fff1c9, #d4a03a, #f2d89a);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: fl-shimmer 6s linear infinite;
+  }
+
+  /* light sweep across buttons / bands */
+  .shine { position: relative; overflow: hidden; isolation: isolate; }
+  .shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+    animation: fl-shine 3.8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* rotating gradient border (featured cards) */
+  .border-glow { position: relative; isolation: isolate; }
+  .border-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(from var(--fl-angle, 0deg), #22d3ee, #a78bfa, #d4a03a, #34d399, #22d3ee);
+    z-index: -2;
+    animation: fl-border-spin 6s linear infinite;
+  }
+  /* inner fill: same background as the card, so only a 2px glowing edge shows */
+  .border-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    z-index: -1;
+  }
+  @property --fl-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+  @keyframes fl-border-spin { to { --fl-angle: 360deg; } }
+
+  .marquee-track { display: flex; width: max-content; animation: fl-marquee 38s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+
+  .blob { position: absolute; border-radius: 9999px; filter: blur(70px); pointer-events: none; }
+}
