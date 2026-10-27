@@ -89,9 +89,12 @@ export function PageHero({ title, subtitle, eyebrow }: { title: string; subtitle
   return (
     <section className="relative overflow-hidden bg-navy-hero pt-36 pb-20 text-white">
       <div className="absolute inset-0 bg-grid-faint [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+      <div className="blob anim-drift h-80 w-80 -top-20 end-[12%] bg-cyan-500/25" />
+      <div className="blob anim-drift h-72 w-72 -bottom-24 start-[8%] bg-violet-500/25" style={{ animationDelay: '-7s' }} />
+      <div className="blob anim-drift h-56 w-56 top-10 start-1/2 bg-goldx-500/20" style={{ animationDelay: '-12s' }} />
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {eyebrow && (
-          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="text-sm font-bold uppercase tracking-[0.16em] text-goldx-300 rtl:tracking-normal">
+          <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 rounded-full border border-goldx-400/40 bg-goldx-400/10 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.16em] text-goldx-300 rtl:tracking-normal">
             {eyebrow}
           </motion.p>
         )}

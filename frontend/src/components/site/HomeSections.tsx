@@ -13,6 +13,8 @@ import { useTranslation } from '@/i18n/useTranslation'
 import { Reveal, Section, Heading, BrowserFrame } from './ui'
 import { SiteIcon } from './icons'
 import { RegisterForm } from './RegisterForm'
+import { accent, sectorAccent } from './accents'
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter'
 import { cn } from '@/lib/utils'
 
 const arrow = (isAr: boolean, cls = 'w-5 h-5') => <ArrowRight className={cn(cls, isAr && 'rotate-180')} />
@@ -26,27 +28,31 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy-hero text-white pt-28 sm:pt-32 pb-20 lg:pb-28">
       <div className="absolute inset-0 bg-grid-faint [mask-image:radial-gradient(ellipse_at_top,black,transparent_75%)]" />
+      <div className="blob anim-drift h-96 w-96 -top-20 end-[8%] bg-cyan-500/25" />
+      <div className="blob anim-drift h-80 w-80 bottom-0 start-[5%] bg-violet-500/25" style={{ animationDelay: '-7s' }} />
+      <div className="blob anim-drift h-72 w-72 top-1/3 start-1/3 bg-goldx-500/20" style={{ animationDelay: '-12s' }} />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[1.05fr_1fr] gap-14 items-center">
         <div>
           <motion.div {...fade(0)} className="inline-flex items-center gap-2 rounded-full border border-goldx-400/40 bg-goldx-400/10 px-4 py-1.5 text-sm font-bold text-goldx-300">
+            <span className="relative flex h-2.5 w-2.5"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" /><span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" /></span>
             <BadgeCheck className="w-4 h-4" /> {t(hero.eyebrow)}
           </motion.div>
           <motion.h1 {...fade(0.08)} className="mt-6 text-4xl sm:text-5xl lg:text-[3.6rem] font-extrabold leading-[1.12] !text-white">
             {t(hero.title1)}
-            <span className="block mt-1 text-gold-grad">{t(hero.title2)}</span>
+            <span className="block mt-1 text-gold-shimmer">{t(hero.title2)}</span>
           </motion.h1>
           <motion.p {...fade(0.16)} className="mt-6 text-lg leading-relaxed text-slate-300 max-w-xl">{t(hero.sub)}</motion.p>
           <motion.ul {...fade(0.24)} className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
             {hero.bullets.map((b) => (
               <li key={b.en} className="flex items-center gap-2.5 text-[15px] font-semibold text-white">
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-goldx-500 text-navy-950"><Check className="w-3.5 h-3.5" strokeWidth={3} /></span>
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-gradient-to-br from-goldx-300 to-goldx-500 text-navy-950 shadow-md shadow-goldx-500/30"><Check className="w-3.5 h-3.5" strokeWidth={3} /></span>
                 {t(b)}
               </li>
             ))}
           </motion.ul>
           <motion.div {...fade(0.32)} className="mt-9 flex flex-col sm:flex-row gap-3">
-            <Link to="/register" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-goldx-500 px-8 py-4 text-base font-extrabold text-navy-950 shadow-xl shadow-goldx-500/25 hover:bg-goldx-400 transition">
-              {t(hero.ctaPrimary)} {arrow(isAr)}
+            <Link to="/register" className="shine anim-pulse-ring inline-flex items-center justify-center gap-2 rounded-2xl bg-goldx-500 px-8 py-4 text-base font-extrabold text-navy-950 shadow-xl shadow-goldx-500/25 hover:bg-goldx-400 transition">
+              <span className="relative z-[2] inline-flex items-center gap-2">{t(hero.ctaPrimary)} {arrow(isAr)}</span>
             </Link>
             <Link to="/case-studies" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/25 bg-white/5 px-8 py-4 text-base font-bold text-white hover:bg-white/10 transition">
               {t(hero.ctaSecondary)}
@@ -55,15 +61,15 @@ export function Hero() {
         </div>
 
         <motion.div {...fade(0.2)} className="relative">
-          <BrowserFrame src="/products/erp/branches.png" alt="Fratelanza ERP" className="relative z-10" />
-          <BrowserFrame src="/products/pos/terminal.png" alt="Fratelanza POS" className="hidden sm:block absolute -bottom-12 -start-10 w-[52%] z-20" />
-          <div className="absolute -top-5 -end-3 z-30 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-extrabold text-navy-900 shadow-xl">
+          <div className="anim-float-slow relative z-10"><BrowserFrame src="/products/erp/branches.png" alt="Fratelanza ERP" /></div>
+          <div className="hidden sm:block absolute -bottom-12 -start-10 w-[52%] z-20 anim-float" style={{ animationDelay: '-2s' }}><BrowserFrame src="/products/pos/terminal.png" alt="Fratelanza POS" /></div>
+          <div className="anim-float absolute -top-5 -end-3 z-30 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-extrabold text-navy-900 shadow-xl" style={{ animationDelay: '-1s' }}>
             <KeyRound className="w-5 h-5 text-goldx-500" /> {t(hero.chips.code)}
           </div>
-          <div className="hidden sm:flex absolute top-1/2 -end-6 z-30 items-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-extrabold text-navy-900 shadow-xl">
+          <div className="anim-float hidden sm:flex absolute top-1/2 -end-6 z-30 items-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-extrabold text-navy-900 shadow-xl" style={{ animationDelay: '-3s' }}>
             <Wallet className="w-5 h-5 text-emerald-500" /> {t(hero.chips.fees)}
           </div>
-          <div className="absolute -bottom-6 end-4 z-30 flex items-center gap-2 rounded-2xl bg-goldx-500 px-4 py-3 text-sm font-extrabold text-navy-950 shadow-xl">
+          <div className="anim-float absolute -bottom-6 end-4 z-30 flex items-center gap-2 rounded-2xl bg-goldx-500 px-4 py-3 text-sm font-extrabold text-navy-950 shadow-xl" style={{ animationDelay: '-4.5s' }}>
             <Headphones className="w-5 h-5" /> {t(hero.chips.support)}
           </div>
         </motion.div>
@@ -74,16 +80,30 @@ export function Hero() {
 
 /* ---------------- PROOF BAR ---------------- */
 export function ProofBar() {
-  const { t } = useTranslation()
+  const { t, isAr } = useTranslation()
   return (
     <section className="border-b border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {proofStats.map((s, i) => (
             <Reveal key={s.label.en} delay={i * 0.06} className="text-center">
-              <p className="text-4xl sm:text-5xl font-extrabold text-navy-900" dir="ltr">{s.value}</p>
+              <p className="text-4xl sm:text-5xl font-extrabold" dir="ltr">
+                <AnimatedCounter value={s.value} className={cn('bg-gradient-to-br bg-clip-text text-transparent', accent(i * 2).bar)} />
+              </p>
+              <span className={cn('mx-auto mt-2 block h-1 w-10 rounded-full bg-gradient-to-r', accent(i * 2).bar)} />
               <p className="mt-1.5 text-sm font-semibold text-slate-500">{t(s.label)}</p>
             </Reveal>
+          ))}
+        </div>
+      </div>
+      <div className="marquee overflow-hidden border-t border-slate-200 bg-navy-900 py-4" dir="ltr" aria-hidden="true">
+        <div className="marquee-track gap-10 pe-10">
+          {[...solutions, ...solutions].map((so, i) => (
+            <span key={i} className="inline-flex items-center gap-2.5 whitespace-nowrap text-base font-bold text-white" dir={isAr ? 'rtl' : 'ltr'}>
+              <span className={cn('grid h-8 w-8 place-items-center rounded-lg text-white', accent(i).tile)}><SiteIcon name={so.icon} className="w-4 h-4" /></span>
+              {t(so.title)}
+              <span className="ms-8 text-goldx-400">◆</span>
+            </span>
           ))}
         </div>
       </div>
@@ -104,8 +124,8 @@ export function Pillars() {
       <div className="grid md:grid-cols-3 gap-6">
         {pillars.map((p, i) => (
           <Reveal key={p.title.en} delay={i * 0.08}>
-            <article className={cn('h-full rounded-3xl p-8 ring-1 transition hover:-translate-y-1', i === 2 ? 'bg-navy-900 text-white ring-navy-800 shadow-2xl shadow-navy-900/25' : 'bg-white ring-slate-200 shadow-sm hover:shadow-xl')}>
-              <div className={cn('grid h-14 w-14 place-items-center rounded-2xl', i === 2 ? 'bg-goldx-500 text-navy-950' : 'bg-navy-900 text-goldx-300')}>
+            <article className={cn('h-full rounded-3xl p-8 ring-1 transition duration-300 hover:-translate-y-2', i === 2 ? 'border-glow bg-navy-900 text-white ring-transparent shadow-2xl shadow-navy-900/25' : cn('bg-white ring-slate-200 shadow-sm hover:shadow-2xl', accent(i).hover))}>
+              <div className={cn('grid h-14 w-14 place-items-center rounded-2xl text-white shadow-lg', i === 2 ? 'bg-gradient-to-br from-goldx-300 to-goldx-500 !text-navy-950' : accent(i).tile)}>
                 <SiteIcon name={p.icon} className="w-7 h-7" />
               </div>
               <h3 className={cn('mt-6 text-2xl font-extrabold', i === 2 ? '!text-white' : '!text-navy-900')}>{t(p.title)}</h3>
@@ -167,11 +187,12 @@ export function WorkPreview() {
 export function WorkCard({ w }: { w: (typeof portfolio)[number] }) {
   const { t, isAr } = useTranslation()
   return (
-    <Link to={w.link} className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-navy-900/10">
+    <Link to={w.link} className={cn('group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl', accent(sectorAccent[w.sector] ?? 0).hover)}>
       <div className="relative overflow-hidden bg-navy-950">
-        <img src={w.image} alt={t(w.title)} loading="lazy" className="aspect-[16/10] w-full object-cover object-top transition duration-500 group-hover:scale-[1.04]" />
+        <img src={w.image} alt={t(w.title)} loading="lazy" className="aspect-[16/10] w-full object-cover object-top transition duration-700 group-hover:scale-[1.06]" />
+        <span className={cn('absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r', accent(sectorAccent[w.sector] ?? 0).bar)} />
         <span className="absolute top-3 start-3 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-navy-900 shadow">
-          <SiteIcon name={w.icon} className="w-3.5 h-3.5 text-goldx-600" /> {t(w.sectorLabel)}
+          <span className={cn('grid h-5 w-5 place-items-center rounded-full text-white', accent(sectorAccent[w.sector] ?? 0).tile)}><SiteIcon name={w.icon} className="w-3 h-3" /></span> {t(w.sectorLabel)}
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
@@ -205,9 +226,9 @@ export function Packages({ showHeading = true }: { showHeading?: boolean }) {
       <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
         {packages.map((p, i) => (
           <Reveal key={p.id} delay={i * 0.06}>
-            <article className={cn('relative flex h-full flex-col rounded-3xl p-7 ring-1', p.featured ? 'bg-navy-900 text-white ring-navy-800 shadow-2xl shadow-navy-900/30 xl:-translate-y-3' : 'bg-white ring-slate-200 shadow-sm')}>
+            <article className={cn('relative flex h-full flex-col rounded-3xl p-7 ring-1 transition duration-300 hover:-translate-y-2', p.featured ? 'border-glow bg-navy-900 text-white ring-transparent shadow-2xl shadow-navy-900/30 xl:-translate-y-3' : cn('bg-white ring-slate-200 shadow-sm hover:shadow-2xl', accent(i * 2).hover))}>
               {p.featured && <span className="absolute -top-3 start-7 rounded-full bg-goldx-500 px-3 py-1 text-xs font-extrabold text-navy-950">{isAr ? 'الأكثر طلباً' : 'Most popular'}</span>}
-              <div className={cn('grid h-12 w-12 place-items-center rounded-xl', p.featured ? 'bg-goldx-500 text-navy-950' : 'bg-navy-900 text-goldx-300')}>
+              <div className={cn('grid h-12 w-12 place-items-center rounded-xl text-white shadow-lg', p.featured ? 'bg-gradient-to-br from-goldx-300 to-goldx-500 !text-navy-950' : accent(i * 2).tile)}>
                 <SiteIcon name={p.icon} className="w-6 h-6" />
               </div>
               <h3 className={cn('mt-5 text-2xl font-extrabold', p.featured ? '!text-white' : '!text-navy-900')}>{t(p.name)}</h3>
@@ -308,7 +329,7 @@ export function Process() {
           <Reveal key={s.title.en} delay={i * 0.07}>
             <li className="relative h-full rounded-3xl bg-white p-7 ring-1 ring-slate-200">
               <span className="absolute top-6 end-6 text-5xl font-extrabold text-slate-100" dir="ltr">0{i + 1}</span>
-              <div className="relative grid h-12 w-12 place-items-center rounded-xl bg-goldx-500 text-navy-950"><SiteIcon name={s.icon} className="w-6 h-6" /></div>
+              <div className={cn('relative grid h-12 w-12 place-items-center rounded-xl text-white shadow-lg', accent(i * 2 + 1).tile)}><SiteIcon name={s.icon} className="w-6 h-6" /></div>
               <h3 className="relative mt-5 text-lg font-extrabold !text-navy-900">{t(s.title)}</h3>
               <p className="relative mt-2 text-sm leading-relaxed text-slate-600">{t(s.text)}</p>
             </li>
@@ -390,10 +411,10 @@ export function Clients() {
       <div className="grid md:grid-cols-3 gap-6">
         {deliveredFor.map((d, i) => (
           <Reveal key={d.name.en} delay={i * 0.08}>
-            <article className="relative h-full overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-l from-goldx-300 via-goldx-500 to-goldx-600" />
+            <article className={cn('relative h-full overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl', accent(i * 2 + 1).hover)}>
+              <span className={cn('absolute inset-x-0 top-0 h-1.5 bg-gradient-to-l', accent(i * 2 + 1).bar)} />
               <div className="flex items-center gap-4">
-                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-navy-900 text-goldx-300 shadow-lg shadow-navy-900/20">
+                <div className={cn('grid h-16 w-16 shrink-0 place-items-center rounded-2xl text-white shadow-lg', accent(i * 2 + 1).tile)}>
                   <SiteIcon name={d.icon} className="w-8 h-8" />
                 </div>
                 <p className="text-xs font-extrabold uppercase tracking-wide text-goldx-600 rtl:tracking-normal">{t(d.sector)}</p>
@@ -415,9 +436,9 @@ export function Clients() {
         <div className="rounded-3xl bg-navy-900 px-6 py-8 sm:px-10 text-white">
           <p className="text-center text-sm font-bold uppercase tracking-[0.14em] text-goldx-300 rtl:tracking-normal">{t(clientsCopy.sectorsTitle)}</p>
           <ul className="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-            {clientSectors.map((c) => (
-              <li key={c.label.en} className="flex flex-col items-center gap-2 rounded-2xl bg-white/5 px-3 py-4 text-center ring-1 ring-white/10">
-                <SiteIcon name={c.icon} className="w-6 h-6 text-goldx-300" />
+            {clientSectors.map((c, i) => (
+              <li key={c.label.en} className="flex flex-col items-center gap-2 rounded-2xl bg-white/5 px-3 py-4 text-center ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-white/10">
+                <span className={cn('grid h-11 w-11 place-items-center rounded-xl text-white shadow-lg', accent(i).tile)}><SiteIcon name={c.icon} className="w-5 h-5" /></span>
                 <span className="text-sm font-bold leading-snug">{t(c.label)}</span>
               </li>
             ))}
@@ -442,13 +463,14 @@ export function Solutions() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {solutions.map((so, i) => (
           <Reveal key={so.title.en} delay={(i % 4) * 0.05}>
-            <Link to={`/register?type=${so.type}`} className="group flex h-full flex-col rounded-3xl bg-white p-6 ring-1 ring-slate-200 transition hover:-translate-y-1 hover:ring-goldx-500 hover:shadow-xl">
-              <div className="grid h-12 w-12 place-items-center rounded-xl bg-goldx-500/15 text-goldx-600 transition group-hover:bg-goldx-500 group-hover:text-navy-950">
+            <Link to={`/register?type=${so.type}`} className={cn('group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white p-6 ring-1 ring-slate-200 transition duration-300 hover:-translate-y-2 hover:shadow-2xl', accent(i).hover)}>
+              <span className={cn('absolute -top-10 -end-10 h-28 w-28 rounded-full bg-gradient-to-br opacity-10 transition duration-500 group-hover:scale-150 group-hover:opacity-20', accent(i).bar)} />
+              <div className={cn('relative grid h-12 w-12 place-items-center rounded-xl text-white shadow-lg transition duration-300 group-hover:scale-110 group-hover:rotate-3', accent(i).tile)}>
                 <SiteIcon name={so.icon} className="w-6 h-6" />
               </div>
               <h3 className="mt-5 text-lg font-extrabold !text-navy-900">{t(so.title)}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{t(so.text)}</p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-goldx-600">
+              <span className={cn('mt-4 inline-flex items-center gap-1.5 text-sm font-bold', accent(i).text)}>
                 {isAr ? 'اطلبه دلوقتي' : 'Request it'} {arrow(isAr, 'w-4 h-4')}
               </span>
             </Link>
@@ -468,8 +490,8 @@ export function Audiences() {
       <div className="grid md:grid-cols-3 gap-6">
         {audiences.map((a, i) => (
           <Reveal key={a.title.en} delay={i * 0.07}>
-            <div className="flex h-full flex-col rounded-3xl bg-surface p-8 ring-1 ring-slate-200">
-              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-900 text-goldx-300"><SiteIcon name={a.icon} className="w-7 h-7" /></div>
+            <div className={cn('flex h-full flex-col rounded-3xl bg-surface p-8 ring-1 ring-slate-200 transition duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-2xl', accent(i * 3).hover)}>
+              <div className={cn('grid h-14 w-14 place-items-center rounded-2xl text-white shadow-lg', accent(i * 3).tile)}><SiteIcon name={a.icon} className="w-7 h-7" /></div>
               <h3 className="mt-6 text-xl font-extrabold !text-navy-900">{t(a.title)}</h3>
               <p className="mt-2 flex-1 text-slate-600 leading-relaxed">{t(a.text)}</p>
               <Link to={`/register?type=${a.type}`} className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3.5 font-extrabold text-white hover:bg-navy-800 transition">

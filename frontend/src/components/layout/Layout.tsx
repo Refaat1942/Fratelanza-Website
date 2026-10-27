@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion'
 import { Header } from './Header'
 import { Footer } from './Footer'
 import { MobileCtaBar } from './MobileCtaBar'
+import { IntroSplash } from './IntroSplash'
 import { OrganizationSchema } from '@/components/SEO'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import { PageTransition } from '@/components/ui/PageTransition'
@@ -23,6 +24,7 @@ export function Layout() {
 
   return (
     <>
+      <IntroSplash />
       <OrganizationSchema />
       <div className="min-h-screen flex flex-col pb-[4.5rem] md:pb-0">
         <Header />

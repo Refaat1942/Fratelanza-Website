@@ -24,9 +24,9 @@ export function Footer() {
     <footer className="bg-navy-hero text-slate-300">
       {showCta && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-goldx-400 to-goldx-500 px-6 py-10 sm:px-12 sm:py-12 text-navy-950 shadow-2xl shadow-black/30">
+          <div className="shine relative overflow-hidden rounded-3xl bg-gradient-to-br from-goldx-300 via-goldx-400 to-goldx-500 px-6 py-10 sm:px-12 sm:py-12 text-navy-950 shadow-2xl shadow-black/30">
             <div className="absolute -top-16 -end-16 h-56 w-56 rounded-full bg-white/20 blur-2xl" />
-            <div className="relative flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="relative z-[2] flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               <div className="max-w-2xl">
                 <h2 className="text-2xl sm:text-3xl font-extrabold !text-navy-950 leading-tight">{t(finalCta.title)}</h2>
                 <p className="mt-2 text-navy-900/80 font-medium">{t(finalCta.sub)}</p>
