@@ -60,7 +60,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2 shrink-0">
-            <LanguageSwitcher className="hidden sm:flex" />
+            <LanguageSwitcher />
             <Link
               to="/register"
               className="hidden md:inline-flex items-center gap-2 rounded-xl bg-goldx-500 px-5 py-2.5 text-sm font-extrabold text-navy-950 shadow-md shadow-goldx-500/25 transition hover:bg-goldx-400"

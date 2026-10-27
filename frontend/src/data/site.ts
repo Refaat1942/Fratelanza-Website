@@ -8,7 +8,7 @@ export const hero = {
   title2: { en: '100% yours.', ar: 'وملكك ١٠٠٪.' },
   sub: {
     en: 'ERP, POS, inventory, accounting, HR, CRM and mobile apps — designed around how you work, delivered with the full source code, and owned by you. No subscriptions, no licenses.',
-    ar: 'ERP ونقاط بيع ومخازن وحسابات وموارد بشرية وCRM وتطبيقات موبايل — بنصممها على طريقة شغلك، ونسلّمها بالكود المصدري كامل، وتبقى ملكك. من غير اشتراكات ولا رخص.',
+    ar: 'أنظمة ERP ونقاط بيع ومخازن وحسابات وموارد بشرية وإدارة عملاء وتطبيقات موبايل — بنصممها على طريقة شغلك، ونسلّمها بالكود المصدري كامل، وتبقى ملكك. من غير اشتراكات ولا رخص.',
   },
   ctaPrimary: { en: 'Register your project', ar: 'سجّل مشروعك' },
   ctaSecondary: { en: 'See our work', ar: 'شوف أعمالنا' },
@@ -30,15 +30,6 @@ export const proofStats: { value: string; label: B }[] = [
   { value: '12', label: { en: 'Industries served', ar: 'قطاع بنخدمه' } },
   { value: '400+', label: { en: 'Specialists in our network', ar: 'متخصص في شبكتنا' } },
   { value: '100%', label: { en: 'Ownership for every client', ar: 'ملكية لكل عميل' } },
-]
-
-export const clientNames: { name: B; sector: B }[] = [
-  { name: { en: 'Egyptian Armed Forces', ar: 'القوات المسلحة المصرية' }, sector: { en: 'Government & Defense', ar: 'حكومة ودفاع' } },
-  { name: { en: 'Misr Station Wood Factory', ar: 'مصنع أخشاب محطة مصر' }, sector: { en: 'Manufacturing', ar: 'تصنيع' } },
-  { name: { en: 'Scientific Research Projects', ar: 'مشاريع بحث علمي' }, sector: { en: 'Research & Academia', ar: 'بحث علمي وأكاديميا' } },
-  { name: { en: 'Pharmacy chains', ar: 'سلاسل صيدليات' }, sector: { en: 'Healthcare retail', ar: 'تجزئة دوائية' } },
-  { name: { en: 'Medical laboratories', ar: 'معامل تحاليل' }, sector: { en: 'Healthcare', ar: 'رعاية صحية' } },
-  { name: { en: 'Real-estate developers', ar: 'شركات تطوير عقاري' }, sector: { en: 'Real estate', ar: 'عقارات' } },
 ]
 
 export const pillars: { icon: string; title: B; text: B; points: BL }[] = [
@@ -296,3 +287,49 @@ export const finalCta = {
   title: { en: 'Ready to own a system built for your business?', ar: 'جاهز يبقى عندك سيستم على مقاس شغلك وملكك؟' },
   sub: { en: 'Book a free consultation today. We’ll listen, map your workflow and propose the right package.', ar: 'احجز استشارة مجانية النهارده. هنسمعك ونرسم دورة شغلك ونقترح الباقة المناسبة.' },
 }
+
+export const clientsCopy = {
+  eyebrow: { en: 'Our clients', ar: 'عملاؤنا' },
+  title: { en: 'Organizations we have delivered for', ar: 'جهات وشركات سلّمنالها أنظمة' },
+  sub: {
+    en: 'From government and industry to research — systems delivered and managed by Fratelanza.',
+    ar: 'من الجهات الحكومية والمصانع لحد مشاريع البحث العلمي — أنظمة سلّمتها وأدارتها فراتيلانزا.',
+  },
+  note: {
+    en: 'Additional client engagements and research projects are available on request.',
+    ar: 'تفاصيل مشاريع وعملاء إضافيين متاحة عند الطلب.',
+  },
+  sectorsTitle: { en: 'And businesses in', ar: 'وكمان شركات في قطاعات' },
+}
+
+export const clientScopes: Record<string, BL> = {
+  'Egyptian Armed Forces': { en: ['Custom digital systems', 'Platforms', 'Delivered & managed'], ar: ['أنظمة رقمية مخصصة', 'منصات', 'تسليم وإدارة كاملة'] },
+  'Misr Station Wood Factory': { en: ['Production', 'Inventory', 'Operations management'], ar: ['الإنتاج', 'المخزون', 'الإدارة التشغيلية'] },
+  'Scientific Research Projects': { en: ['Custom software', 'Data platforms', 'Research support'], ar: ['برمجيات مخصصة', 'منصات بيانات', 'دعم المشاريع البحثية'] },
+}
+
+export const clientSectors: { icon: string; label: B }[] = [
+  { icon: 'Pill', label: { en: 'Pharmacy chains', ar: 'سلاسل صيدليات' } },
+  { icon: 'FlaskConical', label: { en: 'Medical laboratories', ar: 'معامل تحاليل' } },
+  { icon: 'Stethoscope', label: { en: 'Clinics & medical centers', ar: 'عيادات ومراكز طبية' } },
+  { icon: 'Building2', label: { en: 'Real-estate developers', ar: 'شركات تطوير عقاري' } },
+  { icon: 'ShoppingCart', label: { en: 'Retail & multi-branch stores', ar: 'محلات وفروع تجزئة' } },
+  { icon: 'LayoutDashboard', label: { en: 'Companies & trading', ar: 'شركات وتجارة' } },
+]
+
+export const solutions: { icon: string; type: string; title: B; text: B }[] = [
+  { icon: 'LayoutDashboard', type: 'business_system', title: { en: 'ERP & business systems', ar: 'أنظمة ERP وإدارة الأعمال' }, text: { en: 'Accounting, inventory, purchasing, sales and branches in one system.', ar: 'حسابات ومخازن ومشتريات ومبيعات وفروع في نظام واحد.' } },
+  { icon: 'ShoppingCart', type: 'business_system', title: { en: 'Point of sale (POS)', ar: 'نقاط البيع (الكاشير)' }, text: { en: 'Fast barcode checkout linked to stock and accounts, per branch.', ar: 'بيع سريع بالباركود مربوط بالمخزون والحسابات لكل فرع.' } },
+  { icon: 'UserCheck', type: 'business_system', title: { en: 'HR & payroll', ar: 'الموارد البشرية والمرتبات' }, text: { en: 'Attendance, lateness, penalties, bonuses and pay slips.', ar: 'حضور وانصراف وتأخيرات وجزاءات ومكافآت ومفردات مرتب.' } },
+  { icon: 'Users', type: 'crm', title: { en: 'CRM & customer service', ar: 'إدارة العملاء وخدمة العملاء' }, text: { en: 'Customer history, follow-ups, support tickets and campaigns.', ar: 'سجل العملاء والمتابعات وتذاكر الدعم والحملات.' } },
+  { icon: 'Smartphone', type: 'mobile', title: { en: 'Mobile apps', ar: 'تطبيقات الموبايل' }, text: { en: 'Android & iOS apps for your customers, team or delivery.', ar: 'تطبيقات أندرويد وآيفون لعملائك أو فريقك أو الدليفري.' } },
+  { icon: 'Globe', type: 'web', title: { en: 'Web platforms & stores', ar: 'منصات ومتاجر إلكترونية' }, text: { en: 'Portals, booking platforms and e-commerce stores.', ar: 'بوابات ومنصات حجز ومتاجر إلكترونية.' } },
+  { icon: 'Bot', type: 'ai', title: { en: 'AI & automation', ar: 'ذكاء اصطناعي وأتمتة' }, text: { en: 'AI assistants, WhatsApp bots, OCR and automatic reports.', ar: 'مساعدين ذكيين وبوت واتساب وقراءة مستندات وتقارير تلقائية.' } },
+  { icon: 'Plug', type: 'integration', title: { en: 'Integrations', ar: 'الربط والتكامل' }, text: { en: 'ETA e-invoice, payment gateways, WhatsApp and your existing systems.', ar: 'الفاتورة الإلكترونية وبوابات الدفع وواتساب وأنظمتك الحالية.' } },
+]
+
+export const audiences: { icon: string; type: string; title: B; text: B; cta: B }[] = [
+  { icon: 'Building2', type: 'business_system', title: { en: 'Businesses', ar: 'للشركات والمحلات' }, text: { en: 'Need one system to run sales, stock, accounts and staff?', ar: 'محتاج سيستم واحد يدير المبيعات والمخزون والحسابات والموظفين؟' }, cta: { en: 'Build my business system', ar: 'ابني سيستم شغلي' } },
+  { icon: 'Lightbulb', type: 'web', title: { en: 'Entrepreneurs', ar: 'لرواد الأعمال' }, text: { en: 'Have an idea for an app or a platform and need a team to build it?', ar: 'عندك فكرة تطبيق أو منصة ومحتاج فريق ينفذها؟' }, cta: { en: 'Build my product', ar: 'نفّذ فكرتي' } },
+  { icon: 'Settings2', type: 'improvement', title: { en: 'Existing companies', ar: 'للشركات القائمة' }, text: { en: 'Need AI, integration, automation or to improve your current system?', ar: 'محتاج ذكاء اصطناعي أو ربط أو أتمتة أو تطوير سيستمك الحالي؟' }, cta: { en: 'Improve my system', ar: 'طوّر سيستمي' } },
+]

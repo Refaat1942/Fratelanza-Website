@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 import { SEO, FAQSchema } from '@/components/SEO'
 import { faq, hero } from '@/data/site'
 import { useTranslation } from '@/i18n/useTranslation'
-import { Hero, ProofBar, Pillars, WorkPreview, Packages, Ownership, Process, RegisterSection, Faq } from '@/components/site/HomeSections'
+import { Hero, ProofBar, Clients, Pillars, Solutions, WorkPreview, Packages, Ownership, Audiences, Process, RegisterSection, Faq } from '@/components/site/HomeSections'
 
 export default function HomePage() {
   const { t, locale } = useTranslation()
@@ -22,10 +22,13 @@ export default function HomePage() {
       <FAQSchema items={faq.map((f) => ({ question: f.q[locale], answer: f.a[locale] }))} />
       <Hero />
       <ProofBar />
+      <Clients />
       <Pillars />
+      <Solutions />
       <WorkPreview />
       <Packages />
       <Ownership />
+      <Audiences />
       <Process />
       <RegisterSection />
       <Faq />

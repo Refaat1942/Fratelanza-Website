@@ -760,6 +760,7 @@ export const navLinks = [
   { path: '/', label: { en: 'Home', ar: 'الرئيسية' } },
   { path: '/services', label: { en: 'Solutions', ar: 'الحلول' } },
   { path: '/case-studies', label: { en: 'Our Work', ar: 'أعمالنا' } },
+  { path: '/#clients', label: { en: 'Clients', ar: 'عملاؤنا' } },
   { path: '/pricing', label: { en: 'Packages', ar: 'الباقات' } },
   { path: '/about', label: { en: 'About', ar: 'من نحن' } },
   { path: '/contact', label: { en: 'Contact', ar: 'تواصل معنا' } },

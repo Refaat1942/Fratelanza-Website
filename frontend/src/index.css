@@ -12,24 +12,24 @@
   --color-gold-800: #92400e;
   --color-gold-900: #78350f;
 
-  --color-brand-50: #ecfeff;
-  --color-brand-100: #cffafe;
-  --color-brand-200: #a5f3fc;
-  --color-brand-300: #67e8f9;
-  --color-brand-400: #22d3ee;
-  --color-brand-500: #06b6d4;
-  --color-brand-600: #0891b2;
-  --color-brand-700: #0e7490;
-  --color-brand-800: #155e75;
-  --color-brand-900: #164e63;
+  --color-brand-50: #eef2f8;
+  --color-brand-100: #dde5f0;
+  --color-brand-200: #c3d0e3;
+  --color-brand-300: #94a9c9;
+  --color-brand-400: #5f7ea8;
+  --color-brand-500: #2f5788;
+  --color-brand-600: #1f4a7a;
+  --color-brand-700: #163a63;
+  --color-brand-800: #0f2f55;
+  --color-brand-900: #0a1f3a;
 
-  --color-mint-50: #ecfdf5;
-  --color-mint-100: #d1fae5;
-  --color-mint-200: #a7f3d0;
-  --color-mint-300: #6ee7b7;
-  --color-mint-400: #34d399;
-  --color-mint-500: #10b981;
-  --color-mint-600: #059669;
+  --color-mint-50: #fdf8ec;
+  --color-mint-100: #f9ecd0;
+  --color-mint-200: #f2d89a;
+  --color-mint-300: #e6bf6a;
+  --color-mint-400: #d4a03a;
+  --color-mint-500: #b9862a;
+  --color-mint-600: #9a6e20;
 
   --color-navy-950: #061428;
   --color-navy-900: #0a1f3a;
@@ -147,11 +147,11 @@
   }
 
   .text-gradient-brand {
-    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-mint-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-navy-900 via-navy-700 to-goldx-500 bg-clip-text text-transparent;
   }
 
   .text-gradient-premium {
-    @apply bg-gradient-to-r from-brand-600 via-cyan-500 to-mint-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-navy-900 via-navy-700 to-goldx-500 bg-clip-text text-transparent;
   }
 
   .bg-gradient-premium {
@@ -200,8 +200,8 @@
 
   .input-premium:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
-    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 0 3px rgba(212, 160, 58, 0.25);
+    border-color: #d4a03a;
   }
 
   .form-label {

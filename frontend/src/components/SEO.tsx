@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async'
 import { company, t } from '@/data/content'
+import { useI18n } from '@/i18n/context'
 
 type SEOProps = {
   title: string
@@ -12,7 +13,8 @@ const SITE_URL = 'https://www.fratelanza.com'
 
 export function SEO({ title, description, path = '', type = 'website' }: SEOProps) {
   const url = `${SITE_URL}${path}`
-  const fullTitle = `${title} | ${company.name}`
+  const { locale } = useI18n()
+  const fullTitle = `${title} | ${locale === 'ar' ? 'فراتيلانزا' : company.name}`
 
   return (
     <Helmet>
@@ -25,6 +27,7 @@ export function SEO({ title, description, path = '', type = 'website' }: SEOProp
       <meta property="og:url" content={url} />
       <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
       <meta property="og:site_name" content={company.name} />
+      <meta property="og:locale" content={locale === 'ar' ? 'ar_EG' : 'en_US'} />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
