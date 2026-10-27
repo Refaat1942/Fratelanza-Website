@@ -1,51 +1,34 @@
-import { SEO, FAQSchema } from '@/components/SEO'
-import { homeFaq } from '@/data/homepage'
-import { HeroSection } from '@/components/home/HeroSection'
-import { HomeQuickNav } from '@/components/home/HomeQuickNav'
-import { DeliveryPartnerSection } from '@/components/home/DeliveryPartnerSection'
-import {
-  VerifiedStatsSection, SolutionsGridSection, BeforeAfterSection,
-  ProcessTimelineSection, FratelanzaProductsSection, DeliveryExperienceSection, NetworkIndustriesSection,
-  AISection, CaseStudiesPreview, WhyPillarsSection, AudienceCardsSection,
-  HomeFAQSection, FinalCTASection,
-} from '@/components/home/HomeSections'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { SEO, FAQSchema } from '@/components/SEO'
+import { faq, hero } from '@/data/site'
 import { useTranslation } from '@/i18n/useTranslation'
+import { Hero, ProofBar, Pillars, WorkPreview, Packages, Ownership, Process, RegisterSection, Faq } from '@/components/site/HomeSections'
 
 export default function HomePage() {
-  const { ui, locale } = useTranslation()
+  const { t, locale } = useTranslation()
   const location = useLocation()
 
   useEffect(() => {
     if (!location.hash) return
     const id = location.hash.replace('#', '')
-    const timer = window.setTimeout(() => {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 150)
+    const timer = window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150)
     return () => window.clearTimeout(timer)
   }, [location.hash])
 
   return (
     <>
-      <SEO title={ui('home', 'seoTitle')} description={ui('home', 'heroSub')} path="/" />
-      <FAQSchema items={homeFaq.map((f) => ({ question: f.q[locale], answer: f.a[locale] }))} />
-      <HeroSection />
-      <HomeQuickNav />
-      <DeliveryPartnerSection />
-      <VerifiedStatsSection />
-      <DeliveryExperienceSection />
-      <SolutionsGridSection />
-      <BeforeAfterSection />
-      <ProcessTimelineSection />
-      <FratelanzaProductsSection />
-      <NetworkIndustriesSection />
-      <AISection />
-      <CaseStudiesPreview />
-      <WhyPillarsSection />
-      <AudienceCardsSection />
-      <HomeFAQSection />
-      <FinalCTASection />
+      <SEO title={`${t(hero.title1)} ${t(hero.title2)}`} description={t(hero.sub)} path="/" />
+      <FAQSchema items={faq.map((f) => ({ question: f.q[locale], answer: f.a[locale] }))} />
+      <Hero />
+      <ProofBar />
+      <Pillars />
+      <WorkPreview />
+      <Packages />
+      <Ownership />
+      <Process />
+      <RegisterSection />
+      <Faq />
     </>
   )
 }

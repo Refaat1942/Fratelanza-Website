@@ -13,7 +13,8 @@ export const leadSchema = honeypotSchema.extend({
   city: z.string().optional(),
   phone: z.string().optional(),
   whatsapp: z.string().optional(),
-  email: z.string().email(),
+  // Email is optional when a phone / WhatsApp number is given (quick registration form)
+  email: z.string().email().or(z.literal('')).optional(),
   expectedUsers: z.string().optional(),
   interestedProduct: z.string().optional(),
   currentSystem: z.string().optional(),
@@ -38,6 +39,8 @@ export const leadSchema = honeypotSchema.extend({
   visitorCountry: z.string().optional(),
   firstVisitAt: z.string().optional(),
   conversionPage: z.string().optional(),
+}).refine((d) => Boolean(d.email || d.phone || d.whatsapp), {
+  message: 'Please provide an email or a phone number.',
 })
 
 export const analyticsEventSchema = z.object({

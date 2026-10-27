@@ -25,6 +25,7 @@ const BlogPostPage = lazyWithRetry(() => import('@/pages/BlogPostPage'))
 const CaseStudiesPage = lazyWithRetry(() => import('@/pages/CaseStudiesPage'))
 const CaseStudyDetailPage = lazyWithRetry(() => import('@/pages/CaseStudyDetailPage'))
 const LinksPage = lazyWithRetry(() => import('@/pages/LinksPage'))
+const RegisterPage = lazyWithRetry(() => import('@/pages/RegisterPage'))
 const AdminPage = lazyWithRetry(() => import('@/pages/AdminPage'))
 const NotFoundPage = lazyWithRetry(() => import('@/pages/NotFoundPage'))
 const PrivacyPage = lazyWithRetry(() => import('@/pages/LegalPage').then((m) => ({ default: m.PrivacyPage })))
@@ -75,6 +76,9 @@ export const router = createBrowserRouter([
       { path: 'success-stories', element: <Navigate to="/case-studies" replace /> },
       { path: 'case-studies', element: withSuspense(CaseStudiesPage) },
       { path: 'case-studies/:id', element: withSuspense(CaseStudyDetailPage) },
+      { path: 'register', element: withSuspense(RegisterPage) },
+      { path: 'packages', element: <Navigate to="/pricing" replace /> },
+      { path: 'our-work', element: <Navigate to="/case-studies" replace /> },
       { path: 'start-project', element: withSuspense(StartProjectPage) },
       { path: 'careers', element: withSuspense(CareersPage) },
       { path: 'freelancer', element: withSuspense(FreelancerPage) },

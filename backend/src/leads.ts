@@ -51,7 +51,7 @@ export function insertLead(data: LeadInput, attachmentPath?: string | null) {
     data.city || null,
     data.phone || null,
     data.whatsapp || null,
-    data.email,
+    data.email || '',
     data.expectedUsers || null,
     data.interestedProduct || data.projectType || null,
     data.currentSystem || data.existingSystem || null,
