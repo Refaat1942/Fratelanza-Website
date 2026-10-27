@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Header } from './Header'
 import { Footer } from './Footer'
-import { LoadingScreen } from './LoadingScreen'
+import { MobileCtaBar } from './MobileCtaBar'
 import { OrganizationSchema } from '@/components/SEO'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
 import { PageTransition } from '@/components/ui/PageTransition'
@@ -23,9 +23,8 @@ export function Layout() {
 
   return (
     <>
-      <LoadingScreen />
       <OrganizationSchema />
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col pb-[4.5rem] md:pb-0">
         <Header />
         <main className="flex-1">
           <AnimatePresence mode="wait">
@@ -37,6 +36,7 @@ export function Layout() {
         <Footer />
       </div>
       <WhatsAppButton />
+      <MobileCtaBar />
       <ScrollRestoration />
     </>
   )

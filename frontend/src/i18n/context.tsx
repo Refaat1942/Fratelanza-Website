@@ -11,13 +11,15 @@ const I18nContext = createContext<I18nContextType | null>(null)
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
-    const saved = localStorage.getItem('fratelanza-locale')
-    return (saved === 'ar' ? 'ar' : 'en') as Locale
+    // Arabic is the default; a language the visitor picked before is kept
+    let saved: string | null = null
+    try { saved = localStorage.getItem('fratelanza-locale') } catch { /* storage blocked */ }
+    return (saved === 'en' ? 'en' : 'ar') as Locale
   })
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale)
-    localStorage.setItem('fratelanza-locale', newLocale)
+    try { localStorage.setItem('fratelanza-locale', newLocale) } catch { /* storage blocked */ }
   }, [])
 
   const dir = locale === 'ar' ? 'rtl' : 'ltr'

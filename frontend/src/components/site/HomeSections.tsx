@@ -4,9 +4,11 @@ import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check, X, ChevronDown, MessageCircle, Mail, BadgeCheck, KeyRound, Wallet, Headphones } from 'lucide-react'
 import { company } from '@/data/content'
 import {
-  hero, proofStats, clientNames, pillars, packages, packagesCommon, pricingNote, compareRows, steps,
-  portfolio, faq, registerCopy, deliveredFor,
+  hero, proofStats, pillars, packages, packagesCommon, pricingNote, compareRows, steps,
+  portfolio, faq, registerCopy, deliveredFor, clientsCopy, clientScopes, clientSectors, solutions, audiences,
 } from '@/data/site'
+import { industries } from '@/data/content'
+import { DynamicIcon } from '@/components/ui/DynamicIcon'
 import { useTranslation } from '@/i18n/useTranslation'
 import { Reveal, Section, Heading, BrowserFrame } from './ui'
 import { SiteIcon } from './icons'
@@ -72,7 +74,7 @@ export function Hero() {
 
 /* ---------------- PROOF BAR ---------------- */
 export function ProofBar() {
-  const { t, isAr } = useTranslation()
+  const { t } = useTranslation()
   return (
     <section className="border-b border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -84,14 +86,6 @@ export function ProofBar() {
             </Reveal>
           ))}
         </div>
-        <div className="mt-10 flex flex-col items-center gap-4">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400 rtl:tracking-normal">{isAr ? 'خبرة مع' : 'Experience with'}</p>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3">
-            {clientNames.map((c) => (
-              <span key={c.name.en} className="text-base sm:text-lg font-bold text-slate-700">{t(c.name)}</span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
@@ -101,7 +95,7 @@ export function ProofBar() {
 export function Pillars() {
   const { t, isAr } = useTranslation()
   return (
-    <Section tone="soft">
+    <Section id="why">
       <Heading
         eyebrow={isAr ? 'ليه فراتيلانزا' : 'Why Fratelanza'}
         title={isAr ? 'سيستم متخصص، باقة مرنة، وملكية كاملة' : 'Specialized systems. Flexible packages. Full ownership.'}
@@ -156,19 +150,15 @@ export function WorkPreview() {
           </Reveal>
         ))}
       </div>
-      <Reveal className="mt-12">
-        <div className="grid md:grid-cols-3 gap-4">
-          {deliveredFor.map((d) => (
-            <div key={d.name.en} className="flex gap-4 rounded-2xl bg-surface p-5 ring-1 ring-slate-200">
-              <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-navy-900 text-goldx-300"><SiteIcon name={d.icon} className="w-6 h-6" /></div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wide text-goldx-600 rtl:tracking-normal">{t(d.sector)}</p>
-                <p className="font-extrabold text-navy-900">{t(d.name)}</p>
-                <p className="mt-1 text-sm text-slate-600">{t(d.text)}</p>
-              </div>
-            </div>
+      <Reveal className="mt-14">
+        <p className="text-center text-sm font-bold uppercase tracking-[0.14em] text-goldx-600 rtl:tracking-normal">{isAr ? 'قطاعات بنخدمها' : 'Industries we serve'}</p>
+        <ul className="mt-5 flex flex-wrap justify-center gap-2.5">
+          {industries.map((ind) => (
+            <li key={ind.id} className="inline-flex items-center gap-2 rounded-full bg-surface px-4 py-2 text-sm font-bold text-navy-900 ring-1 ring-slate-200">
+              <DynamicIcon name={ind.icon} className="w-4 h-4 text-goldx-600" /> {t(ind.name)}
+            </li>
           ))}
-        </div>
+        </ul>
       </Reveal>
     </Section>
   )
@@ -311,7 +301,7 @@ export function Ownership() {
 export function Process() {
   const { t, isAr } = useTranslation()
   return (
-    <Section>
+    <Section tone="soft">
       <Heading eyebrow={isAr ? 'إزاي بنشتغل' : 'How it works'} title={isAr ? 'من أول مكالمة لحد ما السيستم يبقى ملكك' : 'From the first call to owning your system'} />
       <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {steps.map((s, i) => (
@@ -368,7 +358,7 @@ export function Faq() {
   const { t, isAr } = useTranslation()
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <Section tone="soft">
+    <Section>
       <Heading eyebrow={isAr ? 'أسئلة شائعة' : 'FAQ'} title={isAr ? 'عندك سؤال؟' : 'Questions, answered'} />
       <div className="max-w-3xl mx-auto space-y-3">
         {faq.map((f, i) => (
@@ -385,6 +375,108 @@ export function Faq() {
               )}
             </AnimatePresence>
           </div>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+/* ---------------- CLIENTS ---------------- */
+export function Clients() {
+  const { t, isAr } = useTranslation()
+  return (
+    <Section id="clients" tone="soft">
+      <Heading eyebrow={t(clientsCopy.eyebrow)} title={t(clientsCopy.title)} sub={t(clientsCopy.sub)} />
+      <div className="grid md:grid-cols-3 gap-6">
+        {deliveredFor.map((d, i) => (
+          <Reveal key={d.name.en} delay={i * 0.08}>
+            <article className="relative h-full overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-l from-goldx-300 via-goldx-500 to-goldx-600" />
+              <div className="flex items-center gap-4">
+                <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-navy-900 text-goldx-300 shadow-lg shadow-navy-900/20">
+                  <SiteIcon name={d.icon} className="w-8 h-8" />
+                </div>
+                <p className="text-xs font-extrabold uppercase tracking-wide text-goldx-600 rtl:tracking-normal">{t(d.sector)}</p>
+              </div>
+              <h3 className="mt-6 text-2xl font-extrabold leading-snug !text-navy-900">{t(d.name)}</h3>
+              <p className="mt-3 leading-relaxed text-slate-600">{t(d.text)}</p>
+              <ul className="mt-6 flex flex-wrap gap-2">
+                {(clientScopes[d.name.en]?.[isAr ? 'ar' : 'en'] ?? []).map((sc) => (
+                  <li key={sc} className="inline-flex items-center gap-1.5 rounded-lg bg-navy-900/[0.04] px-3 py-1.5 text-xs font-bold text-navy-900 ring-1 ring-navy-900/10">
+                    <Check className="w-3.5 h-3.5 text-goldx-600" strokeWidth={3} /> {sc}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </Reveal>
+        ))}
+      </div>
+      <Reveal className="mt-12">
+        <div className="rounded-3xl bg-navy-900 px-6 py-8 sm:px-10 text-white">
+          <p className="text-center text-sm font-bold uppercase tracking-[0.14em] text-goldx-300 rtl:tracking-normal">{t(clientsCopy.sectorsTitle)}</p>
+          <ul className="mt-5 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+            {clientSectors.map((c) => (
+              <li key={c.label.en} className="flex flex-col items-center gap-2 rounded-2xl bg-white/5 px-3 py-4 text-center ring-1 ring-white/10">
+                <SiteIcon name={c.icon} className="w-6 h-6 text-goldx-300" />
+                <span className="text-sm font-bold leading-snug">{t(c.label)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="mt-5 text-center text-sm text-slate-500">{t(clientsCopy.note)}</p>
+      </Reveal>
+    </Section>
+  )
+}
+
+/* ---------------- SOLUTIONS (what we build) ---------------- */
+export function Solutions() {
+  const { t, isAr } = useTranslation()
+  return (
+    <Section id="solutions" tone="soft">
+      <Heading
+        eyebrow={isAr ? 'بنعمل إيه' : 'What we build'}
+        title={isAr ? 'كل البرامج والتطبيقات اللي تدير بيها شغلك' : 'Every system and app you need to run your business'}
+        sub={isAr ? 'نظام واحد مترابط أو جزء بجزء — حسب احتياجك.' : 'One connected system, or module by module — whatever you need.'}
+      />
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {solutions.map((so, i) => (
+          <Reveal key={so.title.en} delay={(i % 4) * 0.05}>
+            <Link to={`/register?type=${so.type}`} className="group flex h-full flex-col rounded-3xl bg-white p-6 ring-1 ring-slate-200 transition hover:-translate-y-1 hover:ring-goldx-500 hover:shadow-xl">
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-goldx-500/15 text-goldx-600 transition group-hover:bg-goldx-500 group-hover:text-navy-950">
+                <SiteIcon name={so.icon} className="w-6 h-6" />
+              </div>
+              <h3 className="mt-5 text-lg font-extrabold !text-navy-900">{t(so.title)}</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-600">{t(so.text)}</p>
+              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-navy-700 group-hover:text-goldx-600">
+                {isAr ? 'اطلبه دلوقتي' : 'Request it'} {arrow(isAr, 'w-4 h-4')}
+              </span>
+            </Link>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+/* ---------------- AUDIENCES ---------------- */
+export function Audiences() {
+  const { t, isAr } = useTranslation()
+  return (
+    <Section>
+      <Heading eyebrow={isAr ? 'بنشتغل مع مين' : 'Who we work with'} title={isAr ? 'أياً كانت نقطة بدايتك… عندنا الحل' : 'Wherever you are starting from, we can help'} />
+      <div className="grid md:grid-cols-3 gap-6">
+        {audiences.map((a, i) => (
+          <Reveal key={a.title.en} delay={i * 0.07}>
+            <div className="flex h-full flex-col rounded-3xl bg-surface p-8 ring-1 ring-slate-200">
+              <div className="grid h-14 w-14 place-items-center rounded-2xl bg-navy-900 text-goldx-300"><SiteIcon name={a.icon} className="w-7 h-7" /></div>
+              <h3 className="mt-6 text-xl font-extrabold !text-navy-900">{t(a.title)}</h3>
+              <p className="mt-2 flex-1 text-slate-600 leading-relaxed">{t(a.text)}</p>
+              <Link to={`/register?type=${a.type}`} className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-navy-900 px-5 py-3.5 font-extrabold text-white hover:bg-navy-800 transition">
+                {t(a.cta)} {arrow(isAr, 'w-4 h-4')}
+              </Link>
+            </div>
+          </Reveal>
         ))}
       </div>
     </Section>
