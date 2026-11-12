@@ -1,22 +1,23 @@
-// Copy for the redesigned site: positioning, packages, ownership, portfolio, registration.
+// Site copy. Positioning: Fratelanza is the technology partner that builds customizable systems
+// for corporates and SMEs — business analysis, system architecture, custom development, source code.
 type B = { en: string; ar: string }
 type BL = { en: string[]; ar: string[] }
 
 export const hero = {
-  eyebrow: { en: 'Specialized business systems', ar: 'أنظمة أعمال متخصصة' },
-  title1: { en: 'Systems built for your business.', ar: 'أنظمة مبنية على مقاس شغلك.' },
-  title2: { en: '100% yours.', ar: 'وملكك ١٠٠٪.' },
+  eyebrow: { en: 'Your technology partner', ar: 'شريكك التقني' },
+  title1: { en: 'Customizable systems for your company', ar: 'أنظمة مخصصة لشركتك' },
+  title2: { en: 'from business analysis to source code.', ar: 'من تحليل الأعمال حتى الكود المصدري.' },
   sub: {
-    en: 'ERP, POS, inventory, accounting, HR, CRM and mobile apps — designed around how you work, delivered with the full source code, and owned by you. No subscriptions, no licenses.',
-    ar: 'أنظمة ERP ونقاط بيع ومخازن وحسابات وموارد بشرية وإدارة عملاء وتطبيقات موبايل — بنصممها على طريقة شغلك، ونسلّمها بالكود المصدري كامل، وتبقى ملكك. من غير اشتراكات ولا رخص.',
+    en: 'Fratelanza is the technology partner for corporates and SMEs. We analyze your business, design the system architecture, build a system tailored to how you work, and hand over the full source code — then we stay with you.',
+    ar: 'فراتيلانزا الشريك التقني للشركات الكبرى والصغيرة والمتوسطة. بنحلل شغلك، ونصمم معمارية النظام، ونبني سيستم مخصوص على طريقة شغلك، ونسلّمك الكود المصدري كامل — وبنفضل معاك.',
   },
   ctaPrimary: { en: 'Register your project', ar: 'سجّل مشروعك' },
-  ctaSecondary: { en: 'See our work', ar: 'شوف أعمالنا' },
+  ctaSecondary: { en: 'How we work', ar: 'منهجية عملنا' },
   bullets: [
-    { en: '100% ownership + source code', ar: 'ملكية ١٠٠٪ + الكود المصدري' },
-    { en: 'No subscriptions or licenses', ar: 'بدون اشتراكات ولا رخص' },
-    { en: 'Flexible packages', ar: 'باقات مرنة' },
-    { en: '3 months free support', ar: '٣ شهور دعم مجاني' },
+    { en: 'Business analysis', ar: 'تحليل أعمال متخصص' },
+    { en: 'System architecture', ar: 'تصميم معمارية النظام' },
+    { en: 'You own the source code', ar: 'الكود المصدري ملكك' },
+    { en: 'Ongoing technology partnership', ar: 'شراكة تقنية مستمرة' },
   ] as B[],
   chips: {
     code: { en: 'Source code delivered', ar: 'الكود المصدري ليك' },
@@ -26,57 +27,133 @@ export const hero = {
 }
 
 export const proofStats: { value: string; label: B }[] = [
-  { value: '12+', label: { en: 'Systems built & running', ar: 'نظام مبني وشغّال' } },
-  { value: '12', label: { en: 'Industries served', ar: 'قطاع بنخدمه' } },
+  { value: '100%', label: { en: 'Source-code ownership', ar: 'ملكية الكود المصدري' } },
   { value: '400+', label: { en: 'Specialists in our network', ar: 'متخصص في شبكتنا' } },
-  { value: '100%', label: { en: 'Ownership for every client', ar: 'ملكية لكل عميل' } },
+  { value: '3', label: { en: 'Months of free support', ar: 'شهور دعم فني مجاني' } },
+  { value: '99.9%', label: { en: 'Uptime on our cloud', ar: 'ضمان تشغيل على سحابتنا' } },
 ]
 
+export const capabilities: B[] = [
+  { en: 'Business analysis', ar: 'تحليل الأعمال' },
+  { en: 'System architecture', ar: 'معمارية النظم' },
+  { en: 'Custom system development', ar: 'تطوير أنظمة مخصصة' },
+  { en: 'Web & mobile apps', ar: 'تطبيقات ويب وموبايل' },
+  { en: 'Integrations', ar: 'الربط والتكامل' },
+  { en: 'AI & automation', ar: 'ذكاء اصطناعي وأتمتة' },
+  { en: 'Source-code handover', ar: 'تسليم الكود المصدري' },
+  { en: 'Support & evolution', ar: 'دعم وتطوير مستمر' },
+]
+
+/** The four things that define Fratelanza as a technology partner. */
 export const pillars: { icon: string; title: B; text: B; points: BL }[] = [
   {
-    icon: 'Puzzle',
-    title: { en: 'Specialized systems', ar: 'أنظمة متخصصة' },
+    icon: 'Search',
+    title: { en: 'Business analysis', ar: 'تحليل الأعمال' },
     text: {
-      en: 'We don’t sell you a generic program and ask you to adapt. We study your workflow and build the system around it — screens, reports and permissions that match your business.',
-      ar: 'مش بنبيع لك برنامج جاهز وتتأقلم عليه. بنفهم طريقة شغلك ونبني السيستم حواليها — شاشات وتقارير وصلاحيات على مقاس نشاطك.',
+      en: 'We sit with your teams, map how work really flows, and turn it into clear, approved requirements — before a single line of code.',
+      ar: 'بنقعد مع فرق شغلك، ونفهم دورة العمل الحقيقية، ونحوّلها لمتطلبات واضحة ومعتمدة — قبل ما نكتب سطر كود.',
     },
     points: {
-      en: ['Built for your sector and workflow', 'Arabic & English interfaces', 'Multi-branch & role permissions'],
-      ar: ['مبني لقطاعك وطريقة شغلك', 'واجهات عربي وإنجليزي', 'فروع متعددة وصلاحيات لكل مستخدم'],
+      en: ['Workshops with each department', 'Current vs. target workflow', 'Signed-off requirements document'],
+      ar: ['ورش عمل مع كل إدارة', 'دورة العمل الحالية والمطلوبة', 'وثيقة متطلبات معتمدة'],
     },
   },
   {
-    icon: 'Layers',
-    title: { en: 'Flexible packages', ar: 'باقات مرنة' },
+    icon: 'Network',
+    title: { en: 'System architecture', ar: 'معمارية النظام' },
     text: {
-      en: 'Start with the modules you need today and add more when you grow. You pay for your scope — not for seats, not every month.',
-      ar: 'ابدأ بالموديولات اللي محتاجها النهارده، وزوّد لما تكبر. بتدفع على نطاق شغلك — مش على عدد المستخدمين ولا كل شهر.',
+      en: 'We design the structure of your system — modules, database, permissions, integrations and hosting — so it scales without breaking.',
+      ar: 'بنصمم هيكل النظام — الموديولات وقاعدة البيانات والصلاحيات والتكاملات والاستضافة — عشان يكبر معاك من غير ما يتكسر.',
     },
     points: {
-      en: ['Choose only the modules you need', 'Upgrade anytime — the system grows with you', 'Clear quote before we start'],
-      ar: ['اختار الموديولات اللي تحتاجها بس', 'طوّر في أي وقت — السيستم بيكبر معاك', 'عرض سعر واضح قبل ما نبدأ'],
+      en: ['Database & module design', 'Security & role permissions', 'Built to scale and integrate'],
+      ar: ['تصميم قاعدة البيانات والموديولات', 'أمان وصلاحيات لكل دور', 'قابل للتوسع والربط'],
+    },
+  },
+  {
+    icon: 'CodeXml',
+    title: { en: 'Custom development', ar: 'تطوير مخصص' },
+    text: {
+      en: 'We build the system around your workflow, in stages, and you review real screens as we go — web, mobile, Arabic and English.',
+      ar: 'بنبني السيستم على طريقة شغلك على مراحل، وبتراجع شاشات حقيقية أول بأول — ويب وموبايل، عربي وإنجليزي.',
+    },
+    points: {
+      en: ['Screens & reports made for you', 'Web and mobile', 'Staged delivery with reviews'],
+      ar: ['شاشات وتقارير على مقاسك', 'ويب وموبايل', 'تسليم على مراحل مع مراجعة'],
     },
   },
   {
     icon: 'KeyRound',
-    title: { en: '100% ownership', ar: 'ملكية ١٠٠٪' },
+    title: { en: 'Source code & partnership', ar: 'الكود المصدري والشراكة' },
     text: {
-      en: 'At delivery you receive the full source code. The system and your data are yours — run it on your own server or ours, and keep it forever.',
-      ar: 'وقت التسليم بتستلم الكود المصدري كامل. السيستم وبياناتك ملكك — شغّله على سيرفرك أو عندنا، ويفضل معاك على طول.',
+      en: 'You receive the full source code and documentation. The system is yours — and we remain your technology partner for support and evolution.',
+      ar: 'بتستلم الكود المصدري والتوثيق كامل. السيستم ملكك — وبنفضل شريكك التقني في الدعم والتطوير.',
     },
     points: {
-      en: ['Full source code handed over', 'No subscriptions or license renewals', 'Your data on the server you choose'],
-      ar: ['تسليم الكود المصدري كامل', 'لا اشتراكات ولا تجديد رخص', 'بياناتك على السيرفر اللي تختاره'],
+      en: ['Full source code handed over', 'Technical documentation', '3 months free support, then evolution'],
+      ar: ['تسليم الكود المصدري كامل', 'توثيق فني ودليل تشغيل', '٣ شهور دعم مجاني ثم تطوير مستمر'],
     },
   },
 ]
 
+export const audiences: { icon: string; title: B; text: B; points: BL; cta: B }[] = [
+  {
+    icon: 'Building2',
+    title: { en: 'Corporates', ar: 'الشركات الكبرى' },
+    text: { en: 'Systems for complex operations across departments and branches, connected to what you already run.', ar: 'أنظمة لعمليات معقدة بين إدارات وفروع متعددة، ومربوطة بالأنظمة اللي عندك.' },
+    points: {
+      en: ['Advanced approvals & permissions', 'Integration with existing systems', 'Your servers (on-premise) or cloud', 'Dedicated project manager'],
+      ar: ['دورات اعتماد وصلاحيات متقدمة', 'ربط مع الأنظمة القائمة', 'على سيرفراتك أو سحابي', 'مدير مشروع مخصص'],
+    },
+    cta: { en: 'Talk to us about your company', ar: 'كلّمنا عن شركتك' },
+  },
+  {
+    icon: 'Store',
+    title: { en: 'Small & medium businesses', ar: 'الشركات الصغيرة والمتوسطة' },
+    text: { en: 'Start with the modules you need at the right cost, and grow the system as your business grows.', ar: 'ابدأ بالموديولات اللي محتاجها بتكلفة مناسبة، وطوّر السيستم مع نمو شغلك.' },
+    points: {
+      en: ['Flexible packages', 'Fast start, clear quote', 'Team training included', 'A system that grows with you'],
+      ar: ['باقات مرنة', 'بداية سريعة وعرض سعر واضح', 'تدريب فريقك', 'سيستم بيكبر معاك'],
+    },
+    cta: { en: 'Start with what you need', ar: 'ابدأ باللي تحتاجه' },
+  },
+]
+
+/** Types of systems we customize (no ready-made products). */
+export const solutions: { icon: string; type: string; title: B; text: B }[] = [
+  { icon: 'LayoutDashboard', type: 'business_system', title: { en: 'ERP & operations', ar: 'ERP وإدارة العمليات' }, text: { en: 'Accounting, inventory, purchasing and branches in one system.', ar: 'حسابات ومخازن ومشتريات وفروع في نظام واحد.' } },
+  { icon: 'Receipt', type: 'business_system', title: { en: 'Sales & invoicing', ar: 'المبيعات والفواتير' }, text: { en: 'Quotes, orders, invoices, collections and e-invoice.', ar: 'عروض أسعار وطلبات وفواتير وتحصيل وفاتورة إلكترونية.' } },
+  { icon: 'UserCheck', type: 'business_system', title: { en: 'HR & payroll', ar: 'الموارد البشرية والمرتبات' }, text: { en: 'Attendance, lateness, penalties, bonuses and pay slips.', ar: 'حضور وانصراف وتأخيرات وجزاءات ومكافآت ومفردات مرتب.' } },
+  { icon: 'Users', type: 'crm', title: { en: 'CRM & customer service', ar: 'إدارة العملاء وخدمتهم' }, text: { en: 'Customer history, follow-ups, tickets and campaigns.', ar: 'سجل العملاء والمتابعات وتذاكر الدعم والحملات.' } },
+  { icon: 'Workflow', type: 'automation', title: { en: 'Workflows & approvals', ar: 'دورات العمل والاعتمادات' }, text: { en: 'Requests, approvals and an authorization matrix that match your policies.', ar: 'طلبات واعتمادات ومصفوفة صلاحيات حسب سياساتك.' } },
+  { icon: 'ChartColumn', type: 'business_system', title: { en: 'Dashboards & reports', ar: 'لوحات متابعة وتقارير' }, text: { en: 'Management dashboards, financial statements and Excel export.', ar: 'لوحات للإدارة وقوائم مالية وتصدير Excel.' } },
+  { icon: 'Smartphone', type: 'mobile', title: { en: 'Web & mobile apps', ar: 'تطبيقات ويب وموبايل' }, text: { en: 'Portals and Android / iOS apps for your team or customers.', ar: 'بوابات وتطبيقات أندرويد وآيفون لفريقك أو عملائك.' } },
+  { icon: 'Bot', type: 'ai', title: { en: 'AI, automation & integrations', ar: 'ذكاء اصطناعي وأتمتة وربط' }, text: { en: 'AI assistants, WhatsApp, payments and links to your existing systems.', ar: 'مساعدين ذكيين وواتساب ودفع إلكتروني وربط بأنظمتك.' } },
+]
+
+export const steps: { icon: string; title: B; text: B }[] = [
+  { icon: 'Search', title: { en: 'Discovery & business analysis', ar: 'الاكتشاف وتحليل الأعمال' }, text: { en: 'Workshops with your teams; we document the workflow and the requirements.', ar: 'ورش عمل مع فرقك؛ بنوثّق دورة العمل والمتطلبات.' } },
+  { icon: 'Network', title: { en: 'Architecture & proposal', ar: 'المعمارية والعرض' }, text: { en: 'We design the architecture and send a clear scope, timeline and quote.', ar: 'بنصمم معمارية النظام ونبعتلك نطاق وجدول زمني وعرض سعر واضح.' } },
+  { icon: 'CodeXml', title: { en: 'Build in stages', ar: 'البناء على مراحل' }, text: { en: 'We develop in stages and you review real screens at every stage.', ar: 'بنطوّر على مراحل وبتراجع شاشات حقيقية في كل مرحلة.' } },
+  { icon: 'PackageCheck', title: { en: 'Testing & handover', ar: 'الاختبار والتسليم' }, text: { en: 'Testing, data migration, team training and full source-code handover.', ar: 'اختبار ونقل البيانات وتدريب فريقك وتسليم الكود المصدري كامل.' } },
+  { icon: 'Handshake', title: { en: 'Ongoing partnership', ar: 'شراكة مستمرة' }, text: { en: '3 months free support, then we keep evolving the system with you.', ar: '٣ شهور دعم مجاني، وبعدها بنكمّل تطوير السيستم معاك.' } },
+]
+
+export const deliverables: { icon: string; title: B }[] = [
+  { icon: 'FileText', title: { en: 'Business analysis & requirements document', ar: 'وثيقة تحليل الأعمال والمتطلبات' } },
+  { icon: 'Network', title: { en: 'System architecture & database design', ar: 'وثيقة معمارية النظام وتصميم قاعدة البيانات' } },
+  { icon: 'Server', title: { en: 'The system running on the server you choose', ar: 'النظام شغال على السيرفر اللي تختاره' } },
+  { icon: 'KeyRound', title: { en: 'The full source code — yours', ar: 'الكود المصدري كامل — ملكك' } },
+  { icon: 'BookOpen', title: { en: 'Technical documentation & user guide', ar: 'توثيق فني ودليل استخدام' } },
+  { icon: 'GraduationCap', title: { en: 'Training for your team', ar: 'تدريب فريقك' } },
+]
+
 export const packagesCommon: B[] = [
+  { en: 'Business analysis & architecture', ar: 'تحليل أعمال ومعمارية نظام' },
   { en: '100% ownership + full source code', ar: 'ملكية ١٠٠٪ + الكود المصدري كامل' },
   { en: 'No subscriptions or licenses', ar: 'بدون اشتراكات ولا رخص' },
   { en: '3 months free technical support', ar: '٣ شهور دعم فني مجاني' },
   { en: 'Team training at handover', ar: 'تدريب فريقك وقت التسليم' },
-  { en: 'Upgradable anytime', ar: 'قابل للتطوير في أي وقت' },
 ]
 
 export type Pkg = { id: string; icon: string; name: B; for: B; featured?: boolean; items: BL; cta: B }
@@ -85,10 +162,10 @@ export const packages: Pkg[] = [
     id: 'essentials',
     icon: 'Store',
     name: { en: 'Essentials', ar: 'الأساسية' },
-    for: { en: 'For a single shop, clinic or office getting organized.', ar: 'لمحل أو عيادة أو مكتب واحد عايز ينظّم شغله.' },
+    for: { en: 'For small businesses getting organized.', ar: 'للشركات الصغيرة اللي عايزة تنظّم شغلها.' },
     items: {
-      en: ['Core modules you choose (sales / POS, inventory, customers…)', 'Single branch', 'Essential reports & Excel export', 'Arabic & English interface'],
-      ar: ['الموديولات الأساسية اللي تختارها (مبيعات / كاشير، مخازن، عملاء…)', 'فرع واحد', 'تقارير أساسية وتصدير Excel', 'واجهة عربي وإنجليزي'],
+      en: ['Core modules you choose (sales, inventory, customers…)', 'Single branch', 'Essential reports & Excel export', 'Arabic & English interface'],
+      ar: ['الموديولات الأساسية اللي تختارها (مبيعات، مخازن، عملاء…)', 'فرع واحد', 'تقارير أساسية وتصدير Excel', 'واجهة عربي وإنجليزي'],
     },
     cta: { en: 'Choose Essentials', ar: 'اختار الأساسية' },
   },
@@ -97,32 +174,32 @@ export const packages: Pkg[] = [
     icon: 'Building2',
     featured: true,
     name: { en: 'Business', ar: 'الأعمال' },
-    for: { en: 'For growing companies with several branches and teams.', ar: 'للشركات اللي بتكبر وعندها كذا فرع وفريق.' },
+    for: { en: 'For growing SMEs with several branches and teams.', ar: 'للشركات المتوسطة اللي عندها كذا فرع وفريق.' },
     items: {
       en: ['Multi-branch with separate stock per branch', 'Accounting, HR & payroll, CRM', 'Authorization matrix & approvals', 'Dashboards & financial reports', 'Integrations: WhatsApp, payments, e-invoice'],
-      ar: ['فروع متعددة ومخزون مستقل لكل فرع', 'حسابات وموارد بشرية ومرتبات وCRM', 'مصفوفة صلاحيات واعتمادات', 'لوحة متابعة وتقارير مالية', 'تكامل: واتساب، دفع إلكتروني، فاتورة إلكترونية'],
+      ar: ['فروع متعددة ومخزون مستقل لكل فرع', 'حسابات وموارد بشرية ومرتبات وإدارة عملاء', 'مصفوفة صلاحيات واعتمادات', 'لوحة متابعة وتقارير مالية', 'ربط: واتساب، دفع إلكتروني، فاتورة إلكترونية'],
     },
     cta: { en: 'Choose Business', ar: 'اختار الأعمال' },
   },
   {
     id: 'enterprise',
     icon: 'Server',
-    name: { en: 'Enterprise', ar: 'المؤسسات' },
-    for: { en: 'For complex operations, institutions and groups.', ar: 'للعمليات المعقدة والمؤسسات والمجموعات.' },
+    name: { en: 'Corporate', ar: 'الشركات الكبرى' },
+    for: { en: 'For corporates with complex operations.', ar: 'للشركات الكبرى والعمليات المعقدة.' },
     items: {
-      en: ['Custom workflows across departments', 'Integration with your existing systems', 'AI assistant & automation', 'Your server (on-premise) or cloud', 'Dedicated project manager'],
-      ar: ['دورات عمل مخصصة بين الإدارات', 'ربط مع أنظمتك الحالية', 'مساعد ذكاء اصطناعي وأتمتة', 'على سيرفرك الخاص أو سحابي', 'مدير مشروع مخصص'],
+      en: ['Custom workflows across departments', 'Integration with your existing systems', 'AI assistant & automation', 'Your servers (on-premise) or cloud', 'Dedicated project manager'],
+      ar: ['دورات عمل مخصصة بين الإدارات', 'ربط مع أنظمتك الحالية', 'مساعد ذكاء اصطناعي وأتمتة', 'على سيرفراتك الخاصة أو سحابي', 'مدير مشروع مخصص'],
     },
-    cta: { en: 'Choose Enterprise', ar: 'اختار المؤسسات' },
+    cta: { en: 'Choose Corporate', ar: 'اختار الشركات الكبرى' },
   },
   {
     id: 'custom',
     icon: 'Rocket',
     name: { en: 'Custom build', ar: 'حسب الطلب' },
-    for: { en: 'Have an idea? A platform, an app or an AI product.', ar: 'عندك فكرة؟ منصة أو تطبيق أو منتج ذكاء اصطناعي.' },
+    for: { en: 'A platform, an app or an AI tool — your idea.', ar: 'منصة أو تطبيق أو أداة ذكاء اصطناعي — فكرتك.' },
     items: {
-      en: ['Mobile apps (Android & iOS)', 'Web platforms & portals', 'AI agents & automation', 'From idea to launch with one team'],
-      ar: ['تطبيقات موبايل (أندرويد وآيفون)', 'منصات وبوابات ويب', 'وكلاء ذكاء اصطناعي وأتمتة', 'من الفكرة للإطلاق مع فريق واحد'],
+      en: ['Mobile apps (Android & iOS)', 'Web platforms & portals', 'AI agents & automation', 'From idea to launch with one partner'],
+      ar: ['تطبيقات موبايل (أندرويد وآيفون)', 'منصات وبوابات ويب', 'وكلاء ذكاء اصطناعي وأتمتة', 'من الفكرة للإطلاق مع شريك واحد'],
     },
     cta: { en: 'Tell us your idea', ar: 'احكيلنا فكرتك' },
   },
@@ -135,137 +212,46 @@ export const pricingNote: B = {
 
 export const compareRows: { label: B; us: boolean | B; them: boolean | B }[] = [
   { label: { en: 'You own the system and its source code', ar: 'السيستم والكود المصدري ملكك' }, us: true, them: false },
+  { label: { en: 'Business analysis before building', ar: 'تحليل أعمال قبل البناء' }, us: true, them: false },
   { label: { en: 'Built around your workflow', ar: 'مبني على طريقة شغلك' }, us: true, them: { en: 'Limited', ar: 'محدود' } },
   { label: { en: 'Monthly / yearly license fees', ar: 'رسوم اشتراك شهري / سنوي' }, us: { en: 'None', ar: 'مفيش' }, them: { en: 'Forever', ar: 'على طول' } },
   { label: { en: 'Your data on a server you choose', ar: 'بياناتك على سيرفر تختاره' }, us: true, them: false },
   { label: { en: 'Add any feature you need, anytime', ar: 'تضيف أي ميزة في أي وقت' }, us: true, them: false },
-  { label: { en: 'Price increases & vendor lock-in', ar: 'زيادات أسعار واحتكار المورد' }, us: { en: 'No', ar: 'لا' }, them: { en: 'Yes', ar: 'نعم' } },
 ]
 
-export const steps: { icon: string; title: B; text: B }[] = [
-  { icon: 'MessageCircle', title: { en: 'Free consultation', ar: 'استشارة مجانية' }, text: { en: 'Tell us about your business and what slows you down.', ar: 'احكيلنا عن شغلك وإيه اللي معطّلك.' } },
-  { icon: 'Ruler', title: { en: 'Scope & quote', ar: 'تحديد النطاق والسعر' }, text: { en: 'We map your workflow, pick the package and send a clear quote.', ar: 'بنرسم دورة شغلك ونختار الباقة ونبعتلك عرض سعر واضح.' } },
-  { icon: 'CodeXml', title: { en: 'Build & review', ar: 'بناء ومراجعة' }, text: { en: 'We build in stages and you review real screens as we go.', ar: 'بنبني على مراحل وبتراجع شاشات حقيقية أول بأول.' } },
-  { icon: 'KeyRound', title: { en: 'Handover & support', ar: 'تسليم ودعم' }, text: { en: 'Training, source code handover and 3 months free support.', ar: 'تدريب وتسليم الكود المصدري و٣ شهور دعم مجاني.' } },
-]
+export const clientsCopy = {
+  eyebrow: { en: 'Our clients', ar: 'عملاؤنا' },
+  title: { en: 'Organizations that chose Fratelanza as their technology partner', ar: 'جهات وشركات اختارت فراتيلانزا شريكاً تقنياً' },
+  note: { en: 'Details of additional client engagements are available on request.', ar: 'تفاصيل مشاريع وعملاء إضافيين متاحة عند الطلب.' },
+}
 
-export type Work = { id: string; sector: string; sectorLabel: B; icon: string; title: B; summary: B; modules: BL; image: string; link: string }
-export const portfolio: Work[] = [
-  {
-    id: 'retail', sector: 'retail', sectorLabel: { en: 'Retail & multi-branch stores', ar: 'محلات وتجزئة متعددة الفروع' }, icon: 'ShoppingCart',
-    title: { en: 'Retail POS & branch inventory', ar: 'نقاط بيع ومخازن للمحلات والفروع' },
-    summary: { en: 'Fast barcode checkout with multiple payment methods, shifts and real-time stock per branch.', ar: 'بيع سريع بالباركود وطرق دفع متعددة وورديات ومخزون لحظي لكل فرع.' },
-    modules: { en: ['Barcode checkout', 'Cash, card & wallets', 'Shifts & Z-reports', 'Branch stock', 'Offline mode'], ar: ['بيع بالباركود', 'كاش وفيزا ومحافظ', 'ورديات وتقفيل', 'مخزون الفروع', 'شغل بدون إنترنت'] },
-    image: '/products/pos/terminal.png', link: '/products/pos',
-  },
-  {
-    id: 'clinic', sector: 'healthcare', sectorLabel: { en: 'Clinics & medical centers', ar: 'عيادات ومراكز طبية' }, icon: 'Stethoscope',
-    title: { en: 'Clinic management system', ar: 'نظام إدارة العيادات' },
-    summary: { en: 'Appointments by doctor, medical records, insurance billing and prescriptions sent straight to the pharmacy.', ar: 'مواعيد لكل دكتور وملف طبي إلكتروني وفوترة تأمين وروشتة توصل للصيدلية على طول.' },
-    modules: { en: ['Appointments', 'EMR', 'Insurance billing', 'Prescription portal', 'Lab orders'], ar: ['المواعيد', 'الملف الطبي', 'فوترة التأمين', 'بوابة الروشتات', 'طلبات المعمل'] },
-    image: '/products/clinic/appointments.png', link: '/products/clinic',
-  },
-  {
-    id: 'erp', sector: 'business', sectorLabel: { en: 'Companies & groups', ar: 'شركات ومجموعات' }, icon: 'LayoutDashboard',
-    title: { en: 'Multi-branch ERP core', ar: 'نظام ERP مركزي متعدد الفروع' },
-    summary: { en: 'Executive dashboard, 15+ business reports, branch stock control and role-based permissions in one place.', ar: 'لوحة تنفيذية وأكتر من ١٥ تقرير وتحكم في مخزون الفروع وصلاحيات حسب الدور في مكان واحد.' },
-    modules: { en: ['Executive KPIs', '15+ reports', 'Branch stock', 'Permissions', 'Excel import/export'], ar: ['مؤشرات تنفيذية', '+١٥ تقرير', 'مخزون الفروع', 'الصلاحيات', 'استيراد وتصدير Excel'] },
-    image: '/products/erp/branches.png', link: '/products/erp',
-  },
-  {
-    id: 'realestate', sector: 'realestate', sectorLabel: { en: 'Real-estate developers', ar: 'التطوير العقاري' }, icon: 'Building2',
-    title: { en: 'Real-estate development platform', ar: 'منصة إدارة التطوير العقاري' },
-    summary: { en: 'Projects and units board, reservations and bilingual contracts, installments, finance and property maintenance.', ar: 'مشاريع ولوحة وحدات وحجوزات وعقود بلغتين وأقساط ومالية وصيانة عقارات.' },
-    modules: { en: ['Units & pricing', 'Reservations & contracts', 'Installments', 'Finance & P&L', 'Brokers', 'Maintenance'], ar: ['الوحدات والتسعير', 'الحجوزات والعقود', 'الأقساط', 'المالية والأرباح', 'الوسطاء', 'الصيانة'] },
-    image: '/products/realestate/property-management.png', link: '/products/realestate',
-  },
-  {
-    id: 'pharmacy', sector: 'healthcare', sectorLabel: { en: 'Pharmacies & chains', ar: 'صيدليات وسلاسل' }, icon: 'Pill',
-    title: { en: 'Pharmacy chain ERP & POS', ar: 'نظام ERP ونقاط بيع لسلاسل الصيدليات' },
-    summary: { en: 'Barcode POS, multi-branch stock, insurance claims and ETA e-receipts for pharmacies of every size.', ar: 'كاشير بالباركود ومخزون متعدد الفروع ومطالبات تأمين وإيصال ETA إلكتروني للصيدليات بكل أحجامها.' },
-    modules: { en: ['POS & promo offers', 'Inventory & expiry', 'Insurance & claims', 'ETA e-invoice', 'Branch transfers', 'HR & payroll'], ar: ['كاشير وعروض', 'مخزون وصلاحية', 'تأمين ومطالبات', 'فاتورة ETA', 'تحويلات الفروع', 'موارد بشرية ومرتبات'] },
-    image: '/products/pharmacy/inventory.png', link: '/products/pharmacy',
-  },
-  {
-    id: 'laboratory', sector: 'healthcare', sectorLabel: { en: 'Medical laboratories', ar: 'معامل تحاليل' }, icon: 'FlaskConical',
-    title: { en: 'LabMaster — laboratory ERP', ar: 'LabMaster — نظام إدارة المعامل' },
-    summary: { en: 'From patient registration and test catalog to results, billing, accounting and profitability.', ar: 'من تسجيل المريض وقائمة التحاليل لحد النتائج والفوترة والحسابات والربحية.' },
-    modules: { en: ['Patients & referrals', 'Test catalog & TAT', 'Results & QC', 'Billing & collections', 'Accounting', 'Purchasing'], ar: ['المرضى والإحالات', 'التحاليل ومدة التسليم', 'النتائج والجودة', 'الفوترة والتحصيل', 'الحسابات', 'المشتريات'] },
-    image: '/products/laboratory/tests.png', link: '/products/laboratory',
-  },
-  {
-    id: 'crm', sector: 'business', sectorLabel: { en: 'Sales & service teams', ar: 'فرق المبيعات والخدمة' }, icon: 'Users',
-    title: { en: 'CRM & customer support hub', ar: 'نظام CRM ومركز خدمة العملاء' },
-    summary: { en: 'Leads pipeline, tasks, calendar, invoicing, support tickets and a knowledge base for the whole team.', ar: 'متابعة العملاء المحتملين والمهام والمواعيد والفواتير وتذاكر الدعم وقاعدة معرفة للفريق كله.' },
-    modules: { en: ['Sales pipeline', 'Tasks & calendar', 'Invoicing', 'Helpdesk', 'Knowledge base'], ar: ['مسار المبيعات', 'المهام والمواعيد', 'الفواتير', 'خدمة العملاء', 'قاعدة المعرفة'] },
-    image: '/products/crm/support-tickets.png', link: '/products/crm',
-  },
-  {
-    id: 'marketing', sector: 'business', sectorLabel: { en: 'Marketing teams', ar: 'فرق التسويق' }, icon: 'Megaphone',
-    title: { en: 'Marketing automation', ar: 'منصة أتمتة التسويق' },
-    summary: { en: 'Campaigns over WhatsApp and email with segmentation and a live analytics dashboard.', ar: 'حملات على واتساب والإيميل مع تقسيم العملاء ولوحة تحليلات لحظية.' },
-    modules: { en: ['Campaign builder', 'WhatsApp', 'Email', 'Segments', 'Analytics'], ar: ['منشئ الحملات', 'واتساب', 'إيميل', 'تقسيم العملاء', 'تحليلات'] },
-    image: '/products/marketing/analytics.png', link: '/products/marketing',
-  },
-  {
-    id: 'hr', sector: 'business', sectorLabel: { en: 'HR departments', ar: 'إدارات الموارد البشرية' }, icon: 'UserCheck',
-    title: { en: 'HR, attendance & payroll', ar: 'موارد بشرية وحضور ومرتبات' },
-    summary: { en: 'Employee files, attendance and lateness, penalties and bonuses, leave and pay slips.', ar: 'ملف لكل موظف وحضور وتأخيرات وجزاءات ومكافآت وإجازات ومفردات مرتب.' },
-    modules: { en: ['Employee files', 'Attendance', 'Penalties & bonuses', 'Leave', 'Pay slips'], ar: ['ملفات الموظفين', 'الحضور والانصراف', 'جزاءات ومكافآت', 'الإجازات', 'مفردات المرتب'] },
-    image: '/products/hr/attendance.png', link: '/products/hr',
-  },
-  {
-    id: 'ai', sector: 'ai', sectorLabel: { en: 'Any business', ar: 'أي نشاط' }, icon: 'Bot',
-    title: { en: 'AI assistant & insights', ar: 'مساعد ذكاء اصطناعي وتحليلات' },
-    summary: { en: 'Ask your system questions in plain language, get predictions, recommendations and document analysis.', ar: 'اسأل السيستم بلغتك العادية، واحصل على توقعات وتوصيات وتحليل مستندات.' },
-    modules: { en: ['Natural-language queries', 'Predictions', 'Recommendations', 'Document analysis'], ar: ['أسئلة بلغة طبيعية', 'توقعات', 'توصيات', 'تحليل مستندات'] },
-    image: '/products/ai/insights.png', link: '/products/ai',
-  },
-  {
-    id: 'console', sector: 'business', sectorLabel: { en: 'IT & management', ar: 'الإدارة وتقنية المعلومات' }, icon: 'Terminal',
-    title: { en: 'Admin console & monitoring', ar: 'لوحة تحكم ومراقبة مركزية' },
-    summary: { en: 'One console for users, permissions, configuration, audit logs and system health.', ar: 'لوحة واحدة للمستخدمين والصلاحيات والإعدادات وسجل العمليات وحالة السيستم.' },
-    modules: { en: ['Users & roles', 'Configuration', 'Audit logs', 'Monitoring'], ar: ['المستخدمين والأدوار', 'الإعدادات', 'سجل العمليات', 'المراقبة'] },
-    image: '/products/console/monitoring.png', link: '/products/console',
-  },
-]
-
-export const sectors: { id: string; label: B }[] = [
-  { id: 'all', label: { en: 'All work', ar: 'كل الأعمال' } },
-  { id: 'healthcare', label: { en: 'Healthcare', ar: 'رعاية صحية' } },
-  { id: 'retail', label: { en: 'Retail', ar: 'تجزئة' } },
-  { id: 'realestate', label: { en: 'Real estate', ar: 'عقارات' } },
-  { id: 'business', label: { en: 'Business systems', ar: 'أنظمة أعمال' } },
-  { id: 'ai', label: { en: 'AI', ar: 'ذكاء اصطناعي' } },
-]
-
-export const deliveredFor: { icon: string; name: B; sector: B; text: B }[] = [
-  { icon: 'Shield', name: { en: 'Egyptian Armed Forces', ar: 'القوات المسلحة المصرية' }, sector: { en: 'Government & Defense', ar: 'حكومة ودفاع' }, text: { en: 'Custom digital systems and platforms — delivered and managed by Fratelanza.', ar: 'أنظمة ومنصات رقمية مخصصة — تسليم وإدارة فراتيلانزا.' } },
-  { icon: 'Factory', name: { en: 'Misr Station Wood Factory', ar: 'مصنع أخشاب محطة مصر' }, sector: { en: 'Manufacturing', ar: 'تصنيع' }, text: { en: 'Business systems for production, inventory and operational management.', ar: 'أنظمة أعمال للإنتاج والمخزون والإدارة التشغيلية.' } },
-  { icon: 'GraduationCap', name: { en: 'Scientific Research Projects', ar: 'مشاريع البحث العلمي' }, sector: { en: 'Research & Academia', ar: 'بحث علمي وأكاديميا' }, text: { en: 'Custom software and data platforms for researchers and scientific initiatives.', ar: 'برمجيات ومنصات بيانات مخصصة للباحثين والمبادرات العلمية.' } },
+export const clients: { name: B; text: B }[] = [
+  { name: { en: 'Egyptian Armed Forces', ar: 'القوات المسلحة المصرية' }, text: { en: 'Custom digital systems and platforms — delivered and managed by Fratelanza.', ar: 'أنظمة ومنصات رقمية مخصصة — تسليم وإدارة فراتيلانزا.' } },
+  { name: { en: 'Misr Station Wood Factory', ar: 'مصنع أخشاب محطة مصر' }, text: { en: 'Business systems for production, inventory and operational management.', ar: 'أنظمة أعمال للإنتاج والمخزون والإدارة التشغيلية.' } },
+  { name: { en: 'Scientific Research Projects', ar: 'مشاريع البحث العلمي' }, text: { en: 'Custom software and data platforms for researchers.', ar: 'برمجيات ومنصات بيانات مخصصة للباحثين.' } },
 ]
 
 export const faq: { q: B; a: B }[] = [
-  { q: { en: 'Do I really own the system?', ar: 'هل السيستم فعلاً ملكي؟' }, a: { en: 'Yes. At handover you receive the full source code and the rights to use, host and modify it. There is no license to renew.', ar: 'أيوه. وقت التسليم بتستلم الكود المصدري كامل وحق الاستخدام والاستضافة والتعديل. مفيش رخصة تتجدد.' } },
+  { q: { en: 'What does “technology partner” mean?', ar: 'يعني إيه “شريك تقني”؟' }, a: { en: 'We do not sell you a ready-made product. We analyze your business, design and build the system you need, hand it over with its source code, and keep supporting and evolving it with you.', ar: 'مش بنبيعلك برنامج جاهز. بنحلل شغلك، ونصمم ونبني السيستم اللي محتاجه، ونسلّمهولك بالكود المصدري، ونفضل ندعمه ونطوّره معاك.' } },
+  { q: { en: 'Do I really own the system and its source code?', ar: 'هل السيستم والكود المصدري ملكي فعلاً؟' }, a: { en: 'Yes. At handover you receive the full source code, the architecture and technical documentation, and the right to use, host and modify it. There is no license to renew.', ar: 'أيوه. وقت التسليم بتستلم الكود المصدري كامل ووثائق المعمارية والتوثيق الفني، وحق الاستخدام والاستضافة والتعديل. مفيش رخصة تتجدد.' } },
+  { q: { en: 'Do you work with SMEs or only large companies?', ar: 'بتشتغلوا مع الشركات الصغيرة ولا الكبيرة بس؟' }, a: { en: 'Both. Corporates get advanced workflows and integrations; SMEs can start with the modules they need and grow later.', ar: 'الاتنين. الشركات الكبرى بتاخد دورات عمل وتكاملات متقدمة، والشركات الصغيرة والمتوسطة تقدر تبدأ بالموديولات اللي محتاجاها وتكبر بعدين.' } },
   { q: { en: 'Are there monthly fees?', ar: 'هل فيه رسوم شهرية؟' }, a: { en: 'No mandatory subscriptions. You pay for the project. Hosting and support after the 3 free months are optional, and you can host anywhere you like.', ar: 'مفيش اشتراكات إجبارية. بتدفع تمن المشروع. الاستضافة والدعم بعد الـ٣ شهور المجانية اختياريين، وتقدر تستضيف في أي مكان.' } },
-  { q: { en: 'Can I start small and add modules later?', ar: 'ينفع أبدأ صغير وأزوّد بعدين؟' }, a: { en: 'Yes — that is how our packages work. Start with what you need and add branches, modules or apps whenever you are ready.', ar: 'أيوه — ودي فكرة الباقات عندنا. ابدأ باللي محتاجه وزوّد فروع أو موديولات أو تطبيقات وقت ما تحب.' } },
-  { q: { en: 'How long does a project take?', ar: 'المشروع بياخد وقت قد إيه؟' }, a: { en: 'It depends on the scope. After the free consultation we send a quote with a clear timeline and delivery stages.', ar: 'حسب حجم الشغل. بعد الاستشارة المجانية بنبعتلك عرض سعر فيه جدول زمني ومراحل تسليم واضحة.' } },
+  { q: { en: 'How long does a project take?', ar: 'المشروع بياخد وقت قد إيه؟' }, a: { en: 'It depends on the scope. After the business analysis we send a proposal with a clear timeline and delivery stages.', ar: 'حسب حجم الشغل. بعد تحليل الأعمال بنبعتلك عرض فيه جدول زمني ومراحل تسليم واضحة.' } },
   { q: { en: 'Can you work with our current system or data?', ar: 'ينفع تشتغلوا على السيستم أو البيانات الحالية؟' }, a: { en: 'Yes. We can migrate your data (including Excel files), integrate with existing systems, or improve and extend them.', ar: 'أيوه. بننقل بياناتك (حتى ملفات Excel)، أو نربط مع أنظمتك الحالية، أو نطوّرها ونكمّلها.' } },
-  { q: { en: 'Do you build mobile apps too?', ar: 'بتعملوا تطبيقات موبايل كمان؟' }, a: { en: 'Yes — Android and iOS apps, web platforms and AI tools, connected to your system.', ar: 'أيوه — تطبيقات أندرويد وآيفون ومنصات ويب وأدوات ذكاء اصطناعي، مربوطة بالسيستم بتاعك.' } },
 ]
 
 export const registerCopy = {
   eyebrow: { en: 'Free consultation', ar: 'استشارة مجانية' },
   title: { en: 'Register your project', ar: 'سجّل مشروعك' },
-  sub: { en: 'Leave your details and we will call you to understand your business and suggest the right package — no commitment.', ar: 'سيب بياناتك وهنكلمك نفهم شغلك ونقترح عليك الباقة المناسبة — من غير أي التزام.' },
+  sub: { en: 'Leave your details and we will call you to understand your business and suggest the right approach — no commitment.', ar: 'سيب بياناتك وهنكلمك نفهم شغلك ونقترح عليك الحل المناسب — من غير أي التزام.' },
   perks: [
     { en: 'Free consultation & clear quote', ar: 'استشارة مجانية وعرض سعر واضح' },
-    { en: 'You own the system 100%', ar: 'السيستم ملكك ١٠٠٪' },
+    { en: 'You own the system & source code', ar: 'السيستم والكود المصدري ملكك' },
     { en: '3 months free support after delivery', ar: '٣ شهور دعم مجاني بعد التسليم' },
   ] as B[],
   fields: {
     name: { en: 'Your name', ar: 'اسمك' },
-    company: { en: 'Business / company name', ar: 'اسم النشاط / الشركة' },
+    company: { en: 'Company name', ar: 'اسم الشركة' },
     phone: { en: 'Phone / WhatsApp', ar: 'الموبايل / واتساب' },
     email: { en: 'Email (optional)', ar: 'الإيميل (اختياري)' },
     need: { en: 'What do you need?', ar: 'محتاج إيه؟' },
@@ -284,52 +270,34 @@ export const registerCopy = {
 }
 
 export const finalCta = {
-  title: { en: 'Ready to own a system built for your business?', ar: 'جاهز يبقى عندك سيستم على مقاس شغلك وملكك؟' },
-  sub: { en: 'Book a free consultation today. We’ll listen, map your workflow and propose the right package.', ar: 'احجز استشارة مجانية النهارده. هنسمعك ونرسم دورة شغلك ونقترح الباقة المناسبة.' },
+  title: { en: 'Looking for a technology partner, not just a program?', ar: 'محتاج شريك تقني مش مجرد برنامج؟' },
+  sub: { en: 'Book a free consultation. We’ll listen, analyze your workflow and propose the right system and package.', ar: 'احجز استشارة مجانية. هنسمعك ونحلل دورة شغلك ونقترح السيستم والباقة المناسبين.' },
 }
 
-export const clientsCopy = {
-  eyebrow: { en: 'Our clients', ar: 'عملاؤنا' },
-  title: { en: 'Organizations we have delivered for', ar: 'جهات وشركات سلّمنالها أنظمة' },
-  sub: {
-    en: 'From government and industry to research — systems delivered and managed by Fratelanza.',
-    ar: 'من الجهات الحكومية والمصانع لحد مشاريع البحث العلمي — أنظمة سلّمتها وأدارتها فراتيلانزا.',
+export const about = {
+  title: { en: 'About Fratelanza', ar: 'عن فراتيلانزا' },
+  intro: {
+    en: 'Fratelanza is a technology partner for corporates and SMEs. We build customizable business systems through business analysis, system architecture and custom development — and we hand over the source code.',
+    ar: 'فراتيلانزا شريك تقني للشركات الكبرى والصغيرة والمتوسطة. بنبني أنظمة أعمال مخصصة من خلال تحليل الأعمال ومعمارية النظم والتطوير المخصص — وبنسلّم الكود المصدري.',
   },
-  note: {
-    en: 'Additional client engagements and research projects are available on request.',
-    ar: 'تفاصيل مشاريع وعملاء إضافيين متاحة عند الطلب.',
+  story: {
+    en: 'Fratelanza was founded in 2026 to close the gap between technology and real business execution. Too many companies buy ready-made software and then bend their work around it. We do the opposite: we start from how your company works, design the right architecture, build the system around it, and give you full ownership. Behind our core team stands a managed network of 400+ vetted specialists — so you always deal with one accountable partner.',
+    ar: 'تأسست فراتيلانزا سنة ٢٠٢٦ عشان تسد الفجوة بين التكنولوجيا والتنفيذ الحقيقي للأعمال. شركات كتير بتشتري برامج جاهزة وتضطر تغيّر طريقة شغلها عشانها. إحنا بنعمل العكس: بنبدأ من طريقة شغل شركتك، ونصمم المعمارية المناسبة، ونبني السيستم حواليها، ونديك ملكية كاملة. ووراء فريقنا الأساسي شبكة مُدارة من أكتر من ٤٠٠ متخصص — عشان تتعامل دايماً مع شريك واحد مسؤول.',
   },
-  sectorsTitle: { en: 'And businesses in', ar: 'وكمان شركات في قطاعات' },
+  vision: {
+    en: 'To be the most trusted technology partner for companies in our region — the team they call to turn how they work into systems they own.',
+    ar: 'أن نكون الشريك التقني الأكثر ثقة للشركات في منطقتنا — الفريق اللي بيتكلم عشان يحوّل طريقة شغل الشركة لأنظمة تملكها.',
+  },
+  mission: {
+    en: 'To analyze, architect and build customizable systems that fit each client exactly, deliver them with their source code, and keep evolving them as a long-term partner.',
+    ar: 'أن نحلل ونصمم ونبني أنظمة مخصصة تناسب كل عميل بالظبط، ونسلّمها بالكود المصدري، ونفضل نطوّرها معاه كشريك طويل المدى.',
+  },
+  values: [
+    { icon: 'Search', title: { en: 'Business first', ar: 'الأعمال أولاً' }, text: { en: 'We understand the business before we choose any technology.', ar: 'بنفهم الشغل قبل ما نختار أي تقنية.' } },
+    { icon: 'Network', title: { en: 'Sound architecture', ar: 'معمارية سليمة' }, text: { en: 'Systems designed to be secure, scalable and easy to extend.', ar: 'أنظمة متصممة تكون آمنة وقابلة للتوسع وسهل تطويرها.' } },
+    { icon: 'KeyRound', title: { en: 'Full ownership', ar: 'ملكية كاملة' }, text: { en: 'Your system, your source code, your data — no lock-in.', ar: 'سيستمك وكودك وبياناتك — من غير احتكار.' } },
+    { icon: 'Handshake', title: { en: 'Long-term partnership', ar: 'شراكة طويلة المدى' }, text: { en: 'We stay with you after delivery to support and evolve the system.', ar: 'بنفضل معاك بعد التسليم ندعم السيستم ونطوّره.' } },
+    { icon: 'FileText', title: { en: 'Transparency', ar: 'شفافية' }, text: { en: 'Clear scope, clear timeline and a clear quote before we start.', ar: 'نطاق واضح وجدول زمني واضح وعرض سعر واضح قبل ما نبدأ.' } },
+    { icon: 'Users', title: { en: 'One accountable team', ar: 'فريق واحد مسؤول' }, text: { en: 'Analysts, architects, developers and support under one partner.', ar: 'محللين ومعماريين ومطورين ودعم تحت شريك واحد.' } },
+  ],
 }
-
-export const clientScopes: Record<string, BL> = {
-  'Egyptian Armed Forces': { en: ['Custom digital systems', 'Platforms', 'Delivered & managed'], ar: ['أنظمة رقمية مخصصة', 'منصات', 'تسليم وإدارة كاملة'] },
-  'Misr Station Wood Factory': { en: ['Production', 'Inventory', 'Operations management'], ar: ['الإنتاج', 'المخزون', 'الإدارة التشغيلية'] },
-  'Scientific Research Projects': { en: ['Custom software', 'Data platforms', 'Research support'], ar: ['برمجيات مخصصة', 'منصات بيانات', 'دعم المشاريع البحثية'] },
-}
-
-export const clientSectors: { icon: string; label: B }[] = [
-  { icon: 'Pill', label: { en: 'Pharmacy chains', ar: 'سلاسل صيدليات' } },
-  { icon: 'FlaskConical', label: { en: 'Medical laboratories', ar: 'معامل تحاليل' } },
-  { icon: 'Stethoscope', label: { en: 'Clinics & medical centers', ar: 'عيادات ومراكز طبية' } },
-  { icon: 'Building2', label: { en: 'Real-estate developers', ar: 'شركات تطوير عقاري' } },
-  { icon: 'ShoppingCart', label: { en: 'Retail & multi-branch stores', ar: 'محلات وفروع تجزئة' } },
-  { icon: 'LayoutDashboard', label: { en: 'Companies & trading', ar: 'شركات وتجارة' } },
-]
-
-export const solutions: { icon: string; type: string; title: B; text: B }[] = [
-  { icon: 'LayoutDashboard', type: 'business_system', title: { en: 'ERP & business systems', ar: 'أنظمة ERP وإدارة الأعمال' }, text: { en: 'Accounting, inventory, purchasing, sales and branches in one system.', ar: 'حسابات ومخازن ومشتريات ومبيعات وفروع في نظام واحد.' } },
-  { icon: 'ShoppingCart', type: 'business_system', title: { en: 'Point of sale (POS)', ar: 'نقاط البيع (الكاشير)' }, text: { en: 'Fast barcode checkout linked to stock and accounts, per branch.', ar: 'بيع سريع بالباركود مربوط بالمخزون والحسابات لكل فرع.' } },
-  { icon: 'UserCheck', type: 'business_system', title: { en: 'HR & payroll', ar: 'الموارد البشرية والمرتبات' }, text: { en: 'Attendance, lateness, penalties, bonuses and pay slips.', ar: 'حضور وانصراف وتأخيرات وجزاءات ومكافآت ومفردات مرتب.' } },
-  { icon: 'Users', type: 'crm', title: { en: 'CRM & customer service', ar: 'إدارة العملاء وخدمة العملاء' }, text: { en: 'Customer history, follow-ups, support tickets and campaigns.', ar: 'سجل العملاء والمتابعات وتذاكر الدعم والحملات.' } },
-  { icon: 'Smartphone', type: 'mobile', title: { en: 'Mobile apps', ar: 'تطبيقات الموبايل' }, text: { en: 'Android & iOS apps for your customers, team or delivery.', ar: 'تطبيقات أندرويد وآيفون لعملائك أو فريقك أو الدليفري.' } },
-  { icon: 'Globe', type: 'web', title: { en: 'Web platforms & stores', ar: 'منصات ومتاجر إلكترونية' }, text: { en: 'Portals, booking platforms and e-commerce stores.', ar: 'بوابات ومنصات حجز ومتاجر إلكترونية.' } },
-  { icon: 'Bot', type: 'ai', title: { en: 'AI & automation', ar: 'ذكاء اصطناعي وأتمتة' }, text: { en: 'AI assistants, WhatsApp bots, OCR and automatic reports.', ar: 'مساعدين ذكيين وبوت واتساب وقراءة مستندات وتقارير تلقائية.' } },
-  { icon: 'Plug', type: 'integration', title: { en: 'Integrations', ar: 'الربط والتكامل' }, text: { en: 'ETA e-invoice, payment gateways, WhatsApp and your existing systems.', ar: 'الفاتورة الإلكترونية وبوابات الدفع وواتساب وأنظمتك الحالية.' } },
-]
-
-export const audiences: { icon: string; type: string; title: B; text: B; cta: B }[] = [
-  { icon: 'Building2', type: 'business_system', title: { en: 'Businesses', ar: 'للشركات والمحلات' }, text: { en: 'Need one system to run sales, stock, accounts and staff?', ar: 'محتاج سيستم واحد يدير المبيعات والمخزون والحسابات والموظفين؟' }, cta: { en: 'Build my business system', ar: 'ابني سيستم شغلي' } },
-  { icon: 'Lightbulb', type: 'web', title: { en: 'Entrepreneurs', ar: 'لرواد الأعمال' }, text: { en: 'Have an idea for an app or a platform and need a team to build it?', ar: 'عندك فكرة تطبيق أو منصة ومحتاج فريق ينفذها؟' }, cta: { en: 'Build my product', ar: 'نفّذ فكرتي' } },
-  { icon: 'Settings2', type: 'improvement', title: { en: 'Existing companies', ar: 'للشركات القائمة' }, text: { en: 'Need AI, integration, automation or to improve your current system?', ar: 'محتاج ذكاء اصطناعي أو ربط أو أتمتة أو تطوير سيستمك الحالي؟' }, cta: { en: 'Improve my system', ar: 'طوّر سيستمي' } },
-]

@@ -262,6 +262,8 @@
   .anim-drift { animation: fl-drift 18s ease-in-out infinite; }
   .anim-spin-slow { animation: fl-spin 14s linear infinite; }
   .anim-pulse-ring { animation: fl-pulse-ring 2.4s ease-out infinite; }
+  @keyframes fl-pulse-line { 0%, 100% { opacity: 0.35 } 50% { opacity: 1 } }
+  .anim-pulse-line { animation: fl-pulse-line 1.8s ease-in-out infinite; }
 
   /* animated gold text */
   .text-gold-shimmer {

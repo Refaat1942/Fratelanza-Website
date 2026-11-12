@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowRight, Mail, MessageCircle, MapPin, Clock, Download } from 'lucide-react'
-import { company, navLinks, products } from '@/data/content'
-import { finalCta, hero, pillars } from '@/data/site'
+import { company, navLinks } from '@/data/content'
+import { finalCta, hero, pillars, solutions } from '@/data/site'
 import { useTranslation } from '@/i18n/useTranslation'
 import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from '@/components/ui/SocialLinks'
 import { cn } from '@/lib/utils'
@@ -80,10 +80,10 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-3">
-            <h3 className="text-sm font-bold uppercase tracking-wider !text-white mb-4 rtl:tracking-normal">{L('Systems we build', 'أنظمة بنعملها')}</h3>
+            <h3 className="text-sm font-bold uppercase tracking-wider !text-white mb-4 rtl:tracking-normal">{L('Systems we customize', 'أنظمة بنخصصها')}</h3>
             <ul className="grid grid-cols-1 gap-2.5 text-sm">
-              {products.slice(0, 8).map((p) => (
-                <li key={p.id}><Link to={`/products/${p.id}`} className="hover:text-goldx-300 transition-colors">{t(p.name)}</Link></li>
+              {solutions.map((so) => (
+                <li key={so.title.en}><Link to="/services" className="hover:text-goldx-300 transition-colors">{t(so.title)}</Link></li>
               ))}
             </ul>
           </div>

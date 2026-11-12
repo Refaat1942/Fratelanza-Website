@@ -24,7 +24,7 @@ const SITE = 'https://www.fratelanza.com'
 const mainLinks: LinkItem[] = [
   { key: 'website', href: SITE, Icon: Globe, label: { en: 'Visit Our Website', ar: 'زوروا موقعنا' }, hint: { en: 'www.fratelanza.com', ar: 'www.fratelanza.com' }, primary: true },
   { key: 'start', href: `${SITE}/start-project`, Icon: Rocket, label: { en: 'Start Your Project', ar: 'ابدأ مشروعك' }, hint: { en: 'Tell us your idea', ar: 'أخبرنا بفكرتك' } },
-  { key: 'products', href: `${SITE}/products`, Icon: LayoutGrid, label: { en: 'Our Products', ar: 'منتجاتنا' }, hint: { en: 'ERP · CRM · AI · Pharmacy · Labs', ar: 'أنظمة ERP وCRM والذكاء الاصطناعي' } },
+  { key: 'services', href: `${SITE}/services`, Icon: LayoutGrid, label: { en: 'Our Services', ar: 'خدماتنا' }, hint: { en: 'Custom systems · Business analysis · Source code', ar: 'أنظمة مخصصة · تحليل أعمال · كود مصدري' } },
   { key: 'whatsapp', href: `https://wa.me/${company.whatsapp}`, Icon: MessageCircle, label: { en: 'Chat on WhatsApp', ar: 'تواصل عبر واتساب' }, hint: { en: company.whatsappDisplay, ar: company.whatsappDisplay }, external: true },
   { key: 'email', href: `mailto:${company.email}`, Icon: Mail, label: { en: 'Email Us', ar: 'راسلنا' }, hint: { en: company.email, ar: company.email } },
   { key: 'profile', href: '/downloads/Fratelanza-Company-Profile.pdf', Icon: Download, label: { en: 'Download Company Profile', ar: 'حمّل الملف التعريفي' }, hint: { en: 'PDF · English & العربية', ar: 'PDF · العربية & English' }, external: true },
