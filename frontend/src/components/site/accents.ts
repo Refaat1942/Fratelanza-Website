@@ -11,4 +11,3 @@ export const accents = [
 ]
 export const accent = (i: number) => accents[i % accents.length]
 
-export const sectorAccent: Record<string, number> = { healthcare: 2, retail: 3, realestate: 1, business: 5, ai: 4 }

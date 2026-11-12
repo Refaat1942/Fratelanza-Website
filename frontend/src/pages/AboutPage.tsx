@@ -1,194 +1,81 @@
-import { motion } from 'framer-motion'
-import { Users, Network, Crown } from 'lucide-react'
-import { DynamicIcon } from '@/components/ui/DynamicIcon'
-import { overview, coreValues, timeline, leadership, teamStrength, company, aboutInsights } from '@/data/content'
+import { Crown, UserRound } from 'lucide-react'
+import { leadership } from '@/data/content'
+import { about } from '@/data/site'
 import { useTranslation } from '@/i18n/useTranslation'
 import { SEO } from '@/components/SEO'
-import { Card, PageHero, SectionHeader } from '@/components/ui/Card'
-import { Button } from '@/components/ui/Button'
+import { PageHero } from '@/components/ui/Card'
+import { Section, Heading, Reveal } from '@/components/site/ui'
+import { SiteIcon } from '@/components/site/icons'
+import { accent } from '@/components/site/accents'
+import { Pillars } from '@/components/site/HomeSections'
 import { cn } from '@/lib/utils'
 
 export default function AboutPage() {
-  const { t, ui } = useTranslation()
+  const { t, isAr } = useTranslation()
+  const leaderName = (en: string, founder?: boolean) => (isAr ? (founder ? 'د. أحمد رفعت' : 'م. أفنان فتحي') : en)
 
   return (
     <>
-      <SEO
-        title={ui('about', 'title')}
-        description={t(overview.profile)}
-        path="/about"
-      />
-      <PageHero
-        title={ui('about', 'pageTitle')}
-        subtitle={t(overview.profile)}
-      />
+      <SEO title={t(about.title)} description={t(about.intro)} path="/about" />
+      <PageHero eyebrow={isAr ? 'شريكك التقني' : 'Your technology partner'} title={t(about.title)} subtitle={t(about.intro)} />
 
-      <section className="py-16 bg-gradient-to-br from-brand-50/50 to-gold-50/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title={t(aboutInsights.headline)} subtitle={t(aboutInsights.intro)} />
-          <div className="grid sm:grid-cols-2 gap-6">
-            {aboutInsights.pillars.map((pillar, i) => (
-              <Card key={i} premium>
-                <div className="flex items-start gap-3">
-                  <DynamicIcon name={pillar.icon} className="w-8 h-8 text-brand-600 shrink-0" />
+      <Section>
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+          <Reveal>
+            <Heading center={false} className="!mb-6" eyebrow={isAr ? 'قصتنا' : 'Our story'} title={isAr ? 'بنبدأ من طريقة شغلك… مش من برنامج جاهز' : 'We start from how you work — not from a ready-made program'} />
+            <p className="text-lg leading-relaxed text-slate-600">{t(about.story)}</p>
+          </Reveal>
+          <div className="grid gap-5">
+            {[{ k: isAr ? 'رؤيتنا' : 'Vision', v: about.vision, i: 0 }, { k: isAr ? 'رسالتنا' : 'Mission', v: about.mission, i: 1 }].map(({ k, v, i }) => (
+              <Reveal key={k} delay={i * 0.08}>
+                <div className={cn('rounded-3xl p-7 text-white shadow-xl', i === 0 ? 'bg-gradient-to-br from-navy-800 to-navy-950' : 'bg-gradient-to-br from-sky-600 to-indigo-700')}>
+                  <p className="text-sm font-bold uppercase tracking-wider text-goldx-300 rtl:tracking-normal">{k}</p>
+                  <p className="mt-3 text-lg leading-relaxed">{t(v)}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <Pillars />
+
+      <Section>
+        <Heading eyebrow={isAr ? 'قيمنا' : 'Our values'} title={isAr ? 'المبادئ اللي بنشتغل بيها' : 'The principles we work by'} />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {about.values.map((v, i) => (
+            <Reveal key={v.title.en} delay={(i % 3) * 0.06}>
+              <div className={cn('h-full rounded-3xl bg-white p-7 ring-1 ring-slate-200 transition duration-300 hover:-translate-y-2 hover:shadow-2xl', accent(i).hover)}>
+                <div className={cn('grid h-12 w-12 place-items-center rounded-xl text-white shadow-lg', accent(i).tile)}><SiteIcon name={v.icon} className="w-6 h-6" /></div>
+                <h3 className="mt-5 text-lg font-extrabold !text-navy-900">{t(v.title)}</h3>
+                <p className="mt-2 text-slate-600">{t(v.text)}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="soft">
+        <Heading eyebrow={isAr ? 'القيادة' : 'Leadership'} title={isAr ? 'الفريق اللي بيقود فراتيلانزا' : 'The team leading Fratelanza'} />
+        <div className="grid md:grid-cols-2 gap-6">
+          {leadership.map((p, i) => (
+            <Reveal key={p.name} delay={i * 0.08}>
+              <article className="h-full rounded-3xl bg-white p-8 ring-1 ring-slate-200 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className={cn('grid h-16 w-16 place-items-center rounded-full text-white shadow-lg', p.isFounder ? 'bg-gradient-to-br from-goldx-300 to-goldx-500 !text-navy-950' : accent(5).tile)}>
+                    {p.isFounder ? <Crown className="w-7 h-7" /> : <UserRound className="w-7 h-7" />}
+                  </div>
                   <div>
-                    <h3 className="font-bold mb-2 font-display">{t(pillar.title)}</h3>
-                    <p className="text-sm text-body-muted leading-relaxed">{t(pillar.description)}</p>
+                    <h3 className="text-xl font-extrabold !text-navy-900">{leaderName(p.name, p.isFounder)}</h3>
+                    <p className="text-sm font-bold text-goldx-600">{t(p.role)}</p>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+                <p className="mt-5 leading-relaxed text-slate-600">{t(p.bio)}</p>
+              </article>
+            </Reveal>
+          ))}
         </div>
-      </section>
-
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-2xl font-bold mb-4 text-gold-600 font-display">
-                {ui('about', 'story')}
-              </h2>
-              <p className="text-body-muted leading-relaxed">{t(overview.story)}</p>
-              <p className="mt-4 text-sm font-semibold text-brand-700">
-                {ui('about', 'founded')} {company.founded}
-              </p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <Card glow>
-                <h3 className="text-lg font-semibold mb-3 font-display">{ui('about', 'profile')}</h3>
-                <p className="text-body-muted text-sm leading-relaxed">{t(overview.profile)}</p>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-gradient-to-b from-gold-500/5 to-transparent">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
-          <Card>
-            <h3 className="text-xl font-bold text-gold-600 mb-3 font-display">{ui('about', 'vision')}</h3>
-            <p className="text-body-muted leading-relaxed">{t(overview.vision)}</p>
-          </Card>
-          <Card>
-            <h3 className="text-xl font-bold text-gold-600 mb-3 font-display">{ui('about', 'mission')}</h3>
-            <p className="text-body-muted leading-relaxed">{t(overview.mission)}</p>
-          </Card>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title={ui('about', 'values')} />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {coreValues.map((val, i) => (
-                <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
-                  <Card>
-                    <DynamicIcon name={val.icon} className="w-8 h-8 text-gold-600 mb-3" />
-                    <h3 className="font-semibold mb-2">{t(val.title)}</h3>
-                    <p className="text-sm text-body-subtle">{t(val.description)}</p>
-                  </Card>
-                </motion.div>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title={ui('about', 'philosophy')}
-            subtitle={t(overview.philosophy)}
-          />
-        </div>
-      </section>
-
-      <section className="py-24 border-t border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title={ui('about', 'journey')} />
-          <div className="relative">
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gold-500/20 md:-translate-x-px" />
-            {timeline.map((item, i) => (
-              <motion.div
-                key={`${item.year}-${i}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className={`relative flex items-center gap-8 mb-12 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-              >
-                <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'} hidden md:block`}>
-                  {i % 2 === 0 && (
-                    <Card className="inline-block text-left">
-                      <span className="text-gold-600 font-bold">{item.year}</span>
-                      <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                      <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
-                    </Card>
-                  )}
-                </div>
-                <div className="w-8 h-8 rounded-full bg-gold-500/20 border-2 border-gold-400 flex items-center justify-center shrink-0 z-10">
-                  <div className="w-3 h-3 rounded-full bg-gold-400" />
-                </div>
-                <div className="flex-1 md:hidden">
-                  <Card>
-                    <span className="text-gold-600 font-bold">{item.year}</span>
-                    <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                    <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
-                  </Card>
-                </div>
-                <div className={`flex-1 ${i % 2 !== 0 ? 'md:text-left' : 'md:text-right'} hidden md:block`}>
-                  {i % 2 !== 0 && (
-                    <Card className="inline-block text-left">
-                      <span className="text-gold-600 font-bold">{item.year}</span>
-                      <h3 className="font-semibold mt-1">{t(item.title)}</h3>
-                      <p className="text-sm text-body-subtle mt-1">{t(item.description)}</p>
-                    </Card>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader title={ui('about', 'leadership')} />
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {leadership.map((leader, i) => (
-              <Card key={i} className={cn('text-center h-full', 'isFounder' in leader && leader.isFounder && 'ring-2 ring-gold-400/40 glow-gold')}>
-                {'isFounder' in leader && leader.isFounder && (
-                  <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-gold-700 mb-3">
-                    <Crown className="w-3.5 h-3.5" />
-                    {ui('about', 'founder')}
-                  </span>
-                )}
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-100 to-mint-100 mx-auto mb-4 flex items-center justify-center">
-                  <Users className="w-10 h-10 text-brand-700" />
-                </div>
-                <h3 className="text-xl font-bold font-display">{leader.name}</h3>
-                <p className="text-gold-700 text-sm mt-1 font-semibold">{t(leader.role)}</p>
-                <p className="text-body-subtle mt-4 text-sm leading-relaxed text-start">{t(leader.bio)}</p>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mb-8">
-            <Button href="/request-demo" size="lg">{ui('about', 'meetFounder')}</Button>
-          </div>
-
-          <Card premium glow className="max-w-4xl mx-auto">
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-mint-100 to-brand-100 flex items-center justify-center shrink-0">
-                <Network className="w-7 h-7 text-brand-700" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold font-display text-gradient-brand">{t(teamStrength.title)}</h3>
-                <p className="text-body-muted mt-3 leading-relaxed">{t(teamStrength.description)}</p>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
+      </Section>
     </>
   )
 }

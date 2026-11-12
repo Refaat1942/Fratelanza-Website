@@ -75,9 +75,10 @@ export function IntroSplash() {
           </div>
 
           <motion.h1
-            className="relative mt-8 lg:mt-10 text-5xl sm:text-7xl font-extrabold leading-tight text-gold-shimmer"
-            initial={reduce ? { opacity: 0 } : { opacity: 0, clipPath: 'inset(0 50% 0 50%)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0%)' }}
+            className="relative mt-8 lg:mt-10 px-4 text-center text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight tracking-wide rtl:tracking-normal text-goldx-300"
+            style={{ color: '#f2d89a', textShadow: '0 2px 18px rgba(0,0,0,0.55), 0 0 28px rgba(212,160,58,0.35)' }}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.75, ease: 'easeOut' }}
           >
             {primary}
